@@ -165,7 +165,7 @@ export default function About() {
             <Image
               className={css.aboutVideo}
               alt="mobile video preview"
-              src={mobileVideoPreview}
+              src={MobileVideoPreview}
             />
           </div>
           <div className={css.aboutVideoThumb}>

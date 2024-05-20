@@ -12,42 +12,42 @@ export default function Advantages() {
   const advantagesArray = [
     {
       id: 1,
-      icon: checkBoxIcon,
+      icon: checkboxIcon,
       title: "Lorem",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
       id: 2,
-      icon: checkBoxIcon,
+      icon: checkboxIcon,
       title: "Lorem",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
       id: 3,
-      icon: checkBoxIcon,
+      icon: checkboxIcon,
       title: "Lorem",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
       id: 4,
-      icon: checkBoxIcon,
+      icon: checkboxIcon,
       title: "Lorem",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
       id: 5,
-      icon: checkBoxIcon,
+      icon: checkboxIcon,
       title: "Lorem",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
       id: 6,
-      icon: checkBoxIcon,
+      icon: checkboxIcon,
       title: "Lorem",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
