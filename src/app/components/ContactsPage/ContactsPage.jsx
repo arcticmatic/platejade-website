@@ -1,6 +1,6 @@
 import css from "./ContactsPage.module.css";
 import Image from "next/image";
-import ContactsPhoto from "../images/ContactsPhoto.png";
+import contactsPhoto from "../images/contactsPhoto.png";
 import PhoneBlack from "../images/PhoneBlack.svg";
 import EmailBlack from "../images/EmailBlack.svg";
 import LocationBlack from "../images/LocationBlack.svg";
