@@ -4,7 +4,7 @@ import css from "./Advantages.module.css";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import checkBoxIcon from "../images/checkBoxIcon.svg";
+import checkboxIcon from "../images/checkboxIcon.svg";
 import ScreenBackground from "../images/ScreenBackground.png";
 import ScreenContent from "../images/ScreenContent.png";
 
