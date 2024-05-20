@@ -53,13 +53,13 @@ export default function About() {
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
-    // {
-    //   id: 2,
-    //   imageSrc: sun,
-    //   backgroundSrc: ScreenBackground,
-    //   title: "Test",
-    //   description: "Test",
-    // },
+    {
+      id: 2,
+      imageSrc: "",
+      backgroundSrc: ScreenBackground,
+      title: "Test",
+      description: "Test",
+    },
   ];
 
   useEffect(() => {

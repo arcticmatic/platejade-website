@@ -28,7 +28,7 @@ color:  #10101C;
 @media screen and (min-width: 1200px) {
     .contactsTitle {
         color: #10101C;
-    
+        text-align: center;
 
         font-size: 32px;
         font-style: normal;
@@ -75,6 +75,7 @@ color:  #10101C;
         margin-right: 107px;
     }
 }
+@media screen and (max-width: 1200px) {
 .contactUsTitle{
     color:  #10101C;
         text-align: center;
@@ -84,7 +85,18 @@ color:  #10101C;
         font-weight: 800;
         line-height: 36px;
         margin-bottom: 60px;
-        
+}
+}
+@media screen and (min-width: 1200px) {
+    .contactUsTitle {
+        color: #10101C;
+
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 36px;
+        margin-bottom: 60px;
+    }
 }
 .contactItem{
     display: flex;
