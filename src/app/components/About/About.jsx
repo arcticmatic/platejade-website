@@ -14,8 +14,8 @@ import map from "../images/map.svg";
 import { useState, useEffect } from "react";
 import ApplePresentation from "../images/video/ApplePresentation.mp4";
 import VideoPlayer from "@/app/features/VideoPlayer/VideoPlayer";
-import MobileVideoPreview from "../../components/images/MobileVideoPreview.jpg";
-import QR from "../../components/images/QR.png";
+import MobileVideoPreview from "../images/MobileVideoPreview.jpg";
+import QR from "../images/QR.png";
 import DesktopVideoPoster from "../images/DesktopVideoPoster.png";
 
 const montserrat = Montserrat({
