@@ -13,7 +13,7 @@ export default function Video() {
           <Image
             className={css.aboutVideo}
             alt="mobile video preview"
-            src={MobileVideoPreview}
+            src={mobileVideoPreview}
           />
         </div>
         <div className={css.aboutVideoThumbDesktop}>

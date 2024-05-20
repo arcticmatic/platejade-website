@@ -69,7 +69,7 @@ export default function ContactsPage() {
           <Image
             className={css.contactsPhoto}
             alt="platejade contacts"
-            src={ContactsPhoto}
+            src={contactsPhoto}
           />
 
           <div className={css.contactUsThumb}>
