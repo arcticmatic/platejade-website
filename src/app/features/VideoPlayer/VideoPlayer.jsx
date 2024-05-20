@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import mobileVideoPreview from "../../images/MobileVideoPreview.jpg";
+import mobileVideoPreview from "../../../../public/images/MobileVideoPreview.jpg";
 import css from "./VideoPlayer.module.css";
 
 const VideoPlayer = ({ src, className }) => {

@@ -3,8 +3,8 @@
 import css from "./DealersWork.module.css";
 import { useState } from "react";
 import Image from "next/image";
-import DealersWorkIcon from "../../images/DealersWorkIcon.svg";
-import BottomDealersArrow from "../../images/BottomDealersArrow.svg";
+import DealersWorkIcon from "../../../../public/images/DealersWorkIcon.svg";
+import BottomDealersArrow from "../../../../public/images/BottomDealersArrow.svg";
 
 export default function DealersWork() {
   const dealersOptions = [

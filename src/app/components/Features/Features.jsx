@@ -4,9 +4,9 @@ import css from "./Features.module.css";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import searchIcon from "../../images/searchIcon.svg";
-import ScreenBackground from "../../images/ScreenBackground.png";
-import ScreenContent from "../../images/ScreenContent.png";
+import searchIcon from "../../../../public/images/searchIcon.svg";
+import ScreenBackground from "../../../../public/images/ScreenBackground.png";
+import ScreenContent from "../../../../public/images/ScreenContent.png";
 
 export default function Features() {
   const featuresArray = [

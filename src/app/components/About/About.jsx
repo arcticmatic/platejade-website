@@ -2,21 +2,21 @@
 
 import css from "./About.module.css";
 import Image from "next/image";
-import { PlayIcon } from "../../images/icons/PlayIcon";
-import { AppStoreIcon } from "../../images/icons/AppStoreIcon";
-import { GooglePlayIcon } from "../../images/icons/GooglePlay";
+import { PlayIcon } from "../../../../public/images/icons/PlayIcon";
+import { AppStoreIcon } from "../../../../public/images/icons/AppStoreIcon";
+import { GooglePlayIcon } from "../../../../public/images/icons/GooglePlay";
 import { Montserrat } from "next/font/google";
-import ScreenBackground from "../../images/ScreenBackground.png";
-import ScreenContent from "../../images/ScreenContent.png";
-import sun from "../../images/sun.svg";
-import stars from "../../images/stars.svg";
-import map from "../../images/map.svg";
+import ScreenBackground from "../../../../public/images/ScreenBackground.png";
+import ScreenContent from "../../../../public/images/ScreenContent.png";
+import sun from "../../../../public/images/sun.svg";
+import stars from "../../../../public/images/stars.svg";
+import map from "../../../../public/images/map.svg";
 import { useState, useEffect } from "react";
-import ApplePresentation from "../../images/video/ApplePresentation.mp4";
+import ApplePresentation from "../../../../public/images/video/ApplePresentation.mp4";
 import VideoPlayer from "@/app/features/VideoPlayer/VideoPlayer";
-import mobileVideoPreview from "../../images/MobileVideoPreview.jpg";
-import QR from "../../images/QR.png";
-import DesktopVideoPoster from "../../images/DesktopVideoPoster.png";
+import mobileVideoPreview from "../../../../public/images/MobileVideoPreview.jpg";
+import QR from "../../../../public/images/QR.png";
+import DesktopVideoPoster from "../../../../public/images/DesktopVideoPoster.png";
 
 const montserrat = Montserrat({
   subsets: ["latin"],

@@ -3,10 +3,10 @@
 import css from "./Download.module.css";
 import { useState } from "react";
 import Image from "next/image";
-import iconClose from "../../images/iconClose.svg";
-import iconOpen from "../../images/iconOpen.svg";
-import { AppStoreIcon } from "../../images/icons/AppStoreIcon";
-import { GooglePlayIcon } from "../../images/icons/GooglePlay";
+import iconClose from "../../../../public/images/iconClose.svg";
+import iconOpen from "../../../../public/images/iconOpen.svg";
+import { AppStoreIcon } from "../../../../public/images/icons/AppStoreIcon";
+import { GooglePlayIcon } from "../../../../public/images/icons/GooglePlay";
 
 export default function Download(props) {
   const { downloadWhiteSection } = props;

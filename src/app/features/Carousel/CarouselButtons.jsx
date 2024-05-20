@@ -2,8 +2,8 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import css from "./CarouselButtons.module.css";
-import arrowLeft from "../../images/arrowLeft.svg";
-import arrowRight from "../../images/arrowRight.svg";
+import arrowLeft from "../../../../public/images/arrowLeft.svg";
+import arrowRight from "../../../../public/images/arrowRight.svg";
 import Image from "next/image";
 
 export const usePrevNextButtons = (emblaApi) => {
