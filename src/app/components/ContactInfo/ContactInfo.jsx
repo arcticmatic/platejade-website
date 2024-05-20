@@ -1,14 +1,14 @@
 import css from "./ContactInfo.module.css";
 import Image from "next/image";
-import { PlayIcon } from "../images/icons/PlayIcon";
-import { AppStoreIcon } from "../images/icons/AppStoreIcon";
-import { GooglePlayIcon } from "../images/icons/GooglePlay";
-import phone from "../images/icons/phone.svg";
-import email from "../images/icons/email.svg";
-import location from "../images/icons/location.svg";
-import Twitter from "../images/icons/Twitter.svg";
-import Instagram from "../images/icons/Instagram.svg";
-import Discord from "../images/icons/Discord.svg";
+import { PlayIcon } from "../../images/icons/PlayIcon";
+import { AppStoreIcon } from "../../images/icons/AppStoreIcon";
+import { GooglePlayIcon } from "../../images/icons/GooglePlay";
+import phone from "../../images/icons/phone.svg";
+import email from "../../images/icons/email.svg";
+import location from "../../images/icons/location.svg";
+import Twitter from "../../images/icons/Twitter.svg";
+import Instagram from "../../images/icons/Instagram.svg";
+import Discord from "../../images/icons/Discord.svg";
 
 export default function ContactInfo() {
   const contactsArray = [

@@ -3,8 +3,8 @@
 import css from "./FAQ.module.css";
 import { useState } from "react";
 import Image from "next/image";
-import iconClose from "../images/iconClose.svg";
-import iconOpen from "../images/iconOpen.svg";
+import iconClose from "../../images/iconClose.svg";
+import iconOpen from "../../images/iconOpen.svg";
 
 export default function FAQ() {
   const [openFAQId, setOpenFAQId] = useState(null);

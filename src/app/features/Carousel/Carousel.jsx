@@ -4,7 +4,7 @@ import React from "react";
 import { PrevButton, NextButton, usePrevNextButtons } from "./CarouselButtons";
 import useEmblaCarousel from "embla-carousel-react";
 import css from "./Carousel.module.css";
-import UserIcon from "../../components/images/UserIcon.png";
+import UserIcon from "../../images/UserIcon.png";
 import Image from "next/image";
 
 const EmblaCarousel = (props) => {

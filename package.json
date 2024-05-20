@@ -1,12 +1,14 @@
 {
   "name": "platejade-landing",
   "version": "0.1.0",
+  "homepage": "https://github.com/arcticmatic/platejade-website/",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+
   },
   "dependencies": {
     "embla-carousel-react": "^8.1.1",

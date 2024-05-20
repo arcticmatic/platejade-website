@@ -3,16 +3,16 @@ import css from "./DealersHero.module.css";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import AutoCarousel from "@/app/features/AutoCarousel/AutoCarousel";
-import CarTemplate from "../images/CarTemplate.png";
-import DealersTemplate from "../images/DealersTemplate.png";
-import carTemplateTablet1 from "../images/carTemplateTablet1.png";
-import carTemplateTablet2 from "../images/carTemplateTablet2.png";
-import carTemplateTablet3 from "../images/carTemplateTablet3.png";
-import carTemplateTablet4 from "../images/carTemplateTablet4.png";
-import desktopCar1 from "../images/desktopCar1.png";
-import desktopCar2 from "../images/desktopCar2.png";
-import desktopCar3 from "../images/desktopCar3.png";
-import desktopCar4 from "../images/desktopCar4.png";
+import CarTemplate from "../../images/CarTemplate.png";
+import DealersTemplate from "../../images/DealersTemplate.png";
+import carTemplateTablet1 from "../../images/carTemplateTablet1.png";
+import carTemplateTablet2 from "../../images/carTemplateTablet2.png";
+import carTemplateTablet3 from "../../images/carTemplateTablet3.png";
+import carTemplateTablet4 from "../../images/carTemplateTablet4.png";
+import desktopCar1 from "../../images/desktopCar1.png";
+import desktopCar2 from "../../images/desktopCar2.png";
+import desktopCar3 from "../../images/desktopCar3.png";
+import desktopCar4 from "../../images/desktopCar4.png";
 
 export default function DealersHero() {
   const [currentSlide, setCurrentSlide] = useState(0);

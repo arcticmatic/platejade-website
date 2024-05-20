@@ -1,0 +1,7 @@
+<svg width="60" height="61" viewBox="0 0 60 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="map">
+<path id="Vector" d="M2.5 15.5V55.5L20 45.5L40 55.5L57.5 45.5V5.5L40 15.5L20 5.5L2.5 15.5Z" stroke="#10101C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M20 5.5V45.5" stroke="#10101C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M40 15.5V55.5" stroke="#10101C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

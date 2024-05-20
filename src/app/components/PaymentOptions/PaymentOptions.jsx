@@ -2,7 +2,7 @@
 
 import css from "./PaymentOptions.module.css";
 import { useState } from "react";
-import DealerOptionCheckmark from "../images/DealerOptionCheckmark.svg";
+import DealerOptionCheckmark from "../../images/DealerOptionCheckmark.svg";
 import Image from "next/image";
 
 export default function PaymentOptions() {

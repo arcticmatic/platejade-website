@@ -2,9 +2,9 @@
 
 import css from "./Opportunities.module.css";
 import Image from "next/image";
-import CarExample from "../images/CarExample.png";
-import CarExample2 from "../images/CarExample2.png";
-import CarExample3 from "../images/CarExample3.png";
+import CarExample from "../../images/CarExample.png";
+import CarExample2 from "../../images/CarExample2.png";
+import CarExample3 from "../../images/CarExample3.png";
 
 export default function Opportunities() {
   const opportunitiesArray = [
