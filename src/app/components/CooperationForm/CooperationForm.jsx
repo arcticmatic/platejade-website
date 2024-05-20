@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import css from "./CooperationForm.module.css";
 import Image from "next/image";
-import UploadFile from "../../../../public/assets/images/UploadFile.svg";
-import ChevronDown from "../../../../public/assets/images/ChevronDown.svg";
+import UploadFile from "../images/UploadFile.svg";
+import ChevronDown from "../images/ChevronDown.svg";
 
 export default function CooperationForm() {
   const [selectedFile, setSelectedFile] = useState(null);
