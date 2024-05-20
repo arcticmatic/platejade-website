@@ -1,0 +1,123 @@
+.contactFormSection {
+  padding-top: 40px;
+}
+.contactFormDescriptionThumb {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 767px) and (max-width:1200px){
+  .contactForm {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 80%;
+      margin: 0 auto;
+    }
+}
+@media screen and (min-width: 1200px) {
+  .contactForm {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+    }
+}
+.contactFormTitle {
+  color: #10101c;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 36px;
+}
+
+@media screen and (max-width: 767px) {
+  .contactLabel {
+  display: flex;
+  flex-direction: column;
+  }}
+@media screen and (min-width: 767px) {
+  .contactLabel {
+    display: flex;
+      flex-direction: column;
+
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      width: calc(50% - 30px);
+ 
+    }
+}
+
+@media screen and (max-width: 480px) {
+  .separateLabel {
+    display: flex;
+    flex-direction: column;
+    color: #FFF;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    width: calc(50% - 5px);
+
+  }
+
+}
+
+@media screen and (min-width: 767px) {
+  .separateLabel {
+    width: 100%;
+
+  }
+
+}
+@media screen and (max-width: 767px) {
+.contactInput {
+  padding: 12px 0;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #8d8d8d;
+  color: #bdbdbd;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 32px;
+}
+}
+@media screen and (min-width: 767px) {
+  .contactInput {
+    padding: 12px 0;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #8d8d8d;
+    color: #bdbdbd;
+    background-color: transparent;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 32px;
+  }
+}
+
+.contactInput:not(:last-child) {
+  margin-bottom: 32px;
+}
+.contactInput:last-child {
+  margin-bottom: 63px;
+}
+.submitContactFormBtn {
+  display: block;
+  margin: 0 auto;
+  color: #fff;
+  padding: 12px 20px;
+  width: 220px;
+  border-radius: 8px;
+  background-color: #10101c;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 81px;
+}

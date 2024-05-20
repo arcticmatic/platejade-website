@@ -1,0 +1,132 @@
+.featuresSection{
+    padding: 72px 20px 50px 20px;
+    background-color: #10101C;
+}
+.featuresTitle{
+    color:  #FFF;
+  text-align: center;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 36px;
+      margin-bottom: 24px;
+}
+.featuresDescription{
+    color:  #E0E0E0;
+        text-align: center;
+
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        margin-bottom: 48px;
+    
+}
+ @media screen and (min-width: 767px) {
+    .mobileFeaturesThumb{
+  display: none;  
+}
+ }
+ .desktopFeaturesThumb{
+    display: none;
+ }
+ @media screen and (min-width: 767px) {
+     .desktopFeaturesThumb {
+         display: flex;
+         align-items: center;
+     }
+ }
+@media screen and (max-width: 767px) {
+    .featureItem {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+}
+@media screen and (min-width: 767px) {
+    .featureItem {
+    
+        margin-bottom: 40px;
+    }
+}
+ @media screen and (min-width: 767px) {
+.featuresListLeft{
+width: 50%;
+margin-right: 80px;
+text-align: end;
+  
+}
+}
+ @media screen and (min-width: 767px) {
+     .featuresListRight {
+         width: 50%;
+         margin-left: 80px;
+
+     }
+ }
+.featureIcon{
+    margin-right: 20px;
+}
+.featureItemTitle{
+    color: #FFF;
+    
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 28px;
+        margin-bottom: 10px;
+      
+}
+.featureItemDescription{
+    color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+       
+}
+.featuresImagesThumb {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 72px;
+    width: 250px;
+    height: 509px;
+}
+
+@media screen and (max-width: 767px) {
+.featuresScreenBg {
+    object-fit: contain;
+    position: absolute;
+    width: 250px;
+    height: 562px;
+}
+}
+@media screen and (min-width: 767px) {
+    .featuresScreenBg {
+        object-fit: contain;
+        position: absolute;
+        width: 250px;
+        height: 562px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}
+@media screen and (max-width: 767px) {
+    .aboutScreen {
+        position: absolute;
+        left: 4.5%;
+        top: 7%;
+        width: 90%;
+        height: 96%;
+    }
+}
+@media screen and (min-width: 767px) {
+.aboutScreen { position: absolute;
+    left: 50%;
+        transform: translate(-50%, 0);
+ 
+    top: 7%;
+    
+    height: 96%;
+}}

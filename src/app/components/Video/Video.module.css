@@ -1,0 +1,47 @@
+
+.videoSection{
+    background-color: #10101C;
+    padding-top: 79px;
+}
+@media screen and (min-width: 1200px) {
+    .aboutVideoThumb {
+        display: flex;
+
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .videoThumb {
+        display: none;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .aboutVideo {
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+        height: 40%;
+        margin-bottom: 72px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .aboutVideo {
+        display: block;
+        margin: 0 auto;
+        width: 834px;
+        height: 503px;
+        margin-bottom: 72px;
+    }
+}
+@media screen and (max-width: 1200px) {
+.aboutVideoThumbDesktop {
+    display: none;
+}
+}
+@media screen and (min-width: 1200px) {
+    .aboutVideoThumbDesktop {
+      
+        display: block;
+    }
+}

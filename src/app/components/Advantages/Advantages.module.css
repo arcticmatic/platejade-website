@@ -1,0 +1,180 @@
+.advantagesSection{
+padding: 72px 20px 50px 20px;
+}
+.advantagesTitle{
+    color:  #10101C;
+ text-align: center;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 36px;
+  margin-bottom: 24px;
+}
+.advantagesDescription{
+    color:  #475569;
+        text-align: center;
+    
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+      margin-bottom: 50px;
+}
+@media screen and (min-width: 767px) {
+    .mobileAdvantagesThumb{
+    display: none;
+}
+}
+  .desktopAdvantagesThumb{
+    display: none;
+  }
+@media screen and (min-width: 767px) {
+    .desktopAdvantagesThumb {
+        display: flex;
+        /* align-items: center; */
+    }
+}
+.advantagesList{
+    width: 50%;
+        height: 50%;
+    
+}
+.advantageItem{
+    display: flex;
+    border-radius: 10px;
+        background: var(--White, #FFF);
+    
+        box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.10);
+        margin-bottom: 32px;
+        padding:24px 10px;
+        height: 70%;
+}
+.advantageItem:last-child{
+    margin-bottom: 80px;
+}
+.advantageIcon{
+    margin-right: 8px;
+    vertical-align:text-bottom;
+}
+.advantageItemTitle{
+    color:  #232233;
+    
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 28px;
+    margin-bottom: 10px;
+}
+.advantageItemDescription{
+    color:  #10101C;
+   
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+       
+}
+@media screen and (max-width: 767px) {
+.advantagesScreensThumb {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+}}
+@media screen and (min-width: 767px) {
+    .advantagesScreensThumb {
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        width: 50%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .advantagesImagesThumb {
+        position: relative;
+        margin-bottom: 72px;
+        width: 200px;
+        height: 449px;
+    }
+}
+@media screen and (min-width: 480px) {
+.advantagesImagesThumb {
+    position: relative;
+    margin-bottom: 72px;
+    width: 250px;
+    height: 509px;
+}}
+@media screen and (max-width: 480px) {
+    .advantagesScreenBg {
+        object-fit: contain;
+        position: absolute;
+        left: -10%;
+        width: 200px;
+        height: 449px;
+    }
+}
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    .advantagesScreenBg {
+        object-fit: contain;
+        position: absolute;
+        left: -10%;
+        width: 250px;
+        height: 509px;
+    }
+}
+@media screen and (min-width: 767px) {
+    .advantagesScreenBg {
+        object-fit: contain;
+        position: absolute;
+        left: -26%;
+        width: 250px;
+            height: 509px;
+    }
+}
+@media screen and (max-width: 767px) {
+.advantagesScreen {
+    position: absolute;
+    left: -5%;
+    top: 5%;
+    width: 90%;
+    height: 90%;
+}}
+@media screen and (min-width: 767px) {
+    .advantagesScreen {
+    position: absolute;
+        left: -21%;
+        top: 2%;
+        width: 90%;
+        height: 96%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .advantagesImagesOverlayThumb {
+        position: absolute;
+        top: 10%;
+        left: 20%;
+        width: 200px;
+        height: 449px;
+    }
+}
+@media screen and (min-width: 480px) and (max-width: 767px) {
+.advantagesImagesOverlayThumb {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 250px;
+    height: 509px;
+}}
+
+@media screen and (min-width: 767px){
+.advantagesImagesOverlayThumb {
+position: absolute;
+    top: 38%;
+    left: 30%;
+    width: 250px;
+    height: 509px;
+}
+
+}

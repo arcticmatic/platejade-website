@@ -1,0 +1,119 @@
+
+@media screen and (max-width: 1200px) {.contactsSection{
+    padding-top: 30px;
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+}}
+@media screen and (min-width: 1200px) {
+    .contactsSection {
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 1200px) {
+.contactsTitle{
+color:  #10101C;
+    text-align: center;
+
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 36px;
+    margin-bottom: 44px;
+}
+}
+@media screen and (min-width: 1200px) {
+    .contactsTitle {
+        color: #10101C;
+        text-align: center;
+
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 36px;
+        margin-top: 20px;
+        margin-bottom: 110px;
+    }
+}
+@media screen and (min-width: 1200px){
+.contactsAllThumb{
+    display:flex;
+    flex-direction: row-reverse;
+}}
+@media screen and (max-width: 767px) {
+    .contactsPhoto {
+        display: block;
+        margin: 0 auto;
+        width: 94%;
+        margin-bottom: 40px;
+    }
+}
+@media screen and (min-width: 767px) and (max-width:1200px){
+.contactsPhoto{
+    display: block;
+    margin: 0 auto;
+    width: 94%;
+    height: 60vw;
+    margin-bottom: 40px;
+}
+}
+@media screen and (min-width: 1200px) {
+
+            .contactsPhoto {
+                display: block;
+                width: 649px;
+                height: 407px;
+                margin-bottom: 40px;
+            }
+        }
+@media screen and (min-width: 1200px) {
+    .contactUsThumb{
+        margin-right: 107px;
+    }
+}
+.contactUsTitle{
+    color:  #10101C;
+        text-align: center;
+    
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 36px;
+        margin-bottom: 60px;
+        
+}
+.contactItem{
+    display: flex;
+    align-items: center;
+
+}
+.contactItem:not(:last-child){
+    margin-bottom: 32px;
+}
+.contactItem:last-child {
+    margin-bottom: 82px;
+}
+.contactIcon{
+    margin-right: 26px;
+}
+.socialMediaIconsList{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+@media screen and (max-width: 767px) {
+.socialMediaItem:not(:last-child){
+margin-right: 12%;
+}}
+@media screen and (min-width: 767px) {
+    .socialMediaItem:not(:last-child) {
+        margin-right: 40px;
+    }
+}
+@media screen and (min-width: 767px) {
+    .contactsThumb{
+   max-width: 240px;
+}}

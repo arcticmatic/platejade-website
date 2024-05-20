@@ -1,0 +1,122 @@
+
+@media screen and (max-width: 1200px) {
+.headerSection{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    
+}}
+
+.mobileMenuIcon{
+    margin-right: 20px;
+}
+.headerMobileOverlay{
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    margin-bottom: 58px;
+    background-color: #fff;
+
+}
+.headerLogo{
+    margin: 20px;
+    margin-bottom: 0px;
+}
+.navLinksListMobile{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-top: 58px;
+   color:  #10101C;
+}
+@media screen and (max-width: 1200px) {
+.navLink{
+color:  #10101C;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px; 
+margin-bottom: 52px;
+
+}}
+@media screen and (max-width: 1200px) {
+.headerBtnMobile{
+    display: block;
+width: 60vw;
+margin: 0 auto;
+padding: 12px 20px;
+border:none;
+border-radius: 8px;
+background:  #9C8D7F;
+color:  #FFF;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 24px; 
+}}
+@media screen and (min-width: 1200px) {
+    .headerBtnMobile {
+        display: none;
+    
+    }
+}
+.headerBtnDesktop{
+    display: none;
+}
+@media screen and (min-width: 1200px) {
+.headerBtnDesktop {
+        display: block;
+        width: 220px;
+        margin: 0 auto;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        background: #9C8D7F;
+        color: #FFF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+        margin-right: 62px;
+    }
+}
+.desktopMenuThumb{
+    display: none;
+}
+ @media screen and (min-width: 1200px) {
+    .mobileMenuIcon{
+        display: none;
+    }
+ }
+ .navLinksListDesktop{display: none;}
+ @media screen and (min-width: 1200px) {
+.navLinksListDesktop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+ }
+  @media screen and (min-width: 1200px) {
+      .headerDesktop {
+          display: flex;
+         align-items: center;
+         justify-content: space-between;
+  
+      }
+  }
+@media screen and (min-width: 1200px) {
+    .navLink {
+            color: #10101C;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 20px;
+            margin-bottom: 0px;
+            margin-right: 64px;
+        }
+}

@@ -1,0 +1,98 @@
+@media screen and (max-width: 1200px) {
+  .contactInfoSection {
+  padding-top: 40px;
+  background-color: #9c8d7f;
+}
+}
+@media screen and (min-width: 1200px) {
+  .contactInfoSection {
+    padding-top: 40px;
+    padding-left: 70px;
+    background-color: #9c8d7f;
+  }
+}
+.contactIfoDescriptionThumb {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 767px) {
+.contactInfoTitle {
+  color: #fff;
+  margin-bottom: 3px;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 36px;
+}}
+@media screen and (min-width: 767px) and (max-width:1200px){
+  .contactInfoTitle {
+  color: var(--white, #FFF);
+
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 52px;
+  
+    width:200px
+  }
+}
+@media screen and (min-width: 1200px) {
+  .contactInfoTitle {
+      color: #fff;
+      margin-bottom: 3px;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 36px;
+   
+    }
+}
+@media screen and (max-width: 1200px) {
+.contactInfoDescription {
+  color: #f2f2f2;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+}
+@media screen and (min-width: 1200px) {
+  .contactInfoDescription {
+      color: #f2f2f2;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      margin-bottom: 80px;
+    }
+}
+@media screen and (min-width: 767px) and (max-width:1200px){
+.contactList{
+  width:400px
+}}
+@media screen and (min-width: 1200px) {
+  .contactList {
+      width: 400px;
+      margin-bottom: 125px;
+    }
+}
+.contactItem {
+  display: flex;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 32px;
+}
+.contactIcon {
+  margin-right: 26px;
+}
+.socialMediaIconsList {
+  display: flex;
+  position: relative;
+}
+.socialMediaItem:not(:last-child) {
+  margin-right: 26px;
+}

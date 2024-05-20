@@ -1,0 +1,175 @@
+.paymentOptionsSection{
+    padding: 72px 20px;
+    background-color: #10101C;
+}
+ @media screen and (max-width: 1200px) {
+.paymentOptionsTitle{
+    color:  #FFF;
+        text-align: center;
+   
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 36px;
+     margin-bottom: 82px;
+}}
+ @media screen and (min-width: 1200px) {
+     .paymentOptionsTitle {
+    color: var(--white, #FFF);
+        text-align: center;
+    
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 52px;
+      margin-bottom: 90px;
+     }
+ }
+ @media screen and (max-width: 1200px) {
+.paymentOptionsList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ }
+  @media screen and (min-width: 1200px) {
+    .paymentOptionsList {
+            display: flex;
+            align-items: center;
+        }
+    }
+@media screen and (max-width: 767px) {
+.paymentOptionItem{
+    display: flex;
+      flex-direction: column;
+        padding: 32px 45px;
+      
+    border-radius: 20px;
+        background: var(--white, #FFF);
+        box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.10);
+}}
+@media screen and (min-width: 767px) and (max-width:1200px){
+    .paymentOptionItem {
+        display: flex;
+        flex-direction: column;
+        padding: 32px 45px;
+        width: 320px;
+        border-radius: 20px;
+        background: var(--white, #FFF);
+        box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.10);
+    }
+}
+@media screen and (min-width:1200px) {
+    .paymentOptionItem {
+        display: flex;
+        flex-direction: column;
+        padding: 32px 45px;
+        width: 320px;
+        border-radius: 20px;
+        background: var(--white, #FFF);
+        box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.10);
+       width: 427px;
+       margin-right: 20px;
+    }
+}
+@media screen and (min-width:1200px) {
+.paymentOptionItem:first-child,
+.paymentOptionItem:last-child {
+    height: 560px;
+  
+}}
+.paymentOptionItem:not(:last-child){
+    margin-bottom: 40px;
+}
+.optionSubscriptionPeriod{
+    color: #111827;
+        text-align: center;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 36px;
+        margin-bottom: 8px;
+     
+}
+.optionSubscriptionDescription{
+    color:  #475569;
+        text-align: center;
+    
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        margin-bottom: 37px;
+        
+}
+.optionSubscriptionPrice{
+    color:  #000;
+        text-align: center;
+    
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 28px;
+      
+   
+}
+.optionSubscriptionTime{
+    color:  #475569;
+        text-align: center;
+   
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+  
+}
+
+.optionSubscriptionProfit{
+    color:  #9C8D7F;
+        text-align: center;
+    
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+    margin-bottom: 40px;
+
+}
+.paymentBenefitItem{
+    display: flex;
+    align-items: center;
+}
+.paymentBenefitItem:not(:last-child){
+    margin-bottom: 12px;
+}
+.paymentBenefitItem:last-child{
+    margin-bottom: 40px;
+}
+.paymentBenefitIcon{
+    margin-right: 12px;
+  
+}
+.buyBtn{
+    color:  #FFF;
+        
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+        border-radius: 8px;
+        border: none;
+        padding: 12px 20px;
+  
+}
+.buyBtnWhite{
+    border: 1px solid #9C8D7F;
+    color: #000;
+    
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+        border-radius: 8px;
+  
+        padding: 12px 20px;
+}

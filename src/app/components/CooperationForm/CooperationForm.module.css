@@ -1,0 +1,186 @@
+.cooperationSection{
+    padding: 72px 20px;
+   background-color:  #10101C;
+}
+.cooperationTitle{
+    color:  #FFF;
+        text-align: center;
+    
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 36px;
+        margin-bottom: 20px;
+}
+@media screen and (max-width: 767px) {
+.cooperationForm {
+    display: flex;
+    flex-direction: column;
+}}
+
+@media screen and (min-width: 767px) {
+    .cooperationThumb {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 80%;
+
+        margin: 0 auto;
+    }
+}
+.cooperationDescription{
+    color:  #E0E0E0;
+        text-align: center;
+    
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+  margin-bottom: 70px;
+}
+@media screen and (max-width: 767px) {
+.cooperationLabel{
+    display: flex;
+        flex-direction: column;
+    color: #FFF;
+    
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+     
+} 
+}
+@media screen and (min-width: 767px) {
+    .cooperationLabel {
+        display: flex;
+        flex-direction: column;
+        color: #FFF;
+
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+            width: calc(50% - 30px);
+    }
+}
+.cooperationLabel:not(:last-child){
+    margin-bottom: 32px;
+}
+.cooperationLabel:last-child{
+    margin-bottom: 44px;
+}
+.cooperationInput{
+    color:  #4F4F4F;
+        background-color: #10101C;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+padding-bottom: 12px;
+    margin-top: 12px;
+    border: 1px solid transparent;
+        border-bottom: 1px solid #BDBDBD;
+}
+.copperationFileThumb{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+    color:  #4F4F4F;
+    border: 1px dashed #BDBDBD;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+       margin-bottom: 3px;
+}
+.cooperationFileIcon{
+    margin-right: 24px;
+    vertical-align: bottom;
+}
+.cooperationFileDescription{
+    color:  #BDBDBD;
+    
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+      margin-bottom: 44px;
+}
+
+.cooperationFormSubmit{
+    display: block;
+    margin: 0 auto;
+    padding: 12px 20px;
+border-radius: 8px;
+    background: #9C8D7F;
+    color:  #FFF;
+  width: 220px;
+  border: none;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px;
+}
+
+
+@media screen and (min-width: 767px) {
+.uploadFileThumb{
+    width: 80%;
+        margin: 0 auto;
+}
+}
+.uploadInput {
+    display: none;
+    /* Hide the default file input */
+}
+
+.uploadLabel {
+    display: block;
+    padding: 10px 20px;
+  
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+ 
+}
+
+
+.cooperationForm {
+    position: relative;
+}
+
+.dropdownContainer {
+    position: relative;
+}
+
+.selectedPlan {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.dropdownIcon {
+    margin-left: auto;
+}
+
+.dropdownList {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background-color: #10101C;
+    border: 1px solid #BDBDBD;
+ border-top: none;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdownItem {
+    padding: 8px 10px;
+}
