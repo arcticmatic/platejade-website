@@ -14,7 +14,7 @@ import map from "../images/map.svg";
 import { useState, useEffect } from "react";
 import ApplePresentation from "../images/video/ApplePresentation.mp4";
 import VideoPlayer from "@/app/features/VideoPlayer/VideoPlayer";
-import MobileVideoPreview from "../images/MobileVideoPreview.jpg";
+import mobileVideoPreview from "../images/mobileVideoPreview.jpg";
 import QR from "../images/QR.png";
 import DesktopVideoPoster from "../images/DesktopVideoPoster.png";
 
