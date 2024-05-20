@@ -4,9 +4,9 @@ import css from "./Header.module.css";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MobileMenuIcon } from "../images/icons/MobileMenuIcon";
-import logo from "../images/logo.png";
-import { CloseCrossIcon } from "../images/icons/CloseCrossIcon";
+import { MobileMenuIcon } from "../../../../public/assets/images/icons/MobileMenuIcon";
+import logo from "../../../../public/assets/images/logo.png";
+import { CloseCrossIcon } from "../../../../public/assets/images/icons/CloseCrossIcon";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

@@ -2,8 +2,8 @@
 
 import css from "./Video.module.css";
 import Image from "next/image";
-import mobileVideoPreview from "../images/MobileVideoPreview.jpg";
-import DesktopVideoPoster from "../images/DesktopVideoPoster.png";
+import mobileVideoPreview from "../../../../public/assets/images/MobileVideoPreview.jpg";
+import DesktopVideoPoster from "../../../../public/assets/images/DesktopVideoPoster.png";
 
 export default function Video() {
   return (

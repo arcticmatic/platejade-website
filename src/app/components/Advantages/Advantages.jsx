@@ -4,9 +4,9 @@ import css from "./Advantages.module.css";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import checkBoxIcon from "../images/checkBoxIcon.svg";
-import ScreenBackground from "../images/ScreenBackground.png";
-import ScreenContent from "../images/ScreenContent.png";
+import checkBoxIcon from "../../../../public/assets/images/checkBoxIcon.svg";
+import ScreenBackground from "../../../../public/assets/images/ScreenBackground.png";
+import ScreenContent from "../../../../public/assets/images/ScreenContent.png";
 
 export default function Advantages() {
   const advantagesArray = [

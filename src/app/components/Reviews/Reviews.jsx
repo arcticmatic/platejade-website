@@ -4,9 +4,9 @@ import css from "./Reviews.module.css";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import arrowLeft from "../images/arrowLeft.svg";
-import arrowRight from "../images/arrowRight.svg";
-import UserIcon from "../images/UserIcon.png";
+import arrowLeft from "../../../../public/assets/images/arrowLeft.svg";
+import arrowRight from "../../../../public/assets/images/arrowRight.svg";
+import UserIcon from "../../../../public/assets/images/UserIcon.png";
 import EmblaCarousel from "@/app/features/Carousel/Carousel";
 
 export default function Reviews() {

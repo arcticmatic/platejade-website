@@ -1,8 +1,8 @@
 import Link from "next/link";
 import css from "./Footer.module.css";
-import WhiteLogo from "../images/WhiteLogo.png";
+import WhiteLogo from "../../../../public/assets/images/WhiteLogo.png";
 import Image from "next/image";
-import { CopyRightIcon } from "../images/icons/CopyRightIcon";
+import { CopyRightIcon } from "../../../../public/assets/images/icons/CopyRightIcon";
 
 export default function Footer() {
   const menuNavigation = [

@@ -1,14 +1,14 @@
 import css from "./ContactInfo.module.css";
 import Image from "next/image";
-import { PlayIcon } from "../images/icons/PlayIcon";
-import { AppStoreIcon } from "../images/icons/AppStoreIcon";
-import { GooglePlayIcon } from "../images/icons/GooglePlay";
-import phone from "../images/icons/phone.svg";
-import email from "../images/icons/email.svg";
-import location from "../images/icons/location.svg";
-import Twitter from "../images/icons/Twitter.svg";
-import Instagram from "../images/icons/Instagram.svg";
-import Discord from "../images/icons/Discord.svg";
+import { PlayIcon } from "../../../../public/assets/images/icons/PlayIcon";
+import { AppStoreIcon } from "../../../../public/assets/images/icons/AppStoreIcon";
+import { GooglePlayIcon } from "../../../../public/assets/images/icons/GooglePlay";
+import phone from "../../../../public/assets/images/icons/phone.svg";
+import email from "../../../../public/assets/images/icons/email.svg";
+import location from "../../../../public/assets/images/icons/location.svg";
+import Twitter from "../../../../public/assets/images/icons/Twitter.svg";
+import Instagram from "../../../../public/assets/images/icons/Instagram.svg";
+import Discord from "../../../../public/assets/images/icons/Discord.svg";
 
 export default function ContactInfo() {
   const contactsArray = [
