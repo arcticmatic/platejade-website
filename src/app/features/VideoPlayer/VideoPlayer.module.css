@@ -138,29 +138,31 @@
     .playPause {
      
         position: absolute;
-        top: 47.5%;
-        left: 26.5%;
+        top: 48.5%;
+        left: 26%;
+        transform: (-26%, -48.5%);
     }
     .playIcon{
         width: 110px;
         height: 110px;
-        margin-right:10px;
- margin-left: 10px;
+      
     }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (min-width:480px) and (max-width: 767px) {
 .playPause {
-        display: none;
+        position: absolute;
+        top: 36%;
+        left: 36%;
     }
 }
-/* 
+
 @media screen and (min-width:767px) and (max-width: 1200px) {
     .playPause {
         position: absolute;
     top:37%;
     left:44%;
     }
-} */
+}
 @media screen and (min-width: 1200px) {
     .playPause {
         position: absolute;
