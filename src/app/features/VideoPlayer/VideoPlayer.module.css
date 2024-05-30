@@ -148,21 +148,19 @@
  margin-left: 10px;
     }
 }
-@media screen and (min-width:480px) and (max-width: 767px) {
+@media screen and (max-width: 1200px) {
 .playPause {
-        position: absolute;
-        top: 36%;
-        left: 36%;
+        display: none;
     }
 }
-
+/* 
 @media screen and (min-width:767px) and (max-width: 1200px) {
     .playPause {
         position: absolute;
     top:37%;
     left:44%;
     }
-}
+} */
 @media screen and (min-width: 1200px) {
     .playPause {
         position: absolute;
