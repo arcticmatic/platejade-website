@@ -14,7 +14,7 @@ export default function Home() {
       <About />
       <Features />
       <Advantages />
-      <Reviews />
+      {/* <Reviews /> */}
       <FAQ />
       <Download />
       {/* <ContactInfo /> */}

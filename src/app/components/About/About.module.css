@@ -211,10 +211,10 @@
       height: 97%;
    }
  }
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 480px) {
 .aboutImagesOverlayThumb {
   position: absolute;
-  top: 10%;
+  top: 40%;
   left: 20%;
   width: 250px;
   height: 509px;
