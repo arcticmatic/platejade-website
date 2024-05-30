@@ -103,6 +103,7 @@ export default function ContactsPageForm() {
           )}
           {fromFieldsArray.map((field, index) => (
             <label
+              key={field.id}
               className={`${css.contactLabel} ${
                 index === fromFieldsArray.length - 1
                   ? css.separateLabel

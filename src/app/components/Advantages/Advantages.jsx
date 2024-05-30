@@ -7,6 +7,7 @@ import Image from "next/image";
 import checkboxIcon from "../images/checkboxIcon.svg";
 import ScreenBackground from "../images/ScreenBackground.png";
 import ScreenContent from "../images/ScreenContent.png";
+// import AdvantagesMockupRare from "../images/AdvantagesMockupRare.png";
 
 export default function Advantages() {
   const advantagesArray = [
