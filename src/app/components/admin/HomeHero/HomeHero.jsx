@@ -4,7 +4,7 @@ import css from "./HomeHero.module.css";
 import { useState } from "react";
 import WhiteLogo from "../../images/WhiteLogo.png";
 import Newspaper from "../../images/Newspaper.svg";
-import NewsPaperWhite from "../../images/NewsPaperWhite.svg";
+import NewspaperWhite from "../../images/NewspaperWhite.svg";
 import WhiteChevronDown from "../../images/WhiteChevronDown.svg";
 import WhiteChevronTop from "../../images/WhiteChevronTop.svg";
 import Image from "next/image";
@@ -19,7 +19,7 @@ export default function HomeHero() {
     {
       id: 1,
       name: "Home",
-      icon: NewsPaperWhite,
+      icon: NewspaperWhite,
       activeIcon: "",
       navLinks: [
         {
