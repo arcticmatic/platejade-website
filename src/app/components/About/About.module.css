@@ -179,7 +179,7 @@
   .aboutScreenBg {
       object-fit: contain;
       position: absolute;
-      left: -10%;
+      left: -20%;
       width: 250px;
       height: 509px;}
  }
@@ -219,20 +219,30 @@
   width: 250px;
   height: 509px;
 }}
-@media screen and (max-width: 480px) and (max-width:767px) {
+@media screen and (min-width: 480px) and (max-width:767px) {
   .aboutImagesOverlayThumb {
+    
     position: absolute;
-    top: 10%;
-    left: 20%;
+    top: 35%;
+    left: 25%;
     width: 200px;
     height: 459px;
   }
 }
- @media screen and (min-width: 767px) {
+ @media screen and (min-width:767px) and (max-width: 1200px) {
+   .aboutImagesOverlayThumb {
+     position: absolute;
+     top: 15%;
+     left: 30%;
+     width: 250px;
+     height: 509px;
+   }
+ }
+ @media screen and (min-width: 1200px) {
   .aboutImagesOverlayThumb {
       position: absolute;
-      top: 10%;
-      left: 32%;
+      top: 15%;
+      left: 50%;
       width: 250px;
       height: 509px;
     }
@@ -245,7 +255,7 @@
 .aboutDownloadText {
   color: #10101c;
   text-align: center;
-  margin-top: 70px;
+  margin-top: 200px;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;

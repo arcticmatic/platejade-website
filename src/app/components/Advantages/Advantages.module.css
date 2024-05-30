@@ -1,6 +1,12 @@
+@media screen and (max-width: 767px) {
+    .advantagesSection {
+        padding: 72px 20px 300px 20px;
+    }
+}
+@media screen and (min-width: 767px) {
 .advantagesSection{
 padding: 72px 20px 50px 20px;
-}
+}}
 .advantagesTitle{
     color:  #10101C;
  text-align: center;
@@ -190,8 +196,8 @@ display: block;
 @media screen and (min-width: 480px) and (max-width: 767px) {
 .advantagesImagesOverlayThumb {
     position: absolute;
-    top: 10%;
-    left: 20%;
+    top: 50%;
+    left: 24%;
     width: 250px;
     height: 509px;
 }}
@@ -200,7 +206,7 @@ display: block;
 .advantagesImagesOverlayThumb {
 position: absolute;
     top: 38%;
-    left: 30%;
+    left: 45%;
     width: 250px;
     height: 509px;
 }

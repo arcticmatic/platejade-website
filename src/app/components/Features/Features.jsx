@@ -7,6 +7,7 @@ import Image from "next/image";
 import searchIcon from "../images/searchIcon.svg";
 import ScreenBackground from "../images/ScreenBackground.png";
 import ScreenContent from "../images/ScreenContent.png";
+import FeaturesMockup from "../images/FeaturesMockup.png";
 
 export default function Features() {
   const featuresArray = [
@@ -132,8 +133,8 @@ export default function Features() {
           </ul>
 
           <div className={css.featuresImagesThumb}>
-            <Image className={css.featuresScreenBg} src={ScreenBackground} />
-            <Image className={css.aboutScreen} src={ScreenContent} />
+            <Image className={css.featuresScreenBg} src={FeaturesMockup} />
+            {/* <Image className={css.aboutScreen} src={ScreenContent} /> */}
           </div>
         </div>
 
@@ -157,8 +158,8 @@ export default function Features() {
           </ul>
 
           <div className={css.featuresImagesThumb}>
-            <Image className={css.featuresScreenBg} src={ScreenBackground} />
-            <Image className={css.aboutScreen} src={ScreenContent} />
+            <Image className={css.featuresScreenBg} src={FeaturesMockup} />
+            {/* <Image className={css.aboutScreen} src={ScreenContent} /> */}
           </div>
 
           <ul className={css.featuresListRight}>

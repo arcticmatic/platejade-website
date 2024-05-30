@@ -7,7 +7,8 @@ import Image from "next/image";
 import checkboxIcon from "../images/checkboxIcon.svg";
 import ScreenBackground from "../images/ScreenBackground.png";
 import ScreenContent from "../images/ScreenContent.png";
-// import AdvantagesMockupRare from "../images/AdvantagesMockupRare.png";
+import AdvantagesMockup from "../images/AdvantagesMockup.png";
+import AdvantagesBgMockup from "../images/AdvantagesBgMockup.png";
 
 export default function Advantages() {
   const advantagesArray = [
@@ -88,24 +89,24 @@ export default function Advantages() {
               <Image
                 alt="platejade app"
                 className={css.advantagesScreenBg}
-                src={ScreenBackground}
+                src={AdvantagesBgMockup}
               />
-              <Image
+              {/* <Image
                 alt="platejade app screenshot"
                 className={css.advantagesScreen}
                 src={ScreenContent}
-              />
+              /> */}
               <div className={css.advantagesImagesOverlayThumb}>
                 <Image
                   alt="platejade app"
                   className={css.advantagesScreenBg}
-                  src={ScreenBackground}
+                  src={AdvantagesMockup}
                 />
-                <Image
+                {/* <Image
                   alt="platejade app screenshot"
                   className={css.advantagesScreen}
                   src={ScreenContent}
-                />
+                /> */}
               </div>
             </div>
           </div>
@@ -117,24 +118,24 @@ export default function Advantages() {
               <Image
                 alt="platejade app"
                 className={css.advantagesScreenBg}
-                src={ScreenBackground}
+                src={AdvantagesBgMockup}
               />
-              <Image
+              {/* <Image
                 alt="platejade app screenshot"
                 className={css.advantagesScreen}
                 src={ScreenContent}
-              />
+              /> */}
               <div className={css.advantagesImagesOverlayThumb}>
                 <Image
                   alt="platejade app"
                   className={css.advantagesScreenBg}
-                  src={ScreenBackground}
+                  src={AdvantagesMockup}
                 />
-                <Image
+                {/* <Image
                   alt="platejade app screenshot"
                   className={css.advantagesScreen}
                   src={ScreenContent}
-                />
+                /> */}
               </div>
             </div>
           </div>

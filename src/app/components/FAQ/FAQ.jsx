@@ -65,37 +65,41 @@ export default function FAQ() {
   return (
     <>
       <section className={css.FAQSection}>
-        <h2 className={css.FAQTitle}>FAQ</h2>
-        <ul className={css.FAQList}>
-          {FAQsArray.map((item) => (
-            <li
-              key={item.id}
-              className={openFAQId === item.id ? css.FAQItemOpen : css.FAQItem}
-            >
-              <div className={css.FAQCartThumb}>
-                <p className={css.FAQQuestion}>{item.question}</p>
-                {openFAQId === item.id ? (
-                  <Image
-                    onClick={() => setOpenFAQId(null)}
-                    className={css.FAQArrowOpen}
-                    alt="open faq arrow"
-                    src={iconOpen}
-                  />
-                ) : (
-                  <Image
-                    onClick={() => setOpenFAQId(item.id)}
-                    className={css.FAQArrowOpen}
-                    alt="close faq arrow"
-                    src={iconClose}
-                  />
+        <div className={css.FAQThumb}>
+          <h2 className={css.FAQTitle}>FAQ</h2>
+          <ul className={css.FAQList}>
+            {FAQsArray.map((item) => (
+              <li
+                key={item.id}
+                className={
+                  openFAQId === item.id ? css.FAQItemOpen : css.FAQItem
+                }
+              >
+                <div className={css.FAQCartThumb}>
+                  <p className={css.FAQQuestion}>{item.question}</p>
+                  {openFAQId === item.id ? (
+                    <Image
+                      onClick={() => setOpenFAQId(null)}
+                      className={css.FAQArrowOpen}
+                      alt="open faq arrow"
+                      src={iconOpen}
+                    />
+                  ) : (
+                    <Image
+                      onClick={() => setOpenFAQId(item.id)}
+                      className={css.FAQArrowOpen}
+                      alt="close faq arrow"
+                      src={iconClose}
+                    />
+                  )}
+                </div>
+                {openFAQId === item.id && (
+                  <p className={css.FAQDescription}>{item.answer}</p>
                 )}
-              </div>
-              {openFAQId === item.id && (
-                <p className={css.FAQDescription}>{item.answer}</p>
-              )}
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </>
   );

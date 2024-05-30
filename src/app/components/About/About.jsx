@@ -17,6 +17,8 @@ import VideoPlayer from "@/app/features/VideoPlayer/VideoPlayer";
 import mobileVideoPreview from "../images/mobileVideoPreview.jpg";
 import QR from "../images/QR.png";
 import DesktopVideoPoster from "../images/DesktopVideoPoster.png";
+import AboutMockup from "../images/AboutMockup.png";
+import AboutBgMockup from "../images/AboutBgMockup.png";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -47,8 +49,9 @@ export default function About() {
   const slides = [
     {
       id: 1,
-      imageSrc: ScreenContent,
-      backgroundSrc: ScreenBackground,
+
+      backgroundSrc: AboutBgMockup,
+      backgroundSrcSecond: AboutMockup,
       title:
         "Discover Plate Jade: Revolutionising Car License Plate and Frame Customization with Augmented Reality",
       description:
@@ -57,7 +60,8 @@ export default function About() {
     {
       id: 2,
       imageSrc: "",
-      backgroundSrc: ScreenBackground,
+      backgroundSrc: AboutMockup,
+      backgroundSrcSecond: AboutBgMockup,
       title:
         "Discover Plate Jade: Revolutionising Car License Plate and Frame Customization with Augmented Reality",
       description:
@@ -125,20 +129,11 @@ export default function About() {
                     src={slide.backgroundSrc}
                     alt={`Slide ${index + 1}`}
                   />
-                  <Image
-                    className={css.aboutScreen}
-                    src={slide.imageSrc}
-                    alt={`Slide ${index + 1}`}
-                  />
+
                   <div className={css.aboutImagesOverlayThumb}>
                     <Image
                       className={css.aboutScreenBg}
-                      src={slide.backgroundSrc}
-                      alt={`Slide ${index + 1}`}
-                    />
-                    <Image
-                      className={css.aboutScreen}
-                      src={slide.imageSrc}
+                      src={slide.backgroundSrcSecond}
                       alt={`Slide ${index + 1}`}
                     />
                   </div>
