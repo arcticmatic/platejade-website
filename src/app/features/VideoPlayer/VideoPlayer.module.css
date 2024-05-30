@@ -144,6 +144,8 @@
     .playIcon{
         width: 110px;
         height: 110px;
+        margin-right:10px;
+ margin-left: 10px;
     }
 }
 @media screen and (min-width:480px) and (max-width: 767px) {
