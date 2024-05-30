@@ -17,9 +17,8 @@ export default function Home() {
       <Reviews />
       <FAQ />
       <Download />
-      <div className={css.contactsThumb}>
-        <ContactForm />
-      </div>
+      {/* <ContactInfo /> */}
+      <ContactForm />
     </>
   );
 }

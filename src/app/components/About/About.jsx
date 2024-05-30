@@ -74,7 +74,7 @@ export default function About() {
       setCurrentSlide((prev) => {
         return prev + 1 === slides.length ? 0 : prev + 1;
       });
-    }, 8000);
+    }, 800000);
     return () => {
       clearInterval(intervalId);
     };
@@ -195,11 +195,6 @@ export default function About() {
         </div>
         <div className={css.aboutVideoThumbDesktop}>
           <VideoPlayer />
-          {/* <Image
-            className={css.aboutVideo}
-            alt="mobile video preview"
-            src={DesktopVideoPoster}
-          /> */}
         </div>
       </section>
       <section>
