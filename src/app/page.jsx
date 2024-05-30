@@ -6,7 +6,6 @@ import FAQ from "./components/FAQ/FAQ";
 import Download from "./components/Download/Download";
 import ContactInfo from "./components/ContactInfo/ContactInfo";
 import ContactForm from "./components/ContactForm/ContactForm";
-import css from "./page.module.css";
 
 export default function Home() {
   return (
@@ -14,7 +13,7 @@ export default function Home() {
       <About />
       <Features />
       <Advantages />
-      {/* <Reviews /> */}
+      <Reviews />
       <FAQ />
       <Download />
       {/* <ContactInfo /> */}
