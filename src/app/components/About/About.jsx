@@ -3,6 +3,7 @@
 import css from "./About.module.css";
 import Image from "next/image";
 import { PlayIcon } from "../images/icons/PlayIcon";
+import Pause from "../images/Pause.svg";
 import { AppStoreIcon } from "../images/icons/AppStoreIcon";
 import { GooglePlayIcon } from "../images/icons/GooglePlay";
 import { Montserrat } from "next/font/google";
@@ -49,16 +50,19 @@ export default function About() {
       id: 1,
       imageSrc: ScreenContent,
       backgroundSrc: ScreenBackground,
-      title: "Lorem ipsum dolor sit amet consectetur ",
+      title:
+        "Discover Plate Jade: Revolutionising Car License Plate and Frame Customization with Augmented Reality",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Plate Jade is an innovative app that uses augmented reality to help you explore, customise, and order license plates and frames effortlessly. Download Plate Jade now and bring your vehicle personalization to the next level!",
     },
     {
       id: 2,
       imageSrc: "",
       backgroundSrc: ScreenBackground,
-      title: "Test",
-      description: "Test",
+      title:
+        "Discover Plate Jade: Revolutionising Car License Plate and Frame Customization with Augmented Reality",
+      description:
+        "Plate Jade is an innovative app that uses augmented reality to help you explore, customise, and order license plates and frames effortlessly. Download Plate Jade now and bring your vehicle personalization to the next level!",
     },
   ];
 
@@ -162,31 +166,31 @@ export default function About() {
             <source src={ApplePresentation} type="video/mp4" />
           </video> */}
           <div className={css.videoThumb}>
-            <Image
-              className={css.aboutVideo}
-              alt="mobile video preview"
-              src={mobileVideoPreview}
-            />
+            <VideoPlayer />
           </div>
           <div className={css.aboutVideoThumb}>
             <p className={css.aboutVideoTitle}>
-              Get and try Plate Jade app for free right now
+              Download and Try Plate Jade App for Free Right Now
             </p>
 
             <div className={css.aboutVideoDescriptionThumb}>
               <p className={css.aboutVideoDescription}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Experience the ultimate convenience and creativity in vehicle
+                personalization with Plate Jade. Our app offers a seamless way
+                to explore, customise, and order license plates and frames using
+                state-of-the-art augmented reality technology. Whether you're
+                looking to see how a specific license plate design looks on your
+                car, or you want to find the perfect frame that complements your
+                style, Plate Jade has you covered.
               </p>
               <p className={css.aboutVideoDescription}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                With Plate Jade, you can enjoy a hassle-free and interactive
+                experience right from your mobile device. Download the app for
+                free today and take advantage of its powerful features to
+                transform your vehicle’s appearance. Join our growing community
+                of satisfied users who are discovering the ease and fun of
+                individualising their cars with Plate Jade. Don’t miss out—get
+                Plate Jade now and start your vehicle personalization journey!
               </p>
               <div className={css.aboutDownloadIconsDesktop}>
                 <AppStoreIcon className={css.downloadAppStoreIcon} />
@@ -200,11 +204,12 @@ export default function About() {
           </div>
         </div>
         <div className={css.aboutVideoThumbDesktop}>
-          <Image
+          <VideoPlayer />
+          {/* <Image
             className={css.aboutVideo}
             alt="mobile video preview"
             src={DesktopVideoPoster}
-          />
+          /> */}
         </div>
       </section>
       <section>

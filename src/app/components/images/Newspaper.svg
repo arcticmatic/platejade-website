@@ -1,0 +1,13 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="newspaper" clip-path="url(#clip0_2212_1615)">
+<path id="Vector" d="M2.66634 14.6673H13.333C13.6866 14.6673 14.0258 14.5268 14.2758 14.2768C14.5259 14.0267 14.6663 13.6876 14.6663 13.334V2.66732C14.6663 2.3137 14.5259 1.97456 14.2758 1.72451C14.0258 1.47446 13.6866 1.33398 13.333 1.33398H5.33301C4.97939 1.33398 4.64025 1.47446 4.3902 1.72451C4.14015 1.97456 3.99967 2.3137 3.99967 2.66732V13.334C3.99967 13.6876 3.8592 14.0267 3.60915 14.2768C3.3591 14.5268 3.01996 14.6673 2.66634 14.6673ZM2.66634 14.6673C2.31272 14.6673 1.97358 14.5268 1.72353 14.2768C1.47348 14.0267 1.33301 13.6876 1.33301 13.334V7.33398C1.33301 6.60065 1.93301 6.00065 2.66634 6.00065H3.99967" stroke="#10101C" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M12.0003 9.33398H6.66699" stroke="#10101C" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M10.0003 12H6.66699" stroke="#10101C" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M6.66699 4H12.0003V6.66667H6.66699V4Z" stroke="#10101C" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_2212_1615">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

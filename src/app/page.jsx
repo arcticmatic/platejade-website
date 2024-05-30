@@ -18,7 +18,7 @@ export default function Home() {
       <FAQ />
       <Download />
       <div className={css.contactsThumb}>
-        <ContactInfo />
+        {/* <ContactInfo /> */}
         <ContactForm />
       </div>
     </>

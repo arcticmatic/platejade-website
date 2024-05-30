@@ -1,11 +1,13 @@
-import React, { useRef, useState } from "react";
-import mobileVideoPreview from "../../components/images/mobileVideoPreview.jpg";
+import React, { useRef, useState, useEffect } from "react";
 import css from "./VideoPlayer.module.css";
+import PlateJadeVideo from "../../components/images/PlateJadeVideo.mp4";
+import Play from "../../components/images/Play.svg";
+import Pause from "../../components/images/Pause.svg";
+import Image from "next/image";
 
-const VideoPlayer = ({ src, className }) => {
+const VideoPlayer = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
 
   const togglePlay = () => {
     if (videoRef.current.paused) {
@@ -17,37 +19,22 @@ const VideoPlayer = ({ src, className }) => {
     }
   };
 
-  const handleTimeUpdate = () => {
-    setCurrentTime(videoRef.current.currentTime);
-  };
-
-  const handleSeek = (e) => {
-    const newTime = e.target.value;
-    videoRef.current.currentTime = newTime;
-    setCurrentTime(newTime);
-  };
-
   return (
     <div className={css.videoPlayer}>
       <video
-        className={className}
+        className={css.video}
         ref={videoRef}
-        src={src}
-        onTimeUpdate={handleTimeUpdate}
+        width="834"
+        height="503"
+        poster="../images/DesktopVideoPoster.png"
+        src={PlateJadeVideo}
         onPause={() => setIsPlaying(false)}
         onPlay={() => setIsPlaying(true)}
+        controls={true}
       ></video>
-      <div className="controls">
-        <button onClick={togglePlay}>{isPlaying ? "Pause" : "Play"}</button>
-        <input
-          type="range"
-          min={0}
-          max={videoRef.current && videoRef.current.duration}
-          value={currentTime}
-          onChange={handleSeek}
-        />
-        <span>{currentTime.toFixed(2)}</span>
-      </div>
+      <button className={css.playPause} onClick={togglePlay}>
+        {!isPlaying && <Image src={Play} />}
+      </button>
     </div>
   );
 };

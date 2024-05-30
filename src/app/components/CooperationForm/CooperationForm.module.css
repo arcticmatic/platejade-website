@@ -12,8 +12,12 @@
         line-height: 36px;
         margin-bottom: 20px;
 }
+.cooperationForm{
+    position: relative;
+}
 @media screen and (max-width: 767px) {
 .cooperationForm {
+    
     display: flex;
     flex-direction: column;
 }}
@@ -28,16 +32,30 @@
         margin: 0 auto;
     }
 }
+@media screen and (max-width: 1200px) {
+    .cooperationDescription {
+        color: #E0E0E0;
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        margin-bottom: 70px;
+    }
+}
+@media screen and (min-width: 1200px) {
 .cooperationDescription{
     color:  #E0E0E0;
         text-align: center;
-    
+        display: block;
+        margin: 0 auto;
+    width: 800px;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: 20px;
   margin-bottom: 70px;
-}
+}}
 @media screen and (max-width: 767px) {
 .cooperationLabel{
     display: flex;
@@ -95,6 +113,19 @@ padding-bottom: 12px;
         line-height: 20px;
        margin-bottom: 3px;
 }
+.cooperationUploadedThumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    color: #4F4F4F;
+    border: 1px dashed #BDBDBD;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 3px;
+}
 .cooperationFileIcon{
     margin-right: 24px;
     vertical-align: bottom;
@@ -108,7 +139,38 @@ padding-bottom: 12px;
         line-height: 20px;
       margin-bottom: 44px;
 }
+.cooperationFileText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+        color: #BDBDBD;
+        
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+}
 
+.uploadedIcon{
+    margin-bottom: 10px;
+}
+.uploadedDeleteIcon{
+    vertical-align:  middle;
+}
+.uploadedClipIcon{
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.uploadedFileName{
+    color: #BDBDBD;
+    
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+ text-align: center;
+}
 .cooperationFormSubmit{
     display: block;
     margin: 0 auto;
@@ -146,9 +208,10 @@ border-radius: 8px;
  
 }
 
+.uploadedFileThumb{
+    display: flex;
+    flex-direction: column;
 
-.cooperationForm {
-    position: relative;
 }
 
 .dropdownContainer {
@@ -183,4 +246,55 @@ border-radius: 8px;
 
 .dropdownItem {
     padding: 8px 10px;
+}
+@media screen and (max-width: 480px) {
+    .notificationThumb {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        width: 80%;
+        box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+        border-radius: 12px;
+        padding: 36px 24px 24px 24px;
+        z-index: 100;
+    }
+}
+@media screen and (min-width: 480px) {
+.notificationThumb{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 375px;
+    box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+    border-radius: 12px;
+    padding: 36px 24px 24px 24px;
+    z-index: 100;
+}
+}
+.notificationText{
+    color: var(--Gray-900, #101828);
+    
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 28px;
+        margin-bottom: 10px;
+}
+.notificationDescription{
+    color: var(--Gray-600, #475467);
+  
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+ 
+}
+.notificationCloseIcon{
+    position: absolute;
+    left:92%;
+    top:5%;
 }

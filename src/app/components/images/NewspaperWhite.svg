@@ -1,0 +1,13 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="newspaper" clip-path="url(#clip0_293_6371)">
+<path id="Vector" d="M2.66732 14.6673H13.334C13.6876 14.6673 14.0267 14.5268 14.2768 14.2768C14.5268 14.0267 14.6673 13.6876 14.6673 13.334V2.66732C14.6673 2.3137 14.5268 1.97456 14.2768 1.72451C14.0267 1.47446 13.6876 1.33398 13.334 1.33398H5.33398C4.98036 1.33398 4.64122 1.47446 4.39118 1.72451C4.14113 1.97456 4.00065 2.3137 4.00065 2.66732V13.334C4.00065 13.6876 3.86018 14.0267 3.61013 14.2768C3.36008 14.5268 3.02094 14.6673 2.66732 14.6673ZM2.66732 14.6673C2.3137 14.6673 1.97456 14.5268 1.72451 14.2768C1.47446 14.0267 1.33398 13.6876 1.33398 13.334V7.33398C1.33398 6.60065 1.93398 6.00065 2.66732 6.00065H4.00065" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M11.9993 9.33398H6.66602" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M9.99935 12H6.66602" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M6.66602 4H11.9993V6.66667H6.66602V4Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_293_6371">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

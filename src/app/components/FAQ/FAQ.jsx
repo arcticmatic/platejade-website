@@ -13,30 +13,52 @@ export default function FAQ() {
     {
       id: 1,
       icon: "",
-      question: "What is Webflow and why is it the best website builder?",
+      question: "1. What is Plate Jade?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        " Plate Jade is an app that uses augmented reality to help users from USA,Canada or Mexico to explore, customise, and order license plates and frames.",
     },
     {
       id: 2,
       icon: "",
-      question: "What is your favorite template from BRIX Templates?",
+      question: "2. How do I download the app?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "You can download Plate Jade from the App Store or Google Play. Follow the links on our homepage.",
     },
     {
       id: 3,
       icon: "",
-      question: "How do you clone a Webflow Template from the Showcase?",
+      question:
+        "3. Can I see how a license plate looks on my car before buying?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "Yes, you can use the AR feature to virtually apply license plates and frames to your car.",
     },
     {
       id: 4,
       icon: "",
-      question: "Why is BRIX Templates the best Webflow agency out there?",
+      question: "4. Can I order license plate frames through the app?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "Yes, you can order frames directly from marketplaces like Amazon and eBay.",
+    },
+    {
+      id: 5,
+      icon: "",
+      question: "5. How can I request a new licence plate from a title agency?",
+      answer:
+        "You can make requests for new licence plates from local title agencies directly through the app.",
+    },
+    {
+      id: 6,
+      icon: "",
+      question: "6. What customization options are available?",
+      answer:
+        "You can customise license plates and frames based on colour, theme, material, finish, type, number of attachment holes, and more. License plates can be customised by state or theme.",
+    },
+    {
+      id: 7,
+      icon: "",
+      question: "7. Can I share my designs with others?",
+      answer:
+        "Yes, you can share your customised designs via social media like Meta, Instagram, X,TikTok or messaging apps such as WhatsApp, Telegram, Viber or simply text or email as you would share your picture.",
     },
   ];
 

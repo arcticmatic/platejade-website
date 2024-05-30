@@ -1,1 +1,165 @@
- 
+@media screen and (max-width: 480px) {
+    .videoPlayer {
+        position: relative;
+        width: 100%;
+        width: 300px;
+        height: 411px;
+        margin: auto;
+        background: #000;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+}
+
+@media screen and (min-width:480px) and (max-width: 767px) {
+    .videoPlayer {
+        position: relative;
+        width: 100%;
+        width: 340px;
+        height: 507px;
+        margin: auto;
+        background: #000;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+}
+
+@media screen and (min-width:767px) and (max-width: 1200px) {
+    .videoPlayer {
+        position: relative;
+        width: 100%;
+        max-width: 703px;
+        height: 507px;
+        margin: auto;
+        background: #000;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 136px;
+    }
+}
+
+@media screen and (min-width:767px) and (max-width: 1200px) {
+.videoPlayer {
+        position: relative;
+        width: 100%;
+        max-width: 703px;
+        height: 507px;
+        margin: auto;
+        background: #000;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 136px;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    .videoPlayer {
+    position: relative;
+    width: 100%;
+    max-width: 834px;
+    height:100%;
+    margin: auto;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+}
+
+.video {
+    width: 100%;
+    /* height: auto; */
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+    position: relative;
+}
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0 0 12px 12px;
+}
+
+.controls button,
+.controls input[type="range"] {
+    margin: 0 5px;
+}
+
+.playPause,
+.skip,
+.fullScreen {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.playPause:hover,
+.skip:hover,
+.fullScreen:hover {
+    color: #0070f3;
+}
+
+.progress {
+    flex-grow: 1;
+}
+
+.progress::-webkit-slider-thumb {
+    background: #0070f3;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.progress::-moz-range-thumb {
+    background: #0070f3;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.volume {
+    width: 100px;
+}
+
+.time {
+    color: white;
+    font-size: 14px;
+}
+@media screen and (max-width: 480px) {
+    .playPause {
+        position: absolute;
+        top: 45%;
+        left: 35%;
+    }
+}
+@media screen and (min-width:480px) and (max-width: 767px) {
+.playPause {
+        position: absolute;
+        top: 36%;
+        left: 38%;
+    }
+}
+
+@media screen and (min-width:767px) and (max-width: 1200px) {
+    .playPause {
+        position: absolute;
+    top:37%;
+    left:44%;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .playPause {
+        position: absolute;
+        top: 36%;
+        left: 45%;
+    }
+}

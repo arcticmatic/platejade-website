@@ -13,44 +13,44 @@ export default function Features() {
     {
       id: 1,
       icon: searchIcon,
-      title: "Lorem",
+      title: "Augmented Reality Integration",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Experience real-time AR technology to see how auto license plates and frames look on your car.",
     },
     {
       id: 2,
       icon: searchIcon,
-      title: "Lorem",
+      title: " Marketplace Integration",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Order your favourite frames from Amazon and eBay seamlessly.",
     },
     {
       id: 3,
       icon: searchIcon,
-      title: "Lorem",
+      title: "Extensive Database",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Access a wide range of licence plates available in your state.",
     },
     {
       id: 4,
       icon: searchIcon,
-      title: "Lorem",
+      title: "Customization Tools",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Easily customise and fit license plate frames to match your style.",
     },
     {
       id: 5,
       icon: searchIcon,
-      title: "Lorem",
+      title: "Local Title Agency Requests",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Request new license plates from local title agencies directly through the app.",
     },
     {
       id: 6,
       icon: searchIcon,
-      title: "Lorem",
+      title: "Social Sharing",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Share your designs with friends on social media or via messaging apps.",
     },
   ];
 
@@ -58,23 +58,23 @@ export default function Features() {
     {
       id: 1,
       icon: searchIcon,
-      title: "Lorem",
+      title: "Augmented Reality Integration",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Experience real-time AR technology to see how auto license plates and frames look on your car.",
     },
     {
       id: 2,
       icon: searchIcon,
-      title: "Lorem",
+      title: " Marketplace Integration",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Order your favourite frames from Amazon and eBay seamlessly.",
     },
     {
       id: 3,
       icon: searchIcon,
-      title: "Lorem",
+      title: "Extensive Database",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Access a wide range of licence plates available in your state.",
     },
   ];
 
@@ -82,23 +82,23 @@ export default function Features() {
     {
       id: 4,
       icon: searchIcon,
-      title: "Lorem",
+      title: "Customization Tools",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Easily customise and fit license plate frames to match your style.",
     },
     {
       id: 5,
       icon: searchIcon,
-      title: "Lorem",
+      title: "Local Title Agency Requests",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Request new license plates from local title agencies directly through the app.",
     },
     {
       id: 6,
       icon: searchIcon,
-      title: "Lorem",
+      title: "Social Sharing",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Share your designs with friends on social media or via messaging apps.",
     },
   ];
 

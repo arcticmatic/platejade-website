@@ -1,0 +1,82 @@
+
+.loginSection{
+    display: flex;
+    flex-direction: column;
+}
+.loginTitle{
+    margin-top: 94px;
+    color: var(--Black, #040404);
+    text-align: center;
+      
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 44px;
+     margin-bottom: 16px;
+}
+.loginDetails{
+    color: var(--Gray-gray10, #4A4A4A);
+        text-align: center;
+
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        margin-bottom: 52px;
+}
+.loginForm{
+    display: block;
+    margin: 0 auto;
+}
+.emailLabel{
+    display: flex;
+    flex-direction: column;
+    color: var(--Black, #040404);
+         font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+       
+}
+.inputIcon{
+    position: relative;
+}
+.formInput{
+    margin-top: 8px;
+    border: 1px solid var(--Gray-gray30, #727272);
+        background: var(--White, #FAFAFA);
+        padding: 10px;
+        width: 300px;
+        margin-bottom: 16px;
+}
+.requiredSymbol{
+    color: #EA001B;
+}
+.loginBtn{
+    margin-top: 16px;
+    color: var(--white, #FFF);
+      width: 100%;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+        border-radius: 8px;
+     background: var(--color-2, #10101C);
+    padding: 12px 20px;
+    border:none;
+    margin-bottom: 16px;
+}
+.forgotPasswordText{
+    color: var(--Gray-gray10, #4A4A4A);
+        text-align: center;
+
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+}
+.passwordIcon{
+    position: absolute;
+    top: 23%;
+    left: 90%;
+}

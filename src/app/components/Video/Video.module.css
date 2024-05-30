@@ -1,7 +1,7 @@
 
 .videoSection{
     background-color: #10101C;
-    padding-top: 79px;
+    padding: 79px 0px;
 }
 @media screen and (min-width: 1200px) {
     .aboutVideoThumb {
@@ -44,4 +44,39 @@
       
         display: block;
     }
+}
+
+
+.videoContainer {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.videoElement {
+    width: 100%;
+    height: auto;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.playButton,
+.pauseButton {
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.playButton:hover,
+.pauseButton:hover {
+    background-color: #005bb5;
 }

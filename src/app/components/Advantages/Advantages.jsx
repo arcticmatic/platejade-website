@@ -13,44 +13,44 @@ export default function Advantages() {
     {
       id: 1,
       icon: checkboxIcon,
-      title: "Lorem",
+      title: "1. Enhanced Personalization",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Customise your licence plates and frames to reflect your style using AR technology.",
     },
     {
       id: 2,
       icon: checkboxIcon,
-      title: "Lorem",
+      title: "2. Convenient Ordering",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Easily order frames from major marketplaces like Amazon and eBay.",
     },
     {
       id: 3,
       icon: checkboxIcon,
-      title: "Lorem",
+      title: "3. Direct Requests",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Request new plates from local title agencies without leaving the app.",
     },
     {
       id: 4,
       icon: checkboxIcon,
-      title: "Lorem",
+      title: "4. Detailed Information",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Access comprehensive details about each license plate and frame, including their supporting organisations.",
     },
     {
       id: 5,
       icon: checkboxIcon,
-      title: "Lorem",
+      title: "5. Effortless Sharing",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Share your customised designs with friends and family effortlessly.",
     },
     {
       id: 6,
       icon: checkboxIcon,
-      title: "Lorem",
+      title: "6. Comprehensive Filtering",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Filter plates and frames by colour, theme, material, and more to find the perfect match.",
     },
   ];
 
@@ -59,10 +59,9 @@ export default function Advantages() {
       <section className={css.advantagesSection}>
         <h2 className={css.advantagesTitle}>Advantages</h2>
         <p className={css.advantagesDescription}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc
-          ante velit vitae. Est tellus vitae, nullam lobortis enim. Faucibus
-          amet etiam tincidunt rhoncus, ullamcorper velit. Ullamcorper risus
-          tempor, ac nunc libero urna, feugiat.
+          Discover the myriad benefits of using Plate Jade. Our app not only
+          enhances convenience but also offers a range of features that ensure a
+          seamless and enjoyable process from start to finish.
         </p>
         <div className={css.mobileAdvantagesThumb}>
           <ul>
