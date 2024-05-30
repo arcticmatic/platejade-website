@@ -13,7 +13,6 @@ import sun from "../images/sun.svg";
 import stars from "../images/stars.svg";
 import map from "../images/map.svg";
 import { useState, useEffect } from "react";
-import ApplePresentation from "../images/video/ApplePresentation.mp4";
 import VideoPlayer from "@/app/features/VideoPlayer/VideoPlayer";
 import mobileVideoPreview from "../images/mobileVideoPreview.jpg";
 import QR from "../images/QR.png";
@@ -161,10 +160,6 @@ export default function About() {
       </section>
       <section className={css.aboutVideoSection}>
         <div>
-          {/* <VideoPlayer className={css.aboutVideo} src={ApplePresentation} /> */}
-          {/* <video className={css.aboutVideo}>
-            <source src={ApplePresentation} type="video/mp4" />
-          </video> */}
           <div className={css.videoThumb}>
             <VideoPlayer />
           </div>
