@@ -35,7 +35,7 @@ const VideoPlayer = () => {
         controls={true}
       ></video>
       <button className={css.playPause} onClick={togglePlay}>
-        {!isPlaying && <Image src={Play} />}
+        {!isPlaying && <Image className={css.playIcon} src={Play} />}
       </button>
     </div>
   );

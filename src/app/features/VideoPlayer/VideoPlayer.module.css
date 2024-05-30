@@ -136,11 +136,14 @@
 }
 @media screen and (max-width: 480px) {
     .playPause {
-        width: 20px;
-        height: 20px;
+     
         position: absolute;
-        top: 42%;
-        left: 28%;
+        top: 47%;
+        left: 35%;
+    }
+    .playIcon{
+        width: 110px;
+        height: 110px;
     }
 }
 @media screen and (min-width:480px) and (max-width: 767px) {
