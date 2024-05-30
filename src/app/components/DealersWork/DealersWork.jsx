@@ -5,6 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import DealersWorkIcon from "../images/DealersWorkIcon.svg";
 import BottomDealersArrow from "../images/BottomDealersArrow.svg";
+import Link from "next/link";
 
 export default function DealersWork() {
   const dealersOptions = [
@@ -39,7 +40,7 @@ export default function DealersWork() {
   ];
   return (
     <>
-      <section className={css.dealersWorkSection}>
+      <section id="dealers-work" className={css.dealersWorkSection}>
         <h2 className={css.dealersHeroTitle}>How it works for dealers?</h2>
         <ul className={css.dealersOptionsList}>
           {dealersOptions.map((option, index) => (
@@ -65,7 +66,10 @@ export default function DealersWork() {
             </li>
           ))}
         </ul>
-        <button className={css.contactUsBtn}>Contact Us</button>
+        <button className={css.contactUsBtn}>
+          {" "}
+          <Link href="/contacts">Contact Us </Link>
+        </button>
       </section>
     </>
   );

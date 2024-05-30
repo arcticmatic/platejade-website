@@ -13,6 +13,7 @@ import desktopCar1 from "../images/desktopCar1.png";
 import desktopCar2 from "../images/desktopCar2.png";
 import desktopCar3 from "../images/desktopCar3.png";
 import desktopCar4 from "../images/desktopCar4.png";
+import Link from "next/link";
 
 export default function DealersHero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -87,8 +88,14 @@ export default function DealersHero() {
           sit amet, consectetur adipiscing elit lorem
         </p>
         <div className={css.dealersButtonsThumb}>
-          <button className={css.contactUsBtn}>Contact Us</button>
-          <button className={css.readMoreBtn}>Read more</button>
+          <button className={css.contactUsBtn}>
+            <Link href="/contacts">Contact Us </Link>
+          </button>
+
+          <button className={css.readMoreBtn}>
+            {" "}
+            <Link href="/dealers/#dealers-work">Read more </Link>
+          </button>
         </div>
         <div className={css.mobileCarousel}>
           <AutoCarousel slides={slides} options={OPTIONS} />

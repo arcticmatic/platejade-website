@@ -170,7 +170,7 @@ export default function CooperationForm() {
 
   return (
     <>
-      <section className={css.cooperationSection}>
+      <section id="cooperation" className={css.cooperationSection}>
         <h2 className={css.cooperationTitle}>Let’s work together!</h2>
         <p className={css.cooperationDescription}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc

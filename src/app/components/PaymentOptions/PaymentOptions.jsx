@@ -4,6 +4,7 @@ import css from "./PaymentOptions.module.css";
 import { useState } from "react";
 import DealerOptionCheckmark from "../images/DealerOptionCheckmark.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function PaymentOptions() {
   const paymentOptions = [
@@ -95,13 +96,14 @@ export default function PaymentOptions() {
                   </li>
                 ))}
               </ul>
+
               <button
                 className={index !== 0 ? css.buyBtn : css.buyBtnWhite}
                 style={{
                   backgroundColor: buttonColors[index % buttonColors.length],
                 }}
               >
-                Buy
+                <Link href="/dealers/#cooperation">Buy</Link>
               </button>
             </li>
           ))}

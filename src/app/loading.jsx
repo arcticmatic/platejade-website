@@ -6,13 +6,15 @@ import css from "../app/globals.css";
 export default function Loading() {
   return (
     <>
-      <InfinitySpin
-        className={css.loaderContainer}
-        visible={true}
-        width="200"
-        color="#000000"
-        ariaLabel="infinity-spin-loading"
-      />
+      <div className={css.loaderContainer}>
+        <InfinitySpin
+          className={css.loaderContainer}
+          visible={true}
+          width="200"
+          color="#000000"
+          ariaLabel="infinity-spin-loading"
+        />
+      </div>
     </>
   );
 }
