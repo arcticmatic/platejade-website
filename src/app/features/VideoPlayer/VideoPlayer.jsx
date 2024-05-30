@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef, useState, useEffect } from "react";
 import css from "./VideoPlayer.module.css";
 import PlatejadeVideo from "../../components/images/PlatejadeVideo.mp4";
