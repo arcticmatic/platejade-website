@@ -3,7 +3,7 @@
 import css from "./HomeHero.module.css";
 import { useState } from "react";
 import WhiteLogo from "../../images/WhiteLogo.png";
-import NewsPaper from "../../images/NewsPaper.svg";
+import Newspaper from "../../images/Newspaper.svg";
 import NewsPaperWhite from "../../images/NewsPaperWhite.svg";
 import WhiteChevronDown from "../../images/WhiteChevronDown.svg";
 import WhiteChevronTop from "../../images/WhiteChevronTop.svg";
