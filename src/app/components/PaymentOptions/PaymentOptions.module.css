@@ -81,6 +81,7 @@
         background: var(--white, #FFF);
         box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.10);
        width: 427px;
+     
        /* margin-right: 20px; */
     }
 }
@@ -88,14 +89,21 @@
 .paymentOptionItem:first-child,
 .paymentOptionItem:last-child {
     height: 560px;
-  
-}}
+
+}
+ .paymentOptionItem:nth-child(2) {
+     height: 640px;
+    
+ }
+
+}
 .paymentOptionItem:not(:last-child){
     margin-bottom: 40px;
 }
 @media screen and (min-width:1200px) {
 .paymentOptionItem:not(:last-child) {
     margin-right: 20px;
+    margin-bottom: 0;
 }}
 .optionSubscriptionPeriod{
     color: #111827;
