@@ -5,7 +5,6 @@ import Image from "next/image";
 import { PlayIcon } from "../images/icons/PlayIcon";
 import Pause from "../images/Pause.svg";
 import { AppStoreIcon } from "../images/icons/AppStoreIcon";
-import { GooglePlayIcon } from "../images/icons/GooglePlay";
 import { Montserrat } from "next/font/google";
 import ScreenBackground from "../images/ScreenBackground.png";
 import ScreenContent from "../images/ScreenContent.png";
@@ -19,6 +18,8 @@ import QR from "../images/QR.png";
 import DesktopVideoPoster from "../images/DesktopVideoPoster.png";
 import AboutMockup from "../images/AboutMockup.png";
 import AboutBgMockup from "../images/AboutBgMockup.png";
+import GooglePlayIcon from "../images/GooglePlayIcon.svg";
+import Link from "next/link";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -74,7 +75,7 @@ export default function About() {
       setCurrentSlide((prev) => {
         return prev + 1 === slides.length ? 0 : prev + 1;
       });
-    }, 800000);
+    }, 8000);
     return () => {
       clearInterval(intervalId);
     };
@@ -82,7 +83,7 @@ export default function About() {
 
   return (
     <>
-      <section className={css.aboutSection}>
+      <section id="about" className={css.aboutSection}>
         <div className={css.aboutThumb}>
           {slides.map((slide, index) => (
             <>
@@ -96,10 +97,11 @@ export default function About() {
                 <p className={css.aboutDescription}>{slide.description}</p>
 
                 <button className={css.aboutStartBtn}>Get Started</button>
-                <button className={css.aboutWorkBtn}>
-                  <PlayIcon className={css.aboutWorkBtnIcon} /> How it works
-                </button>
-
+                <Link href="/#how-works">
+                  <button className={css.aboutWorkBtn}>
+                    <PlayIcon className={css.aboutWorkBtnIcon} /> How it works
+                  </button>
+                </Link>
                 <div className={css.aboutDownloadThumbDesktop}>
                   <p className={css.aboutDownloadText}>
                     Download app from App Store or Google Play
@@ -110,7 +112,11 @@ export default function About() {
                     </div>
                     <div className={css.aboutDownloadIconsThumb}>
                       <AppStoreIcon className={css.downloadAppStoreIcon} />
-                      <GooglePlayIcon className={css.downloadGooglePlayIcon} />
+                      <Image
+                        alt="google play plate jade"
+                        className={css.downloadGooglePlayIcon}
+                        src={GooglePlayIcon}
+                      />
                     </div>
                   </div>
                 </div>
@@ -149,13 +155,17 @@ export default function About() {
           </p>
           <div className={css.aboutDownloadIcons}>
             <AppStoreIcon className={css.downloadAppStoreIcon} />
-            <GooglePlayIcon className={css.downloadGooglePlayIcon} />
+            <Image
+              alt="google play plate jade"
+              className={css.downloadGooglePlayIcon}
+              src={GooglePlayIcon}
+            />{" "}
           </div>
         </div>
       </section>
       <section className={css.aboutVideoSection}>
         <div>
-          <div className={css.videoThumb}>
+          <div id="how-works" className={css.videoThumb}>
             <VideoPlayer />
           </div>
           <div className={css.aboutVideoThumb}>
@@ -184,13 +194,21 @@ export default function About() {
               </p>
               <div className={css.aboutDownloadIconsDesktop}>
                 <AppStoreIcon className={css.downloadAppStoreIcon} />
-                <GooglePlayIcon className={css.downloadGooglePlayIcon} />
+                <Image
+                  alt="google play plate jade"
+                  className={css.downloadGooglePlayIcon}
+                  src={GooglePlayIcon}
+                />{" "}
               </div>
             </div>
           </div>
           <div className={css.aboutDownloadIcons}>
             <AppStoreIcon className={css.downloadAppStoreIcon} />
-            <GooglePlayIcon className={css.downloadGooglePlayIcon} />
+            <Image
+              alt="google play plate jade"
+              className={css.downloadGooglePlayIcon}
+              src={GooglePlayIcon}
+            />{" "}
           </div>
         </div>
         <div className={css.aboutVideoThumbDesktop}>

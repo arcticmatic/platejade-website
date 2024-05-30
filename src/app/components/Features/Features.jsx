@@ -105,7 +105,7 @@ export default function Features() {
 
   return (
     <>
-      <section className={css.featuresSection}>
+      <section id="features" className={css.featuresSection}>
         <h2 className={css.featuresTitle}>Features</h2>
         <p className={css.featuresDescription}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc

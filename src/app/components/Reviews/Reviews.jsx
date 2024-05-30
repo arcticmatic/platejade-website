@@ -63,7 +63,7 @@ export default function Reviews() {
 
   return (
     <>
-      <section className={css.reviewsSection}>
+      <section id="testimonials" className={css.reviewsSection}>
         <EmblaCarousel slides={reviewsArray} options={OPTIONS} />
       </section>
     </>

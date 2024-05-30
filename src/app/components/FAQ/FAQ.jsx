@@ -64,7 +64,7 @@ export default function FAQ() {
 
   return (
     <>
-      <section className={css.FAQSection}>
+      <section id="faq" className={css.FAQSection}>
         <div className={css.FAQThumb}>
           <h2 className={css.FAQTitle}>FAQ</h2>
           <ul className={css.FAQList}>

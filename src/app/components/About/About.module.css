@@ -327,11 +327,13 @@
  @media screen and (max-width: 1200px) {
 .downloadGooglePlayIcon {
   padding-bottom: 43px;
+  border-radius: 5%;
 }
  }
     @media screen and (min-width: 1200px) {
       .downloadGooglePlayIcon {
         padding-bottom: 0px;
+        border-radius: 5%;
       }
     }
  @media screen and (max-width:480px) {

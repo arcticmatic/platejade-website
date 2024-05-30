@@ -13,12 +13,12 @@ export default function Footer() {
   const disableNavWithFooter = ["/admin", "/admin/home", "/admin/reset"];
 
   const menuNavigation = [
-    { id: 1, title: "About", link: "/" },
-    { id: 2, title: "Features", link: "/" },
-    { id: 3, title: "Advantages", link: "/title-agency" },
-    { id: 4, title: "Testimonials", link: "/sellers" },
-    { id: 5, title: "FAQ", link: "/sellers" },
-    { id: 6, title: "Contacts", link: "/contacts" },
+    { id: 1, title: "About", link: "/#about" },
+    { id: 2, title: "Features", link: "/#features" },
+    { id: 3, title: "Advantages", link: "/#advantages" },
+    { id: 4, title: "Testimonials", link: "/#testimonials" },
+    { id: 5, title: "FAQ", link: "/#faq" },
+    { id: 6, title: "Contacts", link: "/#contacts" },
   ];
 
   return (

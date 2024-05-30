@@ -58,7 +58,7 @@ export default function Advantages() {
 
   return (
     <>
-      <section className={css.advantagesSection}>
+      <section id="advantages" className={css.advantagesSection}>
         <h2 className={css.advantagesTitle}>Advantages</h2>
         <p className={css.advantagesDescription}>
           Discover the myriad benefits of using Plate Jade. Our app not only

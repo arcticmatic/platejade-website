@@ -1,3 +1,18 @@
-export default function Loading(){
-    return <h1>Loading</h1>
+"use client";
+
+import { InfinitySpin } from "react-loader-spinner";
+import css from "../app/globals.css";
+
+export default function Loading() {
+  return (
+    <>
+      <InfinitySpin
+        className={css.loaderContainer}
+        visible={true}
+        width="200"
+        color="#000000"
+        ariaLabel="infinity-spin-loading"
+      />
+    </>
+  );
 }
