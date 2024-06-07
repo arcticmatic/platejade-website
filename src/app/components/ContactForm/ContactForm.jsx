@@ -13,6 +13,7 @@ import location from "../images/icons/location.svg";
 import Twitter from "../images/icons/Twitter.svg";
 import Instagram from "../images/icons/Instagram.svg";
 import Discord from "../images/icons/Discord.svg";
+import Link from "next/link";
 
 export default function ContactForm() {
   const [isNotification, setIsNotification] = useState(false);
@@ -21,18 +22,20 @@ export default function ContactForm() {
     {
       id: 1,
       icon: phone,
-
-      details: "+1012 3456 789",
+      details: "+1-954-710-1500",
+      href: "tel:+1-954-710-1500",
     },
     {
       id: 2,
       icon: email,
-      details: "demo@gmail.com",
+      details: "info@platejade.com",
+      href: "mailto:info@platejade.com",
     },
     {
       id: 3,
       icon: location,
-      details: "132 Dartmouth Street Boston, Massachusetts 02156 United States",
+      details: "201 SE 2nd Ave Miami, Florida 33131 United States",
+      href: "#contact-form",
     },
   ];
 
@@ -123,7 +126,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <section className={css.contactsSection}>
+      <section id="contact-form" className={css.contactsSection}>
         <div className={css.contactInfoSection}>
           <div className={css.contactIfoDescriptionThumb}>
             <h2 className={css.contactInfoTitle}>Contact Information</h2>
@@ -134,12 +137,14 @@ export default function ContactForm() {
           <ul className={css.contactList}>
             {contactsArray.map((contact) => (
               <li className={css.contactItem}>
-                <Image
-                  className={css.contactIcon}
-                  alt="contact icon"
-                  src={contact.icon}
-                />
-                {contact.details}
+                <Link className={css.contactItem} href={contact.href}>
+                  <Image
+                    className={css.contactIcon}
+                    alt="contact icon"
+                    src={contact.icon}
+                  />
+                  {contact.details}
+                </Link>
               </li>
             ))}
           </ul>

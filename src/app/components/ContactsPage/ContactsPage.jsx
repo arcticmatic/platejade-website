@@ -13,24 +13,28 @@ import Pinterest from "../images/icons/Pinterest.svg";
 import Union from "../images/icons/Union.svg";
 import TwitterBlack from "../images/icons/TwitterBlack.svg";
 import LinkedIn from "../images/icons/LinkedIn.svg";
+import Email from "next-auth/providers/email";
+import Link from "next/link";
 
 export default function ContactsPage() {
   const contactsArray = [
     {
       id: 1,
       icon: PhoneBlack,
-
-      details: "+1012 3456 789",
+      details: "+1-954-710-1500",
+      href: "tel:+1-954-710-1500",
     },
     {
       id: 2,
       icon: EmailBlack,
-      details: "demo@gmail.com",
+      details: "info@platejade.com",
+      href: "mailto:info@platejade.com",
     },
     {
       id: 3,
       icon: LocationBlack,
-      details: "132 Dartmouth Street Boston, Massachusetts 02156 United States",
+      details: "201 SE 2nd Ave Miami, Florida 33131 United States",
+      href: "#contact-form",
     },
   ];
 
@@ -78,12 +82,14 @@ export default function ContactsPage() {
               <ul>
                 {contactsArray.map((contact) => (
                   <li className={css.contactItem}>
-                    <Image
-                      className={css.contactIcon}
-                      alt="contact icon"
-                      src={contact.icon}
-                    />
-                    {contact.details}
+                    <Link className={css.contactLink} href={contact.href}>
+                      <Image
+                        className={css.contactIcon}
+                        alt="contact icon"
+                        src={contact.icon}
+                      />
+                      {contact.details}
+                    </Link>
                   </li>
                 ))}
               </ul>

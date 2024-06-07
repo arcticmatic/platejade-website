@@ -363,6 +363,7 @@
 
 .contactItem {
   display: flex;
+  align-items: flex-start;
   color: #fff;
   font-size: 16px;
   font-style: normal;

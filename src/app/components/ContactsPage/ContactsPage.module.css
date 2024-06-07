@@ -103,6 +103,9 @@ color:  #10101C;
     align-items: center;
 
 }
+.contactLink{
+    display: flex;
+}
 .contactItem:not(:last-child){
     margin-bottom: 32px;
 }
