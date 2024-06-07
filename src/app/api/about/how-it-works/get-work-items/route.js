@@ -1,5 +1,5 @@
-import connect from "../../../../utils/db";
-import HowItWork from "../../../../models/howItWork";
+import connect from "../../../../../utils/db";
+import HowItWork from "../../../../../models/howItWork";
 import { NextResponse } from 'next/server';
 
 export async function GET(req) {

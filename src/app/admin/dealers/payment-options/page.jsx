@@ -1,4 +1,4 @@
-import PaymentOptions from "@/app/components/admin/dealers/PaymentOptions/PaymentOptions";
+import PaymentOptions from "@/components/admin/dealers/PaymentOptions/PaymentOptions";
 
 export default async function PaymentOptionsPage() {
   return (

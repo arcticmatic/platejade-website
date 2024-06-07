@@ -1,8 +1,8 @@
 
 import mongoose from 'mongoose';
-import AboutSlide from '../../../models/aboutSlide'; 
+import AboutSlide from '../../../../models/aboutSlide'; 
 import { NextResponse } from 'next/server';
-import connect from "../../../utils/db";
+import connect from "../../../../utils/db";
 
 
 export async function POST(req, res) {

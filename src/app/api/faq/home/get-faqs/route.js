@@ -1,5 +1,5 @@
-import connect from "../../../../utils/db";
-import Faq from "../../../../models/faq";
+import connect from "../../../../../utils/db";
+import Faq from "../../../../../models/faq";
 import { NextResponse } from 'next/server';
 
 export async function GET(req) {

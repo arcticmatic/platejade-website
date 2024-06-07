@@ -1,6 +1,6 @@
-import  Faq from '../../../../../models/faq'; 
+import  Faq from '../../../../../../models/faq'; 
 import { NextRequest, NextResponse } from "next/server"
-import connect from "../../../../../utils/db";
+import connect from "../../../../../../utils/db";
 import mongoose from 'mongoose';
 
 

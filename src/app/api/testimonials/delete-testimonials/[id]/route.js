@@ -1,6 +1,6 @@
-import  Testimonial from '../../../../models/testimonial'; 
+import  Testimonial from '../../../../../models/testimonial'; 
 import { NextRequest, NextResponse } from "next/server"
-import connect from "../../../../utils/db";
+import connect from "../../../../../utils/db";
 import mongoose from 'mongoose';
 
 

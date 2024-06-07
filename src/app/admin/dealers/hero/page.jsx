@@ -1,4 +1,4 @@
-import Hero from "@/app/components/admin/dealers/Hero/Hero";
+import Hero from "@/components/admin/dealers/Hero/Hero";
 
 export default async function HeroPage() {
   return (

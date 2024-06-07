@@ -1,4 +1,4 @@
-import Contact from '../../../../models/contact';
+import Contact from '../../../../../models/contact';
 import { NextResponse } from 'next/server';
 
 export async function PATCH(req,{params}) {

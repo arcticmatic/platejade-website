@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import Dealer from '../../../models/dealer'; // Check if the path to the dealer model is correct
+import Dealer from '../../../../models/dealer'; // Check if the path to the dealer model is correct
 import { NextResponse } from 'next/server';
-import connect from "../../../utils/db";
+import connect from "../../../../utils/db";
 
 
 export async function POST(req) {

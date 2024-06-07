@@ -1,5 +1,5 @@
-import connect from "../../../utils/db";
-import RightFeatures from "../../../models/rightFeatures";
+import connect from "../../../../utils/db";
+import RightFeatures from "../../../../models/rightFeatures";
 import { NextResponse } from 'next/server';
 
 export async function GET(req) {

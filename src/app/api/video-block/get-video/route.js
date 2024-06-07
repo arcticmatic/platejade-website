@@ -1,5 +1,5 @@
-import connect from "../../../utils/db";
-import VideoBlock from "../../../models/videoBlock";
+import connect from "../../../../utils/db";
+import VideoBlock from "../../../../models/videoBlock";
 import { NextResponse } from 'next/server';
 
 export async function GET(req) {

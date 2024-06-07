@@ -1,4 +1,4 @@
-import ResetPassword from "@/app/components/admin/ResetPassword/ResetPassword";
+import ResetPassword from "@/components/admin/ResetPassword/ResetPassword";
 
 export default function Reset() {
   return (

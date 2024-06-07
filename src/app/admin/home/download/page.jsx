@@ -1,4 +1,4 @@
-import Download from "@/app/components/admin/Download/Download";
+import Download from "@/components/admin/Download/Download";
 
 export default async function AdvantagesPage() {
   return (

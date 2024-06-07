@@ -1,5 +1,5 @@
-import connect from "../../../utils/db";
-import AboutSlide from "../../../models/aboutSlide";
+import connect from "../../../../utils/db";
+import AboutSlide from "../../../../models/aboutSlide";
 import { NextResponse } from 'next/server';
 
 export  async function GET() {

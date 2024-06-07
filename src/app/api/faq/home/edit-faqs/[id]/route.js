@@ -1,4 +1,4 @@
-import Faq from '../../../../../models/faq';
+import Faq from '../../../../../../models/faq';
 import { NextResponse } from 'next/server';
 
 export async function PATCH(req,{params}) {

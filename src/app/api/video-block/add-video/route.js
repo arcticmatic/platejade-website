@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import VideoBlock from '../../../models/videoBlock';
+import VideoBlock from '../../../../models/videoBlock';
 import { NextResponse } from 'next/server';
-import connect from "../../../utils/db";
+import connect from "../../../../utils/db";
 
 
 export async function POST(req) {

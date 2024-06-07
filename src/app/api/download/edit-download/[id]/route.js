@@ -1,4 +1,4 @@
-import Download from '../../../../models/download';
+import Download from '../../../../../models/download';
 import { NextResponse } from 'next/server';
 
 export async function PATCH(req, { params }) {

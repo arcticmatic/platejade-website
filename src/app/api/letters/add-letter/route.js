@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import Letter from '../../../models/letter';
+import Letter from '../../../../models/letter';
 import { NextResponse } from 'next/server';
-import connect from "../../../utils/db";
+import connect from "../../../../utils/db";
 
 
 export async function POST(req) {

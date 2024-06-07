@@ -1,4 +1,4 @@
-import LeftFeatures from '../../../../models/leftFeatures';
+import LeftFeatures from '../../../../../models/leftFeatures';
 import { NextResponse } from 'next/server';
 
 export async function PATCH(req, { params }) {

@@ -1,10 +1,10 @@
-import Header from "./components/Header/Header";
 import Head from "next/head";
-import Footer from "./components/Footer/Footer";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import { getServerSession } from "next-auth";
-import SessionProvider from "../app/utils/SessionProvider";
+import SessionProvider from "../utils/SessionProvider";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
