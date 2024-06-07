@@ -1,6 +1,6 @@
-import LogIn from "../components/LogIn/LogIn";
+import LogIn from "@/app/components/LogIn/LogIn";
 
-export default function AdminPage() {
+export default function Admin() {
   return (
     <>
       <section>
