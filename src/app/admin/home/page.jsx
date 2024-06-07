@@ -1,5 +1,5 @@
 import HomeHero from "@/app/components/admin/HomeHero/HomeHero";
 
-export default async function Hero() {
+export default async function HeroPage() {
   return <HomeHero />;
 }
