@@ -72,7 +72,7 @@
 }
 @media screen and (max-width: 767px){
 .reviewItem {
-    width: 160px;
+    width: 200px;
     margin-right: 24px;
     border-radius: 20px;
     background: #fff;
@@ -94,7 +94,7 @@
 }
 .reviewText {
     color: #000;
-
+height: 70%;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

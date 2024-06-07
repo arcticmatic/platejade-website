@@ -7,7 +7,7 @@ import Play from "../../components/images/Play.svg";
 import Pause from "../../components/images/Pause.svg";
 import Image from "next/image";
 
-const VideoPlayer = () => {
+const VideoPlayer = ({ src }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -29,7 +29,7 @@ const VideoPlayer = () => {
         width="834"
         height="503"
         poster="../images/DesktopVideoPreview.jpg"
-        src={PlatejadeVideo}
+        src={src}
         onPause={() => setIsPlaying(false)}
         onPlay={() => setIsPlaying(true)}
         controls={true}

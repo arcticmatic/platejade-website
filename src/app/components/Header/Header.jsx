@@ -12,7 +12,23 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const path = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const disableNavWithHeader = ["/admin/home"];
+  const disableNavWithHeader = [
+    "/admin/home",
+    "/admin/home/video-block",
+    "/admin/home/how-it-works",
+    "/admin/home/features",
+    "/admin/home/advantages",
+    "/admin/home/testimonials",
+    "/admin/home/faq",
+    "/admin/home/download",
+    "/admin/home/contacts",
+    "/admin/home/contact-info",
+    "/admin/home/contact-form",
+    "/admin/dealers/hero",
+    "/admin/dealers/video-block",
+    "/admin/dealers/how-it-works",
+    "/admin/dealers/payment-options",
+  ];
 
   const menuNavigation = [
     { id: 1, title: "Home", link: "/" },

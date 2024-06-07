@@ -6,7 +6,7 @@ import css from "../app/globals.css";
 export default function Loading() {
   return (
     <>
-      <div className={css.loaderContainer}>
+      <div>
         <InfinitySpin
           className={css.loaderContainer}
           visible={true}

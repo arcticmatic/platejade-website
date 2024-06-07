@@ -1,0 +1,213 @@
+.heroImagesThumb {
+    display: flex;
+}
+
+.heroLabel {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    color: var(--Black, #090909);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+
+}
+
+.heroLabelText {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.heroTitleInput {
+    width: 90%;
+    padding: 16px;
+    margin-top: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--Gray-5, #E0E0E0);
+    background: var(--White, #FCFCFC);
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.heroTextInput {
+    padding: 16px;
+    padding-bottom: 100px;
+    width: 90%;
+    border-radius: 4px;
+    border: 1px solid var(--Gray-5, #E0E0E0);
+    background: var(--White, #FCFCFC);
+    color: var(--Gray-gray-06, #5B5B5B);
+    margin-top: 8px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 24px;
+}
+
+.cancelBtn {
+    margin-right: 20px;
+    color: var(--Black, #090909);
+    padding: 12px 18px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    background-color: #ffffff;
+    width: 160px;
+    border-radius: 8px;
+    border: 1px solid var(--Black, #090909);
+}
+
+.saveBtn {
+    width: 160px;
+    color: var(--White, #FCFCFC);
+    padding: 12px 18px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 8px;
+    border: none;
+    background: var(--color-2, #10101C);
+}
+
+.uploadInputThumb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    margin-bottom: 36px;
+    width: 40%;
+    height: 250px;
+    border-radius: 16px;
+    border: 1px dashed var(--Gray-4, #BDBDBD);
+    background: #FFF;
+}
+
+.uploadInputThumb:not(:last-child) {
+    margin-right: 20px;
+}
+
+.uploadThumb {
+
+    margin-bottom: 12px;
+    width: 160px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 0.12);
+}
+.uploadFileText {
+    display:flex;
+    align-items: center;
+    margin-top: 10px;
+    color: #363636;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}
+.uploadedClip {
+    margin-right: 8px;
+}
+
+.uploadedDeleteCross {
+    margin-left: 8px;
+  vertical-align: middle;
+}
+.uploadIcon {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.uploadInput {
+    display: none;
+}
+
+.uploadText {
+    margin-bottom: 12px;
+    color: #9B9B9B;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.uploadFileText {
+    color: #505050;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}
+.radioWrapperThumb input[type="radio"] {
+    display: none;
+}
+
+.radioWrapperThumb label {
+    margin-left: 40px;
+    margin-right: 40px;
+    cursor: pointer;
+    position: relative;
+}
+
+.radioWrapperThumb label::before {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-color: transparent;
+    border: 2px solid #000;
+    border-radius: 50%;
+    top: 50%;
+    left: -25%;
+    /* left: -6rem; */
+    transform: translateY(-50%);
+}
+
+.radioWrapperThumb label::after {
+    content: "";
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background-color: #000;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    top: 50%;
+    left: -26.5px;
+    transform: translateY(-50%) scale(0);
+    /* transition: transform 400ms ease; */
+}
+
+.radioWrapperThumb input[type="radio"]:checked+label::before {
+    border-color: #000;
+
+}
+
+.radioWrapperThumb input[type="radio"]:checked+label::after {
+    transform: translate(-50%, -50%) scale(0.55);
+
+}
+.removeSlideBtn {
+    margin-top: 24px;
+    width: 90%;
+    padding: 12px 0;
+    color: var(--Black, #090909);
+    background-color: transparent;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--Black, #090909);
+}

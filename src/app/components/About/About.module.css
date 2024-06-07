@@ -483,6 +483,7 @@ text-align:center;
           display: flex;
       justify-content: center;
           align-items: center;
+          flex-wrap: wrap;
         }
       }
 @media screen and (max-width: 767px) {
@@ -499,25 +500,42 @@ text-align:center;
     border-radius: 8px;
     background: #fff;
     width: 60%;
-    height: 80%;
+    height: 260px;
     box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.1);
     margin-bottom: 40px;
   }
 }
-     @media screen and (min-width: 1200px) {
+     @media screen and (min-width: 1200px) and (max-width:1400px) {
         .aboutWorkItem {
             border-radius: 8px;
             background: #fff;
-            width:  360px;
-            height: 80%;
+            height: 34vh;
             box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
-            
-          }
-     }
+          width: calc(35% - 70px);
+        
+             }     }
 
-         @media screen and (min-width: 1200px) {
-           .aboutWorkItem:not(:last-child) {
+         @media screen and (min-width: 1400px)  {
+           .aboutWorkItem {
+             border-radius: 8px;
+             background: #fff;
+             height: 240px;
+             box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.1);
+             margin-bottom: 40px;
+             width: calc(33% - 80px);
+    
+           }
+         }
+
+         @media screen and (min-width: 1200px) and (max-width:1400px){
+           .aboutWorkItem:not(:nth-child(3n)) {
+           margin-right: 70px;
+    
+           }
+         }
+            @media screen and (min-width: 1400px) {
+           .aboutWorkItem:not(:nth-child(3n)) {
            margin-right: 80px;
     
            }
@@ -525,8 +543,18 @@ text-align:center;
 .aboutWorkImage {
   padding-top: 32px;
 }
+.aboutWorkThumbTitle{
+   margin-top: 10px;
+    color: #10101c;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    margin-bottom: 5px;
+}
 .aboutWorkText {
-  padding: 16px 32px 32px 32px;
+  padding: 2px 32px 32px 32px;
   color: #10101c;
   text-align: center;
   font-size: 14px;

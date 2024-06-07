@@ -10,7 +10,26 @@ import { usePathname } from "next/navigation";
 export default function Footer() {
   const path = usePathname();
 
-  const disableNavWithFooter = ["/admin", "/admin/home", "/admin/reset"];
+  const disableNavWithFooter = [
+    "/admin",
+    "/admin/home",
+    "/admin/reset",
+    "/admin/home/video-block",
+    "/admin/home/how-it-works",
+    "/admin/home/features",
+    "/admin/home/advantages",
+    "/admin/home/testimonials",
+    "/admin/home/faq",
+    "/admin/home/download",
+    "/admin/home/contacts",
+    "/admin/home/contact-info",
+    "/admin/home/contact-form",
+    "/admin/dealers/hero",
+    "/admin/dealers/video-block",
+    "/admin/dealers/how-it-works",
+    "/admin/dealers/how-it-works",
+    "/admin/dealers/payment-options",
+  ];
 
   const menuNavigation = [
     { id: 1, title: "About", link: "/#about" },

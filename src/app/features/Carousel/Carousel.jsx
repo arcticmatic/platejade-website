@@ -36,9 +36,11 @@ const EmblaCarousel = (props) => {
                 <p className={css.reviewText}>{review.text}</p>
                 <div className={css.reviewCustomerThumb}>
                   <Image
+                    width="50"
+                    height="50"
                     className={css.reviewCustomerIcon}
                     alt="user icon"
-                    src={UserIcon}
+                    src={review.icon}
                   />
                   <div className={css.customerDetailsThumb}>
                     <p className={css.customerName}>{review.customerName}</p>

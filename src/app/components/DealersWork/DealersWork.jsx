@@ -1,43 +1,34 @@
 "use client";
 
 import css from "./DealersWork.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import DealersWorkIcon from "../images/DealersWorkIcon.svg";
 import BottomDealersArrow from "../images/BottomDealersArrow.svg";
 import Link from "next/link";
 
 export default function DealersWork() {
-  const dealersOptions = [
-    {
-      id: 1,
-      icon: DealersWorkIcon,
-      title: "Lorem",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      id: 2,
-      icon: DealersWorkIcon,
-      title: "Lorem",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      id: 3,
-      icon: DealersWorkIcon,
-      title: "Lorem",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      id: 4,
-      icon: DealersWorkIcon,
-      title: "Lorem",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-  ];
+  const [dealersOptions, setDealersOptions] = useState([]);
+
+  useEffect(() => {
+    const fetchDealersOptions = async () => {
+      try {
+        const response = await fetch(
+          "/api/dealers/how-it-works/get-how-it-works"
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setDealersOptions(data.data);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
+
+    fetchDealersOptions();
+  }, []);
   return (
     <>
       <section id="dealers-work" className={css.dealersWorkSection}>
@@ -49,12 +40,10 @@ export default function DealersWork() {
                 <Image
                   className={css.dealerOptionIcon}
                   alt="dealers collaboration options"
-                  src={option.icon}
+                  src={DealersWorkIcon}
                 />
                 <p className={css.dealersOptionTitle}>{option.title}</p>
-                <p className={css.dealersOptionDescription}>
-                  {option.description}
-                </p>
+                <p className={css.dealersOptionDescription}>{option.text}</p>
               </div>
               {index !== dealersOptions.length - 1 && (
                 <Image

@@ -1,11 +1,14 @@
 "use client";
 
-import css from "./LogIn.module.css";
 import { useState } from "react";
 import { Poppins } from "next/font/google";
-import EyeIcon from "../images/EyeIcon.svg";
 import Image from "next/image";
 import Link from "next/link";
+import css from "./LogIn.module.css";
+import EyeIcon from "../images/EyeIcon.svg";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -13,7 +16,45 @@ const poppins = Poppins({
 });
 
 export default function LogIn() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const { data: session, status: sessionStatus } = useSession();
+
+  useEffect(() => {
+    if (sessionStatus === "authenticated") {
+      router.replace("/admin/home");
+    }
+  }, [sessionStatus, router]);
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await signIn("credentials", {
+      redirect: false,
+      email,
+      password,
+    });
+
+    if (res?.url) {
+      console.log("ok");
+    } else if (res?.error) {
+      console.log("Invalid email or password");
+    } else {
+      console.log("res:", res);
+      // setError("");
+    }
+  };
 
   return (
     <>
@@ -25,14 +66,19 @@ export default function LogIn() {
             Please enter your details to continue
           </span>
         </p>
-        <form className={css.loginForm}>
+        <form className={css.loginForm} onSubmit={handleSubmit}>
           <label className={css.emailLabel}>
             <div>
               <p>
                 E-mail <span className={css.requiredSymbol}>*</span>
               </p>
             </div>
-            <input className={css.formInput} placeholder="email@gmail.com" />
+            <input
+              className={css.formInput}
+              placeholder="email@gmail.com"
+              value={email}
+              onChange={handleEmailChange}
+            />
           </label>
           <label className={css.emailLabel}>
             <div>
@@ -46,28 +92,23 @@ export default function LogIn() {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 id="password"
+                value={password}
+                onChange={handlePasswordChange}
               />
-              {showPassword ? (
-                <Image
-                  className={css.passwordIcon}
-                  onClick={() => {
-                    setShowPassword((prev) => !prev);
-                  }}
-                  src={EyeIcon}
-                />
-              ) : (
-                <Image
-                  className={css.passwordIcon}
-                  onClick={() => {
-                    setShowPassword((prev) => !prev);
-                  }}
-                  src={EyeIcon}
-                />
-              )}
+              <Image
+                className={css.passwordIcon}
+                onClick={() => {
+                  setShowPassword((prev) => !prev);
+                }}
+                src={EyeIcon}
+                alt="Toggle password visibility"
+              />
             </span>
           </label>
 
-          <button className={css.loginBtn}>Login</button>
+          <button className={css.loginBtn} type="submit">
+            Login
+          </button>
         </form>
         <Link href="/admin/reset" className={css.forgotPasswordText}>
           Forgot password?

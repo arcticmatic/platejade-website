@@ -1,7 +1,7 @@
 "use client";
 
 import css from "./Advantages.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import checkboxIcon from "../images/checkboxIcon.svg";
@@ -11,50 +11,25 @@ import AdvantagesMockup from "../images/AdvantagesMockup.png";
 import AdvantagesBgMockup from "../images/AdvantagesBgMockup.png";
 
 export default function Advantages() {
-  const advantagesArray = [
-    {
-      id: 1,
-      icon: checkboxIcon,
-      title: "1. Enhanced Personalization",
-      description:
-        "Customise your licence plates and frames to reflect your style using AR technology.",
-    },
-    {
-      id: 2,
-      icon: checkboxIcon,
-      title: "2. Convenient Ordering",
-      description:
-        "Easily order frames from major marketplaces like Amazon and eBay.",
-    },
-    {
-      id: 3,
-      icon: checkboxIcon,
-      title: "3. Direct Requests",
-      description:
-        "Request new plates from local title agencies without leaving the app.",
-    },
-    {
-      id: 4,
-      icon: checkboxIcon,
-      title: "4. Detailed Information",
-      description:
-        "Access comprehensive details about each license plate and frame, including their supporting organisations.",
-    },
-    {
-      id: 5,
-      icon: checkboxIcon,
-      title: "5. Effortless Sharing",
-      description:
-        "Share your customised designs with friends and family effortlessly.",
-    },
-    {
-      id: 6,
-      icon: checkboxIcon,
-      title: "6. Comprehensive Filtering",
-      description:
-        "Filter plates and frames by colour, theme, material, and more to find the perfect match.",
-    },
-  ];
+  const [advantagesArray, setAdvantagesArray] = useState([]);
+
+  useEffect(() => {
+    const fetchAdvantages = async () => {
+      try {
+        const response = await fetch("/api/advantages/get-advantages");
+        if (response.ok) {
+          const data = await response.json();
+          setAdvantagesArray(data.data);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
+
+    fetchAdvantages();
+  }, []);
 
   return (
     <>
@@ -72,12 +47,12 @@ export default function Advantages() {
                 <Image
                   alt="platejade app features"
                   className={css.advantageIcon}
-                  src={advantage.icon}
+                  src={checkboxIcon}
                 />
                 <div>
                   <p className={css.advantageItemTitle}>{advantage.title}</p>
                   <p className={css.advantageItemDescription}>
-                    {advantage.description}
+                    {advantage.text}
                   </p>
                 </div>
               </li>
@@ -91,22 +66,13 @@ export default function Advantages() {
                 className={css.advantagesScreenBg}
                 src={AdvantagesBgMockup}
               />
-              {/* <Image
-                alt="platejade app screenshot"
-                className={css.advantagesScreen}
-                src={ScreenContent}
-              /> */}
+
               <div className={css.advantagesImagesOverlayThumb}>
                 <Image
                   alt="platejade app"
                   className={css.advantagesScreenBg}
                   src={AdvantagesMockup}
                 />
-                {/* <Image
-                  alt="platejade app screenshot"
-                  className={css.advantagesScreen}
-                  src={ScreenContent}
-                /> */}
               </div>
             </div>
           </div>
@@ -120,22 +86,13 @@ export default function Advantages() {
                 className={css.advantagesScreenBg}
                 src={AdvantagesBgMockup}
               />
-              {/* <Image
-                alt="platejade app screenshot"
-                className={css.advantagesScreen}
-                src={ScreenContent}
-              /> */}
+
               <div className={css.advantagesImagesOverlayThumb}>
                 <Image
                   alt="platejade app"
                   className={css.advantagesScreenBg}
                   src={AdvantagesMockup}
                 />
-                {/* <Image
-                  alt="platejade app screenshot"
-                  className={css.advantagesScreen}
-                  src={ScreenContent}
-                /> */}
               </div>
             </div>
           </div>
@@ -145,12 +102,12 @@ export default function Advantages() {
                 <Image
                   alt="platejade app features"
                   className={css.advantageIcon}
-                  src={advantage.icon}
+                  src={checkboxIcon}
                 />
                 <div>
                   <p className={css.advantageItemTitle}>{advantage.title}</p>
                   <p className={css.advantageItemDescription}>
-                    {advantage.description}
+                    {advantage.text}
                   </p>
                 </div>
               </li>

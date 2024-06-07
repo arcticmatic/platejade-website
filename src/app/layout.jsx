@@ -1,9 +1,10 @@
 import Header from "./components/Header/Header";
 import Head from "next/head";
-
 import Footer from "./components/Footer/Footer";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
+import { getServerSession } from "next-auth";
+import SessionProvider from "../app/utils/SessionProvider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -11,24 +12,25 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "PlateJade",
-  description: "PlateJade website",
+  title: "Plate Jade",
+  description:
+    "App for fitting plates and frames in your app in augmented reality (AR).",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const session = await getServerSession();
   return (
     <html lang="en">
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </Head>
       <body className={montserrat.className}>
-        <Header />
-
-        {children}
-
-        <Footer />
+        <SessionProvider session={session}>
+          <Header />
+          {children}
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   );

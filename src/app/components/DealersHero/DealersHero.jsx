@@ -17,8 +17,8 @@ import Link from "next/link";
 
 export default function DealersHero() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [tabletCurrentSlide, setTabletCurrentSlide] = useState(0); // New state for tablet carousel
-  const [desktopCurrentSlide, setDesktopCurrentSlide] = useState(0); // New state for desktop carousel
+  const [tabletCurrentSlide, setTabletCurrentSlide] = useState(0);
+  const [desktopCurrentSlide, setDesktopCurrentSlide] = useState(0);
 
   const OPTIONS = { containScroll: false, align: "start" };
   const SLIDE_COUNT = 5;

@@ -1,14 +1,12 @@
 import mongoose from 'mongoose';
 import Letter from '../../../models/letter';
 import { NextResponse } from 'next/server';
+import connect from "../../../utils/db";
 
-mongoose.connect(process.env.DB_URL).then(() => {
-  console.log('Connected to MongoDB');
-}).catch((error) => {
-  console.error('MongoDB connection error:', error);
-});
 
 export async function POST(req) {
+    await connect();
+
   try {
     const { firstName, lastName, phone, email, message } = await req.json();
 

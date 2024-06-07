@@ -1,15 +1,35 @@
 "use client";
 
 import css from "./Download.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import iconClose from "../images/iconClose.svg";
 import iconOpen from "../images/iconOpen.svg";
 import { AppStoreIcon } from "../images/icons/AppStoreIcon";
 import { GooglePlayIcon } from "../images/icons/GooglePlay";
+import Link from "next/link";
 
 export default function Download(props) {
   const { downloadWhiteSection } = props;
+  const [downloadItem, setDownloadItem] = useState([]);
+
+  useEffect(() => {
+    const fetchDownload = async () => {
+      try {
+        const response = await fetch("/api/download/get-download");
+        if (response.ok) {
+          const data = await response.json();
+          setDownloadItem(data.data);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
+
+    fetchDownload();
+  }, []);
 
   return (
     <>
@@ -18,27 +38,36 @@ export default function Download(props) {
           downloadWhiteSection ? css.downloadSectionWhite : css.downloadSection
         }
       >
-        <h2
-          className={
-            downloadWhiteSection ? css.downloadTitleBlack : css.downloadTitle
-          }
-        >
-          All you need just in one app
-        </h2>
-        <p
-          className={
-            downloadWhiteSection
-              ? css.downloadDescriptionBlack
-              : css.downloadDescription
-          }
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc
-          ante velit vitae. Est tellus vitae, nullam lobortis enim.
-        </p>
-        <div className={css.downloadIconsThumb}>
-          <AppStoreIcon className={css.downloadAppStoreIcon} />
-          <GooglePlayIcon className={css.downloadGooglePlayIcon} />
-        </div>
+        {downloadItem.map((item, index) => (
+          <div key={index}>
+            <h2
+              className={
+                downloadWhiteSection
+                  ? css.downloadTitleBlack
+                  : css.downloadTitle
+              }
+            >
+              {item.title}
+            </h2>
+            <p
+              className={
+                downloadWhiteSection
+                  ? css.downloadDescriptionBlack
+                  : css.downloadDescription
+              }
+            >
+              {item.text}
+            </p>
+            <div className={css.downloadIconsThumb}>
+              <Link href={item.appleLink}>
+                <AppStoreIcon className={css.downloadAppStoreIcon} />
+              </Link>
+              <Link href={item.googleLink}>
+                <GooglePlayIcon className={css.downloadGooglePlayIcon} />
+              </Link>
+            </div>
+          </div>
+        ))}
       </section>
     </>
   );

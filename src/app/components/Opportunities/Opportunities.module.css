@@ -59,6 +59,11 @@
     justify-content: center;
     align-items: center;
 }
+@media screen and (min-width: 1200px) {
+.opportunitiesTextThumb{
+    width: 47%;
+}
+}
 @media screen and (max-width: 1200px) {
 .opportunitiesItem{
     margin-bottom: 40px;
@@ -94,18 +99,20 @@
         display: block;
         margin: 0 auto;
         margin-bottom: 32px;
-        width: 700px;
+        width: 600px;
      
     }
 }
+
+
 @media screen and (min-width: 1200px) {
     .opportunitiesIcon {
-            display: block;
-           margin-right: 48px;
-            margin-bottom: 32px; 
-           width: 700px;
-         
-        }
+        display: block;
+        /* margin-right: 48px; */
+        margin-bottom: 32px;
+        height: 380px;
+        width: 600px;
+    }
 }
 
 @media screen and (max-width: 1200px) {

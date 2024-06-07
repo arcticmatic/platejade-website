@@ -28,47 +28,71 @@ const montserrat = Montserrat({
 
 export default function About() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+  const [subText, setSubText] = useState("");
+  const [videoSrc, setVideoSrc] = useState("");
+  const [aboutWorkItems, setAboutWorkItems] = useState([]);
 
-  const aboutWorkItems = [
-    {
-      id: 1,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      image: sun,
-    },
-    {
-      id: 2,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      image: map,
-    },
-    {
-      id: 3,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      image: stars,
-    },
-  ];
+  const [slides, setSlides] = useState([]);
 
-  const slides = [
-    {
-      id: 1,
+  useEffect(() => {
+    const fetchSlides = async () => {
+      try {
+        const response = await fetch("/api/about/get-about");
+        if (response.ok) {
+          const data = await response.json();
+          setSlides(data.slides);
+        } else {
+          console.error("Failed to fetch slides");
+        }
+      } catch (error) {
+        console.error("Error fetching slides:", error);
+      }
+    };
 
-      backgroundSrc: AboutBgMockup,
-      backgroundSrcSecond: AboutMockup,
-      title:
-        "Discover Plate Jade: Revolutionising Car License Plate and Frame Customization with Augmented Reality",
-      description:
-        "Plate Jade is an innovative app that uses augmented reality to help you explore, customise, and order license plates and frames effortlessly. Download Plate Jade now and bring your vehicle personalization to the next level!",
-    },
-    {
-      id: 2,
-      imageSrc: "",
-      backgroundSrc: AboutMockup,
-      backgroundSrcSecond: AboutBgMockup,
-      title:
-        "Discover Plate Jade: Revolutionising Car License Plate and Frame Customization with Augmented Reality",
-      description:
-        "Plate Jade is an innovative app that uses augmented reality to help you explore, customise, and order license plates and frames effortlessly. Download Plate Jade now and bring your vehicle personalization to the next level!",
-    },
-  ];
+    fetchSlides();
+  }, []);
+
+  useEffect(() => {
+    async function fetchVideoBlocks() {
+      // setIsLoading(true);
+      try {
+        const response = await fetch("/api/video-block/get-video");
+        if (response.ok) {
+          const data = await response.json();
+          const videoBlockData = data.data[0];
+          setTitle(videoBlockData.title);
+          setText(videoBlockData.text);
+          setSubText(videoBlockData.subText);
+          setVideoSrc(videoBlockData.videoSrc);
+        } else {
+          console.error("Failed to fetch video blocks");
+        }
+      } catch (error) {
+        console.error("Error fetching video blocks:", error);
+      }
+    }
+    fetchVideoBlocks();
+  }, []);
+
+  useEffect(() => {
+    const fetchWorkItems = async () => {
+      try {
+        const response = await fetch("/api/about/how-it-works/get-work-items");
+        if (response.ok) {
+          const data = await response.json();
+          setAboutWorkItems(data.data);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
+
+    fetchWorkItems();
+  }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -79,7 +103,7 @@ export default function About() {
     return () => {
       clearInterval(intervalId);
     };
-  }, []);
+  }, [slides]);
 
   return (
     <>
@@ -131,15 +155,19 @@ export default function About() {
               >
                 <div className={css.aboutImagesThumb}>
                   <Image
+                    width="200"
+                    height="200"
                     className={css.aboutScreenBg}
-                    src={slide.backgroundSrc}
+                    src={slide.imageSrc}
                     alt={`Slide ${index + 1}`}
                   />
 
                   <div className={css.aboutImagesOverlayThumb}>
                     <Image
+                      width="200"
+                      height="200"
                       className={css.aboutScreenBg}
-                      src={slide.backgroundSrcSecond}
+                      src={slide.backgroundSrc}
                       alt={`Slide ${index + 1}`}
                     />
                   </div>
@@ -169,36 +197,18 @@ export default function About() {
             <VideoPlayer />
           </div>
           <div className={css.aboutVideoThumb}>
-            <p className={css.aboutVideoTitle}>
-              Download and Try Plate Jade App for Free Right Now
-            </p>
+            <p className={css.aboutVideoTitle}>{title} </p>
 
             <div className={css.aboutVideoDescriptionThumb}>
-              <p className={css.aboutVideoDescription}>
-                Experience the ultimate convenience and creativity in vehicle
-                personalization with Plate Jade. Our app offers a seamless way
-                to explore, customise, and order license plates and frames using
-                state-of-the-art augmented reality technology. Whether you're
-                looking to see how a specific license plate design looks on your
-                car, or you want to find the perfect frame that complements your
-                style, Plate Jade has you covered.
-              </p>
-              <p className={css.aboutVideoDescription}>
-                With Plate Jade, you can enjoy a hassle-free and interactive
-                experience right from your mobile device. Download the app for
-                free today and take advantage of its powerful features to
-                transform your vehicle’s appearance. Join our growing community
-                of satisfied users who are discovering the ease and fun of
-                individualising their cars with Plate Jade. Don’t miss out—get
-                Plate Jade now and start your vehicle personalization journey!
-              </p>
+              <p className={css.aboutVideoDescription}>{text}</p>
+              <p className={css.aboutVideoDescription}>{subText}</p>
               <div className={css.aboutDownloadIconsDesktop}>
                 <AppStoreIcon className={css.downloadAppStoreIcon} />
                 <Image
                   alt="google play plate jade"
                   className={css.downloadGooglePlayIcon}
                   src={GooglePlayIcon}
-                />{" "}
+                />
               </div>
             </div>
           </div>
@@ -208,11 +218,11 @@ export default function About() {
               alt="google play plate jade"
               className={css.downloadGooglePlayIcon}
               src={GooglePlayIcon}
-            />{" "}
+            />
           </div>
         </div>
         <div className={css.aboutVideoThumbDesktop}>
-          <VideoPlayer />
+          <VideoPlayer src={videoSrc} />
         </div>
       </section>
       <section>
@@ -221,7 +231,13 @@ export default function About() {
           <ul className={css.aboutWorkList}>
             {aboutWorkItems.map((item) => (
               <li key={item.id} className={css.aboutWorkItem}>
-                <Image className={css.aboutWorkImage} src={item.image} />
+                <Image
+                  width="50"
+                  height="50"
+                  className={css.aboutWorkImage}
+                  src={item.icon}
+                />
+                <p className={css.aboutWorkThumbTitle}>{item.title}</p>
                 <p className={css.aboutWorkText}>{item.text}</p>
               </li>
             ))}
