@@ -190,7 +190,7 @@ export default function HomeHero() {
       {
         id: uuidv4(),
         title: "",
-        description: "",
+        description: [""],
         imageSrc: "",
         backgroundSrc: "",
       },
@@ -231,6 +231,45 @@ export default function HomeHero() {
       prevSlides.map((slide) => {
         if (slide.id === slideId) {
           return { ...slide, [key]: value };
+        }
+        return slide;
+      })
+    );
+  };
+
+  const handleDescriptionChange = (e, slideId, index) => {
+    const { value } = e.target;
+    setSlides((prevSlides) =>
+      prevSlides.map((slide) => {
+        if (slide.id === slideId) {
+          const newDescriptions = [...slide.description];
+          newDescriptions[index] = value;
+          return { ...slide, description: newDescriptions };
+        }
+        return slide;
+      })
+    );
+  };
+
+  const addDescription = (slideId) => {
+    setSlides((prevSlides) =>
+      prevSlides.map((slide) => {
+        if (slide.id === slideId) {
+          return { ...slide, description: [...slide.description, ""] };
+        }
+        return slide;
+      })
+    );
+  };
+
+  const removeDescription = (slideId, index) => {
+    setSlides((prevSlides) =>
+      prevSlides.map((slide) => {
+        if (slide.id === slideId) {
+          const newDescriptions = slide.description.filter(
+            (_, descIndex) => descIndex !== index
+          );
+          return { ...slide, description: newDescriptions };
         }
         return slide;
       })
@@ -539,6 +578,7 @@ export default function HomeHero() {
                   handleInputTextChange={(e) =>
                     handleInputChange(e, slide.id, "description")
                   }
+                  handleDescriptionChange={handleDescriptionChange}
                   handleRemoveSlide={() => handleRemoveSlide(slide)}
                   handleDeleteFile={() => handleDeleteFile(slide, "imageSrc")}
                   handleDeleteAdditionalFile={() =>
@@ -555,6 +595,8 @@ export default function HomeHero() {
                   }
                   loadingItems={loadingItems}
                   loadingAdditionalItems={loadingAdditionalItems}
+                  addDescription={addDescription}
+                  removeDescription={removeDescription}
                 />
               ))}
             </div>

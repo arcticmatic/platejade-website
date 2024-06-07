@@ -12,9 +12,8 @@ import CheckMarkGreen from "../../components/images/CheckMarkGreen.svg";
 const SlideForm = ({
   slide,
   handleFileChange,
-  handleAdditionalFileChange,
   handleInputChange,
-  handleInputTextChange,
+  handleDescriptionChange,
   handleRemoveSlide,
   showRemoveButton,
   handleDeleteFile,
@@ -23,6 +22,8 @@ const SlideForm = ({
   backgroundFileName,
   loadingItems,
   loadingAdditionalItems,
+  addDescription,
+  removeDescription,
 }) => {
   const [selectedOption, setSelectedOption] = useState("simple");
 
@@ -31,25 +32,40 @@ const SlideForm = ({
   };
 
   return (
-    <>
-      <label className={css.heroLabel}>
-        Title
+    <div className={css.slideForm}>
+      <div className={css.formGroup}>
+        <label>Title:</label>
         <input
-          className={css.heroTitleInput}
-          placeholder="Enter title"
+          type="text"
           value={slide.title}
-          onChange={(e) => handleInputChange(e)}
+          onChange={(e) => handleInputChange(e, slide.id, "title")}
         />
-      </label>
-      <label className={css.heroLabel}>
-        Text
-        <input
-          className={css.heroTextInput}
-          placeholder="Enter description"
-          value={slide.description}
-          onChange={(e) => handleInputTextChange(e)}
-        />
-      </label>
+      </div>
+
+      <div className={css.formGroup}>
+        <label>Text:</label>
+        {slide.description.map((desc, index) => (
+          <div key={index} className={css.descriptionContainer}>
+            <input
+              type="text"
+              value={desc}
+              onChange={(e) => handleDescriptionChange(e, slide.id, index)}
+            />
+            {slide.description.length > 1 && (
+              <button
+                type="button"
+                onClick={() => removeDescription(slide.id, index)}
+              >
+                Remove
+              </button>
+            )}
+          </div>
+        ))}
+        <button type="button" onClick={() => addDescription(slide.id)}>
+          Add Description
+        </button>
+      </div>
+
       <div className={css.heroLabel}>
         <p className={css.heroLabelText}>Photo</p>
         <div className={css.radioWrapperThumb}>
@@ -192,7 +208,7 @@ const SlideForm = ({
           Remove slide
         </button>
       )}
-    </>
+    </div>
   );
 };
 

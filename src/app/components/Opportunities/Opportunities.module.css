@@ -60,10 +60,26 @@
     align-items: center;
 }
 @media screen and (min-width: 1200px) {
-.opportunitiesTextThumb{
-    width: 47%;
+
+    .opportunitiesItem:nth-child(odd) .opportunitiesTextThumb {
+        text-align: end;
+        margin-right: 60px;
+    }
+
+    .opportunitiesItem:nth-child(even) .opportunitiesTextThumb {
+        text-align: start;
+        margin-left: 60px;
+    }
+    .opportunitiesItem:nth-child(odd) .opportunitiesImageThumb {
+        margin-right: 40px;
+    }
+
+    .opportunitiesItem:nth-child(even) .opportunitiesImageThumb {
+     
+        margin-left: 40px;
+    }
 }
-}
+
 @media screen and (max-width: 1200px) {
 .opportunitiesItem{
     margin-bottom: 40px;
