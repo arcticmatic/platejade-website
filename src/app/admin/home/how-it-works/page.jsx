@@ -1,6 +1,6 @@
-import HowItWorks from "@/components/admin/HowItWorks/HowItWorks";
+import HowItWorks from "@/app/components/admin/HowItWorks/HowItWorks";
 
-export default async function Video() {
+export default async function HowItWorksPage() {
   return (
     <>
       <HowItWorks />

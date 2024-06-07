@@ -1,4 +1,4 @@
-import HowItWorksDealer from '../../../../../../models/howItWorksDealer';
+import HowItWorksDealer from '../../../../../models/howItWorksDealer';
 import { NextResponse } from 'next/server';
 
 export async function PATCH(req, { params }) {

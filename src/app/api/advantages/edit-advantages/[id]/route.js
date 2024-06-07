@@ -1,4 +1,4 @@
-import Advantage from '../../../../../models/advantage';
+import Advantage from '../../../../models/advantage';
 import { NextResponse } from 'next/server';
 
 export async function PATCH(req, { params }) {

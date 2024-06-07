@@ -1,4 +1,4 @@
-import Testimonial from '../../../../../models/testimonial';
+import Testimonial from '../../../../models/testimonial';
 import { NextResponse } from 'next/server';
 
 export async function PATCH(req,{params}) {

@@ -1,4 +1,4 @@
-import HowItWork from '../../../../../../models/howItWork';
+import HowItWork from '../../../../../models/howItWork';
 import { NextResponse } from 'next/server';
 
 export async function PATCH(req, { params }) {

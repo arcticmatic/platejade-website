@@ -1,8 +1,8 @@
 
 import mongoose from 'mongoose';
-import Faq from '../../../../../models/faq'; 
+import Faq from '../../../../models/faq'; 
 import { NextResponse } from 'next/server';
-import connect from "../../../../../utils/db";
+import connect from "../../../../utils/db";
 
 
 export async function POST(req, res) {

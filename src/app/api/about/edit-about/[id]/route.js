@@ -1,4 +1,4 @@
-import AboutSlide from '../../../../../models/aboutSlide';
+import AboutSlide from '../../../../models/aboutSlide';
 import { NextResponse } from 'next/server';
 
 export async function PATCH(req,{params}) {

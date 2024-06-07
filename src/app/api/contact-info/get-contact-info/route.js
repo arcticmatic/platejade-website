@@ -1,5 +1,5 @@
-import connect from "../../../../utils/db";
-import Contact from "../../../../models/contact";
+import connect from "../../../utils/db";
+import Contact from "../../../models/contact";
 import { NextResponse } from 'next/server';
 
 export async function GET(req) {

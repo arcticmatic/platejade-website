@@ -1,8 +1,8 @@
 
 import mongoose from 'mongoose';
-import Testimonial from '../../../../models/testimonial'; 
+import Testimonial from '../../../models/testimonial'; 
 import { NextResponse } from 'next/server';
-import connect from "../../../../utils/db";
+import connect from "../../../utils/db";
 
 
 export async function POST(req, res) {
