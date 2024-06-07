@@ -137,7 +137,7 @@ export default function ContactForm() {
           <ul className={css.contactList}>
             {contactsArray.map((contact) => (
               <li className={css.contactItem}>
-                <Link className={css.contactItem} href={contact.href}>
+                <Link className={css.contactLink} href={contact.href}>
                   <Image
                     className={css.contactIcon}
                     alt="contact icon"

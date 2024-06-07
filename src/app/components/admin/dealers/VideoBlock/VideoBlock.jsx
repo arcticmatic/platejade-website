@@ -186,8 +186,9 @@ export default function VideoBlock() {
     fetchVideoBlocks();
   }, []);
 
-  const handleFileChange = async (e, itemId) => {
+  const handleFileChange = async (e) => {
     const selectedFile = e.target.files[0];
+    const itemId = videoBlockId;
 
     e.preventDefault();
     if (!selectedFile || !itemId) return;
@@ -226,9 +227,11 @@ export default function VideoBlock() {
 
       const uploadedFileUrl = uploadRes.url.split("?")[0];
 
-      const updatedItems = { ...item, icon: "" };
-
-      setWorkItems(updatedItems);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        videoUrl: uploadedFileUrl,
+      }));
+      setVideoUrl(uploadedFileUrl);
 
       setIsLoading(false);
     } catch (error) {
@@ -236,6 +239,7 @@ export default function VideoBlock() {
       console.error("Error uploading file:", error);
     }
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -262,14 +266,6 @@ export default function VideoBlock() {
     }
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
-
   const handleDelete = async () => {
     if (!videoUrl) return;
 
@@ -287,6 +283,16 @@ export default function VideoBlock() {
       if (response.ok) {
         setVideoUrl("");
         setSelectedFile(null);
+        await fetch("/api/video-block/edit-video", {
+          method: "PATCH",
+          body: JSON.stringify({
+            id: videoBlockId,
+            videoSrc: "",
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         console.log("File deleted successfully");
       } else {
         console.error("Failed to delete file");
@@ -434,7 +440,7 @@ export default function VideoBlock() {
                             id="file-upload"
                             type="file"
                             className={css.uploadInput}
-                            onChange={(e) => handleFileChange(e, videoBlockId)}
+                            onChange={(e) => handleFileChange(e)}
                           />
                           <Image
                             className={css.uploadIcon}
