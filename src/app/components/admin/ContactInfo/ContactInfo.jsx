@@ -366,7 +366,7 @@ export default function ContactInfo() {
                   />
                 </label>
                 <label className={css.heroLabel}>
-                  E-mail
+                  <Link href={item.email}> E-mail</Link>
                   <input
                     className={css.heroTextInput}
                     placeholder="Enter the e-mail"
