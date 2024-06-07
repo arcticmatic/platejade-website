@@ -31,9 +31,9 @@ export default function About() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [subText, setSubText] = useState("");
-  const [videoSrc, setVideoSrc] = useState("");
+  const [secondSubText, setSecondSubText] = useState([]);
   const [aboutWorkItems, setAboutWorkItems] = useState([]);
-
+  const [videoSrc, setVideoSrc] = useState("");
   const [slides, setSlides] = useState([]);
 
   useEffect(() => {
@@ -118,7 +118,9 @@ export default function About() {
                 }
               >
                 <p className={css.aboutTitle}>{slide.title}</p>
-                <p className={css.aboutDescription}>{slide.description}</p>
+                {slide.description.map((item) => (
+                  <p className={css.aboutDescription}>{item}</p>
+                ))}
 
                 <button className={css.aboutStartBtn}>Get Started</button>
                 <Link href="/#how-works">
