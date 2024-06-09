@@ -312,7 +312,7 @@ border-radius: 8px;
 @media screen and (min-width: 480px) {
     .notificationThumb {
         position: absolute;
-        top: 75%;
+        top: 85%;
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: #fff;

@@ -239,10 +239,8 @@ export default function FAQ() {
       faq.hasOwnProperty("_id")
     );
 
-    setNewFaqs(newFAQSArray);
-
     try {
-      for (const faq of FAQSArray) {
+      for (const faq of newFAQSArray) {
         const responseNew = await fetch("/api/faq/home/add-faqs", {
           method: "POST",
           headers: {
@@ -253,6 +251,7 @@ export default function FAQ() {
 
         if (responseNew.ok) {
           setIsNotification(true);
+          setNewFaqs("");
         }
         if (!responseNew.ok) {
           throw new Error("Failed to save new faqs");
@@ -275,12 +274,16 @@ export default function FAQ() {
           console.error(`Failed to update slide with ID: ${faq._id}`);
         }
       }
+
+      if (newFAQSArray) {
+        setNewFaqs("");
+      }
+
       console.log("FAQSArray saved successfully");
     } catch (error) {
       console.error("Error occurred while saving slides:", error);
     }
   };
-
   return (
     <>
       <section className={css.navSection}>

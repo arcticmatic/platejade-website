@@ -19,26 +19,25 @@ import { redirect } from "next/navigation";
 import SlideForm from "@/app/features/SlideForm/SlideForm";
 import AWS from "aws-sdk";
 import { v4 as uuidv4 } from "uuid";
-import { TailSpin } from "react-loader-spinner";
-import ClipBlack from "../../../images/ClipBlack.svg";
-import CrossRed from "../../../images/CrossRed.svg";
-import CheckMarkGreen from "../../../images/CheckMarkGreen.svg";
 import XClose from "../../../images/XClose.svg";
 
-export default function Hero() {
+export default function HomeHero() {
   const { data: session, status } = useSession();
-  const [isLoading, setIsLoading] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("simple");
+  const [loadingItems, setLoadingItems] = useState({});
+  const [loadingAdditionalItems, setLoadingAdditionalItems] = useState({});
   const [isNotification, setIsNotification] = useState(false);
+  const [newSlides, setNewSlides] = useState([]);
 
   // if (status !== "loading" && !session) {
   //   redirect("/admin");
   // }
   const [selectedPage, setSelectedPage] = useState(null);
-  const [selectedPageId, setSelectedPageId] = useState(2);
+  const [selectedPageId, setSelectedPageId] = useState(1);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [testimonials, setTestimonials] = useState([]);
-  const [loadingItems, setLoadingItems] = useState({});
-  const [newTestimonials, setNewTestimonials] = useState([]);
+  const [addiionalFile, setAdditionalFile] = useState(null);
+  const [mobileSlides, setMobileSlides] = useState([]);
+  const [slides, setSlides] = useState([]);
 
   const pagesArray = [
     {
@@ -47,52 +46,96 @@ export default function Hero() {
       icon: NewspaperWhite,
       activeIcon: Newspaper,
       navLinks: [
-        { id: 1, name: "Hero section", link: "/admin/home" },
-        { id: 2, name: "Video block", link: "/admin/home/video-block" },
-        { id: 3, name: "How it works", link: "/admin/home/how-it-works" },
-        { id: 4, name: "Features", link: "/admin/home/features" },
-        { id: 5, name: "Advantages", link: "/admin/home/advantages" },
-        { id: 6, name: "Testimonials", link: "/admin/home/testimonials" },
-        { id: 7, name: "FAQ", link: "/admin/home/faq" },
-        { id: 8, name: "Download", link: "/admin/home/download" },
         {
-          id: 9,
-          name: "Contact info",
-          link: "/admin/home/contact-info",
+          id: 1,
+          name: "Hero section",
+          link: "/admin/home",
         },
         {
-          id: 10,
-          name: "Contact form",
-          link: "/admin/home/contact-form",
+          id: 2,
+          name: "Video block",
+          link: "/admin/home/video-block",
+        },
+        {
+          id: 3,
+          name: "How it works",
+          link: "/admin/home/how-it-works",
+        },
+        {
+          id: 4,
+          name: "Features",
+          link: "/admin/home/features",
+        },
+        {
+          id: 5,
+          name: "Advantages",
+          link: "/admin/home/advantages",
+        },
+        {
+          id: 6,
+          name: "Testimonials",
+          link: "/admin/home/testimonials",
+        },
+        {
+          id: 7,
+          name: "FAQ",
+          link: "/admin/home/faq",
+        },
+        {
+          id: 8,
+          name: "Download block",
+          link: "/admin/home/download",
+        },
+        {
+          id: 9,
+          name: "Contacts",
+          link: "/admin/home/contacts",
         },
       ],
     },
     {
       id: 2,
       name: "Dealers",
+      activeIcon: Shell,
       icon: Shell,
       activeIcon: "",
       navLinks: [
         {
           id: 1,
           name: "Hero section",
-          link: "/admin/dealers/hero",
+          link: "/",
           isChosen: true,
         },
-        { id: 2, name: "Video block", link: "/admin/dealers/video-block" },
-        { id: 3, name: "How it works", link: "/admin/dealers/how-it-works" },
+        {
+          id: 2,
+          name: "Video block",
+          link: "/video-block",
+        },
+        {
+          id: 3,
+          name: "How it works",
+          link: "/about-work",
+        },
         {
           id: 4,
           name: "Payment options",
-          link: "/admin/dealers/payment-options",
+          link: "/payment-options",
         },
-        { id: 5, name: "Opportunites", link: "/admin/dealers/opportunities" },
+        {
+          id: 5,
+          name: "Opportunites",
+          link: "/opportunities",
+        },
         {
           id: 6,
           name: "Collaboration form",
-          link: "/admin/dealers/collaboration-form",
+          link: "/collaboration-form",
         },
-        { id: 7, name: "FAQ", link: "/admin/dealers/faq" },
+        {
+          id: 7,
+          name: "FAQ",
+          link: "/faq",
+        },
       ],
     },
     {
@@ -101,8 +144,16 @@ export default function Hero() {
       icon: contactsIcon,
       activeIcon: contactsIcon,
       navLinks: [
-        { id: 1, name: "Contact Information", link: "/contact-info" },
-        { id: 2, name: "Collaboration form", link: "/collaboration-form" },
+        {
+          id: 1,
+          name: "Contact Information",
+          link: "/contact-info",
+        },
+        {
+          id: 2,
+          name: "Collaboration form",
+          link: "/collaboration-form",
+        },
       ],
     },
   ];
@@ -110,36 +161,123 @@ export default function Hero() {
   useEffect(() => {
     setSelectedPage(pagesArray[1]);
 
-    const fetchTestimonials = async () => {
+    const fetchSlides = async () => {
       try {
-        const response = await fetch("/api/testimonials/get-testimonials");
+        const response = await fetch("/api/slides/get-slides");
         if (response.ok) {
           const data = await response.json();
-          setTestimonials(data.data);
+          console.log("data:", data.data[0].icons);
+          setMobileSlides(data.data[0].icons);
         } else {
-          console.error("Failed to fetch work items");
+          console.error("Failed to fetch slides");
         }
       } catch (error) {
-        console.error("Error occurred while fetching work items:", error);
+        console.error("Error fetching slides:", error);
       }
     };
 
-    fetchTestimonials();
-  }, [newTestimonials]);
+    fetchSlides();
+  }, [newSlides]);
 
-  const handleInputChange = (e, itemId, field, value) => {
-    const updatedItems = testimonials.map((item) =>
-      item.id === itemId ? { ...item, [field]: value } : item
-    );
-    setTestimonials(updatedItems);
+  const handleAddSlide = () => {
+    setSlides((prevSlides) => [
+      ...prevSlides,
+      {
+        id: uuidv4(),
+        title: "",
+        description: [""],
+        tabletSlides: [],
+        desktopSlides: [],
+      },
+    ]);
   };
 
-  const handleFileChange = async (event, testimonialId) => {
+  const handleRemoveSlide = async (slide) => {
+    if (!slide.hasOwnProperty("_id")) {
+      setSlides((prevSlides) =>
+        prevSlides.filter((item) => item.id !== slide.id)
+      );
+    }
+
+    if (slide.hasOwnProperty("_id")) {
+      const id = slide._id;
+      try {
+        const response = await fetch(`/api/about/delete-slide/${id}`, {
+          method: "DELETE",
+        });
+
+        if (response.ok) {
+          setSlides((prevSlides) =>
+            prevSlides.filter((item) => item.id !== slide.id)
+          );
+          console.log("Slide deleted successfully");
+        } else {
+          console.error("Failed to delete slide");
+        }
+      } catch (error) {
+        console.error("Error occurred while deleting slide:", error);
+      }
+    }
+  };
+
+  const handleInputChange = (e, slideId, key) => {
+    const { value } = e.target;
+    setSlides((prevSlides) =>
+      prevSlides.map((slide) => {
+        if (slide.id === slideId) {
+          return { ...slide, [key]: value };
+        }
+        return slide;
+      })
+    );
+  };
+
+  const handleDescriptionChange = (e, slideId, index) => {
+    const { value } = e.target;
+    setSlides((prevSlides) =>
+      prevSlides.map((slide) => {
+        if (slide.id === slideId) {
+          const newDescriptions = [...slide.description];
+          newDescriptions[index] = value;
+          return { ...slide, description: newDescriptions };
+        }
+        return slide;
+      })
+    );
+  };
+
+  const addDescription = (slideId) => {
+    setSlides((prevSlides) =>
+      prevSlides.map((slide) => {
+        if (slide.id === slideId) {
+          return { ...slide, description: [...slide.description, ""] };
+        }
+        return slide;
+      })
+    );
+  };
+
+  const removeDescription = (slideId, index) => {
+    setSlides((prevSlides) =>
+      prevSlides.map((slide) => {
+        if (slide.id === slideId) {
+          const newDescriptions = slide.description.filter(
+            (_, descIndex) => descIndex !== index
+          );
+          return { ...slide, description: newDescriptions };
+        }
+        return slide;
+      })
+    );
+  };
+
+  const handleFileChange = async (slideId, event, type) => {
     const file = event.target.files[0];
+    console.log("type:", type);
 
     setLoadingItems((prevLoadingItems) => ({
       ...prevLoadingItems,
-      [testimonialId]: true,
+      [slideId]: true,
     }));
 
     if (file) {
@@ -151,26 +289,22 @@ export default function Hero() {
       if (url) {
         try {
           await uploadFile(file, url);
-
-          const uploadedFileUrl = url.split("?")[0];
-          const updatedTestimonials = testimonials.map((testimonial) =>
-            testimonial.id === testimonialId
-              ? { ...testimonial, icon: uploadedFileUrl }
-              : testimonial
+          const updatedSlides = slides.map((slide) =>
+            slide.id === slideId
+              ? { ...slide, [type]: url.split("?")[0] }
+              : slide
           );
 
-          console.log("updated testimonials", updatedTestimonials);
-
-          setTestimonials(updatedTestimonials);
+          setSlides(updatedSlides);
           setLoadingItems((prevLoadingItems) => ({
             ...prevLoadingItems,
-            [testimonialId]: false,
+            [slideId]: false,
           }));
         } catch (error) {
           console.error("Error uploading file:", error);
           setLoadingItems((prevLoadingItems) => ({
             ...prevLoadingItems,
-            [testimonialId]: false,
+            [slideId]: false,
           }));
         }
       } else {
@@ -218,29 +352,51 @@ export default function Hero() {
     }
   };
 
-  const handleDeleteFile = async (item) => {
-    try {
-      const response = await fetch(`/api/s3/delete-file`, {
-        method: "PATCH",
-        body: JSON.stringify({ url: item.icon }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newSlides = slides.filter((slide) => !slide.hasOwnProperty("_id"));
+    const existingSlides = slides.filter((slide) =>
+      slide.hasOwnProperty("_id")
+    );
 
-      if (response.ok) {
-        setTestimonials((prevItems) =>
-          prevItems.map((testimonial) =>
-            testimonial._id === item._id
-              ? { ...testimonial, icon: "" }
-              : testimonial
-          )
+    try {
+      for (const slide of newSlides) {
+        const responseNew = await fetch("/api/about/add-about", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ slide }),
+        });
+
+        if (!responseNew.ok) {
+          throw new Error("Failed to save new slides");
+        }
+        setNewSlides(newSlides);
+      }
+
+      for (const slide of existingSlides) {
+        const responseUpdate = await fetch(
+          `/api/about/edit-about/${slide._id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ slide }),
+          }
         );
-      } else {
-        console.error("Failed to delete file");
+
+        if (responseUpdate.ok) {
+          setIsNotification(true);
+        }
+
+        if (!responseUpdate.ok) {
+          console.error(`Failed to update slide with ID: ${slide._id}`);
+        }
       }
     } catch (error) {
-      console.error("Error occurred while deleting file:", error);
+      console.error("Error occurred while saving", error);
     }
   };
 
@@ -254,106 +410,41 @@ export default function Hero() {
     signOut();
   };
 
-  const handleAddTestimonial = () => {
-    setTestimonials((prevTestimonials) => [
-      ...prevTestimonials,
-      {
-        id: uuidv4(),
-        customerName: "",
-        customerRole: "",
-        text: "",
-        icon: "",
-      },
-    ]);
+  const handleRadioChange = (event) => {
+    setSelectedOption(event.target.value);
   };
 
-  const handleRemoveTestimonial = async (testimonial) => {
-    if (!testimonial.hasOwnProperty("_id")) {
-      setTestimonials((prevTestimonials) =>
-        prevTestimonials.filter((item) => item.id !== testimonial.id)
-      );
-    }
-
-    if (testimonial.hasOwnProperty("_id")) {
-      const id = testimonial._id;
-      try {
-        const response = await fetch(
-          `/api/testimonials/delete-testimonials/${id}`,
-          {
-            method: "DELETE",
-          }
-        );
-
-        if (response.ok) {
-          setTestimonials((prevTestimonials) =>
-            prevTestimonials.filter((item) => item._id !== testimonial._id)
-          );
-          console.log("Testimonial is deleted successfully");
-        } else {
-          console.error("Failed to delete slide");
-        }
-      } catch (error) {
-        console.error("Error occurred while deleting slide:", error);
-      }
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const newTestimonials = testimonials.filter(
-      (testimonial) => !testimonial.hasOwnProperty("_id")
-    );
-    const existingTestimonials = testimonials.filter((testimonial) =>
-      testimonial.hasOwnProperty("_id")
-    );
-
+  const handleDeleteFile = async (item, type) => {
+    console.log("item, type", item, type);
     try {
-      const responseNew = await fetch("/api/testimonials/add-testimonials", {
-        method: "POST",
+      const response = await fetch(`/api/s3/delete-file`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          url: type === "imageSrc" ? item.imageSrc : item.backgroundSrc,
+        }),
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ testimonials: newTestimonials }),
       });
 
-      if (responseNew.ok) {
-        setIsNotification(true);
-      }
-      if (!responseNew.ok) {
-        throw new Error("Failed to save new slides");
-      }
-
-      for (const testimonial of existingTestimonials) {
-        const responseUpdate = await fetch(
-          `/api/testimonials/edit-testimonials/${testimonial._id}`,
-          {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ testimonial }),
-          }
+      if (type === "backgroundSrc" && response.ok) {
+        console.log("inside res.ok", response.ok);
+        setSlides((prevItems) =>
+          prevItems.map((slide) =>
+            slide._id === item._id ? { ...slide, backgroundSrc: "" } : slide
+          )
         );
-
-        if (responseUpdate.ok) {
-          setIsNotification(true);
-        }
-
-        if (!responseUpdate.ok) {
-          console.error(`Failed to update slide with ID: ${testimonial._id}`);
-        }
+      } else if (type === "imageSrc" && response.ok) {
+        setSlides((prevItems) =>
+          prevItems.map((slide) =>
+            slide._id === item._id ? { ...slide, imageSrc: "" } : slide
+          )
+        );
+      } else {
+        console.error("Failed to delete file");
       }
-
-      if (newTestimonials) {
-        setNewTestimonials(newTestimonials);
-      }
-      if (existingTestimonials) {
-        setNewTestimonials(newTestimonials);
-      }
-
-      console.log("Testimonials saved successfully");
     } catch (error) {
-      console.error("Error occurred while saving slides:", error);
+      console.error("Error occurred while deleting file:", error);
     }
   };
 
@@ -420,7 +511,7 @@ export default function Hero() {
         <div className={css.heroThumb}>
           <div className={css.heroTitleThumb}>
             <p className={css.heroTitle}>
-              Home
+              Hero
               <Image
                 className={css.chevron}
                 alt="chevron right"
@@ -449,90 +540,117 @@ export default function Hero() {
                 </p>
               </div>
             )}
-            {testimonials.map((item) => (
-              <div key={item.id}>
-                <label className={css.heroLabel}>
-                  Customer name
+            <div className={css.heroLabel}>
+              {slides.map((slide, index) => (
+                <>
+                  <label className={css.heroLabel}>Title</label>
                   <input
                     className={css.heroTitleInput}
-                    placeholder="Enter customer name"
-                    value={item.customerName}
-                    onChange={(e) =>
-                      handleInputChange(
-                        e,
-                        item.id,
-                        "customerName",
-                        e.target.value
-                      )
-                    }
+                    type="text"
+                    value={slide.title}
+                    onChange={(e) => handleInputChange(e, slide.id, "title")}
                   />
-                </label>
-                <label className={css.heroLabel}>
-                  Customer position
-                  <input
-                    className={css.heroTitleInput}
-                    placeholder="Enter customer position"
-                    value={item.customerRole}
-                    onChange={(e) =>
-                      handleInputChange(
-                        e,
-                        item.id,
-                        "customerRole",
-                        e.target.value
-                      )
-                    }
-                  />
-                </label>
-                <label className={css.heroLabel}>
-                  Customer testimonial
-                  <input
-                    className={css.heroTextInput}
-                    placeholder="Enter description"
-                    value={item.text}
-                    onChange={(e) =>
-                      handleInputChange(e, item.id, "text", e.target.value)
-                    }
-                  />
-                </label>
-                <div className={css.heroLabel}>
-                  <p className={css.heroLabelText}>Customer photo</p>
-                  <div className={css.heroImagesThumb}>
-                    <div className={css.uploadInputThumb}>
-                      {loadingItems[item.id] && <TailSpin />}
 
-                      {item.icon && (
-                        <Image alt="arrow done" src={CheckMarkGreen} />
+                  <label className={css.heroLabel}>Text</label>
+                  {slide.description.map((desc, index) => (
+                    <div key={index} className={css.descriptionContainer}>
+                      <input
+                        className={css.heroTextInput}
+                        type="text"
+                        value={desc}
+                        onChange={(e) =>
+                          handleDescriptionChange(e, slide.id, index)
+                        }
+                      />
+                      {slide.description.length > 1 && index !== 0 && (
+                        <button
+                          className={css.removeSlideBtn}
+                          type="button"
+                          onClick={() => removeDescription(slide.id, index)}
+                        >
+                          Remove paragraph
+                        </button>
                       )}
-                      {item.icon && !loadingItems[item.id] ? (
-                        <>
-                          <p className={css.uploadFileText}>File is uploaded</p>
-                          <p className={css.uploadedVideoName}>
-                            <Image
-                              className={css.uploadedClip}
-                              alt="uploaded clip"
-                              src={ClipBlack}
-                            />
-                            {item.icon.split("/").pop()}
-                            <Image
-                              className={css.uploadedDeleteCross}
-                              alt="delete cross"
-                              onClick={() => handleDeleteFile(item)}
-                              src={CrossRed}
-                            />
-                          </p>
-                        </>
-                      ) : (
-                        !loadingItems[item.id] && (
+                    </div>
+                  ))}
+                  <button
+                    className={css.removeSlideBtn}
+                    type="button"
+                    onClick={() => addDescription(slide.id)}
+                  >
+                    Add new paragraph
+                  </button>
+
+                  <div className={css.heroLabel}>
+                    <p className={css.heroLabelText}>Mobile slides</p>
+
+                    {mobileSlides.map((item, index) => (
+                      <div className={css.heroImagesThumb}>
+                        <div className={css.uploadInputThumb}>
+                          {item.index === index && <TailSpin />}
+
+                          {item.index === index && !loadingItems[index] && (
+                            <Image alt="arrow done" src={CheckMarkGreen} />
+                          )}
+                          {item.index === index && !loadingItems[index] ? (
+                            <>
+                              <p className={css.uploadFileText}>
+                                <Image
+                                  className={css.uploadedClip}
+                                  alt="uploaded clip"
+                                  src={ClipBlack}
+                                />
+                                {item}
+                                <Image
+                                  className={css.uploadedDeleteCross}
+                                  alt="delete cross"
+                                  onClick={(e) => handleDeleteFile(e)}
+                                  src={CrossRed}
+                                />
+                              </p>
+                            </>
+                          ) : (
+                            !loadingItems[index] && (
+                              <>
+                                <label
+                                  htmlFor={`file-upload-${slide.id}`}
+                                  className={css.uploadThumb}
+                                >
+                                  <input
+                                    id={`file-upload-${slide.id}`}
+                                    type="file"
+                                    className={css.uploadInput}
+                                    onChange={(e) =>
+                                      handleFileChange(slide.id, e, "icons")
+                                    }
+                                  />
+                                  <Image
+                                    className={css.uploadIcon}
+                                    alt="upload"
+                                    src={UploadIcon}
+                                  />
+                                  Select a file
+                                </label>
+                                <p className={css.uploadText}>or</p>
+                                <p className={css.uploadFileText}>
+                                  Drag and drop a file here
+                                </p>
+                              </>
+                            )
+                          )}
+                        </div>
+
+                        {/* {!loadingAdditionalItems[slide.id] && (
                           <>
                             <label
-                              htmlFor={`file-upload-${item._id}`}
+                              htmlFor={`additional-file-upload-${slide.id}`}
                               className={css.uploadThumb}
                             >
                               <input
-                                id={`file-upload-${item._id}`}
+                                id={`additional-file-upload-${slide.id}`}
                                 type="file"
                                 className={css.uploadInput}
-                                onChange={(e) => handleFileChange(e, item.id)}
+                                onChange={(e) => handleAdditionalFileChange(e)}
                               />
                               <Image
                                 className={css.uploadIcon}
@@ -546,29 +664,109 @@ export default function Hero() {
                               Drag and drop a file here
                             </p>
                           </>
-                        )
+                        )} */}
+                      </div>
+                    ))}
+
+                    {/* <div className={css.heroImagesThumb}>
+                      <div className={css.uploadInputThumb}>
+                        {loadingItems[slide.id] && <TailSpin />} */}
+
+                    {/* {imageFileName && !loadingItems[slide.id] && (
+                          <Image alt="arrow done" src={CheckMarkGreen} />
+                        )}
+                        {imageFileName && !loadingItems[slide.id] ? (
+                          <>
+                            <p className={css.uploadFileText}>
+                              <Image
+                                className={css.uploadedClip}
+                                alt="uploaded clip"
+                                src={ClipBlack}
+                              />
+                              {imageFileName}
+                              <Image
+                                className={css.uploadedDeleteCross}
+                                alt="delete cross"
+                                onClick={(e) => handleDeleteFile(e)}
+                                src={CrossRed}
+                              />
+                            </p>
+                          </>
+                        ) : (
+                          !loadingItems[slide.id] && (
+                            <>
+                              <label
+                                htmlFor={`file-upload-${slide.id}`}
+                                className={css.uploadThumb}
+                              >
+                                <input
+                                  id={`file-upload-${slide.id}`}
+                                  type="file"
+                                  className={css.uploadInput}
+                                  onChange={(e) => handleFileChange(e)}
+                                />
+                                <Image
+                                  className={css.uploadIcon}
+                                  alt="upload"
+                                  src={UploadIcon}
+                                />
+                                Select a file
+                              </label>
+                              <p className={css.uploadText}>or</p>
+                              <p className={css.uploadFileText}>
+                                Drag and drop a file here
+                              </p>
+                            </>
+                          ) */}
+                    {/* )} */}
+                    {/* </div> */}
+
+                    {/* {!loadingAdditionalItems[slide.id] && (
+                        <>
+                          <label
+                            htmlFor={`additional-file-upload-${slide.id}`}
+                            className={css.uploadThumb}
+                          >
+                            <input
+                              id={`additional-file-upload-${slide.id}`}
+                              type="file"
+                              className={css.uploadInput}
+                              onChange={(e) => handleAdditionalFileChange(e)}
+                            />
+                            <Image
+                              className={css.uploadIcon}
+                              alt="upload"
+                              src={UploadIcon}
+                            />
+                            Select a file
+                          </label>
+                          <p className={css.uploadText}>or</p>
+                          <p className={css.uploadFileText}>
+                            Drag and drop a file here
+                          </p>
+                        </>
                       )}
                     </div>
+                  </div> */}
                   </div>
-                </div>
-                {testimonials.length > 0 && (
-                  <button
-                    className={css.removeBtn}
-                    type="button"
-                    onClick={() => handleRemoveTestimonial(item)}
-                  >
-                    Remove testimonial
-                  </button>
-                )}
-              </div>
-            ))}
-
+                  {slides.length > 1 && (
+                    <button
+                      className={css.removeSlideBtn}
+                      type="button"
+                      onClick={() => handleRemoveSlide(slide)}
+                    >
+                      Remove slide
+                    </button>
+                  )}
+                </>
+              ))}
+            </div>
             <button
               type="button"
-              onClick={handleAddTestimonial}
-              className={css.addBtn}
+              onClick={handleAddSlide}
+              className={css.addSlideBtn}
             >
-              + Add
+              + Add slide
             </button>
             <div>
               <button type="button" className={css.cancelBtn}>

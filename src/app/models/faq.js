@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
 
 const faqSchema = new mongoose.Schema({
-
+ id: {
+    type: String,
+  },
  title: {
     type: String,
   },

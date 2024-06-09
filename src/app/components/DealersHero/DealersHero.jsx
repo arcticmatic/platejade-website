@@ -134,7 +134,7 @@ export default function DealersHero() {
             className={
               index === desktopCurrentSlide
                 ? css.aboutScreensThumb
-                : css.hiddenSlide // Use desktopCurrentSlide for class condition
+                : css.hiddenSlide
             }
           >
             <div className={css.dealersImagesThumb}>

@@ -28,6 +28,8 @@ export default function Header() {
     "/admin/dealers/video-block",
     "/admin/dealers/how-it-works",
     "/admin/dealers/payment-options",
+    "/admin/dealers/faq",
+    "/admin/dealers/opportunities",
   ];
 
   const menuNavigation = [

@@ -1,22 +1,26 @@
 import mongoose from 'mongoose';
 
-const aboutSlideSchema = new mongoose.Schema({
-  id:{    type: String,
- } ,
- title: {
+
+
+const dealerSlideSchema = new mongoose.Schema({
+  id: {
     type: String,
   },
-  text: {
+  title: {
     type: String,
   },
-   imageSrc: {
-    type: String,
+  description: {
+    type: Array,
   },
-   backgroundSrc: {
-    type: String,
+  slides: {
+    type: Array,
   },
-   
+  tabletSlidesArray: {
+    type: Array,
+  },
+  desktopSlidesArray: {
+    type: Array,
+  },
 }, { timestamps: true });
 
-
-module.exports = mongoose.models.AboutSlide || mongoose.model("AboutSlide", aboutSlideSchema);
+module.exports = mongoose.models.DealerSlide || mongoose.model("DealerSlide", dealerSlideSchema);

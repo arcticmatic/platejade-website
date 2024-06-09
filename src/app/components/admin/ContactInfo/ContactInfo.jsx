@@ -323,13 +323,13 @@ export default function ContactInfo() {
         <div className={css.heroThumb}>
           <div className={css.heroTitleThumb}>
             <p className={css.heroTitle}>
-              Home{" "}
+              Home
               <Image
                 className={css.chevron}
                 alt="chevron right"
                 src={ChevronRight}
               />
-              How it works
+              Contact info
             </p>
             <Image
               onClick={handleLogout}
@@ -338,7 +338,7 @@ export default function ContactInfo() {
               src={LogoutIcon}
             />
           </div>
-          <p className={css.heroSectionTitle}>How it works</p>
+          <p className={css.heroSectionTitle}> Contact info</p>
           <form onSubmit={handleEditWorkItem} className={css.heroForm}>
             {isNotification && (
               <div className={css.notificationThumb}>

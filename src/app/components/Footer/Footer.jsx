@@ -29,6 +29,8 @@ export default function Footer() {
     "/admin/dealers/how-it-works",
     "/admin/dealers/how-it-works",
     "/admin/dealers/payment-options",
+    "/admin/dealers/faq",
+    "/admin/dealers/opportunities",
   ];
 
   const menuNavigation = [

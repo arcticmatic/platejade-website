@@ -377,7 +377,7 @@ export default function Testimonials() {
     );
 
     try {
-      for (const testimonial of testimonials) {
+      for (const testimonial of newTestimonials) {
         const response = await fetch("/api/testimonials/add-testimonials", {
           method: "POST",
           headers: {
@@ -386,9 +386,9 @@ export default function Testimonials() {
           body: JSON.stringify({ testimonial }),
         });
 
-        if (response.ok) {
-          setIsNotification(true);
-        }
+        // if (response.ok) {
+        //   setIsNotification(true);
+        // }
         if (!response.ok) {
           throw new Error("Failed to save new slides");
         }
@@ -406,20 +406,15 @@ export default function Testimonials() {
           }
         );
 
-        if (responseUpdate.ok) {
-          setIsNotification(true);
-        }
-
         if (!responseUpdate.ok) {
           console.error(`Failed to update slide with ID: ${testimonial._id}`);
         }
       }
 
+      setIsNotification(true);
+
       if (newTestimonials) {
-        setNewTestimonials(newTestimonials);
-      }
-      if (existingTestimonials) {
-        setNewTestimonials(newTestimonials);
+        setNewTestimonials([]);
       }
 
       console.log("Testimonials saved successfully");

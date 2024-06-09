@@ -33,38 +33,41 @@ const SlideForm = ({
 
   return (
     <div className={css.slideForm}>
-      <div className={css.formGroup}>
-        <label>Title:</label>
-        <input
-          type="text"
-          value={slide.title}
-          onChange={(e) => handleInputChange(e, slide.id, "title")}
-        />
-      </div>
+      <label className={css.heroLabel}>Title</label>
+      <input
+        className={css.heroTitleInput}
+        type="text"
+        value={slide.title}
+        onChange={(e) => handleInputChange(e, slide.id, "title")}
+      />
 
-      <div className={css.formGroup}>
-        <label>Text:</label>
-        {slide.description.map((desc, index) => (
-          <div key={index} className={css.descriptionContainer}>
-            <input
-              type="text"
-              value={desc}
-              onChange={(e) => handleDescriptionChange(e, slide.id, index)}
-            />
-            {slide.description.length > 1 && (
-              <button
-                type="button"
-                onClick={() => removeDescription(slide.id, index)}
-              >
-                Remove
-              </button>
-            )}
-          </div>
-        ))}
-        <button type="button" onClick={() => addDescription(slide.id)}>
-          Add Description
-        </button>
-      </div>
+      <label className={css.heroLabel}>Text</label>
+      {slide.description.map((desc, index) => (
+        <div key={index} className={css.descriptionContainer}>
+          <input
+            className={css.heroTextInput}
+            type="text"
+            value={desc}
+            onChange={(e) => handleDescriptionChange(e, slide.id, index)}
+          />
+          {slide.description.length > 1 && index !== 0 && (
+            <button
+              className={css.removeSlideBtn}
+              type="button"
+              onClick={() => removeDescription(slide.id, index)}
+            >
+              Remove paragraph
+            </button>
+          )}
+        </div>
+      ))}
+      <button
+        className={css.removeSlideBtn}
+        type="button"
+        onClick={() => addDescription(slide.id)}
+      >
+        Add new paragraph
+      </button>
 
       <div className={css.heroLabel}>
         <p className={css.heroLabelText}>Photo</p>
