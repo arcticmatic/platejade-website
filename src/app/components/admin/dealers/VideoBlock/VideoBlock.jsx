@@ -167,7 +167,7 @@ export default function VideoBlock() {
       icon: contactsIcon,
       activeIcon: contactsIcon,
       navLinks: [
-        { id: 1, name: "Contact Information", link: "admin/contact-info" },
+        { id: 1, name: "Contact Information", link: "/admin/contact-info" },
       ],
     },
     {
