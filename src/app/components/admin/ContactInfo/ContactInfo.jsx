@@ -31,9 +31,10 @@ export default function Opportunities() {
   const [isLoading, setIsLoading] = useState(false);
   const [isNotification, setIsNotification] = useState(false);
 
-  // if (status !== "loading" && !session) {
-  //   redirect("/admin");
-  // }
+  if (status === "unauthenticated") {
+    redirect("/admin");
+  }
+
   const [selectedPage, setSelectedPage] = useState(null);
   const [selectedPageId, setSelectedPageId] = useState(3);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -510,287 +511,297 @@ export default function Opportunities() {
 
   return (
     <>
-      <section className={css.navSection}>
-        <div className={css.navThumb}>
-          <Image
-            className={css.logoIcon}
-            alt="platejade logo"
-            src={WhiteLogo}
-          />
-          <ul className={css.pageList}>
-            {pagesArray.map((page) => (
-              <li
-                key={page.id}
-                className={`${css.navItem} ${
-                  selectedPageId === page.id ? css.active : ""
-                }`}
-              >
-                <div
-                  className={
-                    selectedPageId === page.id
-                      ? css.navItemTextActive
-                      : css.navItemText
-                  }
+      {status === "authenticated" && (
+        <section className={css.navSection}>
+          <div className={css.navThumb}>
+            <Image
+              className={css.logoIcon}
+              alt="platejade logo"
+              src={WhiteLogo}
+            />
+            <ul className={css.pageList}>
+              {pagesArray.map((page) => (
+                <li
+                  key={page.id}
+                  className={`${css.navItem} ${
+                    selectedPageId === page.id ? css.active : ""
+                  }`}
                 >
-                  <p className={css.navItemText}>
-                    <Image
-                      className={css.navItemIcon}
-                      alt="option icon"
-                      src={page.icon}
-                    />
-                    {page.name}
-                  </p>
-                  <Image
-                    onClick={() => handlePageClick(page)}
+                  <div
                     className={
                       selectedPageId === page.id
-                        ? css.chevronIconRotated
-                        : css.chevronIcon
+                        ? css.navItemTextActive
+                        : css.navItemText
                     }
-                    src={WhiteChevronDown}
-                  />
-                </div>
-                {selectedPage && selectedPageId === page.id && (
-                  <ul>
-                    {selectedPage.navLinks.map((link) => (
-                      <li className={css.navItem} key={link.id}>
-                        <Link
-                          className={!link.isChosen ? "" : css.navItemChosen}
-                          href={link.link}
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={css.heroThumb}>
-          <div className={css.heroTitleThumb}>
-            <p className={css.heroTitle}>
-              Contacts
-              <Image
-                className={css.chevron}
-                alt="chevron right"
-                src={ChevronRight}
-              />
-              Contacts
-            </p>
-            <Image
-              onClick={handleLogout}
-              className={css.logoutIcon}
-              alt="logout"
-              src={LogoutIcon}
-            />
+                  >
+                    <p className={css.navItemText}>
+                      <Image
+                        className={css.navItemIcon}
+                        alt="option icon"
+                        src={page.icon}
+                      />
+                      {page.name}
+                    </p>
+                    <Image
+                      onClick={() => handlePageClick(page)}
+                      className={
+                        selectedPageId === page.id
+                          ? css.chevronIconRotated
+                          : css.chevronIcon
+                      }
+                      src={WhiteChevronDown}
+                    />
+                  </div>
+                  {selectedPage && selectedPageId === page.id && (
+                    <ul>
+                      {selectedPage.navLinks.map((link) => (
+                        <li className={css.navItem} key={link.id}>
+                          <Link
+                            className={!link.isChosen ? "" : css.navItemChosen}
+                            href={link.link}
+                          >
+                            {link.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
-          <p className={css.heroSectionTitle}> Contacts</p>
-          <form onSubmit={handleSubmit} className={css.heroForm}>
-            {isNotification && (
-              <div className={css.notificationThumb}>
+          <div className={css.heroThumb}>
+            <div className={css.heroTitleThumb}>
+              <p className={css.heroTitle}>
+                Contacts
                 <Image
-                  onClick={() => setIsNotification(false)}
-                  className={css.notificationCloseIcon}
-                  src={XClose}
+                  className={css.chevron}
+                  alt="chevron right"
+                  src={ChevronRight}
                 />
-                <p className={css.notificationText}>
-                  You have successfully updated this block
-                </p>
-              </div>
-            )}
-            {contacts.map((item) => (
-              <div key={item.id}>
-                <label className={css.heroLabelTitle}>
-                  {item.type}
-                  <input
-                    className={css.heroTitleInput}
-                    placeholder="Enter phone number"
-                    value={item.details}
-                    onChange={(e) =>
-                      handleInputChange(e, item.id, "details", e.target.value)
-                    }
+                Contacts
+              </p>
+              <Image
+                onClick={handleLogout}
+                className={css.logoutIcon}
+                alt="logout"
+                src={LogoutIcon}
+              />
+            </div>
+            <p className={css.heroSectionTitle}> Contacts</p>
+            <form onSubmit={handleSubmit} className={css.heroForm}>
+              {isNotification && (
+                <div className={css.notificationThumb}>
+                  <Image
+                    onClick={() => setIsNotification(false)}
+                    className={css.notificationCloseIcon}
+                    src={XClose}
                   />
-                </label>
-                <label className={css.heroLabel}>
-                  Link
-                  <input
-                    className={css.heroTitleInput}
-                    placeholder="Enter the link"
-                    value={item.href}
-                    onChange={(e) =>
-                      handleInputChange(e, item.id, "href", e.target.value)
-                    }
-                  />
-                </label>
-              </div>
-            ))}
-            {socialMediaArray.map((item, index) => (
-              <>
+                  <p className={css.notificationText}>
+                    You have successfully updated this block
+                  </p>
+                </div>
+              )}
+              {contacts.map((item) => (
                 <div key={item.id}>
-                  <p className={css.heroLabelTitle}>Social media {index + 1}</p>
+                  <label className={css.heroLabelTitle}>
+                    {item.type}
+                    <input
+                      className={css.heroTitleInput}
+                      placeholder="Enter phone number"
+                      value={item.details}
+                      onChange={(e) =>
+                        handleInputChange(e, item.id, "details", e.target.value)
+                      }
+                    />
+                  </label>
                   <label className={css.heroLabel}>
                     Link
                     <input
                       className={css.heroTitleInput}
                       placeholder="Enter the link"
-                      value={item.link}
+                      value={item.href}
                       onChange={(e) =>
-                        handleInputChange(e, item.id, "link", e.target.value)
+                        handleInputChange(e, item.id, "href", e.target.value)
                       }
                     />
                   </label>
                 </div>
-                <div className={css.heroLabel}>
-                  <p className={css.heroLabelText}>Home page icon</p>
-                  <div className={css.heroImagesThumb}>
-                    <div className={css.uploadInputThumb}>
-                      {loadingItems[item.id] && <TailSpin />}
+              ))}
+              {socialMediaArray.map((item, index) => (
+                <>
+                  <div key={item.id}>
+                    <p className={css.heroLabelTitle}>
+                      Social media {index + 1}
+                    </p>
+                    <label className={css.heroLabel}>
+                      Link
+                      <input
+                        className={css.heroTitleInput}
+                        placeholder="Enter the link"
+                        value={item.link}
+                        onChange={(e) =>
+                          handleInputChange(e, item.id, "link", e.target.value)
+                        }
+                      />
+                    </label>
+                  </div>
+                  <div className={css.heroLabel}>
+                    <p className={css.heroLabelText}>Home page icon</p>
+                    <div className={css.heroImagesThumb}>
+                      <div className={css.uploadInputThumb}>
+                        {loadingItems[item.id] && <TailSpin />}
 
-                      {item.iconHome && (
-                        <Image alt="arrow done" src={CheckMarkGreen} />
-                      )}
-                      {item.iconHome && !loadingItems[item.id] ? (
-                        <>
-                          <p className={css.uploadFileText}>File is uploaded</p>
-                          <p className={css.uploadedVideoName}>
-                            <Image
-                              className={css.uploadedClip}
-                              alt="uploaded clip"
-                              src={ClipBlack}
-                            />
-                            {item.iconHome.split("/").pop()}
-                            <Image
-                              className={css.uploadedDeleteCross}
-                              alt="delete cross"
-                              onClick={() => handleDeleteFile(item, "iconHome")}
-                              src={CrossRed}
-                            />
-                          </p>
-                        </>
-                      ) : (
-                        !loadingItems[item.id] &&
-                        !item.iconHome && (
+                        {item.iconHome && (
+                          <Image alt="arrow done" src={CheckMarkGreen} />
+                        )}
+                        {item.iconHome && !loadingItems[item.id] ? (
                           <>
-                            <label
-                              htmlFor={`file-upload-${item._id}`}
-                              className={css.uploadThumb}
-                            >
-                              <input
-                                id={`file-upload-${item._id}`}
-                                type="file"
-                                className={css.uploadInput}
-                                onChange={(e) =>
-                                  handleFileChange(e, item.id, "iconHome")
-                                }
-                              />
-                              <Image
-                                className={css.uploadIcon}
-                                alt="upload"
-                                src={UploadIcon}
-                              />
-                              Select a file
-                            </label>
-                            <p className={css.uploadText}>or</p>
                             <p className={css.uploadFileText}>
-                              Drag and drop a file here
+                              File is uploaded
+                            </p>
+                            <p className={css.uploadedVideoName}>
+                              <Image
+                                className={css.uploadedClip}
+                                alt="uploaded clip"
+                                src={ClipBlack}
+                              />
+                              {item.iconHome.split("/").pop()}
+                              <Image
+                                className={css.uploadedDeleteCross}
+                                alt="delete cross"
+                                onClick={() =>
+                                  handleDeleteFile(item, "iconHome")
+                                }
+                                src={CrossRed}
+                              />
                             </p>
                           </>
-                        )
-                      )}
+                        ) : (
+                          !loadingItems[item.id] &&
+                          !item.iconHome && (
+                            <>
+                              <label
+                                htmlFor={`file-upload-${item._id}`}
+                                className={css.uploadThumb}
+                              >
+                                <input
+                                  id={`file-upload-${item._id}`}
+                                  type="file"
+                                  className={css.uploadInput}
+                                  onChange={(e) =>
+                                    handleFileChange(e, item.id, "iconHome")
+                                  }
+                                />
+                                <Image
+                                  className={css.uploadIcon}
+                                  alt="upload"
+                                  src={UploadIcon}
+                                />
+                                Select a file
+                              </label>
+                              <p className={css.uploadText}>or</p>
+                              <p className={css.uploadFileText}>
+                                Drag and drop a file here
+                              </p>
+                            </>
+                          )
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  <p>Contacts page icon</p>
-                  <div className={css.heroImagesThumb}>
-                    <div className={css.uploadInputThumb}>
-                      {loadingContactsItems[item.id] && <TailSpin />}
+                    <p>Contacts page icon</p>
+                    <div className={css.heroImagesThumb}>
+                      <div className={css.uploadInputThumb}>
+                        {loadingContactsItems[item.id] && <TailSpin />}
 
-                      {item.iconContacts && (
-                        <Image alt="arrow done" src={CheckMarkGreen} />
-                      )}
-                      {item.iconContacts && !loadingContactsItems[item.id] ? (
-                        <>
-                          <p className={css.uploadFileText}>File is uploaded</p>
-                          <p className={css.uploadedVideoName}>
-                            <Image
-                              className={css.uploadedClip}
-                              alt="uploaded clip"
-                              src={ClipBlack}
-                            />
-                            {item.iconContacts.split("/").pop()}
-                            <Image
-                              className={css.uploadedDeleteCross}
-                              alt="delete cross"
-                              onClick={() =>
-                                handleDeleteFile(item, "iconContacts")
-                              }
-                              src={CrossRed}
-                            />
-                          </p>
-                        </>
-                      ) : (
-                        !loadingContactsItems[item.id] && (
+                        {item.iconContacts && (
+                          <Image alt="arrow done" src={CheckMarkGreen} />
+                        )}
+                        {item.iconContacts && !loadingContactsItems[item.id] ? (
                           <>
-                            <label
-                              htmlFor={`file-upload-${item._id}`}
-                              className={css.uploadThumb}
-                            >
-                              <input
-                                id={`file-upload-${item._id}`}
-                                type="file"
-                                className={css.uploadInput}
-                                onChange={(e) =>
-                                  handleFileChange(e, item.id, "iconContacts")
-                                }
-                              />
-                              <Image
-                                className={css.uploadIcon}
-                                alt="upload"
-                                src={UploadIcon}
-                              />
-                              Select a file
-                            </label>
-                            <p className={css.uploadText}>or</p>
                             <p className={css.uploadFileText}>
-                              Drag and drop a file here
+                              File is uploaded
+                            </p>
+                            <p className={css.uploadedVideoName}>
+                              <Image
+                                className={css.uploadedClip}
+                                alt="uploaded clip"
+                                src={ClipBlack}
+                              />
+                              {item.iconContacts.split("/").pop()}
+                              <Image
+                                className={css.uploadedDeleteCross}
+                                alt="delete cross"
+                                onClick={() =>
+                                  handleDeleteFile(item, "iconContacts")
+                                }
+                                src={CrossRed}
+                              />
                             </p>
                           </>
-                        )
-                      )}
+                        ) : (
+                          !loadingContactsItems[item.id] && (
+                            <>
+                              <label
+                                htmlFor={`file-upload-${item._id}`}
+                                className={css.uploadThumb}
+                              >
+                                <input
+                                  id={`file-upload-${item._id}`}
+                                  type="file"
+                                  className={css.uploadInput}
+                                  onChange={(e) =>
+                                    handleFileChange(e, item.id, "iconContacts")
+                                  }
+                                />
+                                <Image
+                                  className={css.uploadIcon}
+                                  alt="upload"
+                                  src={UploadIcon}
+                                />
+                                Select a file
+                              </label>
+                              <p className={css.uploadText}>or</p>
+                              <p className={css.uploadFileText}>
+                                Drag and drop a file here
+                              </p>
+                            </>
+                          )
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-                {socialMediaArray.length > 0 && (
+                  {socialMediaArray.length > 0 && (
+                    <button
+                      className={css.addBtn}
+                      type="button"
+                      onClick={() => handleRemoveSocialMedia(item)}
+                    >
+                      Remove social media
+                    </button>
+                  )}
                   <button
-                    className={css.addBtn}
                     type="button"
-                    onClick={() => handleRemoveSocialMedia(item)}
+                    onClick={handleAddSocialMedia}
+                    className={css.addBtn}
                   >
-                    Remove social media
+                    + Add social media
                   </button>
-                )}
-                <button
-                  type="button"
-                  onClick={handleAddSocialMedia}
-                  className={css.addBtn}
-                >
-                  + Add social media
-                </button>
-              </>
-            ))}
+                </>
+              ))}
 
-            <div>
-              <button type="button" className={css.cancelBtn}>
-                Cancel
-              </button>
-              <button type="submit" className={css.saveBtn}>
-                Save
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
+              <div>
+                <button type="button" className={css.cancelBtn}>
+                  Cancel
+                </button>
+                <button type="submit" className={css.saveBtn}>
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      )}
     </>
   );
 }

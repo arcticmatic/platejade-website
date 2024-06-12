@@ -25,6 +25,7 @@ const VideoPlayer = ({ src }) => {
     <div className={css.videoPlayer}>
       <video
         className={css.video}
+        preload="auto"
         ref={videoRef}
         width="834"
         height="503"
