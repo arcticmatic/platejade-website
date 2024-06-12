@@ -12,7 +12,7 @@ export async function POST(req, res) {
 
     const user = await User.findOne({ email });
     if (!user) {
-      return NextResponse.json({ success: false, message: 'User not found' });
+      return NextResponse.json({ success: false, message: 'No account is found for this address.' });
     }
 
     const token = uuidv4();
@@ -25,7 +25,7 @@ export async function POST(req, res) {
       from: process.env.EMAIL_USER,
       to: email,
       subject: 'Password Reset',
-      html: `<p>You requested a password reset. Click <a href="${resetUrl}">here</a> to reset your password.</p>`,
+      html: `<p>You requested a password reset. Click <a href="https://platejade.com/admin/reset-password">here</a> to reset your password.</p>`,
     };
 
     const transporter = nodemailer.createTransport({
@@ -38,7 +38,7 @@ export async function POST(req, res) {
 
     await transporter.sendMail(mailOptions);
 
-    return NextResponse.json({ success: true, message: 'Password reset email sent' });
+    return NextResponse.json({ success: true, message: 'We have sent you an email with further instructions on how to reset your password.' });
   } catch (error) {
     console.error('Error sending password reset email:', error);
     return NextResponse.json({ success: false, error: error.message });

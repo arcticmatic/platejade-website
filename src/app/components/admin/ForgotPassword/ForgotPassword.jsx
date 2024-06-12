@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import css from "./ForgotPassword.module.css";
 import { Poppins } from "next/font/google";
 
@@ -9,6 +11,21 @@ const poppins = Poppins({
 });
 
 export default function ForgotPassword() {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await fetch("/api/auth/forgot-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await res.json();
+    setMessage(data);
+  };
+
   return (
     <>
       <section className={css.loginSection}>
@@ -20,18 +37,35 @@ export default function ForgotPassword() {
             create a new one
           </span>
         </p>
-        <form className={css.loginForm}>
+
+        <form onSubmit={handleSubmit} className={css.loginForm}>
           <label className={css.emailLabel}>
             <div>
               <p>
                 E-mail <span className={css.requiredSymbol}>*</span>
               </p>
             </div>
-            <input className={css.formInput} placeholder="email@gmail.com" />
+            <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={css.formInput}
+              placeholder="email@gmail.com"
+            />
           </label>
 
-          <button className={css.loginBtn}>Reset password</button>
+          <button type="submit" className={css.loginBtn}>
+            Send reset link
+          </button>
         </form>
+        {message.message && (
+          <p
+            className={
+              message.success ? css.resetResultSuccess : css.resetResultError
+            }
+          >
+            {message.message}
+          </p>
+        )}
       </section>
     </>
   );
