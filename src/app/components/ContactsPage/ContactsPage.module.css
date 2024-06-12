@@ -48,7 +48,8 @@ color:  #10101C;
     .contactsPhoto {
         display: block;
         margin: 0 auto;
-        width: 94%;
+        width: 96%;
+        height: 360px;
         margin-bottom: 40px;
     }
 }

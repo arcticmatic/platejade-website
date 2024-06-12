@@ -64,6 +64,7 @@ export default function ContactsPage() {
         <h2 className={css.contactsTitle}>Contacts</h2>
         <div className={css.contactsAllThumb}>
           <Image
+            width="500"
             className={css.contactsPhoto}
             alt="platejade contacts"
             src={contactsPhoto}
