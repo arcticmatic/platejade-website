@@ -236,11 +236,12 @@ export default function VideoBlock() {
     setSubText(e.target.value);
   };
 
-  const handleFileChange = async (e, itemId) => {
+  const handleFileChange = async (e) => {
     const selectedFile = e.target.files[0];
+    const itemId = videoBlockId;
 
     e.preventDefault();
-    if (!selectedFile || !itemId) return;
+    if (!selectedFile) return;
 
     setIsLoading(true);
 
@@ -276,10 +277,11 @@ export default function VideoBlock() {
 
       const uploadedFileUrl = uploadRes.url.split("?")[0];
 
-      const updatedItems = workItems.map((item) =>
-        item._id === itemId ? { ...item, icon: "" } : item
-      );
-      setWorkItems(updatedItems);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        videoUrl: uploadedFileUrl,
+      }));
+      setVideoUrl(uploadedFileUrl);
 
       setIsLoading(false);
     } catch (error) {
@@ -527,7 +529,7 @@ export default function VideoBlock() {
                               id="file-upload"
                               type="file"
                               className={css.uploadInput}
-                              onChange={(e) => handleFileChange(e, item._id)}
+                              onChange={(e) => handleFileChange(e)}
                             />
                             <Image
                               className={css.uploadIcon}

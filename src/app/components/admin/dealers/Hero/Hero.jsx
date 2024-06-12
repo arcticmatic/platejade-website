@@ -848,6 +848,7 @@ export default function HomeHero() {
   };
 
   const handleDeleteFile = async (slideId, iconUrl, type) => {
+    console.log("type:", type);
     try {
       const responseDelete = await fetch(`/api/s3/delete-file`, {
         method: "PATCH",
@@ -888,6 +889,7 @@ export default function HomeHero() {
         );
       }
       if (type === "desktop") {
+        console.log("inside desktop");
         setDesktopSlides((prevSlides) =>
           prevSlides.map((slide) =>
             slide.id === slideId
