@@ -270,145 +270,150 @@ export default function CollaborationForm() {
 
   return (
     <>
-      <section className={css.navSection}>
-        <div className={css.navThumb}>
-          <Image
-            className={css.logoIcon}
-            alt="platejade logo"
-            src={WhiteLogo}
-          />
-          <ul className={css.pageList}>
-            {pagesArray.map((page) => (
-              <li
-                key={page.id}
-                className={`${css.navItem} ${
-                  selectedPageId === page.id ? css.active : ""
-                }`}
-              >
-                <div
-                  className={
-                    selectedPageId === page.id
-                      ? css.navItemTextActive
-                      : css.navItemText
-                  }
+      {status === "authenticated" && (
+        <section className={css.navSection}>
+          <div className={css.navThumb}>
+            <Image
+              className={css.logoIcon}
+              alt="platejade logo"
+              src={WhiteLogo}
+            />
+            <ul className={css.pageList}>
+              {pagesArray.map((page) => (
+                <li
+                  key={page.id}
+                  className={`${css.navItem} ${
+                    selectedPageId === page.id ? css.active : ""
+                  }`}
                 >
-                  <p className={css.navItemText}>
-                    <Image
-                      className={css.navItemIcon}
-                      alt="option icon"
-                      src={page.icon}
-                    />
-                    {page.name}
-                  </p>
-                  <Image
-                    onClick={() => handlePageClick(page)}
+                  <div
                     className={
                       selectedPageId === page.id
-                        ? css.chevronIconRotated
-                        : css.chevronIcon
+                        ? css.navItemTextActive
+                        : css.navItemText
                     }
-                    src={WhiteChevronDown}
-                  />
-                </div>
-                {selectedPage && selectedPageId === page.id && (
-                  <ul>
-                    {selectedPage.navLinks.map((link) => (
-                      <li className={css.navItem} key={link.id}>
-                        <Link
-                          className={!link.isChosen ? "" : css.navItemChosen}
-                          href={link.link}
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-          <div className={css.formsThumb}>
-            <Link className={css.navItem} href="/admin/communication-form">
-              <Image
-                className={css.navLinkIcon}
-                alt="cooperation form"
-                src={ChatIcon}
-              />
-              Communication form
-            </Link>
-          </div>
-        </div>
-        <div className={css.heroThumb}>
-          <div className={css.heroTitleThumb}>
-            <p className={css.communicationFormTitle}>Cooperation form</p>
-            <Image
-              onClick={handleLogout}
-              className={css.logoutIcon}
-              alt="logout"
-              src={LogoutIcon}
-            />
-          </div>
-          <div className={css.searchThumb}>
-            <Image className={css.searchIcon} src={searchFormIcon} />
-            <input
-              type="text"
-              className={css.searchText}
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={handleSearchInputChange}
-            />
-          </div>
-          <div className={css.communicationFormsThumb}>
-            <ul className={css.navFormList}>
-              {fields.map((item) => (
-                <li
-                  className={
-                    item.name !== "File"
-                      ? css.navFormItemTitle
-                      : css.navFormTitleFile
-                  }
-                  key={item.id}
-                >
-                  {item.name}
-                </li>
-              ))}
-            </ul>
-            <ul className={css.navFormValuesList}>
-              {filteredLetters.map((item, index) => (
-                <li className={css.navFormValue} key={index}>
-                  {orderArray.map((key) =>
-                    key !== "_id" &&
-                    key !== "updatedAt" &&
-                    key !== "createdAt" &&
-                    key !== "__v" &&
-                    key !== "fileUrl" ? (
-                      <p className={css.navFormValueItem} key={key}>
-                        {item[key]}
-                      </p>
-                    ) : key === "fileUrl" && item[key] !== "" ? (
-                      <Link
-                        className={css.navFormItemFile}
-                        href={item[key]}
-                        download
-                      >
-                        <Image className={css.navClipIcon} src={FileClipForm} />
-                      </Link>
-                    ) : (
-                      <p className={css.navFormValueItem}></p>
-                    )
-                  )}
-                  <div className={css.trashIconThumb}>
+                  >
+                    <p className={css.navItemText}>
+                      <Image
+                        className={css.navItemIcon}
+                        alt="option icon"
+                        src={page.icon}
+                      />
+                      {page.name}
+                    </p>
                     <Image
-                      src={TrashIcon}
-                      onClick={() => handleDelete(item._id, index)}
+                      onClick={() => handlePageClick(page)}
+                      className={
+                        selectedPageId === page.id
+                          ? css.chevronIconRotated
+                          : css.chevronIcon
+                      }
+                      src={WhiteChevronDown}
                     />
                   </div>
+                  {selectedPage && selectedPageId === page.id && (
+                    <ul>
+                      {selectedPage.navLinks.map((link) => (
+                        <li className={css.navItem} key={link.id}>
+                          <Link
+                            className={!link.isChosen ? "" : css.navItemChosen}
+                            href={link.link}
+                          >
+                            {link.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
+            <div className={css.formsThumb}>
+              <Link className={css.navItem} href="/admin/communication-form">
+                <Image
+                  className={css.navLinkIcon}
+                  alt="cooperation form"
+                  src={ChatIcon}
+                />
+                Communication form
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+          <div className={css.heroThumb}>
+            <div className={css.heroTitleThumb}>
+              <p className={css.communicationFormTitle}>Cooperation form</p>
+              <Image
+                onClick={handleLogout}
+                className={css.logoutIcon}
+                alt="logout"
+                src={LogoutIcon}
+              />
+            </div>
+            <div className={css.searchThumb}>
+              <Image className={css.searchIcon} src={searchFormIcon} />
+              <input
+                type="text"
+                className={css.searchText}
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={handleSearchInputChange}
+              />
+            </div>
+            <div className={css.communicationFormsThumb}>
+              <ul className={css.navFormList}>
+                {fields.map((item) => (
+                  <li
+                    className={
+                      item.name !== "File"
+                        ? css.navFormItemTitle
+                        : css.navFormTitleFile
+                    }
+                    key={item.id}
+                  >
+                    {item.name}
+                  </li>
+                ))}
+              </ul>
+              <ul className={css.navFormValuesList}>
+                {filteredLetters.map((item, index) => (
+                  <li className={css.navFormValue} key={index}>
+                    {orderArray.map((key) =>
+                      key !== "_id" &&
+                      key !== "updatedAt" &&
+                      key !== "createdAt" &&
+                      key !== "__v" &&
+                      key !== "fileUrl" ? (
+                        <p className={css.navFormValueItem} key={key}>
+                          {item[key]}
+                        </p>
+                      ) : key === "fileUrl" && item[key] !== "" ? (
+                        <Link
+                          className={css.navFormItemFile}
+                          href={item[key]}
+                          download
+                        >
+                          <Image
+                            className={css.navClipIcon}
+                            src={FileClipForm}
+                          />
+                        </Link>
+                      ) : (
+                        <p className={css.navFormValueItem}></p>
+                      )
+                    )}
+                    <div className={css.trashIconThumb}>
+                      <Image
+                        src={TrashIcon}
+                        onClick={() => handleDelete(item._id, index)}
+                      />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

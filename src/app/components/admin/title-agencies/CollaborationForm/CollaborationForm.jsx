@@ -370,219 +370,221 @@ export default function CollaborationForm() {
 
   return (
     <>
-      <section className={css.navSection}>
-        <div className={css.navThumb}>
-          <Image
-            className={css.logoIcon}
-            alt="platejade logo"
-            src={WhiteLogo}
-          />
-          <ul className={css.pageList}>
-            {pagesArray.map((page) => (
-              <li
-                key={page.id}
-                className={`${css.navItem} ${
-                  selectedPageId === page.id ? css.active : ""
-                }`}
-              >
-                <div
-                  className={
-                    selectedPageId === page.id
-                      ? css.navItemTextActive
-                      : css.navItemText
-                  }
+      {status === "authenticated" && (
+        <section className={css.navSection}>
+          <div className={css.navThumb}>
+            <Image
+              className={css.logoIcon}
+              alt="platejade logo"
+              src={WhiteLogo}
+            />
+            <ul className={css.pageList}>
+              {pagesArray.map((page) => (
+                <li
+                  key={page.id}
+                  className={`${css.navItem} ${
+                    selectedPageId === page.id ? css.active : ""
+                  }`}
                 >
-                  <p className={css.navItemText}>
-                    <Image
-                      className={css.navItemIcon}
-                      alt="option icon"
-                      src={page.icon}
-                    />
-                    {page.name}
-                  </p>
-                  <Image
-                    onClick={() => handlePageClick(page)}
+                  <div
                     className={
                       selectedPageId === page.id
-                        ? css.chevronIconRotated
-                        : css.chevronIcon
+                        ? css.navItemTextActive
+                        : css.navItemText
                     }
-                    src={WhiteChevronDown}
-                  />
-                </div>
-                {selectedPage && selectedPageId === page.id && (
-                  <ul>
-                    {selectedPage.navLinks.map((link) => (
-                      <li className={css.navItem} key={link.id}>
-                        <Link
-                          className={!link.isChosen ? "" : css.navItemChosen}
-                          href={link.link}
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-          <div className={css.formsThumb}>
-            <Link className={css.navItem} href="/admin/communication-form">
-              <Image
-                className={css.navLinkIcon}
-                alt="cooperation form"
-                src={ChatIcon}
-              />
-              Communication form
-            </Link>
-          </div>
-        </div>
-        <div className={css.heroThumb}>
-          <div className={css.heroTitleThumb}>
-            <p className={css.heroTitle}>
-              Dealers
-              <Image
-                className={css.chevron}
-                alt="chevron right"
-                src={ChevronRight}
-              />
-              Collaboration form
-            </p>
-            <Image
-              onClick={handleLogout}
-              className={css.logoutIcon}
-              alt="logout"
-              src={LogoutIcon}
-            />
-          </div>
-          <p className={css.heroSectionTitle}> Collaboration form</p>
-          <form onSubmit={handleSubmit} className={css.heroForm}>
-            {isNotification && (
-              <div className={css.notificationThumb}>
-                <Image
-                  onClick={() => setIsNotification(false)}
-                  className={css.notificationCloseIcon}
-                  src={XClose}
-                />
-                <p className={css.notificationText}>
-                  You have successfully updated this block
-                </p>
-              </div>
-            )}
-
-            <label className={css.heroLabel}>
-              Form description
-              <input
-                className={css.heroTextInput}
-                placeholder="Enter form description"
-                value={description.text}
-                onChange={handleDescriptionChange}
-              />
-            </label>
-
-            {contactFormArray.map((item, index) => (
-              <>
-                <div key={item.id}>
-                  <label className={css.heroLabel}>
-                    Form field
-                    <input
-                      className={css.heroTitleInput}
-                      placeholder="Enter form field name"
-                      value={item.name}
-                      onChange={(e) =>
-                        handleInputChange(e, item.id, "name", e.target.value)
-                      }
-                    />
-                  </label>
-                  <label className={css.heroLabel}>
-                    <p className={css.heroText}>
-                      Value
-                      <span className={css.heroLabelSubText}>
-                        (type only one word with first letter lowercase)
-                      </span>
+                  >
+                    <p className={css.navItemText}>
+                      <Image
+                        className={css.navItemIcon}
+                        alt="option icon"
+                        src={page.icon}
+                      />
+                      {page.name}
                     </p>
-                    <input
-                      className={css.heroTitleInput}
-                      placeholder="Enter the value"
-                      value={item.value}
-                      onChange={(e) =>
-                        handleInputChange(e, item.id, "value", e.target.value)
+                    <Image
+                      onClick={() => handlePageClick(page)}
+                      className={
+                        selectedPageId === page.id
+                          ? css.chevronIconRotated
+                          : css.chevronIcon
                       }
+                      src={WhiteChevronDown}
                     />
-                  </label>
-                  <label className={css.heroLabel}>
-                    <p className={css.heroText}>
-                      Placeholder
-                      <span className={css.heroSubText}>
-                        (will be shown before user enters the text)
-                      </span>
-                    </p>
-                    <input
-                      className={css.heroTitleInput}
-                      placeholder="Enter placeholder"
-                      value={item.placeholder}
-                      onChange={(e) =>
-                        handleInputChange(
-                          e,
-                          item.id,
-                          "placeholder",
-                          e.target.value
-                        )
-                      }
-                    />
-                  </label>
-                  {item.dropdownListOptions && (
-                    <p className={css.heroText}>List options</p>
+                  </div>
+                  {selectedPage && selectedPageId === page.id && (
+                    <ul>
+                      {selectedPage.navLinks.map((link) => (
+                        <li className={css.navItem} key={link.id}>
+                          <Link
+                            className={!link.isChosen ? "" : css.navItemChosen}
+                            href={link.link}
+                          >
+                            {link.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   )}
-                  {item.dropdownListOptions &&
-                    item.dropdownListOptions.map((option, optionIndex) => (
-                      <>
-                        <label className={css.heroLabel}>
-                          <input
-                            className={css.heroTitleInput}
-                            placeholder="Enter the option"
-                            value={option}
-                            onChange={(e) =>
-                              handleDropdownChange(
-                                index,
-                                optionIndex,
-                                e.target.value
-                              )
-                            }
-                          />
-                        </label>
-                      </>
-                    ))}
-                </div>
-                <button
-                  type="button"
-                  onClick={() => handleRemoveField(item)}
-                  className={css.fieldBtn}
-                >
-                  Remove field
-                </button>
-              </>
-            ))}
-            <button
-              type="button"
-              onClick={handleAddField}
-              className={css.fieldBtn}
-            >
-              Add field
-            </button>
-
-            <div className={css.advantagesBtnThumb}>
-              <button type="button" className={css.cancelBtn}>
-                Cancel
-              </button>
-              <button type="submit" className={css.saveBtn}>
-                Save
-              </button>
+                </li>
+              ))}
+            </ul>
+            <div className={css.formsThumb}>
+              <Link className={css.navItem} href="/admin/communication-form">
+                <Image
+                  className={css.navLinkIcon}
+                  alt="cooperation form"
+                  src={ChatIcon}
+                />
+                Communication form
+              </Link>
             </div>
-          </form>
-        </div>
-      </section>
+          </div>
+          <div className={css.heroThumb}>
+            <div className={css.heroTitleThumb}>
+              <p className={css.heroTitle}>
+                Dealers
+                <Image
+                  className={css.chevron}
+                  alt="chevron right"
+                  src={ChevronRight}
+                />
+                Collaboration form
+              </p>
+              <Image
+                onClick={handleLogout}
+                className={css.logoutIcon}
+                alt="logout"
+                src={LogoutIcon}
+              />
+            </div>
+            <p className={css.heroSectionTitle}> Collaboration form</p>
+            <form onSubmit={handleSubmit} className={css.heroForm}>
+              {isNotification && (
+                <div className={css.notificationThumb}>
+                  <Image
+                    onClick={() => setIsNotification(false)}
+                    className={css.notificationCloseIcon}
+                    src={XClose}
+                  />
+                  <p className={css.notificationText}>
+                    You have successfully updated this block
+                  </p>
+                </div>
+              )}
+
+              <label className={css.heroLabel}>
+                Form description
+                <input
+                  className={css.heroTextInput}
+                  placeholder="Enter form description"
+                  value={description.text}
+                  onChange={handleDescriptionChange}
+                />
+              </label>
+
+              {contactFormArray.map((item, index) => (
+                <>
+                  <div key={item.id}>
+                    <label className={css.heroLabel}>
+                      Form field
+                      <input
+                        className={css.heroTitleInput}
+                        placeholder="Enter form field name"
+                        value={item.name}
+                        onChange={(e) =>
+                          handleInputChange(e, item.id, "name", e.target.value)
+                        }
+                      />
+                    </label>
+                    <label className={css.heroLabel}>
+                      <p className={css.heroText}>
+                        Value
+                        <span className={css.heroLabelSubText}>
+                          (type only one word with first letter lowercase)
+                        </span>
+                      </p>
+                      <input
+                        className={css.heroTitleInput}
+                        placeholder="Enter the value"
+                        value={item.value}
+                        onChange={(e) =>
+                          handleInputChange(e, item.id, "value", e.target.value)
+                        }
+                      />
+                    </label>
+                    <label className={css.heroLabel}>
+                      <p className={css.heroText}>
+                        Placeholder
+                        <span className={css.heroSubText}>
+                          (will be shown before user enters the text)
+                        </span>
+                      </p>
+                      <input
+                        className={css.heroTitleInput}
+                        placeholder="Enter placeholder"
+                        value={item.placeholder}
+                        onChange={(e) =>
+                          handleInputChange(
+                            e,
+                            item.id,
+                            "placeholder",
+                            e.target.value
+                          )
+                        }
+                      />
+                    </label>
+                    {item.dropdownListOptions && (
+                      <p className={css.heroText}>List options</p>
+                    )}
+                    {item.dropdownListOptions &&
+                      item.dropdownListOptions.map((option, optionIndex) => (
+                        <>
+                          <label className={css.heroLabel}>
+                            <input
+                              className={css.heroTitleInput}
+                              placeholder="Enter the option"
+                              value={option}
+                              onChange={(e) =>
+                                handleDropdownChange(
+                                  index,
+                                  optionIndex,
+                                  e.target.value
+                                )
+                              }
+                            />
+                          </label>
+                        </>
+                      ))}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveField(item)}
+                    className={css.fieldBtn}
+                  >
+                    Remove field
+                  </button>
+                </>
+              ))}
+              <button
+                type="button"
+                onClick={handleAddField}
+                className={css.fieldBtn}
+              >
+                Add field
+              </button>
+
+              <div className={css.advantagesBtnThumb}>
+                <button type="button" className={css.cancelBtn}>
+                  Cancel
+                </button>
+                <button type="submit" className={css.saveBtn}>
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      )}
     </>
   );
 }

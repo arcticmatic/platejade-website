@@ -306,218 +306,220 @@ export default function PaymentOptions() {
 
   return (
     <>
-      <section className={css.navSection}>
-        <div className={css.navThumb}>
-          <Image
-            className={css.logoIcon}
-            alt="platejade logo"
-            src={WhiteLogo}
-          />
-          <ul className={css.pageList}>
-            {pagesArray.map((page) => (
-              <li
-                key={page.id}
-                className={`${css.navItem} ${
-                  selectedPageId === page.id ? css.active : ""
-                }`}
-              >
-                <div
-                  className={
-                    selectedPageId === page.id
-                      ? css.navItemTextActive
-                      : css.navItemText
-                  }
+      {status === "authenticated" && (
+        <section className={css.navSection}>
+          <div className={css.navThumb}>
+            <Image
+              className={css.logoIcon}
+              alt="platejade logo"
+              src={WhiteLogo}
+            />
+            <ul className={css.pageList}>
+              {pagesArray.map((page) => (
+                <li
+                  key={page.id}
+                  className={`${css.navItem} ${
+                    selectedPageId === page.id ? css.active : ""
+                  }`}
                 >
-                  <p className={css.navItemText}>
-                    <Image
-                      className={css.navItemIcon}
-                      alt="option icon"
-                      src={page.icon}
-                    />
-                    {page.name}
-                  </p>
-                  <Image
-                    onClick={() => handlePageClick(page)}
+                  <div
                     className={
                       selectedPageId === page.id
-                        ? css.chevronIconRotated
-                        : css.chevronIcon
+                        ? css.navItemTextActive
+                        : css.navItemText
                     }
-                    src={WhiteChevronDown}
-                  />
-                </div>
-                {selectedPage && selectedPageId === page.id && (
-                  <ul>
-                    {selectedPage.navLinks.map((link) => (
-                      <li className={css.navItem} key={link.id}>
-                        <Link
-                          className={!link.isChosen ? "" : css.navItemChosen}
-                          href={link.link}
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-          <div className={css.formsThumb}>
-            <Link className={css.navItem} href="/admin/communication-form">
-              <Image
-                className={css.navLinkIcon}
-                alt="cooperation form"
-                src={ChatIcon}
-              />
-              Communication form
-            </Link>
-          </div>
-        </div>
-        <div className={css.heroThumb}>
-          <div className={css.heroTitleThumb}>
-            <p className={css.heroTitle}>
-              Sellers
-              <Image
-                className={css.chevron}
-                alt="chevron right"
-                src={ChevronRight}
-              />
-              Payment options
-            </p>
-            <Image
-              onClick={handleLogout}
-              className={css.logoutIcon}
-              alt="logout"
-              src={LogoutIcon}
-            />
-          </div>
-          <p className={css.heroSectionTitle}> Payment options</p>
-          <form onSubmit={handleEditWorkItem} className={css.heroForm}>
-            {isNotification && (
-              <div className={css.notificationThumb}>
-                <Image
-                  onClick={() => setIsNotification(false)}
-                  className={css.notificationCloseIcon}
-                  src={XClose}
-                />
-                <p className={css.notificationText}>
-                  You have successfully updated this block
-                </p>
-              </div>
-            )}
-            {workItems.map((item, index) => (
-              <div key={item.id}>
-                <p className={css.planTitle}>Subscription plan {index + 1}</p>
-                <label className={css.heroLabel}>
-                  Subscription period
-                  <input
-                    className={css.heroTextInput}
-                    placeholder="Enter the package name"
-                    value={item.subscriptionPeriod}
-                    onChange={(e) =>
-                      handleInputChange(
-                        e,
-                        item._id,
-                        "subscriptionPeriod",
-                        e.target.value
-                      )
-                    }
-                  />
-                </label>
-                <label className={css.heroLabel}>
-                  Description
-                  <input
-                    className={css.heroTextInput}
-                    placeholder="Enter the package description"
-                    value={item.description}
-                    onChange={(e) =>
-                      handleInputChange(e, item._id, "text", e.target.value)
-                    }
-                  />
-                </label>
-                <label className={css.heroLabel}>
-                  Price
-                  <input
-                    className={css.heroTitleInput}
-                    placeholder="Enter the price"
-                    value={item.price}
-                    onChange={(e) =>
-                      handleInputChange(e, item._id, "price", e.target.value)
-                    }
-                  />
-                </label>
-                <label className={css.heroLabel}>
-                  Pricing period
-                  <input
-                    className={css.heroTitleInput}
-                    placeholder="Enter the pricing period"
-                    value={item.pricingPeriod}
-                    onChange={(e) =>
-                      handleInputChange(
-                        e,
-                        item._id,
-                        "pricingPeriod",
-                        e.target.value
-                      )
-                    }
-                  />
-                </label>
-                <label className={css.heroLabel}>
-                  Customer profit
-                  <input
-                    className={css.heroTitleInput}
-                    placeholder="Enter the profit amount"
-                    value={item.profit}
-                    onChange={(e) =>
-                      handleInputChange(e, item._id, "profit", e.target.value)
-                    }
-                  />
-                </label>
-                {item.packageBenefits.map((benefit, index) => (
-                  <>
-                    <label key={index} className={css.heroLabel}>
-                      Benefit {index + 1}
-                      <input
-                        className={css.heroTextInput}
-                        placeholder="Enter the benefit"
-                        value={benefit}
-                        onChange={(e) =>
-                          handleEditBenefit(item._id, index, e.target.value)
-                        }
+                  >
+                    <p className={css.navItemText}>
+                      <Image
+                        className={css.navItemIcon}
+                        alt="option icon"
+                        src={page.icon}
                       />
-                    </label>
-                    <div className={css.benefitsThumb}>
-                      <button
-                        className={css.benefitsBtn}
-                        type="button"
-                        onClick={() => handleDeleteBenefit(item._id, index)}
-                      >
-                        Delete benefit
-                      </button>
-                      <button
-                        className={css.benefitsBtn}
-                        type="button"
-                        onClick={() => handleAddBenefit(item._id)}
-                      >
-                        Add benefit
-                      </button>
-                    </div>
-                  </>
-                ))}
-              </div>
-            ))}
-            <div className={css.buttonsThumb}>
-              <button type="button" className={css.cancelBtn}>
-                Cancel
-              </button>
-              <button type="submit" className={css.saveBtn}>
-                Save
-              </button>
+                      {page.name}
+                    </p>
+                    <Image
+                      onClick={() => handlePageClick(page)}
+                      className={
+                        selectedPageId === page.id
+                          ? css.chevronIconRotated
+                          : css.chevronIcon
+                      }
+                      src={WhiteChevronDown}
+                    />
+                  </div>
+                  {selectedPage && selectedPageId === page.id && (
+                    <ul>
+                      {selectedPage.navLinks.map((link) => (
+                        <li className={css.navItem} key={link.id}>
+                          <Link
+                            className={!link.isChosen ? "" : css.navItemChosen}
+                            href={link.link}
+                          >
+                            {link.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <div className={css.formsThumb}>
+              <Link className={css.navItem} href="/admin/communication-form">
+                <Image
+                  className={css.navLinkIcon}
+                  alt="cooperation form"
+                  src={ChatIcon}
+                />
+                Communication form
+              </Link>
             </div>
-          </form>
-        </div>
-      </section>
+          </div>
+          <div className={css.heroThumb}>
+            <div className={css.heroTitleThumb}>
+              <p className={css.heroTitle}>
+                Sellers
+                <Image
+                  className={css.chevron}
+                  alt="chevron right"
+                  src={ChevronRight}
+                />
+                Payment options
+              </p>
+              <Image
+                onClick={handleLogout}
+                className={css.logoutIcon}
+                alt="logout"
+                src={LogoutIcon}
+              />
+            </div>
+            <p className={css.heroSectionTitle}> Payment options</p>
+            <form onSubmit={handleEditWorkItem} className={css.heroForm}>
+              {isNotification && (
+                <div className={css.notificationThumb}>
+                  <Image
+                    onClick={() => setIsNotification(false)}
+                    className={css.notificationCloseIcon}
+                    src={XClose}
+                  />
+                  <p className={css.notificationText}>
+                    You have successfully updated this block
+                  </p>
+                </div>
+              )}
+              {workItems.map((item, index) => (
+                <div key={item.id}>
+                  <p className={css.planTitle}>Subscription plan {index + 1}</p>
+                  <label className={css.heroLabel}>
+                    Subscription period
+                    <input
+                      className={css.heroTextInput}
+                      placeholder="Enter the package name"
+                      value={item.subscriptionPeriod}
+                      onChange={(e) =>
+                        handleInputChange(
+                          e,
+                          item._id,
+                          "subscriptionPeriod",
+                          e.target.value
+                        )
+                      }
+                    />
+                  </label>
+                  <label className={css.heroLabel}>
+                    Description
+                    <input
+                      className={css.heroTextInput}
+                      placeholder="Enter the package description"
+                      value={item.description}
+                      onChange={(e) =>
+                        handleInputChange(e, item._id, "text", e.target.value)
+                      }
+                    />
+                  </label>
+                  <label className={css.heroLabel}>
+                    Price
+                    <input
+                      className={css.heroTitleInput}
+                      placeholder="Enter the price"
+                      value={item.price}
+                      onChange={(e) =>
+                        handleInputChange(e, item._id, "price", e.target.value)
+                      }
+                    />
+                  </label>
+                  <label className={css.heroLabel}>
+                    Pricing period
+                    <input
+                      className={css.heroTitleInput}
+                      placeholder="Enter the pricing period"
+                      value={item.pricingPeriod}
+                      onChange={(e) =>
+                        handleInputChange(
+                          e,
+                          item._id,
+                          "pricingPeriod",
+                          e.target.value
+                        )
+                      }
+                    />
+                  </label>
+                  <label className={css.heroLabel}>
+                    Customer profit
+                    <input
+                      className={css.heroTitleInput}
+                      placeholder="Enter the profit amount"
+                      value={item.profit}
+                      onChange={(e) =>
+                        handleInputChange(e, item._id, "profit", e.target.value)
+                      }
+                    />
+                  </label>
+                  {item.packageBenefits.map((benefit, index) => (
+                    <>
+                      <label key={index} className={css.heroLabel}>
+                        Benefit {index + 1}
+                        <input
+                          className={css.heroTextInput}
+                          placeholder="Enter the benefit"
+                          value={benefit}
+                          onChange={(e) =>
+                            handleEditBenefit(item._id, index, e.target.value)
+                          }
+                        />
+                      </label>
+                      <div className={css.benefitsThumb}>
+                        <button
+                          className={css.benefitsBtn}
+                          type="button"
+                          onClick={() => handleDeleteBenefit(item._id, index)}
+                        >
+                          Delete benefit
+                        </button>
+                        <button
+                          className={css.benefitsBtn}
+                          type="button"
+                          onClick={() => handleAddBenefit(item._id)}
+                        >
+                          Add benefit
+                        </button>
+                      </div>
+                    </>
+                  ))}
+                </div>
+              ))}
+              <div className={css.buttonsThumb}>
+                <button type="button" className={css.cancelBtn}>
+                  Cancel
+                </button>
+                <button type="submit" className={css.saveBtn}>
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      )}
     </>
   );
 }

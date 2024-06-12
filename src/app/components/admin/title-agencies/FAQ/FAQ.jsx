@@ -301,153 +301,159 @@ export default function FAQ() {
 
   return (
     <>
-      <section className={css.navSection}>
-        <div className={css.navThumb}>
-          <Image
-            className={css.logoIcon}
-            alt="platejade logo"
-            src={WhiteLogo}
-          />
-          <ul className={css.pageList}>
-            {pagesArray.map((page) => (
-              <li
-                key={page.id}
-                className={`${css.navItem} ${
-                  selectedPageId === page.id ? css.active : ""
-                }`}
-              >
-                <div
-                  className={
-                    selectedPageId === page.id
-                      ? css.navItemTextActive
-                      : css.navItemText
-                  }
+      {status === "authenticated" && (
+        <section className={css.navSection}>
+          <div className={css.navThumb}>
+            <Image
+              className={css.logoIcon}
+              alt="platejade logo"
+              src={WhiteLogo}
+            />
+            <ul className={css.pageList}>
+              {pagesArray.map((page) => (
+                <li
+                  key={page.id}
+                  className={`${css.navItem} ${
+                    selectedPageId === page.id ? css.active : ""
+                  }`}
                 >
-                  <p className={css.navItemText}>
-                    <Image
-                      className={css.navItemIcon}
-                      alt="option icon"
-                      src={page.icon}
-                    />
-                    {page.name}
-                  </p>
-                  <Image
-                    onClick={() => handlePageClick(page)}
+                  <div
                     className={
                       selectedPageId === page.id
-                        ? css.chevronIconRotated
-                        : css.chevronIcon
+                        ? css.navItemTextActive
+                        : css.navItemText
                     }
-                    src={WhiteChevronDown}
-                  />
-                </div>
-                {selectedPage && selectedPageId === page.id && (
-                  <ul>
-                    {selectedPage.navLinks.map((link) => (
-                      <li className={css.navItem} key={link.id}>
-                        <Link
-                          className={!link.isChosen ? "" : css.navItemChosen}
-                          href={link.link}
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-          <div className={css.formsThumb}>
-            <Link className={css.navItem} href="/admin/communication-form">
-              <Image
-                className={css.navLinkIcon}
-                alt="cooperation form"
-                src={ChatIcon}
-              />
-              Communication form
-            </Link>
-          </div>
-        </div>
-        <div className={css.heroThumb}>
-          <div className={css.heroTitleThumb}>
-            <p className={css.heroTitle}>
-              Home
-              <Image
-                className={css.chevron}
-                alt="chevron right"
-                src={ChevronRight}
-              />
-              FAQ
-            </p>
-            <Image
-              onClick={handleLogout}
-              className={css.logoutIcon}
-              alt="logout"
-              src={LogoutIcon}
-            />
-          </div>
-          <p className={css.heroSectionTitle}>FAQ</p>
-          <form onSubmit={handleSubmit} className={css.heroForm}>
-            {isNotification && (
-              <div className={css.notificationThumb}>
-                <Image
-                  onClick={() => setIsNotification(false)}
-                  className={css.notificationCloseIcon}
-                  src={XClose}
-                />
-                <p className={css.notificationText}>
-                  You have successfully updated this block
-                </p>
-              </div>
-            )}
-            {FAQSArray.map((item) => (
-              <div key={item.id}>
-                <label className={css.heroLabel}>
-                  Question
-                  <input
-                    className={css.heroTitleInput}
-                    placeholder="Enter the question"
-                    value={item.title}
-                    onChange={(e) => handleInputChange(e, item.id, "title")}
-                  />
-                </label>
-                <label className={css.heroLabel}>
-                  Answer
-                  <input
-                    className={css.heroTextInput}
-                    placeholder="Enter the answer"
-                    value={item.text}
-                    onChange={(e) => handleInputChange(e, item.id, "text")}
-                  />
-                </label>
-
-                {FAQSArray.length > 0 && (
-                  <button
-                    className={css.removeBtn}
-                    type="button"
-                    onClick={() => handleRemoveFaq(item)}
                   >
-                    Remove FAQ
-                  </button>
-                )}
-              </div>
-            ))}
-
-            <button type="button" onClick={handleAddFaq} className={css.addBtn}>
-              + Add FAQ
-            </button>
-            <div>
-              <button type="button" className={css.cancelBtn}>
-                Cancel
-              </button>
-              <button type="submit" className={css.saveBtn}>
-                Save
-              </button>
+                    <p className={css.navItemText}>
+                      <Image
+                        className={css.navItemIcon}
+                        alt="option icon"
+                        src={page.icon}
+                      />
+                      {page.name}
+                    </p>
+                    <Image
+                      onClick={() => handlePageClick(page)}
+                      className={
+                        selectedPageId === page.id
+                          ? css.chevronIconRotated
+                          : css.chevronIcon
+                      }
+                      src={WhiteChevronDown}
+                    />
+                  </div>
+                  {selectedPage && selectedPageId === page.id && (
+                    <ul>
+                      {selectedPage.navLinks.map((link) => (
+                        <li className={css.navItem} key={link.id}>
+                          <Link
+                            className={!link.isChosen ? "" : css.navItemChosen}
+                            href={link.link}
+                          >
+                            {link.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <div className={css.formsThumb}>
+              <Link className={css.navItem} href="/admin/communication-form">
+                <Image
+                  className={css.navLinkIcon}
+                  alt="cooperation form"
+                  src={ChatIcon}
+                />
+                Communication form
+              </Link>
             </div>
-          </form>
-        </div>
-      </section>
+          </div>
+          <div className={css.heroThumb}>
+            <div className={css.heroTitleThumb}>
+              <p className={css.heroTitle}>
+                Home
+                <Image
+                  className={css.chevron}
+                  alt="chevron right"
+                  src={ChevronRight}
+                />
+                FAQ
+              </p>
+              <Image
+                onClick={handleLogout}
+                className={css.logoutIcon}
+                alt="logout"
+                src={LogoutIcon}
+              />
+            </div>
+            <p className={css.heroSectionTitle}>FAQ</p>
+            <form onSubmit={handleSubmit} className={css.heroForm}>
+              {isNotification && (
+                <div className={css.notificationThumb}>
+                  <Image
+                    onClick={() => setIsNotification(false)}
+                    className={css.notificationCloseIcon}
+                    src={XClose}
+                  />
+                  <p className={css.notificationText}>
+                    You have successfully updated this block
+                  </p>
+                </div>
+              )}
+              {FAQSArray.map((item) => (
+                <div key={item.id}>
+                  <label className={css.heroLabel}>
+                    Question
+                    <input
+                      className={css.heroTitleInput}
+                      placeholder="Enter the question"
+                      value={item.title}
+                      onChange={(e) => handleInputChange(e, item.id, "title")}
+                    />
+                  </label>
+                  <label className={css.heroLabel}>
+                    Answer
+                    <input
+                      className={css.heroTextInput}
+                      placeholder="Enter the answer"
+                      value={item.text}
+                      onChange={(e) => handleInputChange(e, item.id, "text")}
+                    />
+                  </label>
+
+                  {FAQSArray.length > 0 && (
+                    <button
+                      className={css.removeBtn}
+                      type="button"
+                      onClick={() => handleRemoveFaq(item)}
+                    >
+                      Remove FAQ
+                    </button>
+                  )}
+                </div>
+              ))}
+
+              <button
+                type="button"
+                onClick={handleAddFaq}
+                className={css.addBtn}
+              >
+                + Add FAQ
+              </button>
+              <div>
+                <button type="button" className={css.cancelBtn}>
+                  Cancel
+                </button>
+                <button type="submit" className={css.saveBtn}>
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      )}
     </>
   );
 }

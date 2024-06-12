@@ -497,241 +497,245 @@ export default function Opportunities() {
 
   return (
     <>
-      <section className={css.navSection}>
-        <div className={css.navThumb}>
-          <Image
-            className={css.logoIcon}
-            alt="platejade logo"
-            src={WhiteLogo}
-          />
-          <ul className={css.pageList}>
-            {pagesArray.map((page) => (
-              <li
-                key={page.id}
-                className={`${css.navItem} ${
-                  selectedPageId === page.id ? css.active : ""
-                }`}
-              >
-                <div
-                  className={
-                    selectedPageId === page.id
-                      ? css.navItemTextActive
-                      : css.navItemText
-                  }
+      {status === "authenticated" && (
+        <section className={css.navSection}>
+          <div className={css.navThumb}>
+            <Image
+              className={css.logoIcon}
+              alt="platejade logo"
+              src={WhiteLogo}
+            />
+            <ul className={css.pageList}>
+              {pagesArray.map((page) => (
+                <li
+                  key={page.id}
+                  className={`${css.navItem} ${
+                    selectedPageId === page.id ? css.active : ""
+                  }`}
                 >
-                  <p className={css.navItemText}>
-                    <Image
-                      className={css.navItemIcon}
-                      alt="option icon"
-                      src={page.icon}
-                    />
-                    {page.name}
-                  </p>
-                  <Image
-                    onClick={() => handlePageClick(page)}
+                  <div
                     className={
                       selectedPageId === page.id
-                        ? css.chevronIconRotated
-                        : css.chevronIcon
+                        ? css.navItemTextActive
+                        : css.navItemText
                     }
-                    src={WhiteChevronDown}
-                  />
-                </div>
-                {selectedPage && selectedPageId === page.id && (
-                  <ul>
-                    {selectedPage.navLinks.map((link) => (
-                      <li className={css.navItem} key={link.id}>
-                        <Link
-                          className={!link.isChosen ? "" : css.navItemChosen}
-                          href={link.link}
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-          <div className={css.formsThumb}>
-            <Link className={css.navItem} href="/admin/communication-form">
-              <Image
-                className={css.navLinkIcon}
-                alt="cooperation form"
-                src={ChatIcon}
-              />
-              Communication form
-            </Link>
-          </div>
-        </div>
-        <div className={css.heroThumb}>
-          <div className={css.heroTitleThumb}>
-            <p className={css.heroTitle}>
-              Home
-              <Image
-                className={css.chevron}
-                alt="chevron right"
-                src={ChevronRight}
-              />
-              Opportunities
-            </p>
-            <Image
-              onClick={handleLogout}
-              className={css.logoutIcon}
-              alt="logout"
-              src={LogoutIcon}
-            />
-          </div>
-          <p className={css.heroSectionTitle}> Opportunities</p>
-          <form onSubmit={handleSubmit} className={css.heroForm}>
-            {isNotification && (
-              <div className={css.notificationThumb}>
-                <Image
-                  onClick={() => setIsNotification(false)}
-                  className={css.notificationCloseIcon}
-                  src={XClose}
-                />
-                <p className={css.notificationText}>
-                  You have successfully updated this block
-                </p>
-              </div>
-            )}
-
-            {opportunities.map((item) => (
-              <div key={item.id}>
-                {(item.mainText || item.mainText === "") && (
-                  <>
-                    <label className={css.heroLabel}>
-                      Description
-                      <input
-                        className={css.heroTitleInput}
-                        type="text"
-                        placeholder="Main Text"
-                        value={item.mainText}
-                        onChange={(e) =>
-                          handleInputChange(e, item.id, "mainText")
-                        }
+                  >
+                    <p className={css.navItemText}>
+                      <Image
+                        className={css.navItemIcon}
+                        alt="option icon"
+                        src={page.icon}
                       />
-                    </label>
-                    <button
-                      className={css.addBtn}
-                      type="button"
-                      onClick={() => handleRemoveMainText(item)}
-                    >
-                      Remove description
-                    </button>
-                  </>
-                )}
-                <label className={css.heroLabel}>
-                  Title
-                  <input
-                    className={css.heroTitleInput}
-                    placeholder="Enter title"
-                    value={item.title}
-                    onChange={(e) =>
-                      handleInputChange(e, item.id, "title", e.target.value)
-                    }
+                      {page.name}
+                    </p>
+                    <Image
+                      onClick={() => handlePageClick(page)}
+                      className={
+                        selectedPageId === page.id
+                          ? css.chevronIconRotated
+                          : css.chevronIcon
+                      }
+                      src={WhiteChevronDown}
+                    />
+                  </div>
+                  {selectedPage && selectedPageId === page.id && (
+                    <ul>
+                      {selectedPage.navLinks.map((link) => (
+                        <li className={css.navItem} key={link.id}>
+                          <Link
+                            className={!link.isChosen ? "" : css.navItemChosen}
+                            href={link.link}
+                          >
+                            {link.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <div className={css.formsThumb}>
+              <Link className={css.navItem} href="/admin/communication-form">
+                <Image
+                  className={css.navLinkIcon}
+                  alt="cooperation form"
+                  src={ChatIcon}
+                />
+                Communication form
+              </Link>
+            </div>
+          </div>
+          <div className={css.heroThumb}>
+            <div className={css.heroTitleThumb}>
+              <p className={css.heroTitle}>
+                Home
+                <Image
+                  className={css.chevron}
+                  alt="chevron right"
+                  src={ChevronRight}
+                />
+                Opportunities
+              </p>
+              <Image
+                onClick={handleLogout}
+                className={css.logoutIcon}
+                alt="logout"
+                src={LogoutIcon}
+              />
+            </div>
+            <p className={css.heroSectionTitle}> Opportunities</p>
+            <form onSubmit={handleSubmit} className={css.heroForm}>
+              {isNotification && (
+                <div className={css.notificationThumb}>
+                  <Image
+                    onClick={() => setIsNotification(false)}
+                    className={css.notificationCloseIcon}
+                    src={XClose}
                   />
-                </label>
-                <label className={css.heroLabel}>
-                  Text
-                  <input
-                    className={css.heroTextInput}
-                    placeholder="Enter description"
-                    value={item.text}
-                    onChange={(e) =>
-                      handleInputChange(e, item.id, "text", e.target.value)
-                    }
-                  />
-                </label>
-                <div className={css.heroLabel}>
-                  <p className={css.heroLabelText}>Photo</p>
-                  <div className={css.heroImagesThumb}>
-                    <div className={css.uploadInputThumb}>
-                      {loadingItems[item.id] && <TailSpin />}
+                  <p className={css.notificationText}>
+                    You have successfully updated this block
+                  </p>
+                </div>
+              )}
 
-                      {item.icon && (
-                        <Image alt="arrow done" src={CheckMarkGreen} />
-                      )}
-                      {item.icon && !loadingItems[item.id] ? (
-                        <>
-                          <p className={css.uploadFileText}>File is uploaded</p>
-                          <p className={css.uploadedVideoName}>
-                            <Image
-                              className={css.uploadedClip}
-                              alt="uploaded clip"
-                              src={ClipBlack}
-                            />
-                            {item.icon.split("/").pop()}
-                            <Image
-                              className={css.uploadedDeleteCross}
-                              alt="delete cross"
-                              onClick={() => handleDeleteFile(item)}
-                              src={CrossRed}
-                            />
-                          </p>
-                        </>
-                      ) : (
-                        !loadingItems[item.id] && (
+              {opportunities.map((item) => (
+                <div key={item.id}>
+                  {(item.mainText || item.mainText === "") && (
+                    <>
+                      <label className={css.heroLabel}>
+                        Description
+                        <input
+                          className={css.heroTitleInput}
+                          type="text"
+                          placeholder="Main Text"
+                          value={item.mainText}
+                          onChange={(e) =>
+                            handleInputChange(e, item.id, "mainText")
+                          }
+                        />
+                      </label>
+                      <button
+                        className={css.addBtn}
+                        type="button"
+                        onClick={() => handleRemoveMainText(item)}
+                      >
+                        Remove description
+                      </button>
+                    </>
+                  )}
+                  <label className={css.heroLabel}>
+                    Title
+                    <input
+                      className={css.heroTitleInput}
+                      placeholder="Enter title"
+                      value={item.title}
+                      onChange={(e) =>
+                        handleInputChange(e, item.id, "title", e.target.value)
+                      }
+                    />
+                  </label>
+                  <label className={css.heroLabel}>
+                    Text
+                    <input
+                      className={css.heroTextInput}
+                      placeholder="Enter description"
+                      value={item.text}
+                      onChange={(e) =>
+                        handleInputChange(e, item.id, "text", e.target.value)
+                      }
+                    />
+                  </label>
+                  <div className={css.heroLabel}>
+                    <p className={css.heroLabelText}>Photo</p>
+                    <div className={css.heroImagesThumb}>
+                      <div className={css.uploadInputThumb}>
+                        {loadingItems[item.id] && <TailSpin />}
+
+                        {item.icon && (
+                          <Image alt="arrow done" src={CheckMarkGreen} />
+                        )}
+                        {item.icon && !loadingItems[item.id] ? (
                           <>
-                            <label
-                              htmlFor={`file-upload-${item._id}`}
-                              className={css.uploadThumb}
-                            >
-                              <input
-                                id={`file-upload-${item._id}`}
-                                type="file"
-                                className={css.uploadInput}
-                                onChange={(e) => handleFileChange(e, item.id)}
-                              />
-                              <Image
-                                className={css.uploadIcon}
-                                alt="upload"
-                                src={UploadIcon}
-                              />
-                              Select a file
-                            </label>
-                            <p className={css.uploadText}>or</p>
                             <p className={css.uploadFileText}>
-                              Drag and drop a file here
+                              File is uploaded
+                            </p>
+                            <p className={css.uploadedVideoName}>
+                              <Image
+                                className={css.uploadedClip}
+                                alt="uploaded clip"
+                                src={ClipBlack}
+                              />
+                              {item.icon.split("/").pop()}
+                              <Image
+                                className={css.uploadedDeleteCross}
+                                alt="delete cross"
+                                onClick={() => handleDeleteFile(item)}
+                                src={CrossRed}
+                              />
                             </p>
                           </>
-                        )
-                      )}
+                        ) : (
+                          !loadingItems[item.id] && (
+                            <>
+                              <label
+                                htmlFor={`file-upload-${item._id}`}
+                                className={css.uploadThumb}
+                              >
+                                <input
+                                  id={`file-upload-${item._id}`}
+                                  type="file"
+                                  className={css.uploadInput}
+                                  onChange={(e) => handleFileChange(e, item.id)}
+                                />
+                                <Image
+                                  className={css.uploadIcon}
+                                  alt="upload"
+                                  src={UploadIcon}
+                                />
+                                Select a file
+                              </label>
+                              <p className={css.uploadText}>or</p>
+                              <p className={css.uploadFileText}>
+                                Drag and drop a file here
+                              </p>
+                            </>
+                          )
+                        )}
+                      </div>
                     </div>
                   </div>
+                  {opportunities.length > 0 && (
+                    <button
+                      className={css.removeBtn}
+                      type="button"
+                      onClick={() => handleRemoveOpportunity(item)}
+                    >
+                      Remove opportunity
+                    </button>
+                  )}
                 </div>
-                {opportunities.length > 0 && (
-                  <button
-                    className={css.removeBtn}
-                    type="button"
-                    onClick={() => handleRemoveOpportunity(item)}
-                  >
-                    Remove opportunity
-                  </button>
-                )}
-              </div>
-            ))}
+              ))}
 
-            <button
-              type="button"
-              onClick={handleAddOpportunity}
-              className={css.addBtn}
-            >
-              + Add opportunity
-            </button>
-            <div>
-              <button type="button" className={css.cancelBtn}>
-                Cancel
+              <button
+                type="button"
+                onClick={handleAddOpportunity}
+                className={css.addBtn}
+              >
+                + Add opportunity
               </button>
-              <button type="submit" className={css.saveBtn}>
-                Save
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
+              <div>
+                <button type="button" className={css.cancelBtn}>
+                  Cancel
+                </button>
+                <button type="submit" className={css.saveBtn}>
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      )}
     </>
   );
 }

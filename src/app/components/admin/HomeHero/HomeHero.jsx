@@ -482,163 +482,165 @@ export default function HomeHero() {
 
   return (
     <>
-      <section className={css.navSection}>
-        <div className={css.navThumb}>
-          <Image
-            className={css.logoIcon}
-            alt="platejade logo"
-            src={WhiteLogo}
-          />
-          <ul className={css.pageList}>
-            {pagesArray.map((page) => (
-              <li
-                key={page.id}
-                className={`${css.navItem} ${
-                  selectedPageId === page.id ? css.active : ""
-                }`}
-              >
-                <div
-                  className={
-                    selectedPageId === page.id
-                      ? css.navItemTextActive
-                      : css.navItemText
-                  }
+      {status === "authenticated" && (
+        <section className={css.navSection}>
+          <div className={css.navThumb}>
+            <Image
+              className={css.logoIcon}
+              alt="platejade logo"
+              src={WhiteLogo}
+            />
+            <ul className={css.pageList}>
+              {pagesArray.map((page) => (
+                <li
+                  key={page.id}
+                  className={`${css.navItem} ${
+                    selectedPageId === page.id ? css.active : ""
+                  }`}
                 >
-                  <p className={css.navItemText}>
-                    <Image
-                      className={css.navItemIcon}
-                      alt="option icon"
-                      src={page.icon}
-                    />
-                    {page.name}
-                  </p>
-                  <Image
-                    onClick={() => handlePageClick(page)}
+                  <div
                     className={
                       selectedPageId === page.id
-                        ? css.chevronIconRotated
-                        : css.chevronIcon
+                        ? css.navItemTextActive
+                        : css.navItemText
                     }
-                    src={WhiteChevronDown}
-                  />
-                </div>
-                {selectedPage && selectedPageId === page.id && (
-                  <ul>
-                    {selectedPage.navLinks.map((link) => (
-                      <li className={css.navItem} key={link.id}>
-                        <Link
-                          className={!link.isChosen ? "" : css.navItemChosen}
-                          href={link.link}
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-          <div className={css.formsThumb}>
-            <Link className={css.navItem} href="/admin/communication-form">
-              <Image
-                className={css.navLinkIcon}
-                alt="cooperation form"
-                src={ChatIcon}
-              />
-              Communication form
-            </Link>
-          </div>
-        </div>
-        <div className={css.heroThumb}>
-          <div className={css.heroTitleThumb}>
-            <p className={css.heroTitle}>
-              Hero
-              <Image
-                className={css.chevron}
-                alt="chevron right"
-                src={ChevronRight}
-              />
-              Hero section
-            </p>
-            <Image
-              onClick={handleLogout}
-              className={css.logoutIcon}
-              alt="logout"
-              src={LogoutIcon}
-            />
-          </div>
-          <p className={css.heroSectionTitle}>Hero section</p>
-          <form onSubmit={handleSubmit} className={css.heroForm}>
-            {isNotification && (
-              <div className={css.notificationThumb}>
-                <Image
-                  onClick={() => setIsNotification(false)}
-                  className={css.notificationCloseIcon}
-                  src={XClose}
-                />
-                <p className={css.notificationText}>
-                  You have successfully updated this block
-                </p>
-              </div>
-            )}
-            <div className={css.heroLabel}>
-              {slides.map((slide, index) => (
-                <SlideForm
-                  key={slide.id}
-                  slide={slide}
-                  handleFileChange={(e) =>
-                    handleFileChange(slide.id, e, "imageSrc")
-                  }
-                  handleAdditionalFileChange={(e) =>
-                    handleFileChange(slide.id, e, "backgroundSrc")
-                  }
-                  handleInputChange={(e) =>
-                    handleInputChange(e, slide.id, "title")
-                  }
-                  handleInputTextChange={(e) =>
-                    handleInputChange(e, slide.id, "description")
-                  }
-                  handleDescriptionChange={handleDescriptionChange}
-                  handleRemoveSlide={() => handleRemoveSlide(slide)}
-                  handleDeleteFile={() => handleDeleteFile(slide, "imageSrc")}
-                  handleDeleteAdditionalFile={() =>
-                    handleDeleteFile(slide, "backgroundSrc")
-                  }
-                  showRemoveButton={slides.length > 1}
-                  imageFileName={
-                    slide.imageSrc ? slide.imageSrc.split("/").pop() : ""
-                  }
-                  backgroundFileName={
-                    slide.backgroundSrc
-                      ? slide.backgroundSrc.split("/").pop()
-                      : ""
-                  }
-                  loadingItems={loadingItems}
-                  loadingAdditionalItems={loadingAdditionalItems}
-                  addDescription={addDescription}
-                  removeDescription={removeDescription}
-                />
+                  >
+                    <p className={css.navItemText}>
+                      <Image
+                        className={css.navItemIcon}
+                        alt="option icon"
+                        src={page.icon}
+                      />
+                      {page.name}
+                    </p>
+                    <Image
+                      onClick={() => handlePageClick(page)}
+                      className={
+                        selectedPageId === page.id
+                          ? css.chevronIconRotated
+                          : css.chevronIcon
+                      }
+                      src={WhiteChevronDown}
+                    />
+                  </div>
+                  {selectedPage && selectedPageId === page.id && (
+                    <ul>
+                      {selectedPage.navLinks.map((link) => (
+                        <li className={css.navItem} key={link.id}>
+                          <Link
+                            className={!link.isChosen ? "" : css.navItemChosen}
+                            href={link.link}
+                          >
+                            {link.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
               ))}
+            </ul>
+            <div className={css.formsThumb}>
+              <Link className={css.navItem} href="/admin/communication-form">
+                <Image
+                  className={css.navLinkIcon}
+                  alt="cooperation form"
+                  src={ChatIcon}
+                />
+                Communication form
+              </Link>
             </div>
-            <button
-              type="button"
-              onClick={handleAddSlide}
-              className={css.addSlideBtn}
-            >
-              + Add slide
-            </button>
-            <div>
-              <button type="button" className={css.cancelBtn}>
-                Cancel
-              </button>
-              <button type="submit" className={css.saveBtn}>
-                Save
-              </button>
+          </div>
+          <div className={css.heroThumb}>
+            <div className={css.heroTitleThumb}>
+              <p className={css.heroTitle}>
+                Hero
+                <Image
+                  className={css.chevron}
+                  alt="chevron right"
+                  src={ChevronRight}
+                />
+                Hero section
+              </p>
+              <Image
+                onClick={handleLogout}
+                className={css.logoutIcon}
+                alt="logout"
+                src={LogoutIcon}
+              />
             </div>
-          </form>
-        </div>
-      </section>
+            <p className={css.heroSectionTitle}>Hero section</p>
+            <form onSubmit={handleSubmit} className={css.heroForm}>
+              {isNotification && (
+                <div className={css.notificationThumb}>
+                  <Image
+                    onClick={() => setIsNotification(false)}
+                    className={css.notificationCloseIcon}
+                    src={XClose}
+                  />
+                  <p className={css.notificationText}>
+                    You have successfully updated this block
+                  </p>
+                </div>
+              )}
+              <div className={css.heroLabel}>
+                {slides.map((slide, index) => (
+                  <SlideForm
+                    key={slide.id}
+                    slide={slide}
+                    handleFileChange={(e) =>
+                      handleFileChange(slide.id, e, "imageSrc")
+                    }
+                    handleAdditionalFileChange={(e) =>
+                      handleFileChange(slide.id, e, "backgroundSrc")
+                    }
+                    handleInputChange={(e) =>
+                      handleInputChange(e, slide.id, "title")
+                    }
+                    handleInputTextChange={(e) =>
+                      handleInputChange(e, slide.id, "description")
+                    }
+                    handleDescriptionChange={handleDescriptionChange}
+                    handleRemoveSlide={() => handleRemoveSlide(slide)}
+                    handleDeleteFile={() => handleDeleteFile(slide, "imageSrc")}
+                    handleDeleteAdditionalFile={() =>
+                      handleDeleteFile(slide, "backgroundSrc")
+                    }
+                    showRemoveButton={slides.length > 1}
+                    imageFileName={
+                      slide.imageSrc ? slide.imageSrc.split("/").pop() : ""
+                    }
+                    backgroundFileName={
+                      slide.backgroundSrc
+                        ? slide.backgroundSrc.split("/").pop()
+                        : ""
+                    }
+                    loadingItems={loadingItems}
+                    loadingAdditionalItems={loadingAdditionalItems}
+                    addDescription={addDescription}
+                    removeDescription={removeDescription}
+                  />
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={handleAddSlide}
+                className={css.addSlideBtn}
+              >
+                + Add slide
+              </button>
+              <div>
+                <button type="button" className={css.cancelBtn}>
+                  Cancel
+                </button>
+                <button type="submit" className={css.saveBtn}>
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      )}
     </>
   );
 }

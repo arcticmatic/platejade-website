@@ -908,521 +908,543 @@ export default function HomeHero() {
 
   return (
     <>
-      <section className={css.navSection}>
-        <div className={css.navThumb}>
-          <Image
-            className={css.logoIcon}
-            alt="platejade logo"
-            src={WhiteLogo}
-          />
-          <ul className={css.pageList}>
-            {pagesArray.map((page) => (
-              <li
-                key={page.id}
-                className={`${css.navItem} ${
-                  selectedPageId === page.id ? css.active : ""
-                }`}
-              >
-                <div
-                  className={
-                    selectedPageId === page.id
-                      ? css.navItemTextActive
-                      : css.navItemText
-                  }
+      {status === "authenticated" && (
+        <section className={css.navSection}>
+          <div className={css.navThumb}>
+            <Image
+              className={css.logoIcon}
+              alt="platejade logo"
+              src={WhiteLogo}
+            />
+            <ul className={css.pageList}>
+              {pagesArray.map((page) => (
+                <li
+                  key={page.id}
+                  className={`${css.navItem} ${
+                    selectedPageId === page.id ? css.active : ""
+                  }`}
                 >
-                  <p className={css.navItemText}>
-                    <Image
-                      className={css.navItemIcon}
-                      alt="option icon"
-                      src={page.icon}
-                    />
-                    {page.name}
-                  </p>
-                  <Image
-                    onClick={() => handlePageClick(page)}
+                  <div
                     className={
                       selectedPageId === page.id
-                        ? css.chevronIconRotated
-                        : css.chevronIcon
+                        ? css.navItemTextActive
+                        : css.navItemText
                     }
-                    src={WhiteChevronDown}
-                  />
-                </div>
-                {selectedPage && selectedPageId === page.id && (
-                  <ul>
-                    {selectedPage.navLinks.map((link) => (
-                      <li className={css.navItem} key={link.id}>
-                        <Link
-                          className={!link.isChosen ? "" : css.navItemChosen}
-                          href={link.link}
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-          <div className={css.formsThumb}>
-            <Link className={css.navItem} href="/admin/communication-form">
-              <Image
-                className={css.navLinkIcon}
-                alt="cooperation form"
-                src={ChatIcon}
-              />
-              Communication form
-            </Link>
-          </div>
-        </div>
-        <div className={css.heroThumb}>
-          <div className={css.heroTitleThumb}>
-            <p className={css.heroTitle}>
-              Hero
-              <Image
-                className={css.chevron}
-                alt="chevron right"
-                src={ChevronRight}
-              />
-              Hero section
-            </p>
-            <Image
-              onClick={handleLogout}
-              className={css.logoutIcon}
-              alt="logout"
-              src={LogoutIcon}
-            />
-          </div>
-          <p className={css.heroSectionTitle}>Hero section</p>
-          <form onSubmit={handleSubmit} className={css.heroForm}>
-            {isNotification && (
-              <div className={css.notificationThumb}>
-                <Image
-                  onClick={() => setIsNotification(false)}
-                  className={css.notificationCloseIcon}
-                  src={XClose}
-                />
-                <p className={css.notificationText}>
-                  You have successfully updated this block
-                </p>
-              </div>
-            )}
-            <p className={css.heroLabelTextTitle}>Slides title and text</p>
-            <div className={css.heroLabel}>
-              <div>
-                {textsArray.map((slide, index) => (
-                  <div key={slide._id} className={css.slideContainer}>
-                    <p className={css.heroLabel}>Slide {index + 1}</p>
-
-                    <label className={css.heroLabel}>Title</label>
-                    {slide.title.map((title, titleIndex) => (
-                      <input
-                        key={titleIndex}
-                        className={css.heroTitleInput}
-                        type="text"
-                        value={title}
-                        onChange={(e) =>
-                          handleInputChange(e, slide._id, "title", titleIndex)
-                        }
+                  >
+                    <p className={css.navItemText}>
+                      <Image
+                        className={css.navItemIcon}
+                        alt="option icon"
+                        src={page.icon}
                       />
-                    ))}
+                      {page.name}
+                    </p>
+                    <Image
+                      onClick={() => handlePageClick(page)}
+                      className={
+                        selectedPageId === page.id
+                          ? css.chevronIconRotated
+                          : css.chevronIcon
+                      }
+                      src={WhiteChevronDown}
+                    />
+                  </div>
+                  {selectedPage && selectedPageId === page.id && (
+                    <ul>
+                      {selectedPage.navLinks.map((link) => (
+                        <li className={css.navItem} key={link.id}>
+                          <Link
+                            className={!link.isChosen ? "" : css.navItemChosen}
+                            href={link.link}
+                          >
+                            {link.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <div className={css.formsThumb}>
+              <Link className={css.navItem} href="/admin/communication-form">
+                <Image
+                  className={css.navLinkIcon}
+                  alt="cooperation form"
+                  src={ChatIcon}
+                />
+                Communication form
+              </Link>
+            </div>
+          </div>
+          <div className={css.heroThumb}>
+            <div className={css.heroTitleThumb}>
+              <p className={css.heroTitle}>
+                Hero
+                <Image
+                  className={css.chevron}
+                  alt="chevron right"
+                  src={ChevronRight}
+                />
+                Hero section
+              </p>
+              <Image
+                onClick={handleLogout}
+                className={css.logoutIcon}
+                alt="logout"
+                src={LogoutIcon}
+              />
+            </div>
+            <p className={css.heroSectionTitle}>Hero section</p>
+            <form onSubmit={handleSubmit} className={css.heroForm}>
+              {isNotification && (
+                <div className={css.notificationThumb}>
+                  <Image
+                    onClick={() => setIsNotification(false)}
+                    className={css.notificationCloseIcon}
+                    src={XClose}
+                  />
+                  <p className={css.notificationText}>
+                    You have successfully updated this block
+                  </p>
+                </div>
+              )}
+              <p className={css.heroLabelTextTitle}>Slides title and text</p>
+              <div className={css.heroLabel}>
+                <div>
+                  {textsArray.map((slide, index) => (
+                    <div key={slide._id} className={css.slideContainer}>
+                      <p className={css.heroLabel}>Slide {index + 1}</p>
 
-                    <label className={css.heroLabel}>Text</label>
-                    {slide.text.map((text, textIndex) => (
-                      <div key={textIndex} className={css.descriptionContainer}>
+                      <label className={css.heroLabel}>Title</label>
+                      {slide.title.map((title, titleIndex) => (
                         <input
-                          className={css.heroTextInput}
+                          key={titleIndex}
+                          className={css.heroTitleInput}
                           type="text"
-                          value={text}
+                          value={title}
                           onChange={(e) =>
-                            handleDescriptionChange(e, slide._id, textIndex)
+                            handleInputChange(e, slide._id, "title", titleIndex)
                           }
                         />
-                        {slide.text.length > 1 && textIndex !== 0 && (
-                          <button
-                            className={css.removeBtn}
-                            type="button"
-                            onClick={() =>
-                              removeDescription(slide._id, textIndex)
+                      ))}
+
+                      <label className={css.heroLabel}>Text</label>
+                      {slide.text.map((text, textIndex) => (
+                        <div
+                          key={textIndex}
+                          className={css.descriptionContainer}
+                        >
+                          <input
+                            className={css.heroTextInput}
+                            type="text"
+                            value={text}
+                            onChange={(e) =>
+                              handleDescriptionChange(e, slide._id, textIndex)
                             }
-                          >
-                            Remove paragraph
-                          </button>
-                        )}
-                      </div>
+                          />
+                          {slide.text.length > 1 && textIndex !== 0 && (
+                            <button
+                              className={css.removeBtn}
+                              type="button"
+                              onClick={() =>
+                                removeDescription(slide._id, textIndex)
+                              }
+                            >
+                              Remove paragraph
+                            </button>
+                          )}
+                        </div>
+                      ))}
+                      <button
+                        className={css.addBtn}
+                        type="button"
+                        onClick={() => addDescription(slide._id)}
+                      >
+                        Add new paragraph
+                      </button>
+                      <button
+                        className={css.removeBtn}
+                        type="button"
+                        onClick={() => removeTextSlide(index)}
+                      >
+                        Remove slide
+                      </button>
+                    </div>
+                  ))}
+                  <button
+                    className={css.addBtn}
+                    type="button"
+                    onClick={addTextSlide}
+                  >
+                    Add new slide
+                  </button>
+                </div>
+              </div>
+              <div className={css.heroLabel}>
+                <p className={css.heroLabelTextTitle}>Mobile slides</p>
+
+                {mobileSlides.map((slide, slideIndex) => (
+                  <div key={slideIndex}>
+                    {slide.icons.map((icon, iconIndex) => (
+                      <>
+                        <p className={css.heroLabelText}>
+                          Slide {iconIndex + 1}
+                        </p>
+                        <div key={iconIndex} className={css.uploadInputThumb}>
+                          {loadingItems[slideIndex] &&
+                            loadingItems[slideIndex][iconIndex] && <TailSpin />}
+                          {(!loadingItems[slideIndex] ||
+                            !loadingItems[slideIndex][iconIndex]) &&
+                            icon && (
+                              <Image alt="arrow done" src={CheckMarkGreen} />
+                            )}
+                          {icon ? (
+                            <p className={css.uploadFileText}>
+                              <Image
+                                className={css.uploadedClip}
+                                alt="uploaded clip"
+                                src={ClipBlack}
+                              />
+                              {icon.substring(icon.lastIndexOf("/") + 1)}
+                              <Image
+                                className={css.uploadedDeleteCross}
+                                alt="delete cross"
+                                onClick={() =>
+                                  handleDeleteFile(slide.id, icon, "mobile")
+                                }
+                                src={CrossRed}
+                              />
+                            </p>
+                          ) : (
+                            (!loadingItems[slideIndex] ||
+                              !loadingItems[slideIndex][iconIndex]) &&
+                            !icon && (
+                              <>
+                                <label
+                                  htmlFor={`file-upload-${slideIndex}-${iconIndex}`}
+                                  className={css.uploadThumb}
+                                >
+                                  <input
+                                    id={`file-upload-${slideIndex}-${iconIndex}`}
+                                    type="file"
+                                    className={css.uploadInput}
+                                    onChange={(e) =>
+                                      handleFileChange(slideIndex, iconIndex, e)
+                                    }
+                                  />
+                                  <Image
+                                    className={css.uploadIcon}
+                                    alt="upload"
+                                    src={UploadIcon}
+                                  />
+                                  Select a file
+                                </label>
+                                <p className={css.uploadText}>or</p>
+                                <p className={css.uploadFileText}>
+                                  Drag and drop a file here
+                                </p>
+                              </>
+                            )
+                          )}
+                        </div>
+
+                        <button
+                          type="button"
+                          className={css.removeBtn}
+                          onClick={() =>
+                            handleRemoveItem(slideIndex, iconIndex)
+                          }
+                        >
+                          Remove icon
+                        </button>
+                      </>
                     ))}
-                    <button
-                      className={css.addBtn}
-                      type="button"
-                      onClick={() => addDescription(slide._id)}
-                    >
-                      Add new paragraph
-                    </button>
-                    <button
-                      className={css.removeBtn}
-                      type="button"
-                      onClick={() => removeTextSlide(index)}
-                    >
-                      Remove slide
-                    </button>
+
+                    <div>
+                      <button
+                        className={css.addBtn}
+                        type="button"
+                        onClick={() => handleAddItemIcon(slideIndex)}
+                      >
+                        Add icon
+                      </button>
+                    </div>
                   </div>
                 ))}
-                <button
-                  className={css.addBtn}
-                  type="button"
-                  onClick={addTextSlide}
-                >
-                  Add new slide
+              </div>
+
+              <div className={css.heroLabel}>
+                <p className={css.heroLabelTextTitle}>Tablet slides</p>
+                <p className={css.heroLabelTextTitle}>
+                  2 images are needed for the slide to work correctly
+                </p>
+
+                {tabletSlides.map((slide, tabletSlideIndex) => (
+                  <div key={tabletSlideIndex}>
+                    <p className={css.heroLabelText}>
+                      Slide {tabletSlideIndex + 1}
+                    </p>
+
+                    {slide.icons.map((icon, iconIndex) => (
+                      <>
+                        <p className={css.heroLabelText}>
+                          Icon {iconIndex + 1}
+                        </p>
+                        <div key={iconIndex} className={css.uploadInputThumb}>
+                          {loadingTabletItems[tabletSlideIndex] &&
+                            loadingTabletItems[tabletSlideIndex][iconIndex] && (
+                              <TailSpin />
+                            )}
+                          {(!loadingTabletItems[tabletSlideIndex] ||
+                            !loadingTabletItems[tabletSlideIndex][iconIndex]) &&
+                            icon && (
+                              <Image alt="arrow done" src={CheckMarkGreen} />
+                            )}
+                          {icon ? (
+                            <p className={css.uploadFileText}>
+                              <Image
+                                className={css.uploadedClip}
+                                alt="uploaded clip"
+                                src={ClipBlack}
+                              />
+                              {icon.substring(icon.lastIndexOf("/") + 1)}
+                              <Image
+                                className={css.uploadedDeleteCross}
+                                alt="delete cross"
+                                onClick={() =>
+                                  handleDeleteFile(slide.id, icon, "tablet")
+                                }
+                                src={CrossRed}
+                              />
+                            </p>
+                          ) : (
+                            (!loadingTabletItems[tabletSlideIndex] ||
+                              (!loadingTabletItems[tabletSlideIndex][
+                                iconIndex
+                              ] &&
+                                !icon)) && (
+                              <>
+                                <label
+                                  htmlFor={`file-upload-${tabletSlideIndex}-${iconIndex}`}
+                                  className={css.uploadThumb}
+                                >
+                                  <input
+                                    id={`file-upload-${tabletSlideIndex}-${iconIndex}`}
+                                    type="file"
+                                    className={css.uploadInput}
+                                    onChange={(e) =>
+                                      handleTabletFileChange(
+                                        tabletSlideIndex,
+                                        iconIndex,
+                                        e
+                                      )
+                                    }
+                                  />
+                                  <Image
+                                    className={css.uploadIcon}
+                                    alt="upload"
+                                    src={UploadIcon}
+                                  />
+                                  Select a file
+                                </label>
+                                <p className={css.uploadText}>or</p>
+                                <p className={css.uploadFileText}>
+                                  Drag and drop a file here
+                                </p>
+                              </>
+                            )
+                          )}
+                        </div>
+                        <button
+                          type="button"
+                          className={css.removeBtn}
+                          onClick={() =>
+                            handleRemoveTabletIcon(tabletSlideIndex, iconIndex)
+                          }
+                        >
+                          Remove icon
+                        </button>
+                      </>
+                    ))}
+
+                    <div>
+                      <button
+                        className={css.addBtn}
+                        type="button"
+                        onClick={() =>
+                          handleAddTabletItemIcon(tabletSlideIndex)
+                        }
+                      >
+                        Add icon
+                      </button>
+                    </div>
+                    {tabletSlides.length > 1 && (
+                      <button
+                        className={css.addBtn}
+                        type="button"
+                        onClick={() => handleRemoveSlide(tabletSlideIndex)}
+                      >
+                        Remove slide
+                      </button>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={handleAddTabletSlide}
+                className={css.addBtn}
+              >
+                + Add tablet slide
+              </button>
+
+              <div className={css.heroLabel}>
+                <p className={css.heroLabelTextTitle}>Desktop slides</p>
+                <p className={css.heroLabelTextTitle}>
+                  4 images are needed for the slide to work correctly
+                </p>
+
+                {desktopSlides.map((slide, desktopSlideIndex) => (
+                  <div key={desktopSlideIndex}>
+                    <p className={css.heroLabelText}>
+                      Slide {desktopSlideIndex + 1}
+                    </p>
+
+                    {slide.icons.map((icon, iconIndex) => (
+                      <>
+                        <p className={css.heroLabelText}>
+                          Icon {iconIndex + 1}
+                        </p>
+                        <div key={iconIndex} className={css.uploadInputThumb}>
+                          {loadingDesktopItems[desktopSlideIndex] &&
+                            loadingDesktopItems[desktopSlideIndex][
+                              iconIndex
+                            ] && <TailSpin />}
+                          {(!loadingDesktopItems[desktopSlideIndex] ||
+                            !loadingDesktopItems[desktopSlideIndex][
+                              iconIndex
+                            ]) &&
+                            icon && (
+                              <Image alt="arrow done" src={CheckMarkGreen} />
+                            )}
+                          {icon ? (
+                            <p className={css.uploadFileText}>
+                              <Image
+                                className={css.uploadedClip}
+                                alt="uploaded clip"
+                                src={ClipBlack}
+                              />
+                              {icon.substring(icon.lastIndexOf("/") + 1)}
+                              <Image
+                                className={css.uploadedDeleteCross}
+                                alt="delete cross"
+                                onClick={() =>
+                                  handleDeleteFile(slide.id, icon, "desktop")
+                                }
+                                src={CrossRed}
+                              />
+                            </p>
+                          ) : (
+                            (!loadingDesktopItems[desktopSlideIndex] ||
+                              (!loadingDesktopItems[desktopSlideIndex][
+                                iconIndex
+                              ] &&
+                                !icon)) && (
+                              <>
+                                <label
+                                  htmlFor={`file-upload-${desktopSlideIndex}-${iconIndex}`}
+                                  className={css.uploadThumb}
+                                >
+                                  <input
+                                    id={`file-upload-${desktopSlideIndex}-${iconIndex}`}
+                                    type="file"
+                                    className={css.uploadInput}
+                                    onChange={(e) =>
+                                      handleDesktopFileChange(
+                                        desktopSlideIndex,
+                                        iconIndex,
+                                        e
+                                      )
+                                    }
+                                  />
+                                  <Image
+                                    className={css.uploadIcon}
+                                    alt="upload"
+                                    src={UploadIcon}
+                                  />
+                                  Select a file
+                                </label>
+                                <p className={css.uploadText}>or</p>
+                                <p className={css.uploadFileText}>
+                                  Drag and drop a file here
+                                </p>
+                              </>
+                            )
+                          )}
+                        </div>
+                        <button
+                          type="button"
+                          className={css.removeBtn}
+                          onClick={() =>
+                            handleRemoveDesktopIcon(
+                              desktopSlideIndex,
+                              iconIndex
+                            )
+                          }
+                        >
+                          Remove icon
+                        </button>
+                      </>
+                    ))}
+
+                    <div>
+                      <button
+                        className={css.addBtn}
+                        type="button"
+                        onClick={() =>
+                          handleAddDesktopItemIcon(desktopSlideIndex)
+                        }
+                      >
+                        Add icon
+                      </button>
+                    </div>
+                    {tabletSlides.length > 1 && (
+                      <button
+                        className={css.addBtn}
+                        type="button"
+                        onClick={() =>
+                          handleRemoveDesktopSlide(desktopSlideIndex)
+                        }
+                      >
+                        Remove slide
+                      </button>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={handleAddDesktopSlide}
+                className={css.addBtn}
+              >
+                + Add desktop slide
+              </button>
+
+              <div>
+                <button type="button" className={css.cancelBtn}>
+                  Cancel
+                </button>
+                <button type="submit" className={css.saveBtn}>
+                  Save
                 </button>
               </div>
-            </div>
-            <div className={css.heroLabel}>
-              <p className={css.heroLabelTextTitle}>Mobile slides</p>
-
-              {mobileSlides.map((slide, slideIndex) => (
-                <div key={slideIndex}>
-                  {slide.icons.map((icon, iconIndex) => (
-                    <>
-                      <p className={css.heroLabelText}>Slide {iconIndex + 1}</p>
-                      <div key={iconIndex} className={css.uploadInputThumb}>
-                        {loadingItems[slideIndex] &&
-                          loadingItems[slideIndex][iconIndex] && <TailSpin />}
-                        {(!loadingItems[slideIndex] ||
-                          !loadingItems[slideIndex][iconIndex]) &&
-                          icon && (
-                            <Image alt="arrow done" src={CheckMarkGreen} />
-                          )}
-                        {icon ? (
-                          <p className={css.uploadFileText}>
-                            <Image
-                              className={css.uploadedClip}
-                              alt="uploaded clip"
-                              src={ClipBlack}
-                            />
-                            {icon.substring(icon.lastIndexOf("/") + 1)}
-                            <Image
-                              className={css.uploadedDeleteCross}
-                              alt="delete cross"
-                              onClick={() =>
-                                handleDeleteFile(slide.id, icon, "mobile")
-                              }
-                              src={CrossRed}
-                            />
-                          </p>
-                        ) : (
-                          (!loadingItems[slideIndex] ||
-                            !loadingItems[slideIndex][iconIndex]) &&
-                          !icon && (
-                            <>
-                              <label
-                                htmlFor={`file-upload-${slideIndex}-${iconIndex}`}
-                                className={css.uploadThumb}
-                              >
-                                <input
-                                  id={`file-upload-${slideIndex}-${iconIndex}`}
-                                  type="file"
-                                  className={css.uploadInput}
-                                  onChange={(e) =>
-                                    handleFileChange(slideIndex, iconIndex, e)
-                                  }
-                                />
-                                <Image
-                                  className={css.uploadIcon}
-                                  alt="upload"
-                                  src={UploadIcon}
-                                />
-                                Select a file
-                              </label>
-                              <p className={css.uploadText}>or</p>
-                              <p className={css.uploadFileText}>
-                                Drag and drop a file here
-                              </p>
-                            </>
-                          )
-                        )}
-                      </div>
-
-                      <button
-                        type="button"
-                        className={css.removeBtn}
-                        onClick={() => handleRemoveItem(slideIndex, iconIndex)}
-                      >
-                        Remove icon
-                      </button>
-                    </>
-                  ))}
-
-                  <div>
-                    <button
-                      className={css.addBtn}
-                      type="button"
-                      onClick={() => handleAddItemIcon(slideIndex)}
-                    >
-                      Add icon
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className={css.heroLabel}>
-              <p className={css.heroLabelTextTitle}>Tablet slides</p>
-              <p className={css.heroLabelTextTitle}>
-                2 images are needed for the slide to work correctly
-              </p>
-
-              {tabletSlides.map((slide, tabletSlideIndex) => (
-                <div key={tabletSlideIndex}>
-                  <p className={css.heroLabelText}>
-                    Slide {tabletSlideIndex + 1}
-                  </p>
-
-                  {slide.icons.map((icon, iconIndex) => (
-                    <>
-                      <p className={css.heroLabelText}>Icon {iconIndex + 1}</p>
-                      <div key={iconIndex} className={css.uploadInputThumb}>
-                        {loadingTabletItems[tabletSlideIndex] &&
-                          loadingTabletItems[tabletSlideIndex][iconIndex] && (
-                            <TailSpin />
-                          )}
-                        {(!loadingTabletItems[tabletSlideIndex] ||
-                          !loadingTabletItems[tabletSlideIndex][iconIndex]) &&
-                          icon && (
-                            <Image alt="arrow done" src={CheckMarkGreen} />
-                          )}
-                        {icon ? (
-                          <p className={css.uploadFileText}>
-                            <Image
-                              className={css.uploadedClip}
-                              alt="uploaded clip"
-                              src={ClipBlack}
-                            />
-                            {icon.substring(icon.lastIndexOf("/") + 1)}
-                            <Image
-                              className={css.uploadedDeleteCross}
-                              alt="delete cross"
-                              onClick={() =>
-                                handleDeleteFile(slide.id, icon, "tablet")
-                              }
-                              src={CrossRed}
-                            />
-                          </p>
-                        ) : (
-                          (!loadingTabletItems[tabletSlideIndex] ||
-                            (!loadingTabletItems[tabletSlideIndex][iconIndex] &&
-                              !icon)) && (
-                            <>
-                              <label
-                                htmlFor={`file-upload-${tabletSlideIndex}-${iconIndex}`}
-                                className={css.uploadThumb}
-                              >
-                                <input
-                                  id={`file-upload-${tabletSlideIndex}-${iconIndex}`}
-                                  type="file"
-                                  className={css.uploadInput}
-                                  onChange={(e) =>
-                                    handleTabletFileChange(
-                                      tabletSlideIndex,
-                                      iconIndex,
-                                      e
-                                    )
-                                  }
-                                />
-                                <Image
-                                  className={css.uploadIcon}
-                                  alt="upload"
-                                  src={UploadIcon}
-                                />
-                                Select a file
-                              </label>
-                              <p className={css.uploadText}>or</p>
-                              <p className={css.uploadFileText}>
-                                Drag and drop a file here
-                              </p>
-                            </>
-                          )
-                        )}
-                      </div>
-                      <button
-                        type="button"
-                        className={css.removeBtn}
-                        onClick={() =>
-                          handleRemoveTabletIcon(tabletSlideIndex, iconIndex)
-                        }
-                      >
-                        Remove icon
-                      </button>
-                    </>
-                  ))}
-
-                  <div>
-                    <button
-                      className={css.addBtn}
-                      type="button"
-                      onClick={() => handleAddTabletItemIcon(tabletSlideIndex)}
-                    >
-                      Add icon
-                    </button>
-                  </div>
-                  {tabletSlides.length > 1 && (
-                    <button
-                      className={css.addBtn}
-                      type="button"
-                      onClick={() => handleRemoveSlide(tabletSlideIndex)}
-                    >
-                      Remove slide
-                    </button>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <button
-              type="button"
-              onClick={handleAddTabletSlide}
-              className={css.addBtn}
-            >
-              + Add tablet slide
-            </button>
-
-            <div className={css.heroLabel}>
-              <p className={css.heroLabelTextTitle}>Desktop slides</p>
-              <p className={css.heroLabelTextTitle}>
-                4 images are needed for the slide to work correctly
-              </p>
-
-              {desktopSlides.map((slide, desktopSlideIndex) => (
-                <div key={desktopSlideIndex}>
-                  <p className={css.heroLabelText}>
-                    Slide {desktopSlideIndex + 1}
-                  </p>
-
-                  {slide.icons.map((icon, iconIndex) => (
-                    <>
-                      <p className={css.heroLabelText}>Icon {iconIndex + 1}</p>
-                      <div key={iconIndex} className={css.uploadInputThumb}>
-                        {loadingDesktopItems[desktopSlideIndex] &&
-                          loadingDesktopItems[desktopSlideIndex][iconIndex] && (
-                            <TailSpin />
-                          )}
-                        {(!loadingDesktopItems[desktopSlideIndex] ||
-                          !loadingDesktopItems[desktopSlideIndex][iconIndex]) &&
-                          icon && (
-                            <Image alt="arrow done" src={CheckMarkGreen} />
-                          )}
-                        {icon ? (
-                          <p className={css.uploadFileText}>
-                            <Image
-                              className={css.uploadedClip}
-                              alt="uploaded clip"
-                              src={ClipBlack}
-                            />
-                            {icon.substring(icon.lastIndexOf("/") + 1)}
-                            <Image
-                              className={css.uploadedDeleteCross}
-                              alt="delete cross"
-                              onClick={() =>
-                                handleDeleteFile(slide.id, icon, "desktop")
-                              }
-                              src={CrossRed}
-                            />
-                          </p>
-                        ) : (
-                          (!loadingDesktopItems[desktopSlideIndex] ||
-                            (!loadingDesktopItems[desktopSlideIndex][
-                              iconIndex
-                            ] &&
-                              !icon)) && (
-                            <>
-                              <label
-                                htmlFor={`file-upload-${desktopSlideIndex}-${iconIndex}`}
-                                className={css.uploadThumb}
-                              >
-                                <input
-                                  id={`file-upload-${desktopSlideIndex}-${iconIndex}`}
-                                  type="file"
-                                  className={css.uploadInput}
-                                  onChange={(e) =>
-                                    handleDesktopFileChange(
-                                      desktopSlideIndex,
-                                      iconIndex,
-                                      e
-                                    )
-                                  }
-                                />
-                                <Image
-                                  className={css.uploadIcon}
-                                  alt="upload"
-                                  src={UploadIcon}
-                                />
-                                Select a file
-                              </label>
-                              <p className={css.uploadText}>or</p>
-                              <p className={css.uploadFileText}>
-                                Drag and drop a file here
-                              </p>
-                            </>
-                          )
-                        )}
-                      </div>
-                      <button
-                        type="button"
-                        className={css.removeBtn}
-                        onClick={() =>
-                          handleRemoveDesktopIcon(desktopSlideIndex, iconIndex)
-                        }
-                      >
-                        Remove icon
-                      </button>
-                    </>
-                  ))}
-
-                  <div>
-                    <button
-                      className={css.addBtn}
-                      type="button"
-                      onClick={() =>
-                        handleAddDesktopItemIcon(desktopSlideIndex)
-                      }
-                    >
-                      Add icon
-                    </button>
-                  </div>
-                  {tabletSlides.length > 1 && (
-                    <button
-                      className={css.addBtn}
-                      type="button"
-                      onClick={() =>
-                        handleRemoveDesktopSlide(desktopSlideIndex)
-                      }
-                    >
-                      Remove slide
-                    </button>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <button
-              type="button"
-              onClick={handleAddDesktopSlide}
-              className={css.addBtn}
-            >
-              + Add desktop slide
-            </button>
-
-            <div>
-              <button type="button" className={css.cancelBtn}>
-                Cancel
-              </button>
-              <button type="submit" className={css.saveBtn}>
-                Save
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
+            </form>
+          </div>
+        </section>
+      )}
     </>
   );
 }
