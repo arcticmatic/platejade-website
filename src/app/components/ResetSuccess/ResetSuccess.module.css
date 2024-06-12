@@ -1,0 +1,46 @@
+.successSection {
+ position: relative;
+}
+.successThumb{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.successText{
+    margin-bottom: 20px;
+    color: var(--Black, #040404);
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 44px;
+        
+}
+.successDescription{
+    margin-bottom: 20px;
+    color: var(--Gray-gray10, #4A4A4A);
+        text-align: center;
+   
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        width: 400px;
+        
+}
+.loginBtn {
+    margin-top: 16px;
+    color: var(--white, #FFF);
+    width: 300px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 8px;
+    background: var(--color-2, #10101C);
+    padding: 12px 20px;
+    border: none;
+    margin-bottom: 16px;
+}

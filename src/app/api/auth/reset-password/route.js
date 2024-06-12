@@ -15,7 +15,7 @@ export async function POST(req, res) {
     });
 
     if (!user) {
-      return NextResponse.json({ success: false, message: 'Invalid or expired token' });
+      return NextResponse.json({ success: false, message: 'Link is invalid or expired' });
     }
 
     user.password = await bcrypt.hash(newPassword, 10);
@@ -23,7 +23,7 @@ export async function POST(req, res) {
     user.resetTokenExpiry = null;
     await user.save();
 
-    return NextResponse.json({ success: true, message: 'Password updated successfully' });
+    return NextResponse.json({ success: true, message: 'Password is updated successfully' });
   } catch (error) {
     console.error('Error resetting password:', error);
     return NextResponse.json({ success: false, error: error.message });

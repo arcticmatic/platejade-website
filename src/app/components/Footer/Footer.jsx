@@ -53,6 +53,9 @@ export default function Footer() {
     "/admin/communication-form",
     "/admin/collaboration-form/title-agencies",
     "/admin/forgot-password",
+    "/admin/password-reset",
+    "/admin/reset-password",
+    "/admin/reset-success",
   ];
 
   const menuNavigation = [

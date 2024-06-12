@@ -17,15 +17,29 @@ export async function POST(req, res) {
 
     const token = uuidv4();
     user.resetToken = token;
-    user.resetTokenExpiry = Date.now() + 3600000; // 1 hour expiry
+    user.resetTokenExpiry = Date.now() + (5 * 60 * 1000); // 5 minutes
     await user.save();
 
-    const resetUrl = `${process.env.NEXTAUTH_URL}/reset-password?token=${token}`;
+    const resetUrl = `https://platejade.com/admin/reset-password?token=${token}`;
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
       subject: 'Password Reset',
-      html: `<p>You requested a password reset. Please, click <a href="https://platejade.com/admin/reset-password">here</a> to set a new password.</p>`,
+      html: `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Password Reset</title>
+        </head>
+        <body>
+          <p style="color: black;">You requested a password reset.</p>
+          <p style="color: black;">Please, click <a href="${resetUrl}">here</a> to set a new password.</p>
+        </body>
+        </html>
+      `
     };
 
     const transporter = nodemailer.createTransport({
