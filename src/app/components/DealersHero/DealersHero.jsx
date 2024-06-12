@@ -160,7 +160,7 @@ export default function DealersHero() {
               {slide.icons.map((icon, i) => (
                 <div key={i} className={css.dealerImagesContainer}>
                   <Image
-                    width="100"
+                    width="500"
                     height="50"
                     className={css.dealerIcon}
                     src={icon}

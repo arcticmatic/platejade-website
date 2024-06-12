@@ -18,7 +18,7 @@ const AutoCarousel = (props) => {
               <div className={css.embla__slide} key={index}>
                 <div className={css.embla__slide__number} key={iconIndex}>
                   <Image
-                    width="100"
+                    width="500"
                     height="50"
                     className={css.sliderImage}
                     src={icon}

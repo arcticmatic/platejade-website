@@ -130,7 +130,7 @@ export default function About() {
                 </Link>
                 <div className={css.aboutDownloadThumbDesktop}>
                   <p className={css.aboutDownloadText}>
-                    Download app from App Store or Google Play
+                    {/* Download app from App Store or Google Play */}
                   </p>
                   <div className={css.qrCodeThumb}>
                     <div>
@@ -181,7 +181,7 @@ export default function About() {
 
         <div className={css.aboutDownloadTextThumb}>
           <p className={css.aboutDownloadText}>
-            Download app from App Store or Google Play
+            {/* Download app from App Store or Google Play */}
           </p>
           <div className={css.aboutDownloadIcons}>
             <AppStoreIcon className={css.downloadAppStoreIcon} />
