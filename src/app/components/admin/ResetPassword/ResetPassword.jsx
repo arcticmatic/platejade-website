@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/router";
 import css from "./ResetPassword.module.css";
 import { Poppins } from "next/font/google";
 
@@ -7,6 +11,23 @@ const poppins = Poppins({
 });
 
 export default function ResetPassword() {
+  const router = useRouter();
+  const { token } = router.query;
+  const [newPassword, setNewPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await fetch("/api/auth/reset-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token, newPassword }),
+    });
+
+    const data = await res.json();
+    setMessage(data.message);
+  };
+
   return (
     <>
       <section className={css.loginSection}>
@@ -18,6 +39,8 @@ export default function ResetPassword() {
             create a new one
           </span>
         </p>
+        {message && <p>{message}</p>}
+
         <form className={css.loginForm}>
           <label className={css.emailLabel}>
             <div>
@@ -25,7 +48,13 @@ export default function ResetPassword() {
                 E-mail <span className={css.requiredSymbol}>*</span>
               </p>
             </div>
-            <input className={css.formInput} placeholder="email@gmail.com" />
+            <input
+              onChange={(e) => setNewPassword(e.target.value)}
+              required
+              value={newPassword}
+              className={css.formInput}
+              placeholder="Enter new password"
+            />
           </label>
 
           <button className={css.loginBtn}>Reset password</button>

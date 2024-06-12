@@ -52,6 +52,7 @@ export default function Footer() {
     "/admin/collaboration-form",
     "/admin/communication-form",
     "/admin/collaboration-form/title-agencies",
+    "/admin/forgot-password",
   ];
 
   const menuNavigation = [

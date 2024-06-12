@@ -111,7 +111,7 @@ export default function LogIn() {
             Login
           </button>
         </form>
-        <Link href="/admin/reset" className={css.forgotPasswordText}>
+        <Link href="/admin/forgot-password" className={css.forgotPasswordText}>
           Forgot password?
         </Link>
       </section>

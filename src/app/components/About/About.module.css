@@ -251,11 +251,35 @@
 .hiddenSlide {
   display: none;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 767px) {
+  .aboutDownloadText {
+    color: #10101c;
+    text-align: center;
+    margin-top: 150px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    margin-bottom: 34px;
+  }
+}
+@media screen and (min-width:767px) and (max-width: 1200px) {
+  .aboutDownloadText {
+    color: #10101c;
+    text-align: center;
+    /* margin-top: 150px; */
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    margin-bottom: 34px;
+  }
+}
+@media screen and (min-width: 1200px) {
 .aboutDownloadText {
   color: #10101c;
   text-align: center;
-  margin-top: 150px;
+  /* margin-top: 150px; */
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
