@@ -25,7 +25,7 @@ export async function POST(req, res) {
       from: process.env.EMAIL_USER,
       to: email,
       subject: 'Password Reset',
-      html: `<p>You requested a password reset. Click <a href="https://platejade.com/admin/reset-password">here</a> to reset your password.</p>`,
+      html: `<p>You requested a password reset. Please, click <a href="https://platejade.com/admin/reset-password">here</a> to set a new password.</p>`,
     };
 
     const transporter = nodemailer.createTransport({

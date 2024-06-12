@@ -45,7 +45,7 @@ export default function ResetPassword() {
           <label className={css.emailLabel}>
             <div>
               <p>
-                E-mail <span className={css.requiredSymbol}>*</span>
+                New password <span className={css.requiredSymbol}>*</span>
               </p>
             </div>
             <input
@@ -59,7 +59,7 @@ export default function ResetPassword() {
 
           <button className={css.loginBtn}>Reset password</button>
         </form>
-      </section>{" "}
+      </section>
     </>
   );
 }
