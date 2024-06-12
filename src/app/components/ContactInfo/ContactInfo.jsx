@@ -11,39 +11,57 @@ import Instagram from "../images/icons/Instagram.svg";
 import Discord from "../images/icons/Discord.svg";
 
 export default function ContactInfo() {
-  const contactsArray = [
-    {
-      id: 1,
-      icon: phone,
+  const [contactsArray, setContactsArray] = useState([]);
+  const [socialMediaArray, setSocialMediaArray] = useState([]);
 
-      details: "+1012 3456 789",
-    },
-    {
-      id: 2,
-      icon: email,
-      details: "demo@gmail.com",
-    },
-    {
-      id: 3,
-      icon: location,
-      details: "132 Dartmouth Street Boston, Massachusetts 02156 United States",
-    },
-  ];
+  useEffect(() => {
+    const fetchContacts = async () => {
+      try {
+        const response = await fetch("/api/contact-info/get-contact-info");
+        if (response.ok) {
+          const data = await response.json();
+          setContactsArray(data.data);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
 
-  const socialMediaIconsArray = [
-    {
-      id: 1,
-      icon: Twitter,
-    },
-    {
-      id: 2,
-      icon: Instagram,
-    },
-    {
-      id: 3,
-      icon: Discord,
-    },
-  ];
+    const fetchSocialMedia = async () => {
+      try {
+        const response = await fetch("/api/social-media/get-social-media");
+        if (response.ok) {
+          const data = await response.json();
+          console.log("data:", data.data);
+          setSocialMediaArray(data.data);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
+
+    fetchSocialMedia();
+    fetchContacts();
+  }, []);
+
+  // const socialMediaIconsArray = [
+  //   {
+  //     id: 1,
+  //     icon: Twitter,
+  //   },
+  //   {
+  //     id: 2,
+  //     icon: Instagram,
+  //   },
+  //   {
+  //     id: 3,
+  //     icon: Discord,
+  //   },
+  // ];
 
   return (
     <>
@@ -60,12 +78,12 @@ export default function ContactInfo() {
                 alt="contact icon"
                 src={contact.icon}
               />
-              {contact.details}
+              {contact.link}
             </li>
           ))}
         </ul>
         <ul className={css.socialMediaIconsList}>
-          {socialMediaIconsArray.map((socialMedia) => (
+          {socialMediaArray.map((socialMedia) => (
             <li className={css.socialMediaItem}>
               <Image
                 className={css.socialMediaIcon}

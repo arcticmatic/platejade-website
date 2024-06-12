@@ -1,0 +1,228 @@
+.navSection {
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+.logoIcon {
+    margin-bottom: 36px;
+    width: 190px;
+    height: 68px;
+}
+
+.navThumb {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 26px;
+    background-color: var(--color-2, #10101C);
+}
+
+.navItem {
+    color: var(--white, #FFF);
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+
+.navItemChosen {
+    border-bottom: 1px solid #ffffff;
+    /* width: 128px;
+        margin-bottom: 30px; */
+}
+
+.navItemIcon {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.navItemTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navItemText {
+    display: flex;
+    align-items: center;
+    width: 290px;
+}
+
+.navItemTextActive {
+    display: flex;
+    align-items: center;
+    color: var(--white, #FFF);
+    width: 280px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 30px;
+    padding: 8px;
+    background: var(--color-1, #9C8D7F);
+}
+
+.navLinkIcon {
+    margin-right: 8px;
+}
+
+.formsThumb {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 290px;
+}
+
+.chevronIcon {
+    vertical-align: middle;
+    margin-left: 60px;
+}
+
+.chevronIconRotated {
+    vertical-align: bottom;
+    transform: rotate(180deg);
+    margin-left: 60px;
+}
+
+.heroTitleThumb {
+    display: flex;
+    align-items: center;
+    color: var(--Gray-3, #828282);
+
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.heroTitleThumb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.heroThumb {
+    padding: 32px 20px;
+    width: 70%;
+    background-color: #F4F4F4;
+}
+
+.heroForm {
+    position: relative;
+}
+
+.heroTitle {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    color: var(--Gray-3, #828282);
+
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.logoutIcon {
+    margin-right: 60px;
+}
+
+.chevron {
+    vertical-align: bottom;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.communicationFormTitle{
+    color: var(--Black, #090909);
+       
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 44px;
+}
+.searchThumb{
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: 28px;
+}
+.searchIcon{
+    border-radius: 4px 0px 0px 4px;
+        border: 1px solid var(--Gray-gray-03, #BFBFBF);
+        background: var(--background-color-background, #F4F4F6);
+        padding: 8px;
+}
+.searchText{
+   
+    border-radius: 4px;
+        border: 1px solid var(--Gray-gray-03, #BFBFBF);
+        border-left: none;
+        background: var(--White, #FCFCFC);
+        color: var(--text-color-text, #121C2D);
+  
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px;
+          
+            padding: 8px 250px 8px 10px;
+}
+.communicationFormsThumb{
+    border: 1px solid transparent;
+    border-radius:15px;
+        background: #FFF;
+}
+/* .navFormThumb{
+    background-color: #475569;
+  
+} */
+.navFormList{
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    background-color: #475569;
+    display: flex;
+    justify-content: space-between;
+    padding:20px 20px;
+    color: var(--white, #FFF);
+  
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+   
+}
+.navFormValue{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+
+}
+.navFormItemTitle {
+    width: 25%;
+    word-break: break-all;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.navFormItemTitleLast {
+    width: 75%;
+    word-break: break-all;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.navFormItem{
+    width: 25%;
+    word-break: break-all;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.navFormItemLast{
+    width: 75%;
+}
+
+.navFormValue:not(:last-child) {
+    border-bottom: 1px solid #E1CFFF;;
+    
+}

@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import css from "./ContactsPage.module.css";
 import Image from "next/image";
 import contactsPhoto from "../images/contactsPhoto.png";
@@ -13,57 +16,47 @@ import Pinterest from "../images/icons/Pinterest.svg";
 import Union from "../images/icons/Union.svg";
 import TwitterBlack from "../images/icons/TwitterBlack.svg";
 import LinkedIn from "../images/icons/LinkedIn.svg";
-import Email from "next-auth/providers/email";
 import Link from "next/link";
 
 export default function ContactsPage() {
-  const contactsArray = [
-    {
-      id: 1,
-      icon: PhoneBlack,
-      details: "+1-954-710-1500",
-      href: "tel:+1-954-710-1500",
-    },
-    {
-      id: 2,
-      icon: EmailBlack,
-      details: "info@platejade.com",
-      href: "mailto:info@platejade.com",
-    },
-    {
-      id: 3,
-      icon: LocationBlack,
-      details: "201 SE 2nd Ave Miami, Florida 33131 United States",
-      href: "#contact-form",
-    },
-  ];
+  const [contactsArray, setContactsArray] = useState([]);
+  const [socialMediaArray, setSocialMediaArray] = useState([]);
 
-  const socialMediaIconsArray = [
-    {
-      id: 1,
-      icon: Facebook,
-    },
-    {
-      id: 2,
-      icon: Messenger,
-    },
-    {
-      id: 3,
-      icon: Pinterest,
-    },
-    {
-      id: 4,
-      icon: Union,
-    },
-    {
-      id: 5,
-      icon: TwitterBlack,
-    },
-    {
-      id: 6,
-      icon: LinkedIn,
-    },
-  ];
+  useEffect(() => {
+    const fetchContacts = async () => {
+      try {
+        const response = await fetch("/api/contact-info/get-contact-info");
+        if (response.ok) {
+          const data = await response.json();
+          setContactsArray(data.data);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
+
+    const fetchSocialMedia = async () => {
+      try {
+        const response = await fetch("/api/social-media/get-social-media");
+        if (response.ok) {
+          const data = await response.json();
+          console.log("data:", data.data);
+          setSocialMediaArray(data.data);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
+
+    fetchSocialMedia();
+    fetchContacts();
+  }, []);
+
+  const iconsArray = [PhoneBlack, EmailBlack, LocationBlack];
 
   return (
     <>
@@ -80,13 +73,13 @@ export default function ContactsPage() {
             <p className={css.contactUsTitle}>Contact Us</p>
             <div className={css.contactsThumb}>
               <ul>
-                {contactsArray.map((contact) => (
+                {contactsArray.map((contact, index) => (
                   <li className={css.contactItem}>
                     <Link className={css.contactLink} href={contact.href}>
                       <Image
                         className={css.contactIcon}
                         alt="contact icon"
-                        src={contact.icon}
+                        src={iconsArray[index % iconsArray.length]}
                       />
                       {contact.details}
                     </Link>
@@ -95,13 +88,17 @@ export default function ContactsPage() {
               </ul>
             </div>
             <ul className={css.socialMediaIconsList}>
-              {socialMediaIconsArray.map((socialMedia) => (
+              {socialMediaArray.map((socialMedia) => (
                 <li className={css.socialMediaItem}>
-                  <Image
-                    className={css.socialMediaIcon}
-                    alt="platejade social media icon"
-                    src={socialMedia.icon}
-                  />
+                  <Link href={socialMedia.link}>
+                    <Image
+                      width="45"
+                      height="45"
+                      className={css.socialMediaIcon}
+                      alt="platejade social media icon"
+                      src={socialMedia.iconContacts}
+                    />
+                  </Link>
                 </li>
               ))}
             </ul>

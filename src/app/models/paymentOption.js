@@ -14,11 +14,8 @@ const paymentOptionSchema = new mongoose.Schema({
       },
     pricingPeriod: { type: String},
       profit: {type: String},
-      benefitsIcon: {type: String},
       packageBenefits: {type: Array},
-    
-
-   
+  
 }, { timestamps: true });
 
 

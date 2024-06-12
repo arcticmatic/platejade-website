@@ -8,6 +8,9 @@ const howItWorksDealerSchema = new mongoose.Schema({
   text: {
     type: String,
   },
+  page: {
+    type: String,
+  }
 
    
 }, { timestamps: true });

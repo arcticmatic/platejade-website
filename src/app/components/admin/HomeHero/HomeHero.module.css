@@ -17,6 +17,16 @@ height: 68px;
     padding-top: 26px;
     background-color: var(--color-2, #10101C);
 }
+.navLinkIcon {
+    margin-right: 8px;
+}
+
+.formsThumb {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+}
 .navItem{
     color: var(--white, #FFF);
     

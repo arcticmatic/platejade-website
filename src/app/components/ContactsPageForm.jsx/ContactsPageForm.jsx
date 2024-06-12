@@ -1,55 +1,37 @@
 "use client";
 
 import css from "./ContactsPageForm.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import XClose from "../images/XClose.svg";
 
 export default function ContactsPageForm() {
   const [isNotification, setIsNotification] = useState(false);
+  const [formFieldsArray, setFormFieldsArray] = useState([]);
+  const [formData, setFormData] = useState({});
 
-  const fromFieldsArray = [
-    {
-      id: 1,
-      label: "First Name",
-      placeholder: "First Name",
-      value: "firstName",
-    },
-    {
-      id: 2,
-      label: "Last Name",
-      placeholder: "Last Name",
-      value: "lastName",
-    },
-    {
-      id: 3,
-      label: "Phone Number",
-      placeholder: "+1 012 3456 789",
-      value: "phone",
-    },
-    {
-      id: 4,
-      label: "Email",
-      placeholder: "Enter your email",
-      value: "email",
-    },
-    {
-      id: 5,
-      label: "Message",
-      placeholder: "Message",
-      value: "message",
-    },
-  ];
+  useEffect(() => {
+    const fetchContactFormFields = async () => {
+      try {
+        const response = await fetch("/api/contact-form/get-contact-form");
+        if (response.ok) {
+          const data = await response.json();
+          setFormFieldsArray(data.data);
+          const initialData = {};
+          data.data.forEach((field) => {
+            initialData[field.value] = "";
+          });
+          setFormData(initialData);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
 
-  const initialFormData = {
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    message: "",
-  };
-
-  const [formData, setFormData] = useState(initialFormData);
+    fetchContactFormFields();
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -72,7 +54,7 @@ export default function ContactsPageForm() {
 
     if (res.ok) {
       setIsNotification(true);
-      setFormData(initialFormData);
+      setFormData({});
     } else {
       console.log("Failed to submit form");
     }
@@ -101,21 +83,21 @@ export default function ContactsPageForm() {
               </p>
             </div>
           )}
-          {fromFieldsArray.map((field, index) => (
+          {formFieldsArray.map((field, index) => (
             <label
               key={field.id}
               className={`${css.contactLabel} ${
-                index === fromFieldsArray.length - 1
+                index === formFieldsArray.length - 1
                   ? css.separateLabel
                   : css.contactLabel
               }`}
             >
-              {field.label}
+              {field.name}
               <input
                 name={field.value}
                 className={css.contactInput}
                 placeholder={field.placeholder}
-                value={formData[field.value]}
+                value={formData[field.name]}
                 onChange={handleInputChange}
               />
             </label>

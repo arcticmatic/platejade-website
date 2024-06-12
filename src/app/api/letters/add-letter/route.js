@@ -8,15 +8,10 @@ export async function POST(req) {
     await connect();
 
   try {
-    const { firstName, lastName, phone, email, message } = await req.json();
+    const  formData  = await req.json();
 
-    const letter = new Letter({
-      firstName: firstName,
-      lastName: lastName,
-      email:email,
-      phone:phone,
-     message:message
-    });
+
+    const letter = new Letter(formData, false);
       
     await letter.save();
 

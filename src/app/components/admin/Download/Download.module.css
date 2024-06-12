@@ -35,7 +35,32 @@
     /* width: 128px;
         margin-bottom: 30px; */
 }
+.formsThumb {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 310px;
+}
 
+.navItemText {
+    display: flex;
+    align-items: center;
+    width: 310px;
+}
+
+.navItem {
+    color: var(--white, #FFF);
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+
+.navLinkIcon {
+    margin-right: 8px;
+}
 .navItemIcon {
     vertical-align: middle;
     margin-right: 8px;

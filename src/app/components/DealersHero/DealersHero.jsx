@@ -17,83 +17,127 @@ import Link from "next/link";
 
 export default function DealersHero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [textCurrentSlide, setTextCurrentSlide] = useState(0);
   const [tabletCurrentSlide, setTabletCurrentSlide] = useState(0);
   const [desktopCurrentSlide, setDesktopCurrentSlide] = useState(0);
+  const [slides, setSlides] = useState([]);
+  const [textsArray, setTextsArray] = useState([]);
+  const [tabletSlidesArray, setTabletSlidesArray] = useState([]);
+  const [desktopSlidesArray, setDesktopSlidesArray] = useState([]);
 
   const OPTIONS = { containScroll: false, align: "start" };
   const SLIDE_COUNT = 5;
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
-  const slides = [
-    {
-      id: 1,
-      icon: CarTemplate,
-    },
-    {
-      id: 2,
-      icon: CarTemplate,
-    },
-    {
-      id: 3,
-      icon: CarTemplate,
-    },
-    {
-      id: 4,
-      icon: CarTemplate,
-    },
-  ];
+  useEffect(() => {
+    const fetchSlides = async () => {
+      try {
+        const response = await fetch("/api/slides/get-slides");
+        if (response.ok) {
+          const data = await response.json();
+          const filteredSlides = data.data.filter(
+            (slide) => slide.page === "dealers"
+          );
+          setSlides(filteredSlides);
+        } else {
+          console.error("Failed to fetch slides");
+        }
+      } catch (error) {
+        console.error("Error fetching slides:", error);
+      }
+    };
 
-  const tabletSlidesArray = [
-    {
-      id: 1,
-      icons: [carTemplateTablet1, carTemplateTablet2],
-    },
-    {
-      id: 2,
-      icons: [carTemplateTablet3, carTemplateTablet4],
-    },
-  ];
+    const fetchTabletSlides = async () => {
+      try {
+        const response = await fetch("/api/tablet-slides/get-tablet-slides");
+        if (response.ok) {
+          const data = await response.json();
+          const filteredSlides = data.data.filter(
+            (slide) => slide.page === "dealers"
+          );
+          setTabletSlidesArray(filteredSlides);
+        } else {
+          console.error("Failed to fetch slides");
+        }
+      } catch (error) {
+        console.error("Error fetching slides:", error);
+      }
+    };
 
-  const desktopSlidesArray = [
-    {
-      id: 1,
-      icons: [desktopCar1, desktopCar2, desktopCar3, desktopCar4],
-    },
-    {
-      id: 2,
-      icons: [desktopCar4, desktopCar3, desktopCar2, desktopCar1],
-    },
-  ];
+    const fetchDesktopSlides = async () => {
+      try {
+        const response = await fetch("/api/desktop-slides/get-desktop-slides");
+        if (response.ok) {
+          const data = await response.json();
+          const filteredSlides = data.data.filter(
+            (slide) => slide.page === "dealers"
+          );
+          setDesktopSlidesArray(filteredSlides);
+        } else {
+          console.error("Failed to fetch slides");
+        }
+      } catch (error) {
+        console.error("Error fetching slides:", error);
+      }
+    };
+
+    const fetchTexts = async () => {
+      try {
+        const response = await fetch("/api/slides-texts/get-slide-texts");
+        if (response.ok) {
+          const data = await response.json();
+          const filteredSlides = data.data.filter(
+            (slide) => slide.page === "dealers"
+          );
+          console.log("filtered slides:", filteredSlides);
+          setTextsArray(filteredSlides);
+          setTextCurrentSlide(0);
+        } else {
+          console.error("Failed to fetch slides");
+        }
+      } catch (error) {
+        console.error("Error fetching slides:", error);
+      }
+    };
+
+    fetchSlides();
+    fetchTabletSlides();
+    fetchDesktopSlides();
+    fetchTexts();
+  }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+      setTextCurrentSlide((prev) => (prev + 1) % textsArray.length);
       setTabletCurrentSlide((prev) => (prev + 1) % tabletSlidesArray.length);
       setDesktopCurrentSlide((prev) => (prev + 1) % desktopSlidesArray.length);
     }, 8000);
     return () => {
       clearInterval(intervalId);
     };
-  }, []);
+  }, [textsArray.length, tabletSlidesArray.length, desktopSlidesArray.length]);
 
   return (
     <section className={css.dealersHeroSection}>
       <div className={css.dealersTextThumb}>
-        <h2 className={css.dealersHeroTitle}>Lorem ipsum dolor sit amet</h2>
-        <p className={css.dealersHeroDescription}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor
-          sit amet, consectetur adipiscing elit lorem
-        </p>
+        {textsArray.map((text, index) => (
+          <div
+            key={index}
+            className={
+              index === textCurrentSlide ? css.slideVisible : css.hiddenSlide
+            }
+          >
+            <h2 className={css.dealersHeroTitle}>{text.title}</h2>
+            <p className={css.dealersHeroDescription}>{text.text}</p>
+          </div>
+        ))}
         <div className={css.dealersButtonsThumb}>
           <button className={css.contactUsBtn}>
             <Link href="/contacts">Contact Us </Link>
           </button>
 
           <button className={css.readMoreBtn}>
-            {" "}
             <Link href="/dealers/#dealers-work">Read more </Link>
           </button>
         </div>
@@ -109,13 +153,15 @@ export default function DealersHero() {
             className={
               index === tabletCurrentSlide
                 ? css.aboutScreensThumb
-                : css.hiddenSlide // Use tabletCurrentSlide for class condition
+                : css.hiddenSlide
             }
           >
             <div className={css.dealersImagesThumb}>
               {slide.icons.map((icon, i) => (
                 <div key={i} className={css.dealerImagesContainer}>
                   <Image
+                    width="100"
+                    height="50"
                     className={css.dealerIcon}
                     src={icon}
                     alt={`Slide ${index + 1} Icon ${i + 1}`}
@@ -141,6 +187,8 @@ export default function DealersHero() {
               {slide.icons.map((icon, i) => (
                 <div key={i} className={css.dealerImagesContainer}>
                   <Image
+                    width={i === 0 || i === 3 ? 328 : 218}
+                    height={i === 0 || i === 3 ? 230 : 298}
                     className={css.dealerIcon}
                     src={icon}
                     alt={`Slide ${index + 1} Icon ${i + 1}`}

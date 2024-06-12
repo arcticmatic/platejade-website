@@ -4,6 +4,9 @@ import mongoose from 'mongoose';
 const slideSchema = new mongoose.Schema({
     icons: {
     type: Array,
+    },
+     page: {
+    type: String,
 }
 }, { timestamps: true });
 

@@ -151,13 +151,20 @@
     font-style: normal;
     font-weight: 800;
     line-height: 44px;
-    margin-bottom: 34px;
+    margin-bottom: 14px;
 }
 
 .heroImagesThumb {
     display: flex;
 }
-
+.planTitle{
+    color: var(--Black, #090909);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        margin-top: 20px;
+}
 .heroLabel {
     display: flex;
     flex-direction: column;
@@ -166,7 +173,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
-
+margin-top: 20px;
 }
 
 .heroLabelText {
@@ -227,6 +234,23 @@
     border-radius: 8px;
     border: none;
     background: var(--color-2, #10101C);
+}
+.benefitsThumb{
+    margin-top: 20px;
+}
+.benefitsBtn {
+    
+    margin-bottom: 20px;
+    width: 90%;
+    padding: 12px 0;
+    color: var(--Black, #090909);
+    background-color: transparent;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--Black, #090909);
 }
 
 .uploadInputThumb {

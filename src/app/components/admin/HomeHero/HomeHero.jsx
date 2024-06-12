@@ -20,6 +20,10 @@ import SlideForm from "@/app/features/SlideForm/SlideForm";
 import AWS from "aws-sdk";
 import { v4 as uuidv4 } from "uuid";
 import XClose from "../../images/XClose.svg";
+import Table from "../../images/Table.svg";
+import TitleAgencyIcon from "../../images/TitleAgencyIcon.svg";
+import SellersIcon from "../../images/SellersIcon.svg";
+import ChatIcon from "../../images/ChatIcon.svg";
 
 export default function HomeHero() {
   const { data: session, status } = useSession();
@@ -29,16 +33,16 @@ export default function HomeHero() {
   const [isNotification, setIsNotification] = useState(false);
   const [newSlides, setNewSlides] = useState([]);
 
-  // if (status !== "loading" && !session) {
-  //   redirect("/admin");
-  // }
+  if (status === "unauthenticated") {
+    redirect("/admin");
+  }
+
   const [selectedPage, setSelectedPage] = useState(null);
   const [selectedPageId, setSelectedPageId] = useState(1);
   const [selectedFile, setSelectedFile] = useState(null);
   const [addiionalFile, setAdditionalFile] = useState(null);
 
   const [slides, setSlides] = useState([]);
-
   const pagesArray = [
     {
       id: 1,
@@ -46,114 +50,121 @@ export default function HomeHero() {
       icon: NewspaperWhite,
       activeIcon: Newspaper,
       navLinks: [
-        {
-          id: 1,
-          name: "Hero section",
-          link: "/admin/home",
-          isChosen: true,
-        },
-        {
-          id: 2,
-          name: "Video block",
-          link: "/admin/home/video-block",
-        },
-        {
-          id: 3,
-          name: "How it works",
-          link: "/admin/home/how-it-works",
-        },
-        {
-          id: 4,
-          name: "Features",
-          link: "/admin/home/features",
-        },
-        {
-          id: 5,
-          name: "Advantages",
-          link: "/admin/home/advantages",
-        },
-        {
-          id: 6,
-          name: "Testimonials",
-          link: "/admin/home/testimonials",
-        },
-        {
-          id: 7,
-          name: "FAQ",
-          link: "/admin/home/faq",
-        },
-        {
-          id: 8,
-          name: "Download block",
-          link: "/admin/home/download",
-        },
-        {
-          id: 9,
-          name: "Contacts",
-          link: "/admin/home/contacts",
-        },
+        { id: 1, name: "Hero section", link: "/admin/home", isChosen: true },
+        { id: 2, name: "Video block", link: "/admin/home/video-block" },
+        { id: 3, name: "How it works", link: "/admin/home/how-it-works" },
+        { id: 4, name: "Features", link: "/admin/home/features" },
+        { id: 5, name: "Advantages", link: "/admin/home/advantages" },
+        { id: 6, name: "Testimonials", link: "/admin/home/testimonials" },
+        { id: 7, name: "FAQ", link: "/admin/home/faq" },
+        { id: 8, name: "Download", link: "/admin/home/download" },
+        { id: 9, name: "ContactForm", link: "/admin/collaboration-form" },
       ],
     },
     {
       id: 2,
       name: "Dealers",
-      activeIcon: Shell,
       icon: Shell,
       activeIcon: "",
       navLinks: [
-        {
-          id: 1,
-          name: "Hero section",
-          link: "/",
-        },
-        {
-          id: 2,
-          name: "Video block",
-          link: "/video-block",
-        },
-        {
-          id: 3,
-          name: "How it works",
-          link: "/about-work",
-        },
+        { id: 1, name: "Hero section", link: "/admin/dealers/hero" },
+        { id: 2, name: "Video block", link: "/admin/dealers/video-block" },
+        { id: 3, name: "How it works", link: "/admin/dealers/how-it-works" },
         {
           id: 4,
           name: "Payment options",
-          link: "/payment-options",
+          link: "/admin/dealers/payment-options",
         },
-        {
-          id: 5,
-          name: "Opportunites",
-          link: "/opportunities",
-        },
+        { id: 5, name: "Opportunites", link: "/admin/dealers/opportunities" },
         {
           id: 6,
           name: "Collaboration form",
-          link: "/collaboration-form",
+          link: "/admin/dealers/collaboration-form",
         },
-        {
-          id: 7,
-          name: "FAQ",
-          link: "/faq",
-        },
+        { id: 7, name: "FAQ", link: "/admin/dealers/faq" },
       ],
     },
     {
       id: 3,
+      name: "Title Agencies",
+      icon: TitleAgencyIcon,
+      activeIcon: "",
+      navLinks: [
+        { id: 1, name: "Hero section", link: "/admin/title-agencies/hero" },
+        {
+          id: 2,
+          name: "Video block",
+          link: "/admin/title-agencies/video-block",
+        },
+        {
+          id: 3,
+          name: "How it works",
+          link: "/admin/title-agencies/how-it-works",
+        },
+        {
+          id: 4,
+          name: "Payment options",
+          link: "/admin/title-agencies/payment-options",
+        },
+        {
+          id: 5,
+          name: "Opportunites",
+          link: "/admin/title-agencies/opportunities",
+        },
+        {
+          id: 6,
+          name: "Collaboration form",
+          link: "/admin/title-agencies/collaboration-form",
+        },
+        { id: 7, name: "FAQ", link: "/admin/title-agencies/faq" },
+      ],
+    },
+    {
+      id: 4,
+      name: "Sellers",
+      icon: SellersIcon,
+      activeIcon: "",
+      navLinks: [
+        { id: 1, name: "Hero section", link: "/admin/sellers/hero" },
+        { id: 2, name: "Video block", link: "/admin/sellers/video-block" },
+        { id: 3, name: "How it works", link: "/admin/sellers/how-it-works" },
+        {
+          id: 4,
+          name: "Payment options",
+          link: "/admin/sellers/payment-options",
+        },
+        { id: 5, name: "Opportunites", link: "/admin/sellers/opportunities" },
+        {
+          id: 6,
+          name: "Collaboration form",
+          link: "/admin/sellers/collaboration-form",
+          isChosen: true,
+        },
+        { id: 7, name: "FAQ", link: "/admin/sellers/faq" },
+      ],
+    },
+    {
+      id: 5,
       name: "Contacts",
       icon: contactsIcon,
       activeIcon: contactsIcon,
       navLinks: [
-        {
-          id: 1,
-          name: "Contact Information",
-          link: "/contact-info",
-        },
+        { id: 1, name: "Contact Information", link: "/admin/contact-info" },
+      ],
+    },
+    {
+      id: 6,
+      name: "Forms",
+      icon: Table,
+      activeIcon: contactsIcon,
+      navLinks: [
+        { id: 1, name: "Dealers", link: "/admin/collaboration-form/dealers" },
         {
           id: 2,
-          name: "Collaboration form",
-          link: "/collaboration-form",
+          name: "Title Agencies",
+          link: "/admin/collaboration-form/title-agencies",
         },
+        { id: 3, name: "Sellers", link: "/admin/collaboration-form/sellers" },
       ],
     },
   ];
@@ -528,6 +539,16 @@ export default function HomeHero() {
               </li>
             ))}
           </ul>
+          <div className={css.formsThumb}>
+            <Link className={css.navItem} href="/admin/communication-form">
+              <Image
+                className={css.navLinkIcon}
+                alt="cooperation form"
+                src={ChatIcon}
+              />
+              Communication form
+            </Link>
+          </div>
         </div>
         <div className={css.heroThumb}>
           <div className={css.heroTitleThumb}>

@@ -11,9 +11,19 @@ const nextConfig = {
     // Important: return the modified config
     return config;
   },
-   images: {
-    domains: ['plate-jade-2024.s3.us-east-2.amazonaws.com'],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'plate-jade-2024.s3.us-east-2.amazonaws.com', 
+        port: '',
+        pathname: '/website-files/**', 
+      },
+    ],
   },
+  //  images: {
+  //   domains: ['plate-jade-2024.s3.us-east-2.amazonaws.com'],
+  // },
 };
 
 module.exports = nextConfig;

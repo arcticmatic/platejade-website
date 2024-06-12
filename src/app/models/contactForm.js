@@ -2,14 +2,12 @@ import mongoose from 'mongoose';
 
 const contactFormSchema = new mongoose.Schema({
 
- field: {
-    type: String,
-  },
-  placeholder: {
-    type: String,
-  },
-
-
+     id:{type:String},
+      name: { type: String},
+      value: { type: String },
+      placeholder: {type:String},
+    
+  
    
 }, { timestamps: true });
 

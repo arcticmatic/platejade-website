@@ -23,6 +23,10 @@ import ClipBlack from "../../../images/ClipBlack.svg";
 import CrossRed from "../../../images/CrossRed.svg";
 import CheckMarkGreen from "../../../images/CheckMarkGreen.svg";
 import XClose from "../../../images/XClose.svg";
+import TitleAgencyIcon from "../../../images/TitleAgencyIcon.svg";
+import SellersIcon from "../../../images/SellersIcon.svg";
+import ChatIcon from "../../../images/ChatIcon.svg";
+import Table from "../../../images/Table.svg";
 
 export default function FAQ() {
   const { data: session, status } = useSession();
@@ -30,9 +34,10 @@ export default function FAQ() {
   const [isLoading, setIsLoading] = useState(false);
   const [isNotification, setIsNotification] = useState(false);
 
-  // if (status !== "loading" && !session) {
-  //   redirect("/admin");
-  // }
+  if (status === "unauthenticated") {
+    redirect("/admin");
+  }
+
   const [selectedPage, setSelectedPage] = useState(null);
   const [selectedPageId, setSelectedPageId] = useState(2);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -47,111 +52,137 @@ export default function FAQ() {
       icon: NewspaperWhite,
       activeIcon: Newspaper,
       navLinks: [
+        { id: 1, name: "Hero section", link: "/admin/home" },
+        { id: 2, name: "Video block", link: "/admin/home/video-block" },
+        { id: 3, name: "How it works", link: "/admin/home/how-it-works" },
+        { id: 4, name: "Features", link: "/admin/home/features" },
+        { id: 5, name: "Advantages", link: "/admin/home/advantages" },
+        { id: 6, name: "Testimonials", link: "/admin/home/testimonials" },
+        { id: 7, name: "FAQ", link: "/admin/home/faq" },
+        { id: 8, name: "Download", link: "/admin/home/download" },
         {
-          id: 1,
-          name: "Hero section",
-          link: "/admin/home",
-        },
-        {
-          id: 2,
-          name: "Video block",
-          link: "/admin/home/video-block",
-        },
-        {
-          id: 3,
-          name: "How it works",
-          link: "/admin/home/how-it-works",
-        },
-        {
-          id: 4,
-          name: "Features",
-          link: "/admin/home/features",
-        },
-        {
-          id: 5,
-          name: "Advantages",
-          link: "/admin/home/advantages",
-        },
-
-        {
-          id: 6,
-          name: "FAQ",
-          link: "/admin/home/faq",
-        },
-        {
-          id: 7,
-          name: "Download block",
-          link: "/admin/home/download",
-        },
-        {
-          id: 8,
-          name: "Contacts",
-          link: "/admin/home/contacts",
+          id: 9,
+          name: "Contact Form",
+          link: "/admin/collaboration-form",
         },
       ],
     },
     {
       id: 2,
       name: "Dealers",
-      activeIcon: Shell,
       icon: Shell,
       activeIcon: "",
       navLinks: [
         {
           id: 1,
           name: "Hero section",
-          link: "/admin/home",
+          link: "/admin/dealers/hero",
         },
         {
           id: 2,
           name: "Video block",
-          link: "/admin/home/video-block",
+          link: "/admin/dealers/video-block",
         },
         {
           id: 3,
           name: "How it works",
-          link: "/admin/home/how-it-works",
+          link: "/admin/dealers/how-it-works",
         },
         {
           id: 4,
           name: "Payment options",
-          link: "/payment-options",
+          link: "/admin/dealers/payment-options",
         },
-        {
-          id: 5,
-          name: "Opportunites",
-          link: "/opportunities",
-        },
-
+        { id: 5, name: "Opportunites", link: "/admin/dealers/opportunities" },
         {
           id: 6,
           name: "Collaboration form",
-          link: "/admin/home/collaboration-form",
+          link: "/admin/dealers/collaboration-form",
         },
-        {
-          id: 7,
-          name: "FAQ",
-          link: "/admin/home/faq",
-          isChosen: true,
-        },
+        { id: 7, name: "FAQ", link: "/admin/dealers/faq", isChosen: true },
       ],
     },
     {
       id: 3,
+      name: "Title Agencies",
+      icon: TitleAgencyIcon,
+      activeIcon: "",
+      navLinks: [
+        { id: 1, name: "Hero section", link: "/admin/title-agencies/hero" },
+        {
+          id: 2,
+          name: "Video block",
+          link: "/admin/title-agencies/video-block",
+        },
+        {
+          id: 3,
+          name: "How it works",
+          link: "/admin/title-agencies/how-it-works",
+        },
+        {
+          id: 4,
+          name: "Payment options",
+          link: "/admin/title-agencies/payment-options",
+        },
+        {
+          id: 5,
+          name: "Opportunites",
+          link: "/admin/title-agencies/opportunities",
+        },
+        {
+          id: 6,
+          name: "Collaboration form",
+          link: "/admin/title-agencies/collaboration-form",
+          isChosen: true,
+        },
+        { id: 7, name: "FAQ", link: "/admin/title-agencies/faq" },
+      ],
+    },
+    {
+      id: 4,
+      name: "Sellers",
+      icon: SellersIcon,
+      activeIcon: "",
+      navLinks: [
+        { id: 1, name: "Hero section", link: "/admin/sellers/hero" },
+        { id: 2, name: "Video block", link: "/admin/sellers/video-block" },
+        { id: 3, name: "How it works", link: "/admin/sellers/how-it-works" },
+        {
+          id: 4,
+          name: "Payment options",
+          link: "/admin/sellers/payment-options",
+        },
+        { id: 5, name: "Opportunites", link: "/admin/sellers/opportunities" },
+        {
+          id: 6,
+          name: "Collaboration form",
+          link: "/admin/sellers/collaboration-form",
+        },
+        { id: 7, name: "FAQ", link: "/admin/sellers/faq", isChosen: true },
+      ],
+    },
+    {
+      id: 5,
       name: "Contacts",
       icon: contactsIcon,
       activeIcon: contactsIcon,
       navLinks: [
-        {
-          id: 1,
-          name: "Contact Information",
-          link: "/contact-info",
-        },
+        { id: 1, name: "Contact Information", link: "admin/contact-info" },
+      ],
+    },
+    {
+      id: 6,
+      name: "Forms",
+      icon: Table,
+      activeIcon: contactsIcon,
+      navLinks: [
+        { id: 1, name: "Dealers", link: "/admin/collaboration-form/dealers" },
         {
           id: 2,
-          name: "Collaboration form",
-          link: "/collaboration-form",
+          name: "Title Agencies",
+          link: "/admin/collaboration-form/title-agencies",
         },
+        { id: 3, name: "Sellers", link: "/admin/collaboration-form/sellers" },
       ],
     },
   ];
@@ -164,7 +195,10 @@ export default function FAQ() {
         const response = await fetch("/api/dealers/faq/get-faqs");
         if (response.ok) {
           const data = await response.json();
-          setFAQSArray(data.data);
+          const filteredItems = data.data.filter(
+            (item) => item.page === "dealers"
+          );
+          setFAQSArray(filteredItems);
         } else {
           console.error("Failed to fetch work items");
         }
@@ -185,6 +219,7 @@ export default function FAQ() {
 
   const handlePageClick = (page) => {
     setSelectedPage(selectedPage?.id === page.id ? null : page);
+    setSelectedPageId(selectedPage?.id === page.id ? null : page.id);
   };
 
   const handleLogout = (e) => {
@@ -233,53 +268,28 @@ export default function FAQ() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newFAQSArray = FAQSArray.filter((faq) => !faq.hasOwnProperty("_id"));
-    const existingFAQSArray = FAQSArray.filter((faq) =>
-      faq.hasOwnProperty("_id")
-    );
 
     try {
-      for (const faq of newFAQSArray) {
-        const responseNew = await fetch("/api/dealers/faq/add-faqs", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ faq }),
-        });
-
-        if (responseNew.ok) {
-          setIsNotification(true);
-        }
-        if (!responseNew.ok) {
-          throw new Error("Failed to save new faqs");
-        }
-      }
-
-      for (const faq of existingFAQSArray) {
+      for (const slide of existingSlidesArray) {
         const responseUpdate = await fetch(
-          `/api/dealers/faq/edit-faqs/${faq._id}`,
+          `/api/slides/edit-slide/${slide._id}`,
           {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ faq }),
+            body: JSON.stringify(slide),
           }
         );
 
         if (!responseUpdate.ok) {
-          console.error(`Failed to update slide with ID: ${faq._id}`);
+          throw new Error(`Failed to update slide with ID: ${slide._id}`);
         }
       }
 
-      if (newFAQSArray) {
-        setNewFaqs("");
-      }
-
-      console.log("FAQSArray saved successfully");
+      console.log("Existing slides updated successfully");
     } catch (error) {
-      console.error("Error occurred while saving slides:", error);
+      console.error("Error occurred while updating slides:", error);
     }
   };
 
@@ -342,6 +352,16 @@ export default function FAQ() {
               </li>
             ))}
           </ul>
+          <div className={css.formsThumb}>
+            <Link className={css.navItem} href="/admin/communication-form">
+              <Image
+                className={css.navLinkIcon}
+                alt="cooperation form"
+                src={ChatIcon}
+              />
+              Communication form
+            </Link>
+          </div>
         </div>
         <div className={css.heroThumb}>
           <div className={css.heroTitleThumb}>

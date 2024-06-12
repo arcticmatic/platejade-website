@@ -18,7 +18,10 @@ export default function DealersWork() {
         );
         if (response.ok) {
           const data = await response.json();
-          setDealersOptions(data.data);
+          const filteredItems = data.data.filter(
+            (item) => item.page === "dealers"
+          );
+          setDealersOptions(filteredItems);
         } else {
           console.error("Failed to fetch work items");
         }

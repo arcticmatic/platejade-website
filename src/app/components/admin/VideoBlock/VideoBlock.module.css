@@ -65,6 +65,32 @@
     padding: 8px;
     background: var(--color-1, #9C8D7F);
 }
+.formsThumb {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 310px;
+}
+
+.navItemText {
+    display: flex;
+    align-items: center;
+    width: 310px;
+}
+
+.navItem {
+    color: var(--white, #FFF);
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+
+.navLinkIcon {
+    margin-right: 8px;
+}
 
 .chevronIcon {
     vertical-align: middle;
@@ -148,9 +174,10 @@
 
 }
 
-.heroLabelText{
+.heroLabelText {
     margin-top: 20px;
 }
+
 .heroTitleInput {
     width: 90%;
     padding: 16px;
@@ -264,22 +291,25 @@
     font-weight: 600;
     line-height: 20px;
 }
-.uploadedVideoName{
+
+.uploadedVideoName {
     display: flex;
     align-items: center;
     margin-top: 10px;
     color: #363636;
-        text-align: center;
-    
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 20px;
+    text-align: center;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
 }
-.uploadedClip{
+
+.uploadedClip {
     margin-right: 8px;
 }
-.uploadedDeleteCross{
+
+.uploadedDeleteCross {
     margin-left: 8px;
 
 }
@@ -317,7 +347,7 @@
 .notificationText {
     color: var(--Gray-900, #101828);
     text-align: center;
-  margin-top: 20px;
+    margin-top: 20px;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;

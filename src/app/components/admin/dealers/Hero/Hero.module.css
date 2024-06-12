@@ -35,12 +35,29 @@
     /* width: 128px;
         margin-bottom: 30px; */
 }
+.formsThumb {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 320px;
+}
 
+.navItem {
+    color: var(--white, #FFF);
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
 .navItemIcon {
     vertical-align: middle;
     margin-right: 8px;
 }
-
+.navLinkIcon {
+    margin-right: 8px;
+}
 .navItemTitle {
     display: flex;
     justify-content: space-between;
@@ -49,14 +66,14 @@
 .navItemText {
     display: flex;
     align-items: center;
-    width: 280px;
+    width: 310px;
 }
 
 .navItemTextActive {
     display: flex;
     align-items: center;
     color: var(--white, #FFF);
-    width: 280px;
+    width: 300px;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -147,10 +164,22 @@
     line-height: 24px;
     margin-top: 20px;
 }
-
-/* .heroLabelText {
+.heroLabelTextTitle {
+    color: var(--Black, #090909);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+.heroLabelText {
     margin-top: 20px;
-} */
+    color: var(--Black, #090909);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+}
 
 .heroTitleInput {
     width: 90%;
@@ -257,6 +286,8 @@
 }
 
 .uploadFileText {
+    display: flex;
+        align-items: center;
     margin-top: 10px;
     color: #363636;
     text-align: center;
@@ -306,7 +337,7 @@
 @media screen and (min-width: 480px) {
     .notificationThumb {
         position: absolute;
-        top: 87%;
+        top: 94%;
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: #fff;

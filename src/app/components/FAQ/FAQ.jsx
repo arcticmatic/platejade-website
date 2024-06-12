@@ -16,6 +16,7 @@ export default function FAQ() {
         const response = await fetch("/api/faq/home/get-faqs");
         if (response.ok) {
           const data = await response.json();
+
           setFAQsArray(data.data);
         } else {
           console.error("Failed to fetch work items");

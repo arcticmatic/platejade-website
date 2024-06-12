@@ -1,37 +1,20 @@
 import Contact from '../../../../models/contact';
 import { NextResponse } from 'next/server';
 
-export async function PATCH(req,{params}) {
-  const { id } = params;
-    const { contact } = await req.json();
-    
-   
-  try {
-    const updateFields = {
-      email: contact.email,
-      location: contact.location,
-      phone: contact.phone,
-    };
+export async function PATCH(req, { params }) {
+   const { id } = params;
+  const { contact} = await req.json();
 
-      for (const socialItem of contact.socialMedia) {
-          console.log("social item:", socialItem)
-      
-      await Contact.updateOne(
-        { _id: id, 'contact.$socialMedia.mediaId': socialItem.mediaId },
-        {
-         
-            socialMedia: socialItem,
-       
-        }
-      );
+  try {
+    const updatedContact = await Contact.findByIdAndUpdate(id, contact, { new: true });
+
+    if (!updatedContact) {
+      return NextResponse.json({ error: 'Work item not found' });
     }
 
-    // Retrieve the updated document
-    const finalUpdatedContact = await Contact.findById(id);
-
-    return NextResponse.json({ message: 'Contact updated successfully', finalUpdatedContact });
+    return NextResponse.json({ message: 'Work item updated successfully', contact: updatedContact });
   } catch (error) {
-    console.error('Error updating contact:', error);
+    console.error('Error updating work item:', error);
     return NextResponse.json({ error: 'Internal server error' });
   }
 }

@@ -19,6 +19,12 @@
           padding-bottom: 72px;
       }
   }
+  @media screen and (min-width: 768px) and (max-width: 1200px) {
+     .dealersTextThumb {
+          width: 60%;
+          margin-right: 20px;
+       }
+  }
   @media screen and (min-width: 1200px) {
  .dealersTextThumb{
     width: 50%;
@@ -137,10 +143,13 @@ line-height: 72px;
  @media screen and (min-width: 767px) and (max-width:1200px) {
  .dealerIcon{
     margin-bottom: 20px;
+    width: 344px;
+    height: 260px;
 }}
  @media screen and (min-width: 1200px) {
      .dealerIcon {
          margin-bottom: 20px;
+         /* width: auto; */
          margin-right: 20px;
      }
  }

@@ -16,6 +16,9 @@ const opportunitySchema = new mongoose.Schema({
   icon: {
     type:String,
   },
+  page: {
+    type:String,
+  }
 
    
 }, { timestamps: true });

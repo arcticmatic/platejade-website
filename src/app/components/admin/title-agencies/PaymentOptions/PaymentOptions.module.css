@@ -1,0 +1,399 @@
+.navSection {
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+.logoIcon {
+    margin-bottom: 36px;
+    width: 190px;
+    height: 68px;
+}
+
+.navThumb {
+
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 26px;
+    background-color: var(--color-2, #10101C);
+}
+
+.navItem {
+    color: var(--white, #FFF);
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+
+.navItemChosen {
+    border-bottom: 1px solid #ffffff;
+    /* width: 128px;
+        margin-bottom: 30px; */
+}
+
+.navItemIcon {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.navItemTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formsThumb {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 310px;
+}
+
+.navItemText {
+    display: flex;
+    align-items: center;
+    width: 310px;
+}
+
+.navItem {
+    color: var(--white, #FFF);
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+
+.navLinkIcon {
+    margin-right: 8px;
+}
+
+.navItemTextActive {
+    display: flex;
+    align-items: center;
+    color: var(--white, #FFF);
+    width: 300px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 30px;
+    padding: 8px;
+    background: var(--color-1, #9C8D7F);
+}
+
+.chevronIcon {
+    vertical-align: middle;
+    margin-left: 60px;
+}
+
+.chevronIconRotated {
+    vertical-align: bottom;
+    transform: rotate(180deg);
+    margin-left: 60px;
+}
+
+.heroTitleThumb {
+    color: var(--Gray-3, #828282);
+
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.heroTitleThumb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.heroThumb {
+    padding: 32px 20px;
+    width: 70%;
+    background-color: #F4F4F4;
+}
+
+.heroForm {
+    position: relative;
+}
+
+.heroTitle {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    color: var(--Gray-3, #828282);
+
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.logoutIcon {
+    margin-right: 60px;
+}
+
+.chevron {
+    vertical-align: bottom;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.heroSectionTitle {
+    color: var(--Black, #090909);
+
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 44px;
+    margin-bottom: 14px;
+}
+
+.heroImagesThumb {
+    display: flex;
+}
+
+.planTitle {
+    color: var(--Black, #090909);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin-top: 20px;
+}
+
+.heroLabel {
+    display: flex;
+    flex-direction: column;
+    color: var(--Black, #090909);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-top: 20px;
+}
+
+.heroLabelText {
+    margin-top: 20px;
+}
+
+.heroTitleInput {
+    width: 90%;
+    padding: 16px;
+    margin-top: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--Gray-5, #E0E0E0);
+    background: var(--White, #FCFCFC);
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.heroTextInput {
+    padding: 16px;
+    padding-bottom: 100px;
+    width: 90%;
+    border-radius: 4px;
+    border: 1px solid var(--Gray-5, #E0E0E0);
+    background: var(--White, #FCFCFC);
+    color: var(--Gray-gray-06, #5B5B5B);
+    margin-top: 8px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.cancelBtn {
+    margin-right: 20px;
+    color: var(--Black, #090909);
+    padding: 12px 18px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    background-color: #ffffff;
+    width: 160px;
+    border-radius: 8px;
+    border: 1px solid var(--Black, #090909);
+}
+
+.saveBtn {
+    width: 160px;
+    color: var(--White, #FCFCFC);
+    padding: 12px 18px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 8px;
+    border: none;
+    background: var(--color-2, #10101C);
+}
+
+.benefitsThumb {
+    margin-top: 20px;
+}
+
+.benefitsBtn {
+
+    margin-bottom: 20px;
+    width: 90%;
+    padding: 12px 0;
+    color: var(--Black, #090909);
+    background-color: transparent;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--Black, #090909);
+}
+
+.uploadInputThumb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    margin-bottom: 36px;
+    width: 40%;
+    height: 250px;
+    border-radius: 16px;
+    border: 1px dashed var(--Gray-4, #BDBDBD);
+    background: #FFF;
+}
+
+.uploadInputThumb:not(:last-child) {
+    margin-right: 20px;
+}
+
+.uploadThumb {
+
+    margin-bottom: 12px;
+    width: 160px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 0.12);
+}
+
+.uploadIcon {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.uploadInput {
+    display: none;
+}
+
+.uploadText {
+    margin-bottom: 12px;
+    color: #9B9B9B;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.uploadFileText {
+    margin-top: 10px;
+    color: #363636;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.uploadedVideoName {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    color: #363636;
+    text-align: center;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.uploadedClip {
+    margin-right: 8px;
+}
+
+.uploadedDeleteCross {
+    margin-left: 8px;
+
+}
+
+@media screen and (max-width: 480px) {
+    .notificationThumb {
+        position: absolute;
+        top: 87%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        width: 80%;
+        box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+        border-radius: 12px;
+        padding: 36px 24px 24px 24px;
+        z-index: 100;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .notificationThumb {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        width: 375px;
+        box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+        border-radius: 12px;
+        padding: 36px 24px 24px 24px;
+        z-index: 100;
+    }
+}
+
+.notificationText {
+    color: var(--Gray-900, #101828);
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    margin-bottom: 10px;
+}
+
+.notificationDescription {
+    color: var(--Gray-600, #475467);
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+
+}
+
+.notificationCloseIcon {
+    position: absolute;
+    left: 92%;
+    top: 5%;
+}
+
+.buttonsThumb {
+    margin-top: 20px;
+}

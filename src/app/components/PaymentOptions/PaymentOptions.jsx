@@ -1,63 +1,36 @@
 "use client";
 
 import css from "./PaymentOptions.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DealerOptionCheckmark from "../images/DealerOptionCheckmark.svg";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function PaymentOptions() {
-  const paymentOptions = [
-    {
-      id: 1,
-      subscriptionPeriod: "Monthly",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-      price: "$79",
-      pricingPeriod: "per month",
-      profit: "",
-      benefitsIcon: DealerOptionCheckmark,
-      packageBenefits: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-      ],
-    },
+  const [paymentOptions, setPaymentOptions] = useState([]);
 
-    {
-      id: 2,
-      subscriptionPeriod: "Quarterly",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-      price: "$79",
-      pricingPeriod: "per month",
-      profit: "save $240 per year",
-      benefitsIcon: DealerOptionCheckmark,
-      packageBenefits: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-      ],
-    },
-    {
-      id: 3,
-      subscriptionPeriod: "Annually",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-      price: "$79",
-      pricingPeriod: "per month",
-      profit: "save $360 per year",
-      benefitsIcon: DealerOptionCheckmark,
-      packageBenefits: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ",
-      ],
-    },
-  ];
+  useEffect(() => {
+    const fetchPaymentOptions = async () => {
+      try {
+        const response = await fetch(
+          "/api/dealers/payment-options/get-payment-options"
+        );
+        if (response.ok) {
+          const data = await response.json();
+          const filteredItems = data.data.filter(
+            (item) => item.page === "dealers"
+          );
+          setPaymentOptions(filteredItems);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
+
+    fetchPaymentOptions();
+  }, []);
 
   const textColors = ["black", "white", "white"];
   const buttonColors = ["#ffffff", "#000000", "#9C8D7F"];
@@ -90,7 +63,7 @@ export default function PaymentOptions() {
                   <li className={css.paymentBenefitItem} key={index}>
                     <Image
                       className={css.paymentBenefitIcon}
-                      src={option.benefitsIcon}
+                      src={DealerOptionCheckmark}
                     />
                     {benefit}
                   </li>

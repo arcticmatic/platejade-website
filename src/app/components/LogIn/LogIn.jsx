@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import css from "./LogIn.module.css";
 import EyeIcon from "../images/EyeIcon.svg";
+import ClosedEye from "../images/ClosedEye.svg";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -100,7 +101,7 @@ export default function LogIn() {
                 onClick={() => {
                   setShowPassword((prev) => !prev);
                 }}
-                src={EyeIcon}
+                src={!showPassword ? EyeIcon : ClosedEye}
                 alt="Toggle password visibility"
               />
             </span>

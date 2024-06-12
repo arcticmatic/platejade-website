@@ -19,7 +19,31 @@
     padding-top: 26px;
     background-color: var(--color-2, #10101C);
 }
+.formsThumb {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 320px;
+}
 
+.navItem {
+    color: var(--white, #FFF);
+
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+
+.navItemIcon {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.navLinkIcon {
+    margin-right: 8px;
+}
 .navItem {
     color: var(--white, #FFF);
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import css from "./ContactForm.module.css";
 import Image from "next/image";
 import XClose from "../images/XClose.svg";
@@ -17,85 +17,64 @@ import Link from "next/link";
 
 export default function ContactForm() {
   const [isNotification, setIsNotification] = useState(false);
+  const [contactsArray, setContactsArray] = useState([]);
+  const [socialMediaArray, setSocialMediaArray] = useState([]);
+  const [formData, setFormData] = useState({});
+  const [formFieldsArray, setFormFieldsArray] = useState([]);
 
-  const contactsArray = [
-    {
-      id: 1,
-      icon: phone,
-      details: "+1-954-710-1500",
-      href: "tel:+1-954-710-1500",
-    },
-    {
-      id: 2,
-      icon: email,
-      details: "info@platejade.com",
-      href: "mailto:info@platejade.com",
-    },
-    {
-      id: 3,
-      icon: location,
-      details: "201 SE 2nd Ave Miami, Florida 33131 United States",
-      href: "#contact-form",
-    },
-  ];
+  useEffect(() => {
+    const fetchContacts = async () => {
+      try {
+        const response = await fetch("/api/contact-info/get-contact-info");
+        if (response.ok) {
+          const data = await response.json();
+          setContactsArray(data.data);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
 
-  const socialMediaIconsArray = [
-    {
-      id: 1,
-      icon: Twitter,
-    },
-    {
-      id: 2,
-      icon: Instagram,
-    },
-    {
-      id: 3,
-      icon: Discord,
-    },
-  ];
+    const fetchSocialMedia = async () => {
+      try {
+        const response = await fetch("/api/social-media/get-social-media");
+        if (response.ok) {
+          const data = await response.json();
+          setSocialMediaArray(data.data);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
+    const fetchContactFormFields = async () => {
+      try {
+        const response = await fetch("/api/contact-form/get-contact-form");
+        if (response.ok) {
+          const data = await response.json();
+          setFormFieldsArray(data.data);
+          const initialData = {};
+          data.data.forEach((field) => {
+            initialData[field.value] = "";
+          });
+          setFormData(initialData);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
 
-  const fromFieldsArray = [
-    {
-      id: 1,
-      label: "First Name",
-      placeholder: "First Name",
-      value: "firstName",
-    },
-    {
-      id: 2,
-      label: "Last Name",
-      placeholder: "Last Name",
-      value: "lastName",
-    },
-    {
-      id: 3,
-      label: "Phone Number",
-      placeholder: "+1 012 3456 789",
-      value: "phone",
-    },
-    {
-      id: 4,
-      label: "Email",
-      placeholder: "Enter your email",
-      value: "email",
-    },
-    {
-      id: 5,
-      label: "Message",
-      placeholder: "Message",
-      value: "message",
-    },
-  ];
+    fetchContactFormFields();
+    fetchSocialMedia();
+    fetchContacts();
+  }, []);
 
-  const initialFormData = {
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    message: "",
-  };
-
-  const [formData, setFormData] = useState(initialFormData);
+  const iconsArray = [phone, email, location];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -118,7 +97,7 @@ export default function ContactForm() {
 
     if (res.ok) {
       setIsNotification(true);
-      setFormData(initialFormData);
+      setFormData({});
     } else {
       console.log("Failed to submit form");
     }
@@ -135,13 +114,15 @@ export default function ContactForm() {
             </p>
           </div>
           <ul className={css.contactList}>
-            {contactsArray.map((contact) => (
+            {contactsArray.map((contact, index) => (
               <li className={css.contactItem}>
                 <Link className={css.contactLink} href={contact.href}>
                   <Image
+                    width="25"
+                    height="25"
                     className={css.contactIcon}
                     alt="contact icon"
-                    src={contact.icon}
+                    src={iconsArray[index % iconsArray.length]}
                   />
                   {contact.details}
                 </Link>
@@ -149,13 +130,17 @@ export default function ContactForm() {
             ))}
           </ul>
           <ul className={css.socialMediaIconsList}>
-            {socialMediaIconsArray.map((socialMedia) => (
+            {socialMediaArray.map((socialMedia) => (
               <li className={css.socialMediaItem}>
-                <Image
-                  className={css.socialMediaIcon}
-                  alt="platejade social media icon"
-                  src={socialMedia.icon}
-                />
+                <Link href={socialMedia.link}>
+                  <Image
+                    width="40"
+                    height="40"
+                    className={css.socialMediaIcon}
+                    alt="platejade social media icon"
+                    src={socialMedia.iconHome}
+                  />
+                </Link>
               </li>
             ))}
           </ul>
@@ -181,21 +166,21 @@ export default function ContactForm() {
                 </p>
               </div>
             )}
-            {fromFieldsArray.map((field, index) => (
+            {formFieldsArray.map((field, index) => (
               <label
                 key={field.id}
                 className={`${css.contactLabel} ${
-                  index === fromFieldsArray.length - 1
+                  index === formFieldsArray.length - 1
                     ? css.separateLabel
                     : css.contactLabel
                 }`}
               >
-                {field.label}
+                {field.name}
                 <input
                   name={field.value}
                   className={css.contactInput}
                   placeholder={field.placeholder}
-                  value={formData[field.value]}
+                  value={formData[field.name]}
                   onChange={handleInputChange}
                 />
               </label>

@@ -25,6 +25,8 @@ import CrossRed from "../../../images/CrossRed.svg";
 import CheckMarkGreen from "../../../images/CheckMarkGreen.svg";
 import XClose from "../../../images/XClose.svg";
 import Table from "../../../images/Table.svg";
+import TitleAgencyIcon from "../../../images/TitleAgencyIcon.svg";
+import SellersIcon from "../../../images/SellersIcon.svg";
 import ChatIcon from "../../../images/ChatIcon.svg";
 
 export default function PaymentOptions() {
@@ -33,9 +35,10 @@ export default function PaymentOptions() {
   const [isLoading, setIsLoading] = useState(false);
   const [isNotification, setIsNotification] = useState(false);
 
-  // if (status !== "loading" && !session) {
-  //   redirect("/admin");
-  // }
+  if (status === "unauthenticated") {
+    redirect("/admin");
+  }
+
   const [selectedPage, setSelectedPage] = useState(null);
   const [selectedPageId, setSelectedPageId] = useState(2);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -49,52 +52,24 @@ export default function PaymentOptions() {
       icon: NewspaperWhite,
       activeIcon: Newspaper,
       navLinks: [
+        { id: 1, name: "Hero section", link: "/admin/home" },
+        { id: 2, name: "Video block", link: "/admin/home/video-block" },
+        { id: 3, name: "How it works", link: "/admin/home/how-it-works" },
+        { id: 4, name: "Features", link: "/admin/home/features" },
+        { id: 5, name: "Advantages", link: "/admin/home/advantages" },
+        { id: 6, name: "Testimonials", link: "/admin/home/testimonials" },
+        { id: 7, name: "FAQ", link: "/admin/home/faq" },
+        { id: 8, name: "Download", link: "/admin/home/download" },
         {
-          id: 1,
-          name: "Hero section",
-          link: "/admin/home",
-        },
-        {
-          id: 2,
-          name: "Video block",
-          link: "/admin/home/video-block",
-        },
-        {
-          id: 3,
-          name: "How it works",
-          link: "/admin/home/how-it-works",
-        },
-        {
-          id: 4,
-          name: "Features",
-          link: "/admin/home/features",
-        },
-        {
-          id: 5,
-          name: "Advantages",
-          link: "/admin/home/advantages",
-        },
-        {
-          id: 6,
-          name: "Testimonials",
-          link: "/admin/home/testimonials",
-        },
-        {
-          id: 7,
-          name: "FAQ",
-          link: "/admin/home/faq",
-        },
-        {
-          id: 8,
-          name: "Contacts",
-          link: "/admin/home/contacts",
+          id: 9,
+          name: "Contact Form",
+          link: "/admin/collaboration-form",
         },
       ],
     },
     {
       id: 2,
       name: "Dealers",
-      activeIcon: Shell,
       icon: Shell,
       activeIcon: "",
       navLinks: [
@@ -103,15 +78,27 @@ export default function PaymentOptions() {
           name: "Hero section",
           link: "/admin/dealers/hero",
         },
-        { id: 2, name: "Video block", link: "/admin/dealers/video-block" },
-        { id: 3, name: "How it works", link: "/admin/dealers/how-it-works" },
+        {
+          id: 2,
+          name: "Video block",
+          link: "/admin/dealers/video-block",
+        },
+        {
+          id: 3,
+          name: "How it works",
+          link: "/admin/dealers/how-it-works",
+        },
         {
           id: 4,
           name: "Payment options",
           link: "/admin/dealers/payment-options",
           isChosen: true,
         },
-        { id: 5, name: "Opportunites", link: "/admin/dealers/opportunities" },
+        {
+          id: 5,
+          name: "Opportunites",
+          link: "/admin/dealers/opportunities",
+        },
         {
           id: 6,
           name: "Collaboration form",
@@ -122,19 +109,95 @@ export default function PaymentOptions() {
     },
     {
       id: 3,
+      name: "Title Agencies",
+      icon: TitleAgencyIcon,
+      activeIcon: "",
+      navLinks: [
+        { id: 1, name: "Hero section", link: "/admin/title-agencies/hero" },
+        {
+          id: 2,
+          name: "Video block",
+          link: "/admin/title-agencies/video-block",
+        },
+        {
+          id: 3,
+          name: "How it works",
+          link: "/admin/title-agencies/how-it-works",
+        },
+        {
+          id: 4,
+          name: "Payment options",
+          link: "/admin/title-agencies/payment-options",
+        },
+        {
+          id: 5,
+          name: "Opportunites",
+          link: "/admin/title-agencies/opportunities",
+        },
+        {
+          id: 6,
+          name: "Collaboration form",
+          link: "/admin/title-agencies/collaboration-form",
+        },
+        { id: 7, name: "FAQ", link: "/admin/title-agencies/faq" },
+      ],
+    },
+    {
+      id: 4,
+      name: "Sellers",
+      icon: SellersIcon,
+      activeIcon: "",
+      navLinks: [
+        { id: 1, name: "Hero section", link: "/admin/sellers/hero" },
+        { id: 2, name: "Video block", link: "/admin/sellers/video-block" },
+        { id: 3, name: "How it works", link: "/admin/sellers/how-it-works" },
+        {
+          id: 4,
+          name: "Payment options",
+          link: "/admin/sellers/payment-options",
+        },
+        {
+          id: 5,
+          name: "Opportunites",
+          link: "/admin/sellers/opportunities",
+        },
+        {
+          id: 6,
+          name: "Collaboration form",
+          link: "/admin/sellers/collaboration-form",
+        },
+        { id: 7, name: "FAQ", link: "/admin/sellers/faq" },
+      ],
+    },
+    {
+      id: 5,
       name: "Contacts",
       icon: contactsIcon,
       activeIcon: contactsIcon,
       navLinks: [
+        { id: 1, name: "Contact Information", link: "admin/contact-info" },
+      ],
+    },
+    {
+      id: 6,
+      name: "Forms",
+      icon: Table,
+      activeIcon: contactsIcon,
+      navLinks: [
         {
           id: 1,
-          name: "Contact Information",
-          link: "/contact-info",
+          name: "Dealers",
+          link: "/admin/collaboration-form/dealers",
         },
         {
           id: 2,
-          name: "Collaboration form",
-          link: "/collaboration-form",
+          name: "Title Agencies",
+          link: "/admin/collaboration-form/title-agencies",
+        },
+        {
+          id: 3,
+          name: "Sellers",
+          link: "/admin/collaboration-form/sellers",
         },
       ],
     },
@@ -146,11 +209,14 @@ export default function PaymentOptions() {
     const fetchWorkItems = async () => {
       try {
         const response = await fetch(
-          "/api/dealers/how-it-works/get-how-it-works"
+          "/api/dealers/payment-options/get-payment-options"
         );
         if (response.ok) {
           const data = await response.json();
-          setWorkItems(data.data);
+          const filteredItems = data.data.filter(
+            (item) => item.page === "dealers"
+          );
+          setWorkItems(filteredItems);
         } else {
           console.error("Failed to fetch work items");
         }
@@ -169,25 +235,60 @@ export default function PaymentOptions() {
     setWorkItems(updatedItems);
   };
 
+  const handleAddBenefit = (itemId) => {
+    const updatedItems = workItems.map((item) =>
+      item._id === itemId
+        ? { ...item, packageBenefits: [...item.packageBenefits, ""] }
+        : item
+    );
+    setWorkItems(updatedItems);
+  };
+
+  const handleDeleteBenefit = (itemId, index) => {
+    const updatedItems = workItems.map((item) =>
+      item._id === itemId
+        ? {
+            ...item,
+            packageBenefits: item.packageBenefits.filter((_, i) => i !== index),
+          }
+        : item
+    );
+    setWorkItems(updatedItems);
+  };
+
+  const handleEditBenefit = (itemId, index, value) => {
+    const updatedItems = workItems.map((item) =>
+      item._id === itemId
+        ? {
+            ...item,
+            packageBenefits: item.packageBenefits.map((benefit, i) =>
+              i === index ? value : benefit
+            ),
+          }
+        : item
+    );
+    setWorkItems(updatedItems);
+  };
+
   const handleEditWorkItem = async (e) => {
     e.preventDefault();
 
     for (const workItem of workItems) {
       const responseUpdate = await fetch(
-        `/api/dealers/how-it-works/edit-how-it-works/${workItem._id}`,
+        `/api/dealers/payment-options/edit-payment-options/${workItem._id}`,
         {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ workItem }),
+          body: JSON.stringify({ paymentOption: workItem }),
         }
       );
       if (responseUpdate.ok) {
         setIsNotification(true);
       }
       if (!responseUpdate.ok) {
-        console.error(`Failed to update slide with ID: ${slide._id}`);
+        console.error(`Failed to update slide with ID: ${workItem._id}`);
       }
     }
   };
@@ -262,14 +363,6 @@ export default function PaymentOptions() {
             ))}
           </ul>
           <div className={css.formsThumb}>
-            <Link className={css.navItem} href="/admin/cooperation-form">
-              <Image
-                className={css.navLinkIcon}
-                alt="cooperation form"
-                src={Table}
-              />
-              Cooperation form
-            </Link>
             <Link className={css.navItem} href="/admin/communication-form">
               <Image
                 className={css.navLinkIcon}
@@ -312,30 +405,105 @@ export default function PaymentOptions() {
                 </p>
               </div>
             )}
-            {workItems.map((item) => (
+            {workItems.map((item, index) => (
               <div key={item.id}>
+                <p className={css.planTitle}>Subscription plan {index + 1}</p>
                 <label className={css.heroLabel}>
-                  Title
+                  Subscription period
                   <input
-                    className={css.heroTitleInput}
-                    placeholder="Enter title"
-                    value={item.title}
+                    className={css.heroTextInput}
+                    placeholder="Enter the package name"
+                    value={item.subscriptionPeriod}
                     onChange={(e) =>
-                      handleInputChange(e, item._id, "title", e.target.value)
+                      handleInputChange(
+                        e,
+                        item._id,
+                        "subscriptionPeriod",
+                        e.target.value
+                      )
                     }
                   />
                 </label>
                 <label className={css.heroLabel}>
-                  Text
+                  Description
                   <input
                     className={css.heroTextInput}
-                    placeholder="Enter description"
-                    value={item.text}
+                    placeholder="Enter the package description"
+                    value={item.description}
                     onChange={(e) =>
                       handleInputChange(e, item._id, "text", e.target.value)
                     }
                   />
                 </label>
+                <label className={css.heroLabel}>
+                  Price
+                  <input
+                    className={css.heroTitleInput}
+                    placeholder="Enter the price"
+                    value={item.price}
+                    onChange={(e) =>
+                      handleInputChange(e, item._id, "price", e.target.value)
+                    }
+                  />
+                </label>
+                <label className={css.heroLabel}>
+                  Pricing period
+                  <input
+                    className={css.heroTitleInput}
+                    placeholder="Enter the pricing period"
+                    value={item.pricingPeriod}
+                    onChange={(e) =>
+                      handleInputChange(
+                        e,
+                        item._id,
+                        "pricingPeriod",
+                        e.target.value
+                      )
+                    }
+                  />
+                </label>
+                <label className={css.heroLabel}>
+                  Customer profit
+                  <input
+                    className={css.heroTitleInput}
+                    placeholder="Enter the profit amount"
+                    value={item.profit}
+                    onChange={(e) =>
+                      handleInputChange(e, item._id, "profit", e.target.value)
+                    }
+                  />
+                </label>
+                {item.packageBenefits.map((benefit, index) => (
+                  <>
+                    <label key={index} className={css.heroLabel}>
+                      Benefit {index + 1}
+                      <input
+                        className={css.heroTextInput}
+                        placeholder="Enter the benefit"
+                        value={benefit}
+                        onChange={(e) =>
+                          handleEditBenefit(item._id, index, e.target.value)
+                        }
+                      />
+                    </label>
+                    <div className={css.benefitsThumb}>
+                      <button
+                        className={css.benefitsBtn}
+                        type="button"
+                        onClick={() => handleDeleteBenefit(item._id, index)}
+                      >
+                        Delete benefit
+                      </button>
+                      <button
+                        className={css.benefitsBtn}
+                        type="button"
+                        onClick={() => handleAddBenefit(item._id)}
+                      >
+                        Add benefit
+                      </button>
+                    </div>
+                  </>
+                ))}
               </div>
             ))}
             <div className={css.buttonsThumb}>

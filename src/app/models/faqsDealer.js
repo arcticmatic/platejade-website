@@ -11,6 +11,9 @@ const faqsDealerSchema = new mongoose.Schema({
   text: {
     type: String,
   },
+  page: {
+    type:String,
+  }
 
 
    

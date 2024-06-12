@@ -18,8 +18,10 @@ export default function Opportunities() {
         );
         if (response.ok) {
           const data = await response.json();
-          console.log("data:", data);
-          setOpportunitiesArray(data.data);
+          const filteredItems = data.data.filter(
+            (item) => item.page === "dealers"
+          );
+          setOpportunitiesArray(filteredItems);
         } else {
           console.error("Failed to fetch work items");
         }
@@ -31,44 +33,21 @@ export default function Opportunities() {
     fetchOpportunities();
   }, []);
 
-  //  const opportunitiesArray = [
-  //   {
-  //     id: 1,
-  //     title: "Lorem",
-  //     description:
-  //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  //     icon: CarExample,
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Lorem",
-  //     description:
-  //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  //     icon: CarExample2,
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Lorem",
-  //     description:
-  //       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nibh tristique ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  //     icon: CarExample3,
-  //   },
-  // ];
-
   return (
     <>
       <section className={css.opportunitiesSection}>
         <h2 className={css.opportunitiesTitle}>Opportunities</h2>
         <p className={css.opportunitiesDescription}>
-          {/* {opportunitiesArray[0].mainText} */}
+          {opportunitiesArray[0] && opportunitiesArray[0].mainText}
         </p>
         <ul className={css.opportunitiesList}>
           {opportunitiesArray.map((opportunity) => (
-            <li className={css.opportunitiesItem}>
+            <li key={opportunity._id} className={css.opportunitiesItem}>
               <div className={css.opportunitiesImageThumb}>
                 <Image
-                  width="50"
-                  height="80"
+                  width="500"
+                  height="50"
+                  quality={100}
                   className={css.opportunitiesIcon}
                   alt="opportunities for dealers"
                   src={opportunity.icon}

@@ -11,21 +11,14 @@ import Delete from "../images/Delete.svg";
 import XClose from "../images/XClose.svg";
 
 export default function CooperationForm() {
-  const initialFormData = {
-    dealerShipName: "",
-    address: "",
-    selectedPlan: "",
-    email: "",
-    contactPerson: "",
-    phone: "",
-  };
-
   const [selectedFile, setSelectedFile] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [formData, setFormData] = useState(initialFormData);
+  const [formData, setFormData] = useState({});
   const [fileUrl, setFileUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isNotification, setIsNotification] = useState(false);
+  const [formFieldsArray, setFormFieldsArray] = useState([]);
+  const [description, setDescription] = useState("");
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -70,10 +63,51 @@ export default function CooperationForm() {
     uploadFile();
   }, [selectedFile]);
 
+  useEffect(() => {
+    const fetchContactFields = async () => {
+      try {
+        const response = await fetch(
+          "/api/dealers/collaboration-form/get-collaboration-form"
+        );
+        if (response.ok) {
+          const data = await response.json();
+          const filteredItems = data.data.filter(
+            (item) => item.page === "dealers"
+          );
+          setFormFieldsArray(filteredItems);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
+
+    const fetchDescription = async () => {
+      try {
+        const response = await fetch(
+          "/api/forms-description/get-forms-description"
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setDescription(data.data[0].text);
+        } else {
+          console.error("Failed to fetch work items");
+        }
+      } catch (error) {
+        console.error("Error occurred while fetching work items:", error);
+      }
+    };
+
+    fetchDescription();
+    fetchContactFields();
+  }, []);
+
   const handlePlanSelect = (plan) => {
     setFormData((prevFormData) => ({
       ...prevFormData,
-      selectedPlan: plan,
+      plan: plan,
+      page: "dealers",
     }));
     setShowDropdown(false);
   };
@@ -90,10 +124,7 @@ export default function CooperationForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("fileurl", fileUrl);
-    console.log(formData);
-
-    const res = await fetch("/api/dealers/add-dealer", {
+    const res = await fetch("/api/requests/add-request", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -103,55 +134,13 @@ export default function CooperationForm() {
 
     if (res.ok) {
       setIsNotification(true);
-      // Reset form data and file input
-      setFormData(initialFormData);
+      setFormData({});
       setSelectedFile(null);
       setFileUrl("");
     } else {
       console.log("Failed to submit form");
     }
   };
-
-  const fromFieldsArray = [
-    {
-      id: 1,
-      label: "Name of the dealership",
-      placeholder: "Enter dealership name",
-      value: "dealerShipName",
-    },
-    {
-      id: 2,
-      label: "Address",
-      placeholder: "Address",
-      value: "address",
-    },
-    {
-      id: 3,
-      label: "Cooperation plan",
-      placeholder: "Select a plan",
-      value: "selectedPlan",
-      icon: ChevronDown,
-      packages: ["Monthly", "Quarterly", "Annually"],
-    },
-    {
-      id: 4,
-      label: "Email",
-      placeholder: "Enter your email",
-      value: "email",
-    },
-    {
-      id: 5,
-      label: "Contact person",
-      placeholder: "Contact person",
-      value: "contactPerson",
-    },
-    {
-      id: 6,
-      label: "Phone Number",
-      placeholder: "Phone Number",
-      value: "phone",
-    },
-  ];
 
   const handleDeleteFile = () => {
     setFileUrl("");
@@ -172,12 +161,7 @@ export default function CooperationForm() {
     <>
       <section id="cooperation" className={css.cooperationSection}>
         <h2 className={css.cooperationTitle}>Let’s work together!</h2>
-        <p className={css.cooperationDescription}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra nunc
-          ante velit vitae. Est tellus vitae, nullam lobortis enim. Faucibus
-          amet etiam tincidunt rhoncus, ullamcorper velit. Ullamcorper risus
-          tempor, ac nunc libero urna, feugiat.
-        </p>
+        <p className={css.cooperationDescription}>{description}</p>
         <form className={css.cooperationForm} onSubmit={handleSubmit}>
           {isNotification && (
             <div className={css.notificationThumb}>
@@ -195,25 +179,25 @@ export default function CooperationForm() {
             </div>
           )}
           <div className={css.cooperationThumb}>
-            {fromFieldsArray.map((field) => (
+            {formFieldsArray.map((field) => (
               <label key={field.id} className={css.cooperationLabel}>
-                {field.label}
-                {field.value === "selectedPlan" ? (
+                {field.value !== "fileUrl" && field.name}
+                {field.value === "plan" ? (
                   <div className={css.dropdownContainer}>
                     <div
                       className={css.selectedPlan}
                       onClick={() => setShowDropdown(!showDropdown)}
                     >
-                      {formData.selectedPlan || field.placeholder}
+                      {formData.plan || field.placeholder}
                       <Image
                         className={css.dropdownIcon}
                         alt="dropdown"
-                        src={field.icon}
+                        src={ChevronDown}
                       />
                     </div>
                     {showDropdown && (
                       <ul className={css.dropdownList}>
-                        {field.packages.map((plan, index) => (
+                        {field.dropdownListOptions.map((plan, index) => (
                           <li
                             key={index}
                             onClick={() => handlePlanSelect(plan)}
@@ -226,13 +210,15 @@ export default function CooperationForm() {
                     )}
                   </div>
                 ) : (
-                  <input
-                    name={field.value}
-                    className={css.cooperationInput}
-                    placeholder={field.placeholder}
-                    value={formData[field.value]} // Add this line to bind the input value to the state
-                    onChange={handleInputChange}
-                  />
+                  field.value !== "fileUrl" && (
+                    <input
+                      name={field.value}
+                      className={css.cooperationInput}
+                      placeholder={field.placeholder}
+                      value={formData[field.value]}
+                      onChange={handleInputChange}
+                    />
+                  )
                 )}
               </label>
             ))}
