@@ -44,7 +44,16 @@ color:  #10101C;
     justify-content: center;
     flex-direction: row-reverse;
 }}
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 480px) {
+    .contactsPhoto {
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+        height: 260px;
+        margin-bottom: 40px;
+    }
+}
+@media screen and (min-width: 480px) {
     .contactsPhoto {
         display: block;
         margin: 0 auto;
