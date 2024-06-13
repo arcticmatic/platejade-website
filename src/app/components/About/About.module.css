@@ -2,9 +2,14 @@
   .aboutSection {
   margin-top: 30px;
 }}
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 480px) {
   .aboutSection {
-height: 1200px;  }
+height: 1400px;  }
+}
+@media screen and (min-width:480px) and  (max-width: 767px) {
+  .aboutSection {
+    height: 1200px;
+  }
 }
 @media screen and (min-width: 767px)  and (max-width:1200px){
   .aboutSection {
