@@ -2,6 +2,20 @@
   .aboutSection {
   margin-top: 30px;
 }}
+@media screen and (max-width: 767px) {
+  .aboutSection {
+height: 1200px;  }
+}
+@media screen and (min-width: 767px)  and (max-width:1200px){
+  .aboutSection {
+    height: 1000px;
+  }
+}
+@media screen and (min-width:1200px) {
+  .aboutSection {
+    height: 800px;
+  }
+}
 @media screen and (min-width: 767px) {
   .aboutSection{
     display: flex;
@@ -826,11 +840,13 @@ text-align:center;
   display: none;
 }
 @media screen and (min-width: 1200px) {
+
 .dotsDesktopContainer {
+bottom: -10%;
     display: block;
   margin-top: 20px;
     position: absolute;
     left:50%;
-    transform: translate(-50%,50%);
+    transform: translate(-50%,-10%);
   }
 }
