@@ -28,7 +28,7 @@ const montserrat = Montserrat({
 });
 
 export default function About() {
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [subText, setSubText] = useState("");
