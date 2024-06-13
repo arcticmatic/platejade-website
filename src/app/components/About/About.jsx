@@ -98,7 +98,7 @@ export default function About() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 8000000);
+    }, 8000);
     return () => {
       clearInterval(intervalId);
     };
