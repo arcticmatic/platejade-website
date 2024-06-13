@@ -25,7 +25,7 @@ export default function LogIn() {
   const { data: session, status: sessionStatus } = useSession();
 
   useEffect(() => {
-    console.log("sess stat", sessionStatus);
+    // console.log("sess stat", sessionStatus);
 
     if (sessionStatus === "authenticated") {
       router.replace("/admin/home");
