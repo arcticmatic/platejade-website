@@ -13,6 +13,7 @@ const SlideForm = ({
   slide,
   handleFileChange,
   handleInputChange,
+  handleAdditionalFileChange,
   handleDescriptionChange,
   handleRemoveSlide,
   showRemoveButton,
