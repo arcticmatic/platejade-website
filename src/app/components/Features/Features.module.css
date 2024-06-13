@@ -40,12 +40,13 @@
     .featureItem {
         display: flex;
         align-items: center;
+    
         margin-bottom: 40px;
     }
 }
 @media screen and (min-width: 767px) {
     .featureItem {
-    
+        height: 186px;
         margin-bottom: 40px;
     }
 }
@@ -83,7 +84,7 @@ text-align: end;
         font-style: normal;
         font-weight: 400;
         line-height: 20px;
-       
+       /* width: 200px; */
 }
 .featuresImagesThumb {
     display: block;

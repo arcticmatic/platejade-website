@@ -28,7 +28,7 @@ const montserrat = Montserrat({
 });
 
 export default function About() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(1);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [subText, setSubText] = useState("");
@@ -98,7 +98,7 @@ export default function About() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000); // Adjusted interval time for better demonstration
+    }, 8000000);
     return () => {
       clearInterval(intervalId);
     };
@@ -136,7 +136,11 @@ export default function About() {
                       <p className={css.aboutDownloadTextMobile}>
                         Download app from App Store or Google Play
                       </p>
-                      <button className={css.aboutStartBtn}>Get Started</button>
+                      <Link href="/#video-block">
+                        <button className={css.aboutStartBtn}>
+                          Get started
+                        </button>
+                      </Link>
                       <Link href="/#how-works">
                         <button className={css.aboutWorkBtn}>
                           <PlayIcon className={css.aboutWorkBtnIcon} /> How it
@@ -144,6 +148,7 @@ export default function About() {
                         </button>
                       </Link>
                     </div>
+
                     <div className={css.aboutDownloadThumbDesktop}>
                       <p className={css.aboutDownloadText}>
                         Download app from App Store or Google Play
@@ -162,6 +167,17 @@ export default function About() {
                         </div>
                       </div>
                     </div>
+                    <div className={css.dotsDesktopContainer}>
+                      {slides.map((_, index) => (
+                        <span
+                          key={index}
+                          className={`${css.dot} ${
+                            index === currentSlide ? css.active : ""
+                          }`}
+                          onClick={() => handleDotClick(index)}
+                        ></span>
+                      ))}
+                    </div>
                   </div>
 
                   <p className={css.aboutTitleMobile}>{slide.title}</p>
@@ -171,20 +187,26 @@ export default function About() {
                       <Image
                         width="200"
                         height="200"
-                        className={css.aboutScreenBg}
+                        className={
+                          slide.backgroundSrc
+                            ? css.aboutScreenBg
+                            : css.aboutOneScreenBg
+                        }
                         src={slide.imageSrc}
                         alt={`Slide ${index + 1}`}
                       />
 
-                      <div className={css.aboutImagesOverlayThumb}>
-                        <Image
-                          width="200"
-                          height="200"
-                          className={css.aboutScreenBg}
-                          src={slide.backgroundSrc}
-                          alt={`Slide ${index + 1}`}
-                        />
-                      </div>
+                      {slide.backgroundSrc && (
+                        <div className={css.aboutImagesOverlayThumb}>
+                          <Image
+                            width="200"
+                            height="200"
+                            className={css.aboutScreenBg}
+                            src={slide.backgroundSrc}
+                            alt={`Slide ${index + 1}`}
+                          />
+                        </div>
+                      )}
                     </div>
                     <div className={css.dotsContainer}>
                       {slides.map((_, index) => (
@@ -211,7 +233,9 @@ export default function About() {
           ))}
 
           <div className={css.startMobileButtonsThumb}>
-            <button className={css.aboutStartBtn}>Get Started</button>
+            <Link href="/#video-block">
+              <button className={css.aboutStartBtn}>Get started</button>
+            </Link>
             <Link href="/#how-works">
               <button className={css.aboutWorkBtn}>
                 <PlayIcon className={css.aboutWorkBtnIcon} /> How it works
@@ -221,6 +245,17 @@ export default function About() {
         </div>
 
         <div className={css.aboutDownloadTextThumb}>
+          <div className={css.dotsTabletContainer}>
+            {slides.map((_, index) => (
+              <span
+                key={index}
+                className={`${css.dot} ${
+                  index === currentSlide ? css.active : ""
+                }`}
+                onClick={() => handleDotClick(index)}
+              ></span>
+            ))}
+          </div>
           <p className={css.aboutDownloadText}>
             Download app from App Store or Google Play
           </p>
@@ -236,7 +271,7 @@ export default function About() {
       </section>
       <section className={css.aboutVideoSection}>
         <div>
-          <div id="how-works" className={css.videoThumb}>
+          <div id="video-block" className={css.videoThumb}>
             <VideoPlayer />
           </div>
           <div className={css.aboutVideoThumb}>
@@ -264,12 +299,12 @@ export default function About() {
             />
           </div>
         </div>
-        <div className={css.aboutVideoThumbDesktop}>
+        <div id="video-block" className={css.aboutVideoThumbDesktop}>
           <VideoPlayer src={videoSrc} />
         </div>
       </section>
       <section>
-        <div className={css.aboutWorkThumb}>
+        <div id="how-works" className={css.aboutWorkThumb}>
           <h2 className={css.aboutWorkTitle}>How it works</h2>
           <ul className={css.aboutWorkList}>
             {aboutWorkItems.map((item) => (

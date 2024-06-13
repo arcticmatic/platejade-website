@@ -246,6 +246,25 @@ margin-right: 48px;
   width: 250px;
   height: 509px;
 }}
+@media screen and (max-width: 767px) {
+.aboutOneScreenBg{
+object-fit: contain;
+  position: absolute;
+ margin-top: 20px;
+  width: 165px;
+  height: 332px;
+}}
+
+@media screen and (min-width: 767px) {
+  .aboutOneScreenBg {
+    object-fit: contain;
+    position: absolute;
+    left:15%;
+    margin-top: 20px;
+    width: 290px;
+    height: 430px;
+  }
+}
 @media screen and (max-width: 480px) {
   .aboutScreenBg {
     object-fit: contain;
@@ -406,7 +425,7 @@ margin-right: 48px;
   .aboutDownloadText {
     color: #10101c;
     text-align: center;
-    margin-top: 150px;
+    /* margin-top: 150px; */
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -791,4 +810,27 @@ text-align:center;
 
 .active {
   background-color: #717171;
+}
+.dotsTabletContainer {
+  display: none;
+}
+@media screen and (min-width: 767px) and (max-width:1200px) {
+.dotsTabletContainer{
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  display: block;
+}
+}
+.dotsDesktopContainer{
+  display: none;
+}
+@media screen and (min-width: 1200px) {
+.dotsDesktopContainer {
+    display: block;
+  margin-top: 20px;
+    position: absolute;
+    left:50%;
+    transform: translate(-50%,50%);
+  }
 }

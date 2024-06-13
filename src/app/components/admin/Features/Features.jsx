@@ -242,7 +242,7 @@ export default function Features() {
   };
 
   const handleFileChange = async (e, itemId) => {
-    console.log("item id", itemId);
+    // console.log("item id", itemId);
     const selectedFile = e.target.files[0];
 
     e.preventDefault();
@@ -285,7 +285,7 @@ export default function Features() {
       }
 
       const uploadedFileUrl = uploadRes.url.split("?")[0];
-      console.log("uploaded file url:", uploadedFileUrl);
+      // console.log("uploaded file url:", uploadedFileUrl);
 
       const updatedItems = leftFeatures.map((item) =>
         item._id === itemId ? { ...item, icon: uploadedFileUrl } : item
@@ -357,7 +357,7 @@ export default function Features() {
   };
 
   const handleDeleteFile = async (item) => {
-    console.log("item:", item);
+    // console.log("item:", item);
     try {
       const response = await fetch(`/api/s3/delete-file`, {
         method: "PATCH",

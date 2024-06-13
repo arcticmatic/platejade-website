@@ -25,6 +25,8 @@ export default function LogIn() {
   const { data: session, status: sessionStatus } = useSession();
 
   useEffect(() => {
+    console.log("sess stat", sessionStatus);
+
     if (sessionStatus === "authenticated") {
       router.replace("/admin/home");
     }
@@ -49,7 +51,8 @@ export default function LogIn() {
 
     if (res?.url) {
       // console.log("res:", res);
-      // router.replace("/admin/home");
+      console.log("inside redirect");
+      router.replace("/admin/home");
       console.log("ok");
     } else if (res?.error) {
       console.log("Invalid email or password");
