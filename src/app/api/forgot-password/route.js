@@ -1,8 +1,8 @@
 import nodemailer from 'nodemailer';
 import { v4 as uuidv4 } from 'uuid';
-import User from '../../../models/user';
+import User from '../../models/user';
 import { NextResponse } from 'next/server';
-import connect from '../../../utils/db';
+import connect from '../../utils/db';
 
 export async function POST(req, res) {
   try {

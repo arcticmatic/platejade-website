@@ -3,10 +3,7 @@
         position: relative;
         display: block;
         margin: 0 auto;
-        width: 80%;
-        
-        height: 411px;
-        margin: auto;
+        width: 90vw;
         background: #000;
         border-radius: 12px;
         overflow: hidden;
@@ -19,8 +16,8 @@
         display: block;
             margin: 0 auto;
         /* width: 100%; */
-        width: 340px;
-        height: 507px;
+        width: 90vw;
+ 
         background: #000;
         border-radius: 12px;
         overflow: hidden;
@@ -32,30 +29,14 @@
         position: relative;
         display: block;
             margin: 0 auto;
-        max-width: 703px;
-        height: 507px;
+       width: 90%;
     
         background: #000;
         border-radius: 12px;
         overflow: hidden;
-        margin-bottom: 136px;
     }
 }
 
-@media screen and (min-width:767px) and (max-width: 1200px) {
-.videoPlayer {
-        position: relative;
-        width: 100%;
-        max-width: 703px;
-        height: 507px;
-        margin: auto;
-        background: #000;
-        border-radius: 12px;
-        overflow: hidden;
-        margin-bottom: 136px;
-    }
-
-}
 
 @media screen and (min-width: 1200px) {
     .videoPlayer {

@@ -1,0 +1,196 @@
+ @media screen and (max-width: 767px) {
+     .dealersHeroSection {
+         padding-right: 0px;
+         padding-bottom: 72px;
+     }
+ }
+
+ @media screen and (min-width: 767px) and (max-width:1200px) {
+     .dealersHeroSection {
+         display: flex;
+         padding-right: 0px;
+         padding-bottom: 72px;
+     }
+ }
+
+ @media screen and (min-width: 1200px) {
+     .dealersHeroSection {
+         margin-top: 120px;
+         display: flex;
+         justify-content: space-between;
+         padding-right: 0px;
+         padding-bottom: 72px;
+     }
+ }
+
+ @media screen and (min-width: 768px) and (max-width: 1200px) {
+     .dealersTextThumb {
+         width: 60%;
+         margin-right: 20px;
+     }
+ }
+
+ @media screen and (min-width: 1200px) {
+     .dealersTextThumb {
+         width: 50%;
+         margin-right: 20px;
+     }
+ }
+
+ @media screen and (max-width: 1200px) {
+     .dealersHeroTitle {
+         color: #10101C;
+         font-size: 32px;
+         font-style: normal;
+         font-weight: 800;
+         margin-top: 43px;
+         margin-bottom: 20px;
+     }
+ }
+
+ @media screen and (min-width: 1200px) {
+     .dealersHeroTitle {
+         color: var(--color-2, #10101C);
+
+         font-size: 60px;
+         font-style: normal;
+         font-weight: 700;
+         line-height: 72px;
+     }
+ }
+
+ @media screen and (max-width: 1200px) {
+     .dealersHeroDescription {
+         color: #10101C;
+         font-size: 16px;
+         font-style: normal;
+         font-weight: 400;
+         line-height: 24px;
+         margin-bottom: 32px;
+     }
+ }
+
+ @media screen and (min-width: 1200px) {
+     .dealersHeroDescription {
+         color: var(--color-2, #10101C);
+
+         font-size: 24px;
+         font-style: normal;
+         font-weight: 400;
+         line-height: 32px;
+
+         margin-bottom: 32px;
+     }
+ }
+
+ .dealersButtonsThumb {
+     display: flex;
+ }
+
+ .contactUsBtn {
+     display: block;
+     width: 90%;
+     margin: 0 auto;
+     border-radius: 8px;
+     border: 2px solid #10101c;
+     background: #10101c;
+     color: #fff;
+     padding: 12px 24px;
+     font-size: 16px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: 24px;
+     letter-spacing: 0.5px;
+     margin-bottom: 32px;
+ }
+
+ .readMoreBtn {
+     display: block;
+     width: 90%;
+     margin: 0 auto;
+     color: #10101c;
+     padding: 12px 24px;
+     font-size: 16px;
+     font-style: normal;
+     font-weight: 700;
+     line-height: 24px;
+     border: none;
+     background-color: #fff;
+     letter-spacing: 0.5px;
+     margin-bottom: 40px;
+ }
+
+ @media screen and (min-width: 767px) {
+     .mobileCarousel {
+         display: none;
+     }
+ }
+
+ @media screen and (max-width: 767px) {
+     .tabletCarouselThumb {
+         display: none;
+     }
+ }
+
+ @media screen and (min-width: 767px) and (max-width: 1200px) {
+     .tabletCarouselThumb {
+         display: block;
+     }
+ }
+
+ @media screen and (min-width: 1200px) {
+     .tabletCarouselThumb {
+         display: none;
+     }
+ }
+
+ .desktopCarouselThumb {
+     display: none;
+ }
+
+ @media screen and (min-width: 1200px) {
+     .desktopCarouselThumb {
+         display: block;
+     }
+ }
+
+ @media screen and (min-width: 767px) {
+     .aboutImagesThumb {
+         display: block;
+     }
+ }
+
+ .hiddenSlide {
+     display: none;
+ }
+
+ @media screen and (min-width: 767px) and (max-width:1200px) {
+     .dealerIcon {
+         margin-bottom: 20px;
+         width: 344px;
+         height: 260px;
+     }
+ }
+
+ @media screen and (min-width: 1200px) {
+     .dealerIcon {
+         margin-bottom: 20px;
+         /* width: auto; */
+         margin-right: 20px;
+     }
+ }
+
+ @media screen and (min-width: 767px) and (max-width:1200px) {
+     .dealersImagesThumb {
+         margin-left: 20px;
+         margin-right: 32px;
+     }
+ }
+
+ @media screen and (min-width: 1200px) {
+     .dealersImagesThumb {
+         display: flex;
+         flex-wrap: wrap;
+         width: 600px;
+     }
+ }

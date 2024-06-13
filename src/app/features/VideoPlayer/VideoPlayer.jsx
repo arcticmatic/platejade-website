@@ -29,7 +29,7 @@ const VideoPlayer = ({ src }) => {
         ref={videoRef}
         width="834"
         height="503"
-        poster="../images/DesktopVideoPreview.jpg"
+        poster="../images/VideoPreview.jpeg"
         src={src}
         onPause={() => setIsPlaying(false)}
         onPlay={() => setIsPlaying(true)}

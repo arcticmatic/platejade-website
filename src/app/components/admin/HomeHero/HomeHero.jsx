@@ -33,6 +33,8 @@ export default function HomeHero() {
   const [isNotification, setIsNotification] = useState(false);
   const [newSlides, setNewSlides] = useState([]);
 
+  console.log("status", status);
+
   if (status === "unauthenticated") {
     redirect("/admin");
   }

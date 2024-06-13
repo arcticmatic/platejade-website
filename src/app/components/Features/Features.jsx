@@ -85,8 +85,8 @@ export default function Features() {
 
           <div className={css.featuresImagesThumb}>
             <Image
-              width="50"
-              height="50"
+              width="500"
+              height="500"
               className={css.featuresScreenBg}
               src={FeaturesMockup}
             />

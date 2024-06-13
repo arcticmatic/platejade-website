@@ -20,6 +20,7 @@ import AboutMockup from "../images/AboutMockup.png";
 import AboutBgMockup from "../images/AboutBgMockup.png";
 import GooglePlayIcon from "../images/GooglePlayIcon.svg";
 import Link from "next/link";
+import { useSwipeable } from "react-swipeable";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -96,92 +97,132 @@ export default function About() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentSlide((prev) => {
-        return prev + 1 === slides.length ? 0 : prev + 1;
-      });
-    }, 8000);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000); // Adjusted interval time for better demonstration
     return () => {
       clearInterval(intervalId);
     };
   }, [slides]);
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => setCurrentSlide((prev) => (prev + 1) % slides.length),
+    onSwipedRight: () =>
+      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length),
+  });
+
+  const handleDotClick = (index) => {
+    setCurrentSlide(index);
+  };
+
   return (
     <>
       <section id="about" className={css.aboutSection}>
-        <div className={css.aboutThumb}>
+        <div className={css.aboutThumb} {...handlers}>
           {slides.map((slide, index) => (
-            <>
-              <div
-                key={slide.id}
-                className={
-                  index === currentSlide ? css.aboutTextThumb : css.hiddenSlide
-                }
-              >
-                <p className={css.aboutTitle}>{slide.title}</p>
-                {slide.description.map((item) => (
-                  <p className={css.aboutDescription}>{item}</p>
-                ))}
-
-                <button className={css.aboutStartBtn}>Get Started</button>
-                <Link href="/#how-works">
-                  <button className={css.aboutWorkBtn}>
-                    <PlayIcon className={css.aboutWorkBtnIcon} /> How it works
-                  </button>
-                </Link>
-                <div className={css.aboutDownloadThumbDesktop}>
-                  <p className={css.aboutDownloadText}>
-                    {/* Download app from App Store or Google Play */}
-                  </p>
-                  <div className={css.qrCodeThumb}>
-                    <div>
-                      <Image alt="download platejade" src={QR} />
+            <div className={css.aboutSlidesThumb} key={slide.id}>
+              {index === currentSlide && (
+                <>
+                  <div className={css.aboutTextThumb}>
+                    <div className={css.tabletSlidesThumb}>
+                      <p className={css.aboutTitle}>{slide.title}</p>
+                      {slide.description.map((item, itemIndex) => (
+                        <p key={itemIndex} className={css.aboutDescription}>
+                          {item}
+                        </p>
+                      ))}
                     </div>
-                    <div className={css.aboutDownloadIconsThumb}>
-                      <AppStoreIcon className={css.downloadAppStoreIcon} />
+
+                    <div className={css.startButtonsThumb}>
+                      <p className={css.aboutDownloadTextMobile}>
+                        Download app from App Store or Google Play
+                      </p>
+                      <button className={css.aboutStartBtn}>Get Started</button>
+                      <Link href="/#how-works">
+                        <button className={css.aboutWorkBtn}>
+                          <PlayIcon className={css.aboutWorkBtnIcon} /> How it
+                          works
+                        </button>
+                      </Link>
+                    </div>
+                    <div className={css.aboutDownloadThumbDesktop}>
+                      <p className={css.aboutDownloadText}>
+                        Download app from App Store or Google Play
+                      </p>
+                      <div className={css.qrCodeThumb}>
+                        <div>
+                          <Image alt="download platejade" src={QR} />
+                        </div>
+                        <div className={css.aboutDownloadIconsThumb}>
+                          <AppStoreIcon className={css.downloadAppStoreIcon} />
+                          <Image
+                            alt="google play plate jade"
+                            className={css.downloadGooglePlayIcon}
+                            src={GooglePlayIcon}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className={css.aboutTitleMobile}>{slide.title}</p>
+
+                  <div className={css.aboutScreensThumb}>
+                    <div className={css.aboutImagesThumb}>
                       <Image
-                        alt="google play plate jade"
-                        className={css.downloadGooglePlayIcon}
-                        src={GooglePlayIcon}
+                        width="200"
+                        height="200"
+                        className={css.aboutScreenBg}
+                        src={slide.imageSrc}
+                        alt={`Slide ${index + 1}`}
                       />
+
+                      <div className={css.aboutImagesOverlayThumb}>
+                        <Image
+                          width="200"
+                          height="200"
+                          className={css.aboutScreenBg}
+                          src={slide.backgroundSrc}
+                          alt={`Slide ${index + 1}`}
+                        />
+                      </div>
+                    </div>
+                    <div className={css.dotsContainer}>
+                      {slides.map((_, index) => (
+                        <span
+                          key={index}
+                          className={`${css.dot} ${
+                            index === currentSlide ? css.active : ""
+                          }`}
+                          onClick={() => handleDotClick(index)}
+                        ></span>
+                      ))}
+                    </div>
+                    <div className={css.mobileSlidesThumb}>
+                      {slide.description.map((item, itemIndex) => (
+                        <p key={itemIndex} className={css.aboutDescription}>
+                          {item}
+                        </p>
+                      ))}
                     </div>
                   </div>
-                </div>
-              </div>
-
-              <div
-                className={
-                  index === currentSlide
-                    ? css.aboutScreensThumb
-                    : css.hiddenSlide
-                }
-              >
-                <div className={css.aboutImagesThumb}>
-                  <Image
-                    width="200"
-                    height="200"
-                    className={css.aboutScreenBg}
-                    src={slide.imageSrc}
-                    alt={`Slide ${index + 1}`}
-                  />
-
-                  <div className={css.aboutImagesOverlayThumb}>
-                    <Image
-                      width="200"
-                      height="200"
-                      className={css.aboutScreenBg}
-                      src={slide.backgroundSrc}
-                      alt={`Slide ${index + 1}`}
-                    />
-                  </div>
-                </div>
-              </div>
-            </>
+                </>
+              )}
+            </div>
           ))}
+
+          <div className={css.startMobileButtonsThumb}>
+            <button className={css.aboutStartBtn}>Get Started</button>
+            <Link href="/#how-works">
+              <button className={css.aboutWorkBtn}>
+                <PlayIcon className={css.aboutWorkBtnIcon} /> How it works
+              </button>
+            </Link>
+          </div>
         </div>
 
         <div className={css.aboutDownloadTextThumb}>
           <p className={css.aboutDownloadText}>
-            {/* Download app from App Store or Google Play */}
+            Download app from App Store or Google Play
           </p>
           <div className={css.aboutDownloadIcons}>
             <AppStoreIcon className={css.downloadAppStoreIcon} />
@@ -189,7 +230,7 @@ export default function About() {
               alt="google play plate jade"
               className={css.downloadGooglePlayIcon}
               src={GooglePlayIcon}
-            />{" "}
+            />
           </div>
         </div>
       </section>
