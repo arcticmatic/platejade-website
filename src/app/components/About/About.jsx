@@ -44,6 +44,7 @@ export default function About() {
         if (response.ok) {
           const data = await response.json();
           setSlides(data.slides);
+          console.log("data,", data.slides);
         } else {
           console.error("Failed to fetch slides");
         }
