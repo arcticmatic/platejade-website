@@ -35,6 +35,7 @@ export default function CollaborationForm() {
   const [lettersArray, setLettersArray] = useState([]);
   const [fields, setFields] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [newRequests, setNewRequests] = useState("no");
 
   if (status === "unauthenticated") {
     redirect("/admin");
@@ -219,7 +220,7 @@ export default function CollaborationForm() {
 
     fetchFields();
     fetchLetters();
-  }, []);
+  }, [newRequests]);
 
   const handlePageClick = (page) => {
     setSelectedPage(selectedPage?.id === page.id ? null : page);
@@ -242,9 +243,13 @@ export default function CollaborationForm() {
     try {
       const response = await fetch(`/api/requests/delete-requests/${id}`, {
         method: "DELETE",
+        headers: {
+          "Cache-Control": "no-store",
+        },
       });
       if (response.ok) {
         setLettersArray((prev) => prev.filter((_, i) => i !== index));
+        setNewRequests("s");
       } else {
         console.error("Failed to delete item");
       }
