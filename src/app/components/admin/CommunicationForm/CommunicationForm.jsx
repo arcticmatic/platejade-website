@@ -34,6 +34,7 @@ export default function CommunicationForm() {
   const [lettersArray, setLettersArray] = useState([]);
   const [fields, setFields] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [newLetters, setNewLetters] = useState("no");
 
   if (status === "unauthenticated") {
     redirect("/admin");
@@ -72,7 +73,7 @@ export default function CommunicationForm() {
 
     fetchFields();
     fetchLetters();
-  }, []);
+  }, [newLetters]);
 
   const pagesArray = [
     {
@@ -233,6 +234,7 @@ export default function CommunicationForm() {
       });
       if (response.ok) {
         setLettersArray((prev) => prev.filter((_, i) => i !== index));
+        setNewLetters("");
       } else {
         console.error("Failed to delete item");
       }
