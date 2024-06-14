@@ -1,6 +1,6 @@
 {
   "functions": {
-    "myFunction": {
+    "deleteLetters": {
       "maxDuration": 30 
     }
   }
