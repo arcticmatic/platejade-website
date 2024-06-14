@@ -1,6 +1,6 @@
 {
   "functions": {
-    "deleteLetters": {
+    "api/letters/**/*.js": {
       "maxDuration": 30 
     }
   }
