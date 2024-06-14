@@ -6,6 +6,7 @@ import FAQ from "./components/FAQ/FAQ";
 import Download from "./components/Download/Download";
 import ContactInfo from "./components/ContactInfo/ContactInfo";
 import ContactForm from "./components/ContactForm/ContactForm";
+import Footer from "./components/Footer/Footer";
 
 export default function Home() {
   return (

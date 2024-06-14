@@ -65,7 +65,7 @@ export default function ContactInfo() {
 
   return (
     <>
-      <section id="contact-us" className={css.contactInfoSection}>
+      <section id="contacts-home" className={css.contactInfoSection}>
         <div className={css.contactIfoDescriptionThumb}>
           <h2 className={css.contactInfoTitle}>Contact Information</h2>
           <p className={css.contactInfoDescription}>Feel free to contact us</p>

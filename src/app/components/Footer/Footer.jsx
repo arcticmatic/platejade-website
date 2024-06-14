@@ -64,8 +64,19 @@ export default function Footer() {
     { id: 3, title: "Advantages", link: "/#advantages" },
     { id: 4, title: "Testimonials", link: "/#testimonials" },
     { id: 5, title: "FAQ", link: "/#faq" },
-    { id: 6, title: "Contacts", link: "/#contacts" },
+    {
+      id: 6,
+      title: "Contacts",
+      link:
+        path === "/"
+          ? "/#contacts"
+          : path === "/#contacts"
+          ? "/#contact-us"
+          : "",
+    },
   ];
+
+  console.log("path:", path === "/");
 
   return (
     <>

@@ -223,7 +223,7 @@ export default function CollaborationForm() {
   }, [newRequests]);
 
   const handlePageClick = (page) => {
-    // setSelectedPage(selectedPage?.id === page.id ? null : page);
+    setSelectedPage(selectedPage?.id === page.id ? null : page);
     setSelectedPageId(selectedPage?.id === page.id ? null : page.id);
   };
 
