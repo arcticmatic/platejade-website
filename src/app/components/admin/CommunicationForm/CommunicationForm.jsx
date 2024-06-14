@@ -45,7 +45,11 @@ export default function CommunicationForm() {
 
     const fetchLetters = async () => {
       try {
-        const response = await fetch("/api/letters/get-letters");
+        const response = await fetch("/api/letters/get-letters", {
+          headers: {
+            "Cache-Control": "no-store",
+          },
+        });
         if (response.ok) {
           const data = await response.json();
           setLettersArray(data.data);
