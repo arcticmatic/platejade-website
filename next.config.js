@@ -21,6 +21,14 @@ const nextConfig = {
       },
     ],
   },
+   async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://platejade.com/:path*', // Proxy API requests to another server
+      },
+    ]
+  },
   //  images: {
   //   domains: ['plate-jade-2024.s3.us-east-2.amazonaws.com'],
   // },

@@ -105,7 +105,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <section id="contact-form" className={css.contactsSection}>
+      <section id="contacts" className={css.contactsSection}>
         <div className={css.contactInfoSection}>
           <div className={css.contactIfoDescriptionThumb}>
             <h2 className={css.contactInfoTitle}>Contact Information</h2>

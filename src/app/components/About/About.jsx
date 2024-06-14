@@ -116,10 +116,10 @@ export default function About() {
 
   return (
     <>
-      <section id="about" className={css.aboutSection}>
+      <section className={css.aboutSection}>
         <div className={css.aboutThumb} {...handlers}>
           {slides.map((slide, index) => (
-            <div className={css.aboutSlidesThumb} key={slide.id}>
+            <div id="about" className={css.aboutSlidesThumb} key={slide.id}>
               {index === currentSlide && (
                 <>
                   <div className={css.aboutTextThumb}>

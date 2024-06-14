@@ -60,7 +60,7 @@ export default function ContactsPage() {
 
   return (
     <>
-      <section className={css.contactsSection}>
+      <section id="contact-us" className={css.contactsSection}>
         <h2 className={css.contactsTitle}>Contacts</h2>
         <div className={css.contactsAllThumb}>
           <Image
