@@ -52,7 +52,7 @@ export default function CommunicationForm() {
         if (response.ok) {
           const data = await response.json();
           setLettersArray(data.data);
-          console.log("data:", data);
+          // console.log("data:", data);
         } else {
           console.error("Failed to fetch work items");
         }
