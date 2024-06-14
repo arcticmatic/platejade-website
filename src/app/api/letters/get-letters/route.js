@@ -9,8 +9,12 @@ export async function GET(req) {
     const letter = await Letter.find();
 
     return NextResponse.json(
-   
-     { success: true, data: letter },
+      { success: true, data: letter },
+      {
+        headers: {
+          'Cache-Control': 'no-cache',
+        },
+      }
     );
   } catch (error) {
     console.error("Error fetching right features:", error);
