@@ -59,7 +59,11 @@ export default function CommunicationForm() {
 
     const fetchFields = async () => {
       try {
-        const response = await fetch("/api/contact-form/get-contact-form");
+        const response = await fetch("/api/contact-form/get-contact-form", {
+          headers: {
+            "Cache-Control": "no-store",
+          },
+        });
         if (response.ok) {
           const data = await response.json();
           setFields(data.data);
