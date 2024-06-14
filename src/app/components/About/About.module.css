@@ -4,15 +4,18 @@
 }}
 @media screen and (max-width: 480px) {
   .aboutSection {
+    position: relative;
 height: 1300px;  }
 }
 @media screen and (min-width:480px) and  (max-width: 767px) {
   .aboutSection {
+    position: relative;
     height: 1200px;
   }
 }
 @media screen and (min-width: 767px)  and (max-width:1200px){
   .aboutSection {
+    position: relative;
     height: 1000px;
   }
 }
@@ -23,6 +26,7 @@ height: 1300px;  }
 }
 @media screen and (min-width: 767px) {
   .aboutSection{
+    position: relative;
     display: flex;
    flex-direction: column;
   }}
@@ -847,11 +851,11 @@ text-align:center;
 @media screen and (min-width: 1200px) {
 
 .dotsDesktopContainer {
-   
+     bottom:5vh;
     display: block;
     margin-top: 20px;
     position: absolute;
     left:50%;
-    transform: translate(-50%,50%);
+    transform: translateX(-50%);
   }
 }
