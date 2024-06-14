@@ -231,6 +231,9 @@ export default function CommunicationForm() {
     try {
       const response = await fetch(`/api/letters/delete-letters/${id}`, {
         method: "DELETE",
+        headers: {
+          "Cache-Control": "no-store",
+        },
       });
       if (response.ok) {
         setLettersArray((prev) => prev.filter((_, i) => i !== index));
