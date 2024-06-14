@@ -190,6 +190,7 @@ export default function About() {
                   <div className={css.aboutScreensThumb}>
                     <div className={css.aboutImagesThumb}>
                       <Image
+                        priority
                         loading="eager"
                         width="200"
                         height="200"
@@ -205,6 +206,7 @@ export default function About() {
                       {slide.backgroundSrc && (
                         <div className={css.aboutImagesOverlayThumb}>
                           <Image
+                            priority
                             loading="eager"
                             width="200"
                             height="200"
