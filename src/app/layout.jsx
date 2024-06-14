@@ -27,6 +27,7 @@ export default async function RootLayout({ children }) {
         <meta name="description" content={metadata.description} />
         <GoogleAnalyticsTracking />
       </Head>
+
       <body className={montserrat.className}>
         <SessionProvider session={session}>
           <Header />
