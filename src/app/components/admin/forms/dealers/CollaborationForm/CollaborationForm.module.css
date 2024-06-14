@@ -69,7 +69,10 @@
 .navLinkIcon {
     margin-right: 8px;
 }
-
+ .navFormValuesList {
+     height: 75vh;
+     overflow-y: scroll;
+ }
 .formsThumb {
     display: flex;
     flex-direction: column;

@@ -177,6 +177,10 @@
     background-color: #475569;
   
 } */
+ .formList{
+    height: 75vh;
+    overflow-y: scroll;
+ }
 .navFormList{
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;

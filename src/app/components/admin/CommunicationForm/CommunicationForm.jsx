@@ -309,7 +309,7 @@ export default function CommunicationForm() {
                     />
                   </div>
                   {selectedPage && selectedPageId === page.id && (
-                    <ul>
+                    <ul className={css.formList}>
                       {selectedPage.navLinks.map((link) => (
                         <li className={css.navItem} key={link.id}>
                           <Link
