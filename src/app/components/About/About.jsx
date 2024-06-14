@@ -155,11 +155,16 @@ export default function About() {
                       </p>
                       <div className={css.qrCodeThumb}>
                         <div>
-                          <Image alt="download platejade" src={QR} />
+                          <Image
+                            loading="eager"
+                            alt="download platejade"
+                            src={QR}
+                          />
                         </div>
                         <div className={css.aboutDownloadIconsThumb}>
                           <AppStoreIcon className={css.downloadAppStoreIcon} />
                           <Image
+                            loading="eager"
                             alt="google play plate jade"
                             className={css.downloadGooglePlayIcon}
                             src={GooglePlayIcon}
@@ -185,6 +190,7 @@ export default function About() {
                   <div className={css.aboutScreensThumb}>
                     <div className={css.aboutImagesThumb}>
                       <Image
+                        loading="eager"
                         width="200"
                         height="200"
                         className={
@@ -199,6 +205,7 @@ export default function About() {
                       {slide.backgroundSrc && (
                         <div className={css.aboutImagesOverlayThumb}>
                           <Image
+                            loading="eager"
                             width="200"
                             height="200"
                             className={css.aboutScreenBg}
@@ -262,6 +269,7 @@ export default function About() {
           <div className={css.aboutDownloadIcons}>
             <AppStoreIcon className={css.downloadAppStoreIcon} />
             <Image
+              loading="eager"
               alt="google play plate jade"
               className={css.downloadGooglePlayIcon}
               src={GooglePlayIcon}
