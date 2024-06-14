@@ -5,6 +5,7 @@ import "./globals.css";
 import { Montserrat } from "next/font/google";
 import { getServerSession } from "next-auth";
 import SessionProvider from "../app/utils/SessionProvider";
+import { GoogleAnalyticsTracking } from "./components/GoogleAnalytics/GoogleAnalytics";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ export default async function RootLayout({ children }) {
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
+        <GoogleAnalyticsTracking />
       </Head>
       <body className={montserrat.className}>
         <SessionProvider session={session}>
