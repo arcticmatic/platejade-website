@@ -1,24 +1,22 @@
-import  SocialMedia from '../../../../models/socialMedia'; 
-import { NextRequest, NextResponse } from "next/server"
+import SocialMedia from '../../../../models/socialMedia';
+import { NextResponse } from "next/server";
 import connect from "../../../../utils/db";
-import mongoose from 'mongoose';
 
-
-export async function DELETE(req, {params}) {
-
+export default async function handler(req, { params }) {
   const { id } = params;
 
-    try {
-     
-      const deletedSocialMedia = await SocialMedia.findByIdAndDelete(id);
+  try {
+    await connect();
 
-      if (!deletedSocialMedia) {
-        return NextResponse.json({ error: 'SocialMedia is not found' });
-      }
+    const deletedSocialMedia = await SocialMedia.findByIdAndDelete(id);
 
-      return NextResponse.json({ message: ' SocialMedia is deleted successfully' });
-    } catch (error) {
-      console.error('Error deleting slide:', error);
-      return NextResponse.json({ error: 'Internal server error' });
+    if (!deletedSocialMedia) {
+      return NextResponse.json({ error: 'SocialMedia not found' }, { status: 404 });
     }
+
+    return NextResponse.json({ message: 'SocialMedia deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting social media:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
+}
