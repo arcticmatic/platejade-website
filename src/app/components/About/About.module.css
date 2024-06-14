@@ -847,11 +847,11 @@ text-align:center;
 @media screen and (min-width: 1200px) {
 
 .dotsDesktopContainer {
-bottom: -10%;
+   
     display: block;
-  margin-top: 20px;
+    margin-top: 20px;
     position: absolute;
     left:50%;
-    transform: translate(-50%,-10%);
+    transform: translate(-50%,50%);
   }
 }
