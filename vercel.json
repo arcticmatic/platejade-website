@@ -1,6 +1,6 @@
 {
   "functions": {
-    "app/api/letters/**/*.js": {
+    "app/api/letters/**/route.js": {
       "maxDuration": 30 
     }
   }
