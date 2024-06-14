@@ -279,9 +279,9 @@ export default function About() {
           </div>
         </div>
       </section>
-      <section className={css.aboutVideoSection}>
+      <section id="video-block" className={css.aboutVideoSection}>
         <div>
-          <div id="video-block" className={css.videoThumb}>
+          <div className={css.videoThumb}>
             <VideoPlayer src={videoSrc} />
           </div>
           <div className={css.aboutVideoThumb}>

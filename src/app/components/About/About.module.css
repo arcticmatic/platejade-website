@@ -743,6 +743,7 @@ text-align:center;
 }}
 @media screen and (min-width: 767px) and (max-width: 1200px){
   .aboutWorkItem {
+    min-height: 180px;
     border-radius: 8px;
     background: #fff;
     width: 60%;
@@ -753,6 +754,7 @@ text-align:center;
 }
      @media screen and (min-width: 1200px) and (max-width:1400px) {
         .aboutWorkItem {
+              min-height: 250px;
             border-radius: 8px;
             background: #fff;
             height: 34vh;
@@ -764,6 +766,7 @@ text-align:center;
 
          @media screen and (min-width: 1400px)  {
            .aboutWorkItem {
+                min-height: 250px;
              border-radius: 8px;
              background: #fff;
              height: 240px;
@@ -791,6 +794,7 @@ text-align:center;
 }
 .aboutWorkThumbTitle{
    margin-top: 10px;
+   padding: 0 8px;
     color: #10101c;
     text-align: center;
     font-size: 16px;

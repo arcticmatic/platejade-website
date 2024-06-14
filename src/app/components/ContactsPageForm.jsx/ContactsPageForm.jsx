@@ -76,10 +76,10 @@ export default function ContactsPageForm() {
                 src={XClose}
               />
               <p className={css.notificationText}>
-                Thank you for your application
+                Thank you for contacting us
               </p>
               <p className={css.notificationDescription}>
-                We will review it as soon as possible and contact you soon
+                We will reply you soon
               </p>
             </div>
           )}
