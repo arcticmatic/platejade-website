@@ -1,9 +1,14 @@
 import SocialMedia from '../../../../models/socialMedia';
-import { NextResponse } from "next/server";
+import { NextResponse } from "next/server"
 import connect from "../../../../utils/db";
+import mongoose from 'mongoose';
 
-export default async function handler(req, { params }) {
+export async function DELETE(req, { params }) {
   const { id } = params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return NextResponse.json({ error: 'Invalid SocialMedia id' }, { status: 400 });
+  }
 
   try {
     await connect();
@@ -16,7 +21,7 @@ export default async function handler(req, { params }) {
 
     return NextResponse.json({ message: 'SocialMedia deleted successfully' });
   } catch (error) {
-    console.error('Error deleting social media:', error);
+    console.error('Error deleting SocialMedia:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
