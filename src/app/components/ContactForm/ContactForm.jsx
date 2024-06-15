@@ -116,7 +116,11 @@ export default function ContactForm() {
           <ul className={css.contactList}>
             {contactsArray.map((contact, index) => (
               <li className={css.contactItem}>
-                <Link className={css.contactLink} href={contact.href}>
+                <Link
+                  target="_blank"
+                  className={css.contactLink}
+                  href={contact.href}
+                >
                   <Image
                     width="25"
                     height="25"
@@ -132,7 +136,7 @@ export default function ContactForm() {
           <ul className={css.socialMediaIconsList}>
             {socialMediaArray.map((socialMedia) => (
               <li className={css.socialMediaItem}>
-                <Link href={socialMedia.link}>
+                <Link target="_blank" href={socialMedia.link}>
                   <Image
                     width="40"
                     height="40"

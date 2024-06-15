@@ -76,7 +76,11 @@ export default function ContactsPage() {
               <ul>
                 {contactsArray.map((contact, index) => (
                   <li className={css.contactItem}>
-                    <Link className={css.contactLink} href={contact.href}>
+                    <Link
+                      target="_blank"
+                      className={css.contactLink}
+                      href={contact.href}
+                    >
                       <Image
                         className={css.contactIcon}
                         alt="contact icon"
@@ -91,7 +95,7 @@ export default function ContactsPage() {
             <ul className={css.socialMediaIconsList}>
               {socialMediaArray.map((socialMedia) => (
                 <li className={css.socialMediaItem}>
-                  <Link href={socialMedia.link}>
+                  <Link target="_blank" href={socialMedia.link}>
                     <Image
                       width="45"
                       height="45"
