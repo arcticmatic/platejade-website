@@ -70,13 +70,15 @@ export default function Header() {
           }
         >
           <div className={css.headerSection}>
-            <Image
-              className={css.headerLogo}
-              src={logo}
-              width={160}
-              height={57}
-              alt="PlateJade logo"
-            />
+            <Link href="/">
+              <Image
+                className={css.headerLogo}
+                src={logo}
+                width={160}
+                height={57}
+                alt="PlateJade logo"
+              />
+            </Link>
             {!isMobileMenuOpen ? (
               <MobileMenuIcon
                 className={css.mobileMenuIcon}

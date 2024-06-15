@@ -70,11 +70,13 @@ export default function Footer() {
       link:
         path === "/"
           ? "/#contacts"
-          : path === "/#contacts"
-          ? "/#contact-us"
-          : "",
+          : path === "/contacts"
+          ? "/contacts/#contact-us"
+          : "/contacts/#contacts-us",
     },
   ];
+
+  console.log("path:", path);
 
   return (
     <>
