@@ -102,7 +102,6 @@ export default function CommunicationForm() {
           id: 9,
           name: "Contact form",
           link: "/admin/collaboration-form",
-          isChosen: true,
         },
       ],
     },
