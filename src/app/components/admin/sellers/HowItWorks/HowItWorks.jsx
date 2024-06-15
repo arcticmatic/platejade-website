@@ -62,7 +62,7 @@ export default function HowItWorks() {
         { id: 8, name: "Download", link: "/admin/home/download" },
         {
           id: 9,
-          name: "Contact Form",
+          name: "Contact form",
           link: "/admin/collaboration-form",
         },
       ],
@@ -317,14 +317,6 @@ export default function HowItWorks() {
               ))}
             </ul>
             <div className={css.formsThumb}>
-              <Link className={css.navItem} href="/admin/cooperation-form">
-                <Image
-                  className={css.navLinkIcon}
-                  alt="cooperation form"
-                  src={Table}
-                />
-                Cooperation form
-              </Link>
               <Link className={css.navItem} href="/admin/communication-form">
                 <Image
                   className={css.navLinkIcon}

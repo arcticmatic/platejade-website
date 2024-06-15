@@ -84,7 +84,7 @@ export default function FAQ() {
 
         {
           id: 9,
-          name: "ContactForm",
+          name: "Contact form",
           link: "/admin/collaboration-form",
         },
       ],
@@ -229,6 +229,7 @@ export default function FAQ() {
 
   const handlePageClick = (page) => {
     setSelectedPage(selectedPage?.id === page.id ? null : page);
+    setSelectedPageId(selectedPage?.id === page.id ? null : page.id);
   };
 
   const handleLogout = (e) => {

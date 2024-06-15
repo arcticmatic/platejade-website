@@ -62,7 +62,7 @@ export default function ContactForm() {
         { id: 8, name: "Download", link: "/admin/home/download" },
         {
           id: 9,
-          name: "ContactForm",
+          name: "Contact form",
           link: "/admin/collaboration-form",
           isChosen: true,
         },
@@ -145,7 +145,6 @@ export default function ContactForm() {
           id: 6,
           name: "Collaboration form",
           link: "/admin/sellers/collaboration-form",
-          isChosen: true,
         },
         { id: 7, name: "FAQ", link: "/admin/sellers/faq" },
       ],

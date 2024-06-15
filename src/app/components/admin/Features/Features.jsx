@@ -393,6 +393,7 @@ export default function Features() {
 
   const handlePageClick = (page) => {
     setSelectedPage(selectedPage?.id === page.id ? null : page);
+    setSelectedPageId(selectedPage?.id === page.id ? null : page.id);
   };
 
   const handleLogout = (e) => {

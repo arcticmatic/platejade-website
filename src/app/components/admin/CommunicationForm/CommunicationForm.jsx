@@ -100,7 +100,7 @@ export default function CommunicationForm() {
         { id: 8, name: "Download", link: "/admin/home/download" },
         {
           id: 9,
-          name: "ContactForm",
+          name: "Contact form",
           link: "/admin/collaboration-form",
           isChosen: true,
         },
@@ -214,13 +214,10 @@ export default function CommunicationForm() {
     },
   ];
 
-  useEffect(() => {
-    setSelectedPage(pagesArray[0]);
-  }, []);
-
   const handlePageClick = (page) => {
     setSelectedPage(selectedPage?.id === page.id ? null : page);
     setSelectedPageId(selectedPage?.id === page.id ? null : page.id);
+    console.log("page", page);
   };
 
   const handleLogout = (e) => {
@@ -309,7 +306,7 @@ export default function CommunicationForm() {
                     />
                   </div>
                   {selectedPage && selectedPageId === page.id && (
-                    <ul className={css.formList}>
+                    <ul>
                       {selectedPage.navLinks.map((link) => (
                         <li className={css.navItem} key={link.id}>
                           <Link

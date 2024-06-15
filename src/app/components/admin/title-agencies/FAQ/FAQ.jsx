@@ -63,7 +63,7 @@ export default function FAQ() {
 
         {
           id: 9,
-          name: "Contact Form",
+          name: "Contact form",
           link: "/admin/collaboration-form",
         },
       ],

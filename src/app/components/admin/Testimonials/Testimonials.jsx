@@ -85,7 +85,7 @@ export default function Testimonials() {
 
         {
           id: 9,
-          name: "ContactForm",
+          name: "Contact form",
           link: "/admin/collaboration-form",
         },
       ],

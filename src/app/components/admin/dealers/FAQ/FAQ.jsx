@@ -62,7 +62,7 @@ export default function FAQ() {
         { id: 8, name: "Download", link: "/admin/home/download" },
         {
           id: 9,
-          name: "Contact Form",
+          name: "Contact form",
           link: "/admin/collaboration-form",
         },
       ],
@@ -133,7 +133,6 @@ export default function FAQ() {
           id: 6,
           name: "Collaboration form",
           link: "/admin/title-agencies/collaboration-form",
-          isChosen: true,
         },
         { id: 7, name: "FAQ", link: "/admin/title-agencies/faq" },
       ],

@@ -58,7 +58,7 @@ export default function HomeHero() {
         { id: 6, name: "Testimonials", link: "/admin/home/testimonials" },
         { id: 7, name: "FAQ", link: "/admin/home/faq" },
         { id: 8, name: "Download", link: "/admin/home/download" },
-        { id: 9, name: "ContactForm", link: "/admin/collaboration-form" },
+        { id: 9, name: "Contact form", link: "/admin/collaboration-form" },
       ],
     },
     {
@@ -138,7 +138,6 @@ export default function HomeHero() {
           id: 6,
           name: "Collaboration form",
           link: "/admin/sellers/collaboration-form",
-          isChosen: true,
         },
         { id: 7, name: "FAQ", link: "/admin/sellers/faq" },
       ],

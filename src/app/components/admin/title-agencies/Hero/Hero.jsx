@@ -41,7 +41,7 @@ export default function Hero() {
   }
 
   const [selectedPage, setSelectedPage] = useState(null);
-  const [selectedPageId, setSelectedPageId] = useState(2);
+  const [selectedPageId, setSelectedPageId] = useState(3);
   const [selectedFile, setSelectedFile] = useState(null);
   const [addiionalFile, setAdditionalFile] = useState(null);
   const [mobileSlides, setMobileSlides] = useState([]);
@@ -78,7 +78,7 @@ export default function Hero() {
         { id: 8, name: "Download", link: "/admin/home/download" },
         {
           id: 9,
-          name: "Contact Form",
+          name: "Contact form",
           link: "/admin/collaboration-form",
         },
       ],
@@ -93,7 +93,6 @@ export default function Hero() {
           id: 1,
           name: "Hero section",
           link: "/admin/dealers/hero",
-          isChosen: true,
         },
         { id: 2, name: "Video block", link: "/admin/dealers/video-block" },
         { id: 3, name: "How it works", link: "/admin/dealers/how-it-works" },

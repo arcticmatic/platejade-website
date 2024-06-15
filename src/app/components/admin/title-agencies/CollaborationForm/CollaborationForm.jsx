@@ -68,7 +68,7 @@ export default function CollaborationForm() {
         { id: 8, name: "Download", link: "/admin/home/download" },
         {
           id: 9,
-          name: "Contact Form",
+          name: "Contact form",
           link: "/admin/collaboration-form",
         },
       ],
@@ -163,7 +163,6 @@ export default function CollaborationForm() {
           id: 6,
           name: "Collaboration form",
           link: "/admin/sellers/collaboration-form",
-          isChosen: true,
         },
         { id: 7, name: "FAQ", link: "/admin/sellers/faq" },
       ],

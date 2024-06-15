@@ -63,7 +63,7 @@ export default function Opportunities() {
         { id: 8, name: "Download", link: "/admin/home/download" },
         {
           id: 9,
-          name: "Contact Form",
+          name: "Contact form",
           link: "/admin/collaboration-form",
         },
       ],
@@ -569,7 +569,7 @@ export default function Opportunities() {
           <div className={css.heroThumb}>
             <div className={css.heroTitleThumb}>
               <p className={css.heroTitle}>
-                Home
+                Sellers
                 <Image
                   className={css.chevron}
                   alt="chevron right"
