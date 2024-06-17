@@ -35,7 +35,7 @@ const SlideForm = ({
   return (
     <div className={css.slideForm}>
       <label className={css.heroLabel}>Title</label>
-      <input
+      <textarea
         className={css.heroTitleInput}
         type="text"
         value={slide.title}
@@ -45,7 +45,7 @@ const SlideForm = ({
       <label className={css.heroLabel}>Text</label>
       {slide.description.map((desc, index) => (
         <div key={index} className={css.descriptionContainer}>
-          <input
+          <textarea
             className={css.heroTextInput}
             type="text"
             value={desc}

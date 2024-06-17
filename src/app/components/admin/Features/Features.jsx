@@ -513,7 +513,7 @@ export default function Features() {
                 <div key={item.id}>
                   <label className={css.heroLabel}>
                     Title
-                    <input
+                    <textarea
                       className={css.heroTitleInput}
                       placeholder="Enter title"
                       value={item.title}
@@ -524,7 +524,7 @@ export default function Features() {
                   </label>
                   <label className={css.heroLabel}>
                     Text
-                    <input
+                    <textarea
                       className={css.heroTextInput}
                       placeholder="Enter description"
                       value={item.text}

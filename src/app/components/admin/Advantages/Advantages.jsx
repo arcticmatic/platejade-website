@@ -453,7 +453,7 @@ export default function Advantages() {
                   {item.mainTitle && (
                     <label className={css.heroLabel}>
                       Main page text
-                      <input
+                      <textarea
                         className={css.heroTitleInput}
                         placeholder="Enter title"
                         value={item.mainTitle}
@@ -470,7 +470,7 @@ export default function Advantages() {
                   )}
                   <label className={css.heroLabel}>
                     Title
-                    <input
+                    <textarea
                       className={css.heroTitleInput}
                       placeholder="Enter title"
                       value={item.title}
@@ -481,7 +481,7 @@ export default function Advantages() {
                   </label>
                   <label className={css.heroLabel}>
                     Text
-                    <input
+                    <textarea
                       className={css.heroTextInput}
                       placeholder="Enter description"
                       value={item.text}

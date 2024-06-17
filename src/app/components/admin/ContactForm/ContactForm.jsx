@@ -343,7 +343,7 @@ export default function ContactForm() {
                 <div key={item.id}>
                   <label className={css.heroLabel}>
                     Form field
-                    <input
+                    <textarea
                       className={css.heroTitleInput}
                       placeholder="Enter form field name"
                       value={item.field}
@@ -354,7 +354,7 @@ export default function ContactForm() {
                   </label>
                   <label className={css.heroLabel}>
                     Placeholder
-                    <input
+                    <textarea
                       className={css.heroTextInput}
                       placeholder="Enter placeholder"
                       value={item.placeholder}

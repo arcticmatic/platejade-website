@@ -888,7 +888,6 @@ export default function HomeHero() {
         );
       }
       if (type === "desktop") {
-        console.log("inside desktop");
         setDesktopSlides((prevSlides) =>
           prevSlides.map((slide) =>
             slide.id === slideId
@@ -1019,7 +1018,7 @@ export default function HomeHero() {
 
                       <label className={css.heroLabel}>Title</label>
                       {slide.title.map((title, titleIndex) => (
-                        <input
+                        <textarea
                           key={titleIndex}
                           className={css.heroTitleInput}
                           type="text"
@@ -1036,7 +1035,7 @@ export default function HomeHero() {
                           key={textIndex}
                           className={css.descriptionContainer}
                         >
-                          <input
+                          <textarea
                             className={css.heroTextInput}
                             type="text"
                             value={text}

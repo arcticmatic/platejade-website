@@ -467,7 +467,7 @@ export default function VideoBlock() {
               {/* <div className={css.heroLabel}> */}
               <label className={css.heroLabel}>
                 Title
-                <input
+                <textarea
                   className={css.heroTitleInput}
                   placeholder="Enter title"
                   value={title}
@@ -476,7 +476,7 @@ export default function VideoBlock() {
               </label>
               <label className={css.heroLabel}>
                 Text
-                <input
+                <textarea
                   className={css.heroTextInput}
                   placeholder="Enter description"
                   value={text}
@@ -485,7 +485,7 @@ export default function VideoBlock() {
               </label>
               <label className={css.heroLabel}>
                 Text
-                <input
+                <textarea
                   className={css.heroTextInput}
                   placeholder="Enter description"
                   value={subText}

@@ -565,7 +565,7 @@ export default function Testimonials() {
               <div key={item.id}>
                 <label className={css.heroLabel}>
                   Customer name
-                  <input
+                  <textarea
                     className={css.heroTitleInput}
                     placeholder="Enter customer name"
                     value={item.customerName}
@@ -581,7 +581,7 @@ export default function Testimonials() {
                 </label>
                 <label className={css.heroLabel}>
                   Customer position
-                  <input
+                  <textarea
                     className={css.heroTitleInput}
                     placeholder="Enter customer position"
                     value={item.customerRole}
@@ -597,7 +597,7 @@ export default function Testimonials() {
                 </label>
                 <label className={css.heroLabel}>
                   Customer testimonial
-                  <input
+                  <textarea
                     className={css.heroTextInput}
                     placeholder="Enter description"
                     value={item.text}

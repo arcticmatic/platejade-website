@@ -473,7 +473,7 @@ export default function CollaborationForm() {
 
               <label className={css.heroLabel}>
                 Form description
-                <input
+                <textarea
                   className={css.heroTextInput}
                   placeholder="Enter form description"
                   value={description.text}
