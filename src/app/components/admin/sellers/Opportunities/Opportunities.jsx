@@ -605,7 +605,7 @@ export default function Opportunities() {
                     <>
                       <label className={css.heroLabel}>
                         Description
-                        <input
+                        <textarea
                           className={css.heroTitleInput}
                           type="text"
                           placeholder="Main Text"
@@ -626,7 +626,7 @@ export default function Opportunities() {
                   )}
                   <label className={css.heroLabel}>
                     Title
-                    <input
+                    <textarea
                       className={css.heroTitleInput}
                       placeholder="Enter title"
                       value={item.title}
@@ -637,7 +637,7 @@ export default function Opportunities() {
                   </label>
                   <label className={css.heroLabel}>
                     Text
-                    <input
+                    <textarea
                       className={css.heroTextInput}
                       placeholder="Enter description"
                       value={item.text}

@@ -406,7 +406,7 @@ export default function FAQ() {
                 <div key={item.id}>
                   <label className={css.heroLabel}>
                     Question
-                    <input
+                    <textarea
                       className={css.heroTitleInput}
                       placeholder="Enter the question"
                       value={item.title}
@@ -415,7 +415,7 @@ export default function FAQ() {
                   </label>
                   <label className={css.heroLabel}>
                     Answer
-                    <input
+                    <textarea
                       className={css.heroTextInput}
                       placeholder="Enter the answer"
                       value={item.text}

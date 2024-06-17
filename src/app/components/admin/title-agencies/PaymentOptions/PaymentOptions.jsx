@@ -412,7 +412,7 @@ export default function PaymentOptions() {
                   <p className={css.planTitle}>Subscription plan {index + 1}</p>
                   <label className={css.heroLabel}>
                     Subscription period
-                    <input
+                    <textarea
                       className={css.heroTextInput}
                       placeholder="Enter the package name"
                       value={item.subscriptionPeriod}
@@ -428,7 +428,7 @@ export default function PaymentOptions() {
                   </label>
                   <label className={css.heroLabel}>
                     Description
-                    <input
+                    <textarea
                       className={css.heroTextInput}
                       placeholder="Enter the package description"
                       value={item.description}
@@ -439,7 +439,7 @@ export default function PaymentOptions() {
                   </label>
                   <label className={css.heroLabel}>
                     Price
-                    <input
+                    <textarea
                       className={css.heroTitleInput}
                       placeholder="Enter the price"
                       value={item.price}
@@ -450,7 +450,7 @@ export default function PaymentOptions() {
                   </label>
                   <label className={css.heroLabel}>
                     Pricing period
-                    <input
+                    <textarea
                       className={css.heroTitleInput}
                       placeholder="Enter the pricing period"
                       value={item.pricingPeriod}
@@ -466,7 +466,7 @@ export default function PaymentOptions() {
                   </label>
                   <label className={css.heroLabel}>
                     Customer profit
-                    <input
+                    <textarea
                       className={css.heroTitleInput}
                       placeholder="Enter the profit amount"
                       value={item.profit}
@@ -479,7 +479,7 @@ export default function PaymentOptions() {
                     <>
                       <label key={index} className={css.heroLabel}>
                         Benefit {index + 1}
-                        <input
+                        <textarea
                           className={css.heroTextInput}
                           placeholder="Enter the benefit"
                           value={benefit}

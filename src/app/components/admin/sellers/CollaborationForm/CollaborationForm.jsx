@@ -473,7 +473,7 @@ export default function CollaborationForm() {
 
               <label className={css.heroLabel}>
                 Form description
-                <input
+                <textarea
                   className={css.heroTextInput}
                   placeholder="Enter form description"
                   value={description.text}
@@ -486,7 +486,7 @@ export default function CollaborationForm() {
                   <div key={item.id}>
                     <label className={css.heroLabel}>
                       Form field
-                      <input
+                      <textarea
                         className={css.heroTitleInput}
                         placeholder="Enter form field name"
                         value={item.name}
@@ -502,7 +502,7 @@ export default function CollaborationForm() {
                           (type only one word with first letter lowercase)
                         </span>
                       </p>
-                      <input
+                      <textarea
                         className={css.heroTitleInput}
                         placeholder="Enter the value"
                         value={item.value}
@@ -518,7 +518,7 @@ export default function CollaborationForm() {
                           (will be shown before user enters the text)
                         </span>
                       </p>
-                      <input
+                      <textarea
                         className={css.heroTitleInput}
                         placeholder="Enter placeholder"
                         value={item.placeholder}

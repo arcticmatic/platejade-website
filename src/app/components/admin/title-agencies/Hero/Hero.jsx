@@ -1022,7 +1022,7 @@ export default function Hero() {
 
                       <label className={css.heroLabel}>Title</label>
                       {slide.title.map((title, titleIndex) => (
-                        <input
+                        <textarea
                           key={titleIndex}
                           className={css.heroTitleInput}
                           type="text"
@@ -1039,7 +1039,7 @@ export default function Hero() {
                           key={textIndex}
                           className={css.descriptionContainer}
                         >
-                          <input
+                          <textarea
                             className={css.heroTextInput}
                             type="text"
                             value={text}

@@ -204,7 +204,7 @@ export default function Opportunities() {
   ];
 
   useEffect(() => {
-    setSelectedPage(pagesArray[2]);
+    setSelectedPage(pagesArray[4]);
 
     const fetchContacts = async () => {
       try {
@@ -663,7 +663,7 @@ export default function Opportunities() {
                     </p>
                     <label className={css.heroLabel}>
                       Link
-                      <input
+                      <textarea
                         className={css.heroTitleInput}
                         placeholder="Enter the link"
                         value={item.link}
