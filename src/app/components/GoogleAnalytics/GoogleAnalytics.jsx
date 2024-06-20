@@ -3,9 +3,11 @@ import Script from "next/script";
 export const GoogleAnalyticsTracking = () => {
   return (
     <>
-      {/* Global site tag (gtag.js) - Google Analytics */}
-      <Script src="https://www.googletagmanager.com/gtm.js?id=GTM-54QN78ZJ" />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=GTM-54QN78ZJ`}
+      />
+      <Script id="" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
