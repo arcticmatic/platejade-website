@@ -7,6 +7,7 @@ import { getServerSession } from "next-auth";
 import SessionProvider from "../app/utils/SessionProvider";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import ImagePreloader from "./components/ImagePreloader/ImagePreloader";
+import Script from "next/script";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default async function RootLayout({ children }) {
       <Head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
+        {/* <GoogleAnalytics gaId="GTM-54QN78ZJ" /> */}
       </Head>
 
       <body className={montserrat.className}>
