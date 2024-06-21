@@ -3,17 +3,9 @@ import css from "./DealersHero.module.css";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import AutoCarousel from "@/app/features/AutoCarousel/AutoCarousel";
-import CarTemplate from "../images/CarTemplate.png";
-import DealersTemplate from "../images/DealersTemplate.png";
-import carTemplateTablet1 from "../images/carTemplateTablet1.png";
-import carTemplateTablet2 from "../images/carTemplateTablet2.png";
-import carTemplateTablet3 from "../images/carTemplateTablet3.png";
-import carTemplateTablet4 from "../images/carTemplateTablet4.png";
-import desktopCar1 from "../images/desktopCar1.png";
-import desktopCar2 from "../images/desktopCar2.png";
-import desktopCar3 from "../images/desktopCar3.png";
-import desktopCar4 from "../images/desktopCar4.png";
 import Link from "next/link";
+import ChevronRight from "../images/ChevronRight.svg";
+import ChevronLeft from "../images/ChevronLeft.svg";
 
 export default function DealersHero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -26,8 +18,6 @@ export default function DealersHero() {
   const [desktopSlidesArray, setDesktopSlidesArray] = useState([]);
 
   const OPTIONS = { containScroll: false, align: "start" };
-  const SLIDE_COUNT = 5;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
   useEffect(() => {
     const fetchSlides = async () => {
@@ -108,7 +98,7 @@ export default function DealersHero() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
       setTextCurrentSlide((prev) => (prev + 1) % textsArray.length);
       setTabletCurrentSlide((prev) => (prev + 1) % tabletSlidesArray.length);
       setDesktopCurrentSlide((prev) => (prev + 1) % desktopSlidesArray.length);
@@ -116,7 +106,40 @@ export default function DealersHero() {
     return () => {
       clearInterval(intervalId);
     };
-  }, [textsArray.length, tabletSlidesArray.length, desktopSlidesArray.length]);
+  }, [
+    slides.length,
+    textsArray.length,
+    tabletSlidesArray.length,
+    desktopSlidesArray.length,
+  ]);
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setTextCurrentSlide((prev) => (prev + 1) % textsArray.length);
+    setTabletCurrentSlide((prev) => (prev + 1) % tabletSlidesArray.length);
+    setDesktopCurrentSlide((prev) => (prev + 1) % desktopSlidesArray.length);
+  };
+
+  const handlePrevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setTextCurrentSlide(
+      (prev) => (prev - 1 + textsArray.length) % textsArray.length
+    );
+    setTabletCurrentSlide(
+      (prev) => (prev - 1 + tabletSlidesArray.length) % tabletSlidesArray.length
+    );
+    setDesktopCurrentSlide(
+      (prev) =>
+        (prev - 1 + desktopSlidesArray.length) % desktopSlidesArray.length
+    );
+  };
+
+  const handleDotClick = (index) => {
+    setCurrentSlide(index);
+    setTextCurrentSlide(index);
+    setTabletCurrentSlide(index);
+    setDesktopCurrentSlide(index);
+  };
 
   return (
     <section className={css.dealersHeroSection}>
@@ -144,6 +167,46 @@ export default function DealersHero() {
         <div className={css.mobileCarousel}>
           <AutoCarousel slides={slides} options={OPTIONS} />
         </div>
+      </div>
+      <button className={css.prevSlide} onClick={handlePrevSlide}>
+        <Image alt="chevron left" src={ChevronLeft} width={24} height={24} />
+      </button>
+      <button className={css.nextSlide} onClick={handleNextSlide}>
+        <Image alt="chevron right" src={ChevronRight} width={24} height={24} />
+      </button>
+
+      <div className={css.dotsContainer}>
+        {slides.map((_, index) => (
+          <span
+            key={index}
+            className={`${css.dot} ${index === currentSlide ? css.active : ""}`}
+            onClick={() => handleDotClick(index)}
+          ></span>
+        ))}
+      </div>
+
+      <div className={css.dotsTabletContainer}>
+        {tabletSlidesArray.map((_, index) => (
+          <span
+            key={index}
+            className={`${css.dot} ${
+              index === tabletCurrentSlide ? css.active : ""
+            }`}
+            onClick={() => handleDotClick(index)}
+          ></span>
+        ))}
+      </div>
+
+      <div className={css.dotsDesktopContainer}>
+        {desktopSlidesArray.map((_, index) => (
+          <span
+            key={index}
+            className={`${css.dot} ${
+              index === desktopCurrentSlide ? css.active : ""
+            }`}
+            onClick={() => handleDotClick(index)}
+          ></span>
+        ))}
       </div>
 
       <div className={css.tabletCarouselThumb}>

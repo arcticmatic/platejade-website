@@ -2,20 +2,25 @@
 .dealersHeroSection {
     padding-right:0px;
     padding-bottom: 72px;
+    position: relative;
 }}
  @media screen and (min-width: 767px) and (max-width:1200px){
      .dealersHeroSection {
+            position: relative;
         display: flex;
-         padding-right: 0px;
+        padding-left: 60px;
+         padding-right: 60px;
          padding-bottom: 72px;
      }
  }
   @media screen and (min-width: 1200px){
       .dealersHeroSection {
+            position: relative;
         margin-top: 120px;
           display: flex;
           justify-content: space-between;
-          padding-right: 0px;
+        padding-left: 60px;
+            padding-right: 60px;
           padding-bottom: 72px;
       }
   }
@@ -165,3 +170,104 @@ line-height: 72px;
             flex-wrap: wrap;
             width: 600px;
         }}
+        @media screen and (max-width: 767px) {
+.dotsContainer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom:2.5vh;
+ left:50%;
+}
+}
+@media screen and (min-width: 767px) {
+  .dotsContainer {
+    display: none;
+  }
+}
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+.dotsTabletContainer {
+  display: none;
+}
+@media screen and (min-width: 767px) and (max-width:1200px) {
+.dotsTabletContainer{
+  text-align: center;
+   
+  display: block;
+  position: absolute;
+  bottom:2.5vh;
+  left:50%;
+}
+}
+@media screen and (max-width: 1200px) {
+.dotsDesktopContainer{
+  display: none;
+}}
+@media screen and (min-width: 1200px) {
+
+.dotsDesktopContainer {
+    display: block;
+     bottom:2.5vh;
+    margin-top: 20px;
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+  }
+}
+ .prevSlide,
+ .nextSlide {
+     display: none;
+ }
+
+ @media screen and (min-width: 767px) and (max-width:1200px) {
+
+     .prevSlide,
+     .nextSlide {
+         display: block;
+         position: absolute;
+         top: 37%;
+         transform: translateY(-50%);
+         background-color: transparent;
+         /* color: white; */
+         border: none;
+         padding: 10px;
+         cursor: pointer;
+         z-index: 10;
+     }
+ }
+
+ @media screen and (min-width: 1200px) {
+
+     .prevSlide,
+     .nextSlide {
+         display: block;
+         position: absolute;
+         top: 45%;
+         transform: translateY(-50%);
+         background-color: transparent;
+         /* color: white; */
+         border: none;
+         padding: 10px;
+         cursor: pointer;
+         z-index: 10;
+     }
+ }
+
+ .prevSlide {
+     left: 10px;
+ }
+
+ .nextSlide {
+     right: 10px;
+ }
