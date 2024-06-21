@@ -21,6 +21,8 @@ import AboutBgMockup from "../images/AboutBgMockup.png";
 import GooglePlayIcon from "../images/GooglePlayIcon.svg";
 import Link from "next/link";
 import { useSwipeable } from "react-swipeable";
+import ChevronRight from "../images/ChevronRight.svg";
+import ChevronLeft from "../images/ChevronLeft.svg";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -98,7 +100,7 @@ export default function About() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 8000);
+    }, 8000000);
     return () => {
       clearInterval(intervalId);
     };
@@ -112,6 +114,14 @@ export default function About() {
 
   const handleDotClick = (index) => {
     setCurrentSlide(index);
+  };
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const handlePrevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   return (
@@ -252,6 +262,18 @@ export default function About() {
             </Link>
           </div>
         </div>
+
+        <button className={css.prevSlide} onClick={handlePrevSlide}>
+          <Image alt="chevron left" src={ChevronLeft} width={24} height={24} />
+        </button>
+        <button className={css.nextSlide} onClick={handleNextSlide}>
+          <Image
+            alt="chevron right"
+            src={ChevronRight}
+            width={24}
+            height={24}
+          />
+        </button>
 
         <div className={css.aboutDownloadTextThumb}>
           <div className={css.dotsTabletContainer}>
