@@ -157,7 +157,8 @@
 @media screen and (min-width: 1200px) {
     .playPause {
         position: absolute;
-        top: 36%;
-        left: 45%;
+        top: 50%;
+        left: 52%;
+        transform: translate(-50%, -52%);
     }
 }
