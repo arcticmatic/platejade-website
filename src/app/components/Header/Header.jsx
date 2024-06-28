@@ -55,7 +55,7 @@ export default function Header() {
 
   const menuNavigation = [
     { id: 1, title: "Home", link: "/" },
-    { id: 2, title: "Dealers", link: "/dealers" },
+    // { id: 2, title: "Dealers", link: "/dealers" },
     // { id: 3, title: "Title Agency", link: "/title-agency" },
     // { id: 4, title: "Sellers", link: "/sellers" },
     { id: 5, title: "Contacts", link: "/contacts" },
