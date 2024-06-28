@@ -59,9 +59,10 @@ export default function Download(props) {
               {item.text}
             </p>
             <div className={css.downloadIconsThumb}>
-              <Link href={item.appleLink}>
+              <Link target="_blank" href={item.appleLink}>
                 <AppStoreIcon className={css.downloadAppStoreIcon} />
               </Link>
+
               <Link href={item.googleLink}>
                 <GooglePlayIcon className={css.downloadGooglePlayIcon} />
               </Link>

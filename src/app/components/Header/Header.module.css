@@ -82,6 +82,7 @@ line-height: 24px;
         font-weight: 700;
         line-height: 24px;
         margin-right: 62px;
+        cursor: pointer;
     }
 }
 .desktopMenuThumb{

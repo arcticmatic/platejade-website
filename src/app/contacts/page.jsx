@@ -8,10 +8,10 @@ export default function Contacts() {
   const downloadWhiteSection = true;
   return (
     <>
-      <Loading />
-      {/* <ContactsPage />
+      {/* <Loading /> */}
+      <ContactsPage />
       <ContactsPageForm />
-      <Download downloadWhiteSection={downloadWhiteSection} /> */}
+      <Download downloadWhiteSection={downloadWhiteSection} />
     </>
   );
 }

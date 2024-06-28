@@ -146,17 +146,15 @@ export default function About() {
                       <p className={css.aboutDownloadTextMobile}>
                         Download app from App Store or Google Play
                       </p>
-                      <Link href="/#video-block">
-                        <button className={css.aboutStartBtn}>
-                          Get started
-                        </button>
-                      </Link>
-                      <Link href="/#how-works">
-                        <button className={css.aboutWorkBtn}>
+                      <button type="button" className={css.aboutStartBtn}>
+                        <Link href="/#video-block">Get started</Link>
+                      </button>
+                      <button type="button" className={css.aboutWorkBtn}>
+                        <Link href="/#how-works">
                           <PlayIcon className={css.aboutWorkBtnIcon} /> How it
                           works
-                        </button>
-                      </Link>
+                        </Link>
+                      </button>
                     </div>
 
                     <div className={css.aboutDownloadThumbDesktop}>
@@ -166,13 +164,18 @@ export default function About() {
                       <div className={css.qrCodeThumb}>
                         <div>
                           <Image
+                            className={css.QR}
                             loading="eager"
                             alt="download platejade"
                             src={QR}
                           />
                         </div>
                         <div className={css.aboutDownloadIconsThumb}>
-                          <AppStoreIcon className={css.downloadAppStoreIcon} />
+                          <Link href="https://apps.apple.com/ua/app/plate-jade-auto-license-plates/id6499521470?l=uk">
+                            <AppStoreIcon
+                              className={css.downloadAppStoreIcon}
+                            />
+                          </Link>
                           <Image
                             loading="eager"
                             alt="google play plate jade"
@@ -199,20 +202,21 @@ export default function About() {
 
                   <div className={css.aboutScreensThumb}>
                     <div className={css.aboutImagesThumb}>
-                      <Image
-                        priority
-                        loading="eager"
-                        width="200"
-                        height="200"
-                        className={
-                          slide.backgroundSrc
-                            ? css.aboutScreenBg
-                            : css.aboutOneScreenBg
-                        }
-                        src={slide.imageSrc}
-                        alt={`Slide ${index + 1}`}
-                      />
-
+                      <Link href="https://apps.apple.com/ua/app/plate-jade-auto-license-plates/id6499521470?l=uk">
+                        <Image
+                          priority
+                          loading="eager"
+                          width="200"
+                          height="200"
+                          className={
+                            slide.backgroundSrc
+                              ? css.aboutScreenBg
+                              : css.aboutOneScreenBg
+                          }
+                          src={slide.imageSrc}
+                          alt={`Slide ${index + 1}`}
+                        />
+                      </Link>
                       {slide.backgroundSrc && (
                         <div className={css.aboutImagesOverlayThumb}>
                           <Image
@@ -253,10 +257,12 @@ export default function About() {
 
           <div className={css.startMobileButtonsThumb}>
             <Link href="/#video-block">
-              <button className={css.aboutStartBtn}>Get started</button>
+              <button type="button" className={css.aboutStartBtn}>
+                Get started
+              </button>
             </Link>
             <Link href="/#how-works">
-              <button className={css.aboutWorkBtn}>
+              <button type="button" className={css.aboutWorkBtn}>
                 <PlayIcon className={css.aboutWorkBtnIcon} /> How it works
               </button>
             </Link>
@@ -291,7 +297,9 @@ export default function About() {
             Download app from App Store or Google Play
           </p>
           <div className={css.aboutDownloadIcons}>
-            <AppStoreIcon className={css.downloadAppStoreIcon} />
+            <Link href="https://apps.apple.com/ua/app/plate-jade-auto-license-plates/id6499521470?l=uk">
+              <AppStoreIcon className={css.downloadAppStoreIcon} />
+            </Link>
             <Image
               loading="eager"
               alt="google play plate jade"
@@ -313,7 +321,9 @@ export default function About() {
               <p className={css.aboutVideoDescription}>{text}</p>
               <p className={css.aboutVideoDescription}>{subText}</p>
               <div className={css.aboutDownloadIconsDesktop}>
-                <AppStoreIcon className={css.downloadAppStoreIcon} />
+                <Link href="https://apps.apple.com/ua/app/plate-jade-auto-license-plates/id6499521470?l=uk">
+                  <AppStoreIcon className={css.downloadAppStoreIcon} />
+                </Link>
                 <Image
                   alt="google play plate jade"
                   className={css.downloadGooglePlayIcon}
@@ -323,7 +333,9 @@ export default function About() {
             </div>
           </div>
           <div className={css.aboutDownloadIcons}>
-            <AppStoreIcon className={css.downloadAppStoreIcon} />
+            <Link href="https://apps.apple.com/ua/app/plate-jade-auto-license-plates/id6499521470?l=uk">
+              <AppStoreIcon className={css.downloadAppStoreIcon} />
+            </Link>
             <Image
               alt="google play plate jade"
               className={css.downloadGooglePlayIcon}

@@ -146,6 +146,7 @@ height: 1300px;  }
   letter-spacing: 0.5px;
   margin-bottom: 12px;
   margin-top: 24px;
+  
 }}
 
 @media screen and (min-width: 767px) and (max-width:1200px){
@@ -182,6 +183,7 @@ margin-right: 48px;
     line-height: 24px;
     letter-spacing: 0.5px;
     margin-bottom: 32px;
+      cursor: pointer;
   }
 }
  @media screen and (max-width: 767px) {
@@ -235,6 +237,7 @@ margin-right: 48px;
         letter-spacing: 0.5px;
         border-radius: 8px;
         background: var(--color-1, #9C8D7F);
+          cursor: pointer;
       }
     }
 .aboutWorkBtnIcon {
@@ -500,6 +503,12 @@ object-fit: contain;
   display: flex;
   align-items: center;
 }}
+@media screen and (min-width: 1200px) {
+  .QR {
+    width: 160px;
+    height: 160px;
+  }
+}
 @media screen and (max-width: 767px) {
   .aboutDownloadIcons {
     display: flex;

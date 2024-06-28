@@ -46,7 +46,7 @@ export const PrevButton = (props) => {
   return (
     <Image
       {...restProps}
-      className={css.leftArrow}
+      className={css.arrow}
       alt="slider left arrow"
       src={arrowLeft}
     />
@@ -56,5 +56,12 @@ export const PrevButton = (props) => {
 export const NextButton = (props) => {
   const { children, ...restProps } = props;
 
-  return <Image {...restProps} alt="slider right arrow" src={arrowRight} />;
+  return (
+    <Image
+      className={css.arrow}
+      {...restProps}
+      alt="slider right arrow"
+      src={arrowRight}
+    />
+  );
 };

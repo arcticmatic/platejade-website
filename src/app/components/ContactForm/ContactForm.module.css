@@ -168,6 +168,7 @@
   font-weight: 700;
   line-height: normal;
   margin-bottom: 81px;
+  cursor: pointer;
 }
 @media screen and (max-width: 1200px) {
 .contactForm{

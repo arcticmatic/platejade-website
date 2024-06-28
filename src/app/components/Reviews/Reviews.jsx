@@ -4,8 +4,8 @@ import css from "./Reviews.module.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import arrowLeft from "../images/arrowLeft.svg";
-import arrowRight from "../images/arrowRight.svg";
+import arrowLeft from "../images/arrowLeft.png";
+import arrowRight from "../images/arrowRight.png";
 import UserIcon from "../images/UserIcon.png";
 import EmblaCarousel from "@/app/features/Carousel/Carousel";
 

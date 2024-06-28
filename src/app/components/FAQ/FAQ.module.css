@@ -80,6 +80,7 @@ width: 80%;
 }
 .FAQArrowOpen {
   margin-left: 32px;
+  cursor: pointer;
 }
 .FAQDescription {
   color: #10101c;
