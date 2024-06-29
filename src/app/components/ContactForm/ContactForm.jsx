@@ -30,10 +30,10 @@ export default function ContactForm() {
           const data = await response.json();
           setContactsArray(data.data);
         } else {
-          console.error("Failed to fetch work items");
+          console.error("Failed to fetch contact info");
         }
       } catch (error) {
-        console.error("Error occurred while fetching work items:", error);
+        console.error("Error occurred while fetching contact info:", error);
       }
     };
 
@@ -44,12 +44,16 @@ export default function ContactForm() {
           const data = await response.json();
           setSocialMediaArray(data.data);
         } else {
-          console.error("Failed to fetch work items");
+          console.error("Failed to fetch social media info");
         }
       } catch (error) {
-        console.error("Error occurred while fetching work items:", error);
+        console.error(
+          "Error occurred while fetching social media info:",
+          error
+        );
       }
     };
+
     const fetchContactFormFields = async () => {
       try {
         const response = await fetch("/api/contact-form/get-contact-form");
@@ -62,10 +66,10 @@ export default function ContactForm() {
           });
           setFormData(initialData);
         } else {
-          console.error("Failed to fetch work items");
+          console.error("Failed to fetch form fields");
         }
       } catch (error) {
-        console.error("Error occurred while fetching work items:", error);
+        console.error("Error occurred while fetching form fields:", error);
       }
     };
 
@@ -97,7 +101,13 @@ export default function ContactForm() {
 
     if (res.ok) {
       setIsNotification(true);
-      setFormData({});
+      // Clear the form fields by resetting the formData
+      const initialData = {};
+      formFieldsArray.forEach((field) => {
+        initialData[field.value] = "";
+      });
+      setFormData(initialData);
+      console.log("Form submitted successfully");
     } else {
       console.log("Failed to submit form");
     }
@@ -115,7 +125,7 @@ export default function ContactForm() {
           </div>
           <ul className={css.contactList}>
             {contactsArray.map((contact, index) => (
-              <li className={css.contactItem}>
+              <li key={index} className={css.contactItem}>
                 <Link
                   target="_blank"
                   className={css.contactLink}
@@ -134,8 +144,8 @@ export default function ContactForm() {
             ))}
           </ul>
           <ul className={css.socialMediaIconsList}>
-            {socialMediaArray.map((socialMedia) => (
-              <li className={css.socialMediaItem}>
+            {socialMediaArray.map((socialMedia, index) => (
+              <li key={index} className={css.socialMediaItem}>
                 <Link target="_blank" href={socialMedia.link}>
                   <Image
                     width="40"
@@ -184,7 +194,7 @@ export default function ContactForm() {
                   name={field.value}
                   className={css.contactInput}
                   placeholder={field.placeholder}
-                  value={formData[field.name]}
+                  value={formData[field.value]}
                   onChange={handleInputChange}
                 />
               </label>

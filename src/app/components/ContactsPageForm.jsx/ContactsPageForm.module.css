@@ -201,7 +201,6 @@ color:  #FFF;
 
 .notificationDescription {
     color: var(--Gray-600, #475467);
-text-align: centerx;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

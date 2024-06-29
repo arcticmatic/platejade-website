@@ -23,10 +23,10 @@ export default function ContactsPageForm() {
           });
           setFormData(initialData);
         } else {
-          console.error("Failed to fetch work items");
+          console.error("Failed to fetch form fields");
         }
       } catch (error) {
-        console.error("Error occurred while fetching work items:", error);
+        console.error("Error occurred while fetching form fields:", error);
       }
     };
 
@@ -54,7 +54,13 @@ export default function ContactsPageForm() {
 
     if (res.ok) {
       setIsNotification(true);
-      setFormData({});
+      // Clear the form fields by resetting the formData
+      const initialData = {};
+      formFieldsArray.forEach((field) => {
+        initialData[field.value] = "";
+      });
+      setFormData(initialData);
+      console.log("Form submitted successfully");
     } else {
       console.log("Failed to submit form");
     }
@@ -97,7 +103,7 @@ export default function ContactsPageForm() {
                 name={field.value}
                 className={css.contactInput}
                 placeholder={field.placeholder}
-                value={formData[field.name]}
+                value={formData[field.value]}
                 onChange={handleInputChange}
               />
             </label>

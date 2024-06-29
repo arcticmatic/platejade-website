@@ -6,7 +6,7 @@ import Image from "next/image";
 import iconClose from "../images/iconClose.svg";
 import iconOpen from "../images/iconOpen.svg";
 import { AppStoreIcon } from "../images/icons/AppStoreIcon";
-import { GooglePlayIcon } from "../images/icons/GooglePlay";
+import GooglePlayIcon from "../images/GooglePlayIcon.svg";
 import Link from "next/link";
 
 export default function Download(props) {
@@ -64,7 +64,11 @@ export default function Download(props) {
               </Link>
 
               <Link href={item.googleLink}>
-                <GooglePlayIcon className={css.downloadGooglePlayIcon} />
+                <Image
+                  alt="google play plate jade"
+                  className={css.downloadGooglePlayIcon}
+                  src={GooglePlayIcon}
+                />
               </Link>
             </div>
           </div>
